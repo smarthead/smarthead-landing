@@ -1,8 +1,8 @@
 {
-  "name": "smarthead.-landing",
+  "name": "smarthead-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "smarthead.-landing",
+  "description": "smarthead-landing",
   "author": "Nikita Tikhonov",
   "keywords": [
     "gatsby"
