@@ -1,3 +1,12 @@
 node_modules/
 .cache/
 public
+.DS_Store
+#
+/node_modules
+/build
+/.idea
+/.vscode
+*.local
+*.log
+*.log*

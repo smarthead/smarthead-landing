@@ -1,16 +1,19 @@
 {
   "name": "smarthead-landing",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "description": "",
   "private": true,
-  "description": "smarthead-landing",
-  "author": "Nikita Tikhonov",
-  "keywords": [
-    "gatsby"
-  ],
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
   "scripts": {
-    "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "build:development": "",
+    "build:stage": "",
+    "build:production": "",
+    "develop": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
