@@ -1,0 +1,30 @@
+{
+  "name": "smarthead.-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "smarthead.-landing",
+  "author": "Nikita Tikhonov",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gatsby": "^4.15.0",
+    "gatsby-plugin-manifest": "^4.15.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "@types/react": "^17.0.45",
+    "@types/react-dom": "^17.0.17",
+    "typescript": "^4.6.4"
+  }
+}
