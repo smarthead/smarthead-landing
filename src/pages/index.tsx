@@ -1,11 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 
-import * as styles from './index.module.scss';
+import '../styles/index.scss';
+
+import Header from '../components/Header';
 
 const IndexPage = () => (
-    <div className={styles.container}>
-        Smarthead Landing
+    <div>
+        <Header title="Hello, World!" />
     </div>
 );
 
-export default IndexPage
+export default IndexPage;
