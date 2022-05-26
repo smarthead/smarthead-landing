@@ -6,6 +6,7 @@ const config: GatsbyConfig = {
         siteUrl: 'https://smarthead.ru'
     },
     plugins: [
+        `gatsby-plugin-sass`,
         {
             resolve: 'gatsby-plugin-manifest',
             options: {

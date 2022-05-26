@@ -21,8 +21,10 @@
   "dependencies": {
     "gatsby": "^4.15.0",
     "gatsby-plugin-manifest": "^4.15.0",
+    "gatsby-plugin-sass": "^5.15.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass": "^1.52.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
