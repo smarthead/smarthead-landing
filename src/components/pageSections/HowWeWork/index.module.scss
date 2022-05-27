@@ -1,0 +1,36 @@
+@import "../../../styles/variables.scss";
+
+.root {
+    display: flex;
+    padding: 12.5vw 0;
+}
+
+.headline {
+    margin-bottom: 0;
+    font-size: 4vw;
+    font-family: $gilroy-700;
+}
+.description {
+    margin-left: 33%;
+    margin-top: 6.25vw;
+    font-family: $inter-600;
+    font-size: 2vw;
+
+    li::before {
+        content: "/";
+        position: absolute;
+        font-size: 1.875em;
+        margin-left: -0.6em;
+        margin-top: -0.18em;
+        color: $yellow;
+    }
+
+    li {
+        list-style: none;
+        line-height: 1.35em;
+
+        &:not(:last-child) {
+            margin-bottom: 2.3em;
+        }
+    }
+}

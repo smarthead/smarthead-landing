@@ -1,0 +1,46 @@
+@import "../../../styles/variables.scss";
+
+.hero {
+    width: 100%;
+    min-height: max(600px, 100vh);
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.headline {
+    font-family: $gilroy-700;
+    color: white;
+    font-size: 7.5vw;
+    line-height: 0.9em;
+    letter-spacing: 0.02em;
+    width: 100%;
+    display: inline-block;
+    margin: 2.5vw auto 2.85vw;
+}
+
+.second-line {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+.subtext {
+    color: $white;
+    font-family: $inter-400;
+    font-size: 2vw;
+    line-height: 1.21em;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

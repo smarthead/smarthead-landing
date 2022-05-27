@@ -1,0 +1,22 @@
+@import "../../../styles/variables.scss";
+.root {
+    margin: 3.846vw 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.25vw;
+}
+.logo {
+    height: 100%;
+}
+.menu-link {
+    font-family: $inter-400;
+    color: white;
+    font-size: 1.5vw; //24px
+
+    &:not(:last-child) {
+        margin-right: 2vw;
+    }
+}

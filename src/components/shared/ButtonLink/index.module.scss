@@ -1,0 +1,20 @@
+@import "../../../styles/variables.scss";
+
+.yellowButton {
+    display: inline-flex;
+    font-size: 0.875vw;
+    padding: 1.07em 2.14em;
+    background-color: $yellow;
+    border-radius: 1.14em;
+    letter-spacing: 0.05em;
+    font-family: $inter-400;
+    column-gap: 0.714em;
+    align-items: center;
+    color: $black;
+}
+
+.blackButton {
+}
+.arrow {
+    height: 1em;
+}

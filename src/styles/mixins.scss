@@ -1,0 +1,14 @@
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
+    $src: null;
+
+    @each $ext in $exts {
+        $src: append($src, url(quote($path + "." + $ext)) format(quote($ext)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-weight: $weight;
+        font-style: $style;
+        src: $src;
+    }
+}

@@ -1,0 +1,6 @@
+// gilroy
+@include font-face($gilroy-700, "../assets/fonts/gilroy/Gilroy-Bold", 700, normal, woff);
+
+// inter
+@include font-face($inter-400, "../assets/fonts/inter/Inter-Regular", 400, normal, woff woff2);
+@include font-face($inter-600, "../assets/fonts/inter/Inter-SemiBold", 600, normal, woff woff2);

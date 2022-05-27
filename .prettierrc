@@ -1,0 +1,13 @@
+{
+    "tabWidth": 4,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": ["**/*.scss"],
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ]
+}

@@ -1,5 +1,8 @@
 @import "variables";
+@import "globals";
 @import "vendor/normalize";
+@import "mixins";
+@import "fonts";
 
 html {
     box-sizing: border-box;
@@ -10,8 +13,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: $textColor;
     background: $bgColor;
+    color: $textColor;
 }
 
 *,
