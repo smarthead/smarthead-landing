@@ -10,3 +10,4 @@ public
 *.local
 *.log
 *.log*
+.stylelintcache
