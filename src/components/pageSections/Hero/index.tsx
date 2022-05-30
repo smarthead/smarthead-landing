@@ -5,7 +5,9 @@ import * as styles from './index.module.scss';
 
 const Hero: React.FC = () => (
     <section className={`${styles.hero} container`}>
-        <Header />
+        <div className={styles.header}>
+            <Header />
+        </div>
         <div className={styles.content}>
             <h1 className={styles.headline}>
                 Разрабатываем
@@ -15,7 +17,11 @@ const Hero: React.FC = () => (
                 цифровые продукты
             </h1>
             <div className={styles.block}>
-                <ButtonLink type="yellow" text="ХОЧУ С ВАМИ РАБОТАТЬ" />
+                <ButtonLink
+                    type="yellow"
+                    text="ХОЧУ С ВАМИ РАБОТАТЬ"
+                    link="#"
+                />
                 <p className={styles.subtext}>
                     Продуктоориентированная команда,
                     <br /> а не просто «руки на аутстаффе»

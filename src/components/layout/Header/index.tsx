@@ -28,6 +28,11 @@ const Header: React.FC<IHeaderProps> = ({ title }) => (
                     Контакты
                 </a>
             </div>
+            <div className={styles.hamburger}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 );

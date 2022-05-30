@@ -7,4 +7,7 @@ a:hover {
 .container {
     width: 100%;
     padding: 0 9.375%;
+    @media (max-width: $screenXl) {
+        padding: 0 7.8125%;
+    }
 }
