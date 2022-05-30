@@ -1,10 +1,12 @@
-@import "../../../styles/variables.scss";
+@import "../../../styles/variables";
 
 .header {
     margin: 3.846vw 0 6.5625vw;
+
     @media (max-width: $screen2Xl) {
         margin: 50px 0 105px;
     }
+
     @media (max-width: $screenXl) {
         margin: 4vw 0 7.8125vw;
     }
@@ -19,11 +21,11 @@
 }
 
 .hero {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: max(600px, 100vh);
     background-color: $black;
-    display: flex;
-    flex-direction: column;
 
     @media (max-width: $screenLg) {
         min-height: auto;
@@ -36,25 +38,25 @@
 }
 
 .headline {
-    font-family: $gilroy-700;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 4vw;
     color: white;
+    font-family: $gilroy-700;
     font-size: 7.5vw;
     line-height: 0.9em;
     letter-spacing: 0.02em;
-    width: 100%;
-    display: inline-block;
-    margin-bottom: 2.85vw;
-    margin-top: 0;
 
     @media (max-width: $screenXl) {
-        font-size: 7.8125vw;
         margin-bottom: 6.4vw;
+        font-size: 7.8125vw;
     }
 
     @media (max-width: $screenLg) {
+        margin-bottom: 3.8vw;
         font-size: 64px;
         letter-spacing: 0;
-        margin-bottom: 3.8vw;
     }
 
     @media (max-width: $screenMd) {
@@ -71,18 +73,20 @@
     display: inline-block;
     width: 100%;
     text-align: right;
+
     @media (max-width: $screenXs) {
         text-align: left;
     }
 }
 
 .subtext {
+    margin: 0;
     color: $white;
     font-family: $inter-400;
     font-size: 2vw;
     line-height: 1.21em;
     letter-spacing: 0.02em;
-    margin: 0;
+
     @media (max-width: $screen2Xl) {
         font-size: 32px;
     }
@@ -92,8 +96,8 @@
     }
 
     @media (max-width: $screenLg) {
-        font-size: 24px;
         margin-bottom: 45px;
+        font-size: 24px;
     }
 
     @media (max-width: $screenMd) {
@@ -101,8 +105,8 @@
     }
 
     @media (max-width: $screenXs) {
-        font-size: 14px;
         margin-bottom: 40px;
+        font-size: 14px;
     }
 }
 

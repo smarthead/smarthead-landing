@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import "../../../styles/variables";
 
 .root {
     display: flex;
@@ -7,27 +7,28 @@
 
 .headline {
     margin-bottom: 0;
-    font-size: 4vw;
     font-family: $gilroy-700;
+    font-size: 4vw;
 }
+
 .description {
-    margin-left: 33%;
     margin-top: 6.25vw;
+    margin-left: 33%;
     font-family: $inter-600;
     font-size: 2vw;
 
     li::before {
-        content: "/";
         position: absolute;
-        font-size: 1.875em;
-        margin-left: -0.6em;
         margin-top: -0.18em;
+        margin-left: -0.6em;
         color: $yellow;
+        font-size: 1.875em;
+        content: "/";
     }
 
     li {
-        list-style: none;
         line-height: 1.35em;
+        list-style: none;
 
         &:not(:last-child) {
             margin-bottom: 2.3em;

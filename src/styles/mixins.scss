@@ -1,12 +1,19 @@
+@use "sass:string";
+@use "sass:list";
+
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
     $src: null;
 
     @each $ext in $exts {
-        $src: append($src, url(quote($path + "." + $ext)) format(quote($ext)), comma);
+        $src: list.append(
+            $src,
+            url("#{$path}.#{$ext}") format(string.quote($ext)),
+            comma
+        );
     }
 
     @font-face {
-        font-family: quote($name);
+        font-family: string.quote($name);
         font-weight: $weight;
         font-style: $style;
         src: $src;

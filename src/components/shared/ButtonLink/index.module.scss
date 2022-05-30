@@ -1,23 +1,23 @@
-@import "../../../styles/variables.scss";
+@import "../../../styles/variables";
 
 .button {
     display: inline-flex;
-    font-size: 0.875vw;
-    padding: 1.07em 2.14em;
-    border-radius: 1.14em;
-    letter-spacing: 0.05em;
-    font-family: $inter-400;
-    column-gap: 0.714em;
     align-items: center;
+    padding: 1.07em 2.14em;
+    font-family: $inter-400;
+    font-size: 0.875vw;
+    letter-spacing: 0.05em;
+    border-radius: 1.14em;
+    column-gap: 0.714em;
 
     @media (max-width: $screen2Xl) {
-        font-size: 14px;
         padding: 15px 30px;
+        font-size: 14px;
         border-radius: 15px;
     }
 
     @media (max-width: $screenXl) {
-        font-size: 1.09375vw;
+        font-size: 1.0938vw;
     }
 
     @media (max-width: $screenLg) {
@@ -25,15 +25,16 @@
     }
 }
 
-.yellowButton {
-    background-color: $yellow;
+.yellow-button {
     color: $black;
+    background-color: $yellow;
 }
 
-.blackButton {
-    background-color: $black;
+.black-button {
     color: $white;
+    background-color: $black;
 }
+
 .arrow {
     height: 1em;
 }
