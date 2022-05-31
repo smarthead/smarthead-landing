@@ -1,0 +1,11 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    min-height: max(600px, 100vh);
+    background-color: $black;
+}

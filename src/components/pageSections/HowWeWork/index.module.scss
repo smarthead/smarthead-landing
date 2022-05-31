@@ -2,18 +2,22 @@
 
 .root {
     display: flex;
-    padding: 12.5vw 0;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: max(600px, 100vh);
+    padding: 6.25vw 0 0;
 }
 
 .headline {
-    margin-bottom: 0;
+    margin: 0 0 3.2vw;
     font-family: $gilroy-700;
     font-size: 4vw;
 }
 
-.description {
-    margin-top: 6.25vw;
-    margin-left: 33%;
+.list {
+    margin-top: 3.2vw;
+    margin-left: 30%;
     font-family: $inter-600;
     font-size: 2vw;
 
@@ -31,7 +35,18 @@
         list-style: none;
 
         &:not(:last-child) {
-            margin-bottom: 2.3em;
+            margin-bottom: 2.2em;
         }
     }
+}
+
+.description {
+    color: $black;
+    font-family: $gilroy-600;
+    font-size: 2.5vw;
+    background-color: $yellow;
+}
+
+.description-text {
+    width: 85%;
 }
