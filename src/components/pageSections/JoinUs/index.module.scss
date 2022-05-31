@@ -7,20 +7,7 @@
     overflow: hidden;
     width: 100%;
     min-height: max(600px, 100vh);
-    background-color: $black;
+    background-color: $white;
     border-top: 1px solid $yellow; // TEMP
     padding: 6.25vw 0;
-}
-
-.headline {
-    color: $white;
-    font-size: 4vw;
-    font-family: $gilroy-600;
-}
-
-.cards {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 2.7%;
 }
