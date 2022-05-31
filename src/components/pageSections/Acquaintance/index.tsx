@@ -23,7 +23,7 @@ const Acquaintance: React.FC = () => (
                     link="#"
                 />
                 <Card
-                    image={podcastCover}
+                    image={telegramCover}
                     description="Телеграм-канал, где собраны
                     наши лучшие практики"
                     buttonText="ПОЧИТАТЬ"

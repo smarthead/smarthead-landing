@@ -21,21 +21,21 @@
     font-family: $inter-600;
     font-size: 2vw;
 
-    li::before {
-        position: absolute;
-        margin-top: -0.18em;
-        margin-left: -0.6em;
-        color: $yellow;
-        font-size: 1.875em;
-        content: "/";
-    }
-
-    li {
+    &-item {
         line-height: 1.35em;
         list-style: none;
 
         &:not(:last-child) {
             margin-bottom: 2.2em;
+        }
+
+        &::before {
+            position: absolute;
+            margin-top: -0.18em;
+            margin-left: -0.6em;
+            color: $yellow;
+            font-size: 1.875em;
+            content: "/";
         }
     }
 }

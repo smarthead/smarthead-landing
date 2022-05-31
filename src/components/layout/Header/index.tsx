@@ -44,15 +44,13 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                 </div>
                 <div
                     className={`${styles.mobileMenu} ${
-                        menuOpen
-                            ? styles.mobileMenuOpened
-                            : styles.mobileMenuClosed
+                        menuOpen ? styles.mobileMenuOpened : ''
                     }`}
                 ></div>
 
                 <div
                     className={`${styles.hamburger} ${
-                        menuOpen ? styles.hamburgerClose : styles.hamburgerOpen
+                        menuOpen ? styles.hamburgerClose : ''
                     }`}
                     onClick={hamburgerClickHandler}
                 >

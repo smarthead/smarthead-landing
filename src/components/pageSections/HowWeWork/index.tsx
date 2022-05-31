@@ -7,10 +7,18 @@ const HowWeWork: React.FC = () => (
             <h2 className={styles.headline}>Наш подход</h2>
 
             <ul className={styles.list}>
-                <li>Думаем о ценности для потребителя</li>
-                <li>Формируем процесс исходя из цели</li>
-                <li>Сами управляем проектом и процессом разработки</li>
-                <li>Берем ответственность за продукт и работаем автономно</li>
+                <li className={styles.listItem}>
+                    Думаем о ценности для потребителя
+                </li>
+                <li className={styles.listItem}>
+                    Формируем процесс исходя из цели
+                </li>
+                <li className={styles.listItem}>
+                    Сами управляем проектом и процессом разработки
+                </li>
+                <li className={styles.listItem}>
+                    Берем ответственность за продукт и работаем автономно
+                </li>
             </ul>
         </div>
         <div className={styles.description}>

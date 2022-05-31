@@ -36,3 +36,10 @@
     normal,
     woff woff2
 );
+@include font-face(
+    $inter-700,
+    "../assets/fonts/inter/Inter-Bold",
+    700,
+    normal,
+    woff woff2
+);

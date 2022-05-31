@@ -7,20 +7,22 @@
     overflow: hidden;
     width: 100%;
     min-height: max(600px, 100vh);
+    padding: 6.25vw 0;
     background-color: $black;
     border-top: 1px solid $yellow; // TEMP
-    padding: 6.25vw 0;
 }
 
 .headline {
+    margin-top: 0;
+    margin-bottom: 3vw;
     color: $white;
-    font-size: 4vw;
     font-family: $gilroy-600;
+    font-size: 4vw;
 }
 
 .cards {
-    width: 100%;
     display: flex;
     flex-direction: row;
+    width: 100%;
     gap: 2.7%;
 }
