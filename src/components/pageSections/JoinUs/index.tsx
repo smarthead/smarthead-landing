@@ -3,7 +3,7 @@ import * as styles from './index.module.scss';
 import ArrowRightYellow from '../../../assets/images/arrow-right-yellow.svg';
 
 const JoinUs: React.FC = () => (
-    <section className={styles.root}>
+    <section id="join-us" className={styles.root}>
         <div className="container">
             <h2 className={styles.headline}>Присоединяйтесь к нам</h2>
             <p className={styles.subtext}>
@@ -14,22 +14,26 @@ const JoinUs: React.FC = () => (
             <ul className={styles.vacancies}>
                 <li className={styles.vacanciesItem}>
                     <a href="#" className={styles.vacanciesLink}>
-                        Middle .NET-разработчик
-                        <img
-                            src={ArrowRightYellow}
-                            alt=""
-                            className={styles.arrow}
-                        />
+                        <span className={styles.vacanciesText}>
+                            <span>Middle .NET-разработчик</span>
+                            <img
+                                src={ArrowRightYellow}
+                                alt=""
+                                className={styles.arrow}
+                            />
+                        </span>
                     </a>
                 </li>
                 <li className={styles.vacanciesItem}>
                     <a href="#" className={styles.vacanciesLink}>
-                        Middle/Senior Node.js-разработчик
-                        <img
-                            src={ArrowRightYellow}
-                            alt=""
-                            className={styles.arrow}
-                        />
+                        <span className={styles.vacanciesText}>
+                            <span>Middle/Senior Node.js-разработчик</span>
+                            <img
+                                src={ArrowRightYellow}
+                                alt=""
+                                className={styles.arrow}
+                            />
+                        </span>
                     </a>
                 </li>
             </ul>

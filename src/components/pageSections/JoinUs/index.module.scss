@@ -9,6 +9,7 @@
     min-height: max(600px, 100vh);
     padding: 6.25vw 0;
     background-color: $white;
+    width: 1000px;
 }
 
 .headline {
@@ -30,22 +31,29 @@
 }
 
 .arrow {
-    display: inline-block;
+    // display: inline;
+    // position: absolute;
     height: 0.5625em;
     margin-left: 0.5em;
-    transition: transform 0.1s ease-out;
-    transform: translateX(0);
+    // left: auto;
+    // right: 0;
+    // top: 50%;
+    // margin-top: 50%;
+    // transition: transform 0.1s ease-out;
+    // transform: translate3d(0, -50%, 0);
+    float: inline-end;
 }
 
 .vacancies {
     margin-bottom: 3.2vw;
-    margin-left: 31%;
+    margin-left: 34.2%;
     padding-left: 0;
     list-style: none;
 
     &-item {
         font-family: $gilroy-600;
         font-size: 3vw;
+        white-space: nowrap;
 
         &:not(:last-child) {
             margin-bottom: 1.7em;
@@ -63,8 +71,21 @@
         }
     }
 
+    &-text {
+        white-space: break-spaces;
+        height: 100%;
+
+        // &::after {
+        //     content: "test";
+        //     display: block;
+        //     position: absolute;
+        //     // margin-left: 10%;
+        // }
+    }
+
     &-link {
         color: $black;
+        // display: inline-flex;
 
         &:hover > .arrow {
             transform: translateX(10%);
@@ -73,7 +94,7 @@
 }
 
 .contact-hr {
-    margin-left: 31%;
+    margin-left: 34.2%;
     color: $black;
     font-family: $inter-400;
     font-size: 1.5vw;

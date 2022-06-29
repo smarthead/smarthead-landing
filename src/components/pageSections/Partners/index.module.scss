@@ -1,0 +1,44 @@
+@import "../../../styles/variables";
+
+.carousel {
+    display: flex;
+    background-color: $black;
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+    height: 100%;
+    padding: 6.25vw 0;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3.75vw;
+}
+
+.headline {
+    color: $white;
+    font-family: $gilroy-600;
+    font-size: 4vw;
+    letter-spacing: 0.05em;
+
+    @media (max-width: $screenXl) {
+        font-size: 2.9375vw;
+    }
+}
+
+.logos {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 2.9375vw;
+    grid-template-columns: repeat(5, min-content);
+
+    @media (max-width: $screenXl) {
+        row-gap: 2.3438vw;
+    }
+}
+
+.logo {
+    height: 3.4375vw;
+    justify-self: center;
+}

@@ -16,6 +16,11 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
         console.log(menuOpen);
     };
 
+    const mobileMenuClickHandler = (e) => {
+        // setMenuOpen(!menuOpen);
+        console.log(e);
+    };
+
     return (
         <header>
             <nav className={styles.navbar}>
@@ -32,7 +37,7 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                     <a href="#" className={styles.menuLink}>
                         Кейсы
                     </a>
-                    <a href="#" className={styles.menuLink}>
+                    <a href="#join-us" className={styles.menuLink}>
                         О нас
                     </a>
                     <a href="#" className={styles.menuLink}>
@@ -42,11 +47,28 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                         Контакты
                     </a>
                 </div>
-                <div
+                {/* <div
                     className={`${styles.mobileMenu} ${
                         menuOpen ? styles.mobileMenuOpened : ''
                     }`}
-                ></div>
+                    onClick={mobileMenuClickHandler}
+                >
+                    <a href="#" className={styles.mobileMenuLink}>
+                        Услуги
+                    </a>
+                    <a href="#" className={styles.mobileMenuLink}>
+                        Кейсы
+                    </a>
+                    <a href="#" className={styles.mobileMenuLink}>
+                        О нас
+                    </a>
+                    <a href="#" className={styles.mobileMenuLink}>
+                        Вакансии
+                    </a>
+                    <a href="#" className={styles.mobileMenuLink}>
+                        Контакты
+                    </a>
+                </div>
 
                 <div
                     className={`${styles.hamburger} ${
@@ -57,7 +79,7 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </div> */}
             </nav>
         </header>
     );

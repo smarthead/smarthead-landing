@@ -1,0 +1,27 @@
+@import "../../../styles/variables";
+
+.root {
+    display: flex;
+    min-height: max(600px, 100vh);
+    // padding: 6.25vw 0 0;
+    width: 100%;
+    // overflow: hidden;
+}
+
+.cases-container {
+    display: flex;
+    overscroll-behavior: none;
+    width: 500%;
+    height: 100vh;
+    flex-wrap: nowrap;
+}
+
+.section-temp {
+    width: 100vw;
+    height: 100vh;
+    background-color: tomato;
+
+    &:nth-child(2n) {
+        background-color: lime;
+    }
+}
