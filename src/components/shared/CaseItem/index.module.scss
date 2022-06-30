@@ -1,0 +1,60 @@
+@import "../../../styles/variables";
+
+.case-item {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: $white;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    height: 100%;
+    padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+}
+
+.headline {
+    font-family: $inter-400;
+    font-size: 1.5vw;
+    color: $grayBlack;
+    line-height: 1.35em;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.title {
+    font-family: $gilroy-600;
+    color: $black;
+    font-size: 3vw;
+    line-height: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.description {
+    font-family: $inter-400;
+    font-size: 1.5vw;
+    color: $black;
+    margin-top: 0;
+}
+
+.skip-button {
+    width: 3.5vw;
+    height: 3.5vw;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: auto;
+}
+
+.image {
+    width: 35vw;
+    height: 100%;
+    background-size: cover;
+}

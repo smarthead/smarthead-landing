@@ -4,24 +4,34 @@
     display: flex;
     min-height: max(600px, 100vh);
     // padding: 6.25vw 0 0;
-    width: 100%;
-    // overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .cases-container {
     display: flex;
     overscroll-behavior: none;
-    width: 500%;
+    width: 300%;
     height: 100vh;
     flex-wrap: nowrap;
 }
 
-.section-temp {
-    width: 100vw;
-    height: 100vh;
-    background-color: tomato;
+.case-info {
+    height: 300vh;
+    width: 65vw;
+    overflow: hidden;
+    display: flex;
+    overscroll-behavior: none;
+    flex-direction: column;
+}
 
-    &:nth-child(2n) {
-        background-color: lime;
-    }
+.case-image {
+    height: 100%;
+    // left: 65vw;
+    width: 105vw;
+    overflow: hidden;
+    display: flex;
+    overscroll-behavior: none;
+    flex-wrap: nowrap;
 }

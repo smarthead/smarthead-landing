@@ -4,6 +4,8 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import * as styles from './index.module.scss';
+import { casesList } from './casesList';
+import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 
 const Cases: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -15,19 +17,48 @@ const Cases: React.FC = () => {
         if (container !== null) {
             ScrollTrigger.matchMedia({
                 '(min-width: 992px)': function () {
-                    const caseItems = container?.querySelectorAll('.case-item');
-                    // ScrollTrigger (this automatically gets killed when the breakpoint no longer matches...
-                    gsap.to(caseItems, {
-                        xPercent: -100 * (caseItems.length - 1),
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: container,
-                            pin: true,
-                            scrub: 1,
-                            snap: 1 / (caseItems.length - 1),
-                            // base vertical scrolling on how wide the container is so it feels more natural.
-                            end: '+=3500',
+                    const caseItemsImages = Array.from(
+                        container?.querySelectorAll('.case-item-image')
+                    );
+                    const caseItemsInfo = Array.from(
+                        container?.querySelectorAll('.case-item-info')
+                    );
+                    const casesInfos = container?.querySelector(
+                        '.cases-infos'
+                    ) as HTMLElement | null;
+
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        caseItemsImages,
+                        {
+                            xPercent: -100 * (caseItemsImages.length - 1),
+                            ease: 'none',
                         },
+                        0
+                    );
+
+                    tl.to(
+                        caseItemsInfo,
+                        {
+                            yPercent: -100 * (caseItemsInfo.length - 1),
+                            ease: 'none',
+                        },
+                        0
+                    );
+
+                    ScrollTrigger.create({
+                        trigger: '.cases-sections',
+                        pin: true,
+                        scrub: 1,
+                        snap: {
+                            snapTo: 1 / (caseItemsImages.length - 1),
+                            delay: 0.2,
+                            directional: false,
+                            duration: 0.5,
+                        },
+                        end: () => `+=${casesInfos?.offsetHeight}`,
+                        animation: tl,
                     });
                 },
             });
@@ -35,24 +66,23 @@ const Cases: React.FC = () => {
     }, []);
 
     return (
-        <section className={styles.root}>
-            {/* <div className="container"></div> */}
+        <section className={`cases-sections ${styles.root}`}>
             <section className={styles.casesContainer} ref={casesContainer}>
-                <section
-                    className={`case-item ${styles.sectionTemp}`}
-                ></section>
-                <section
-                    className={`case-item ${styles.sectionTemp}`}
-                ></section>
-                <section
-                    className={`case-item ${styles.sectionTemp}`}
-                ></section>
-                <section
-                    className={`case-item ${styles.sectionTemp}`}
-                ></section>
-                <section
-                    className={`case-item ${styles.sectionTemp}`}
-                ></section>
+                <div className={`cases-infos ${styles.caseInfo}`}>
+                    {casesList.map((x, index) => (
+                        <CaseItemInfo
+                            key={index}
+                            title={x.title}
+                            description={x.description}
+                        />
+                    ))}
+                </div>
+
+                <div className={`cases-images ${styles.caseImage}`}>
+                    {casesList.map((x, index) => (
+                        <CaseItemImage key={index} image={x.image} />
+                    ))}
+                </div>
             </section>
         </section>
     );

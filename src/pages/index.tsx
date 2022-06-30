@@ -16,9 +16,9 @@ const IndexPage = () => (
         <HowWeWork />
         <WhatWeDo />
         <Cases />
+        <Partners />
         <Acquaintance />
         {/* <JoinUs /> */}
-        <Partners />
     </div>
 );
 
