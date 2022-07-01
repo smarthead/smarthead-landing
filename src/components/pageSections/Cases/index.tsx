@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 import * as styles from './index.module.scss';
 import { casesList } from './casesList';
@@ -9,57 +10,75 @@ import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 
 const Cases: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
 
     const casesContainer = useRef(null as HTMLElement | null);
+    const casesTimeline = useRef<gsap.core.Timeline>();
 
+    const skipScrollFunction = () => {
+        if (casesTimeline.current && casesContainer.current) {
+            const container = casesContainer.current;
+            const distance =
+                container.offsetHeight *
+                    casesList.length *
+                    (1 - casesTimeline.current.progress()) +
+                container.offsetHeight;
+
+            gsap.to(window, {
+                duration: distance / 3000,
+                scrollTo: {
+                    y: container,
+                    offsetY: -distance,
+                },
+            });
+        }
+    };
     useEffect(() => {
         const container = casesContainer.current;
         if (container !== null) {
+            const caseItemsImages = gsap.utils.toArray(
+                container.querySelectorAll('.case-item-image')
+            );
+
+            const caseItemsInfo = gsap.utils.toArray(
+                container.querySelectorAll('.case-item-info')
+            );
+
+            const casesInfos = container.querySelector('.cases-infos');
+
             ScrollTrigger.matchMedia({
                 '(min-width: 992px)': function () {
-                    const caseItemsImages = Array.from(
-                        container?.querySelectorAll('.case-item-image')
-                    );
-                    const caseItemsInfo = Array.from(
-                        container?.querySelectorAll('.case-item-info')
-                    );
-                    const casesInfos = container?.querySelector(
-                        '.cases-infos'
-                    ) as HTMLElement | null;
-
-                    const tl = gsap.timeline();
-
-                    tl.to(
-                        caseItemsImages,
-                        {
-                            xPercent: -100 * (caseItemsImages.length - 1),
-                            ease: 'none',
-                        },
-                        0
-                    );
-
-                    tl.to(
-                        caseItemsInfo,
-                        {
-                            yPercent: -100 * (caseItemsInfo.length - 1),
-                            ease: 'none',
-                        },
-                        0
-                    );
-
-                    ScrollTrigger.create({
-                        trigger: '.cases-sections',
-                        pin: true,
-                        scrub: 1,
-                        snap: {
-                            snapTo: 1 / (caseItemsImages.length - 1),
-                            delay: 0.2,
-                            directional: false,
-                            duration: 0.5,
-                        },
-                        end: () => `+=${casesInfos?.offsetHeight}`,
-                        animation: tl,
-                    });
+                    casesTimeline.current = gsap
+                        .timeline({
+                            scrollTrigger: {
+                                trigger: '.cases-sections',
+                                pin: true,
+                                scrub: 0.5,
+                                snap: {
+                                    snapTo: 1 / (caseItemsImages?.length - 1),
+                                    delay: 0.1,
+                                    directional: false,
+                                    duration: 0.5,
+                                },
+                                end: () => `+=${casesInfos?.offsetHeight}`,
+                            },
+                        })
+                        .to(
+                            caseItemsImages,
+                            {
+                                xPercent: -100 * (caseItemsImages.length - 1),
+                                ease: 'none',
+                            },
+                            0
+                        )
+                        .to(
+                            caseItemsInfo,
+                            {
+                                yPercent: -100 * (caseItemsInfo.length - 1),
+                                ease: 'none',
+                            },
+                            0
+                        );
                 },
             });
         }
@@ -74,6 +93,9 @@ const Cases: React.FC = () => {
                             key={index}
                             title={x.title}
                             description={x.description}
+                            onSkip={() => {
+                                skipScrollFunction();
+                            }}
                         />
                     ))}
                 </div>
