@@ -35,3 +35,22 @@
     overscroll-behavior: none;
     flex-wrap: nowrap;
 }
+
+.bullets {
+    position: absolute;
+    display: flex;
+}
+
+.button-bullet {
+    background: #c3c3c3;
+    width: 0.75vw;
+    height: 0.75vw;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.button-bullet-active {
+    background: #0c101d;
+}

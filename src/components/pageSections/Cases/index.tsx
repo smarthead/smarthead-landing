@@ -14,6 +14,29 @@ const Cases: React.FC = () => {
 
     const casesContainer = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
+    const bulletsContainer = useRef(null as HTMLElement | null);
+    const [activeSlide, setActiveSlide] = useState<number>(0);
+
+    const slideSize = 1 / (casesList.length - 1);
+    const slideProgress = [...Array(casesList.length)].map(
+        (_, index) => index * slideSize
+    );
+
+    const handleScrollUpdate = (progress: number) => {
+        setActiveSlide(getNearestSlide(progress).index);
+    };
+
+    const getNearestSlide = (
+        progress: number
+    ): { progress: number; index: number } => {
+        return slideProgress.reduce(
+            (prev, curr, index) =>
+                Math.abs(curr - progress) < Math.abs(prev.progress - progress)
+                    ? { progress: curr, index: index }
+                    : prev,
+            { progress: 0, index: 0 }
+        );
+    };
 
     const skipScrollFunction = () => {
         if (casesTimeline.current && casesContainer.current) {
@@ -33,6 +56,30 @@ const Cases: React.FC = () => {
             });
         }
     };
+
+    const jumpTo = (index: number) => {
+        if (
+            casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
+            casesContainer.current
+        ) {
+            const container = casesContainer.current;
+            const distance =
+                container.offsetHeight *
+                casesList.length *
+                (slideProgress[index] -
+                    casesTimeline.current.scrollTrigger.progress);
+
+            gsap.to(window, {
+                duration: Math.abs(distance / 3000),
+                scrollTo: {
+                    y: container,
+                    offsetY: -distance,
+                },
+                overwrite: true,
+            });
+        }
+    };
+
     useEffect(() => {
         const container = casesContainer.current;
         if (container !== null) {
@@ -44,8 +91,6 @@ const Cases: React.FC = () => {
                 container.querySelectorAll('.case-item-info')
             );
 
-            const casesInfos = container.querySelector('.cases-infos');
-
             ScrollTrigger.matchMedia({
                 '(min-width: 992px)': function () {
                     casesTimeline.current = gsap
@@ -55,12 +100,19 @@ const Cases: React.FC = () => {
                                 pin: true,
                                 scrub: 0.5,
                                 snap: {
-                                    snapTo: 1 / (caseItemsImages?.length - 1),
+                                    snapTo: 1 / (casesList.length - 1),
                                     delay: 0.1,
                                     directional: false,
                                     duration: 0.5,
                                 },
-                                end: () => `+=${casesInfos?.offsetHeight}`,
+                                onUpdate: (self) => {
+                                    handleScrollUpdate(self.progress);
+                                },
+                                end: () =>
+                                    `+=${
+                                        container.offsetHeight *
+                                        casesList.length
+                                    }`,
                             },
                         })
                         .to(
@@ -106,6 +158,21 @@ const Cases: React.FC = () => {
                     ))}
                 </div>
             </section>
+            <div className={styles.bullets}>
+                {casesList.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => {
+                            jumpTo(index);
+                        }}
+                        className={`${styles.buttonBullet} ${
+                            index === activeSlide
+                                ? styles.buttonBulletActive
+                                : ''
+                        }`}
+                    ></button>
+                ))}
+            </div>
         </section>
     );
 };
