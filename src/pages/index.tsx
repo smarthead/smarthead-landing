@@ -9,6 +9,8 @@ import Acquaintance from '../components/pageSections/Acquaintance';
 import JoinUs from '../components/pageSections/JoinUs';
 import Partners from '../components/pageSections/Partners';
 import Cases from '../components/pageSections/Cases';
+import Footer from '../components/pageSections/Footer';
+import Tagline from '../components/pageSections/Tagline';
 
 const IndexPage = () => (
     <div>
@@ -17,8 +19,10 @@ const IndexPage = () => (
         <WhatWeDo />
         <Cases />
         <Partners />
+        <Tagline />
         <Acquaintance />
         {/* <JoinUs /> */}
+        <Footer />
     </div>
 );
 

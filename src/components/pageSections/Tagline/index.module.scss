@@ -1,0 +1,24 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 3.75vw 0;
+    background-color: $yellow;
+}
+
+.title {
+    color: $black;
+    font-size: 2.9375vw;
+    font-family: $gilroy-600;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

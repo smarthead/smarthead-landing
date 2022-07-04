@@ -1,0 +1,60 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 6.25vw 0;
+    background-color: $black;
+    border-top: 1px solid tomato;
+}
+
+.title {
+    color: $white;
+    font-size: 4vw;
+    font-family: $gilroy-600;
+    margin: 0;
+}
+
+.contacts {
+    font-family: $inter-400;
+    color: $white;
+    font-size: 1.5vw;
+    display: flex;
+    margin-top: 6.25vw;
+    padding-bottom: 3.125vw;
+    border-bottom: 2px white solid;
+}
+
+.contact-link,
+.contact-link:visited,
+.contact-link:hover {
+    color: $white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.contacts-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    row-gap: 2.1875vw;
+    column-gap: 3vw;
+    align-content: flex-start;
+    border-top: 2px white solid;
+    padding-top: 3.125vw;
+    flex-wrap: wrap;
+    max-height: 13vw;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: 6.9375vw;
+    margin-top: 3.6875vw;
+}

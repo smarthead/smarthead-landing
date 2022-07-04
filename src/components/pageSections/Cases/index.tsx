@@ -14,11 +14,12 @@ const Cases: React.FC = () => {
 
     const casesContainer = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
-    const bulletsContainer = useRef(null as HTMLElement | null);
     const [activeSlide, setActiveSlide] = useState<number>(0);
 
-    const slideSize = 1 / (casesList.length - 1);
-    const slideProgress = [...Array(casesList.length)].map(
+    const casesAmount = casesList.length;
+
+    const slideSize = 1 / (casesAmount - 1);
+    const slideProgress = [...Array(casesAmount)].map(
         (_, index) => index * slideSize
     );
 
@@ -38,36 +39,19 @@ const Cases: React.FC = () => {
         );
     };
 
-    const skipScrollFunction = () => {
-        if (casesTimeline.current && casesContainer.current) {
-            const container = casesContainer.current;
-            const distance =
-                container.offsetHeight *
-                    casesList.length *
-                    (1 - casesTimeline.current.progress()) +
-                container.offsetHeight;
-
-            gsap.to(window, {
-                duration: distance / 3000,
-                scrollTo: {
-                    y: container,
-                    offsetY: -distance,
-                },
-            });
-        }
-    };
-
-    const jumpTo = (index: number) => {
+    const jumpTo = (index: number | null) => {
         if (
             casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
             casesContainer.current
         ) {
             const container = casesContainer.current;
+            const sectionProgress = index === null ? 1 : slideProgress[index];
             const distance =
                 container.offsetHeight *
-                casesList.length *
-                (slideProgress[index] -
-                    casesTimeline.current.scrollTrigger.progress);
+                    casesAmount *
+                    (sectionProgress -
+                        casesTimeline.current.scrollTrigger.progress) +
+                (index === null ? container.offsetHeight : 0);
 
             gsap.to(window, {
                 duration: Math.abs(distance / 3000),
@@ -75,6 +59,7 @@ const Cases: React.FC = () => {
                     y: container,
                     offsetY: -distance,
                 },
+                ease: 'power1.inOut',
                 overwrite: true,
             });
         }
@@ -100,7 +85,7 @@ const Cases: React.FC = () => {
                                 pin: true,
                                 scrub: 0.5,
                                 snap: {
-                                    snapTo: 1 / (casesList.length - 1),
+                                    snapTo: 1 / (casesAmount - 1),
                                     delay: 0.1,
                                     directional: false,
                                     duration: 0.5,
@@ -109,10 +94,7 @@ const Cases: React.FC = () => {
                                     handleScrollUpdate(self.progress);
                                 },
                                 end: () =>
-                                    `+=${
-                                        container.offsetHeight *
-                                        casesList.length
-                                    }`,
+                                    `+=${container.offsetHeight * casesAmount}`,
                             },
                         })
                         .to(
@@ -139,14 +121,17 @@ const Cases: React.FC = () => {
     return (
         <section className={`cases-sections ${styles.root}`}>
             <section className={styles.casesContainer} ref={casesContainer}>
-                <div className={`cases-infos ${styles.caseInfo}`}>
+                <div
+                    className={`cases-infos ${styles.caseInfo}`}
+                    style={{ height: 100 * casesAmount + 'vh' }}
+                >
                     {casesList.map((x, index) => (
                         <CaseItemInfo
                             key={index}
                             title={x.title}
                             description={x.description}
                             onSkip={() => {
-                                skipScrollFunction();
+                                jumpTo(null);
                             }}
                         />
                     ))}

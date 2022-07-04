@@ -3,7 +3,6 @@
 .root {
     display: flex;
     min-height: max(600px, 100vh);
-    // padding: 6.25vw 0 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -12,13 +11,13 @@
 .cases-container {
     display: flex;
     overscroll-behavior: none;
-    width: 300%;
+    width: auto;
     height: 100vh;
     flex-wrap: nowrap;
 }
 
 .case-info {
-    height: 300vh;
+    // height: 300vh;
     width: 65vw;
     overflow: hidden;
     display: flex;
@@ -28,8 +27,7 @@
 
 .case-image {
     height: 100%;
-    // left: 65vw;
-    width: 105vw;
+    // width: 105vw;
     overflow: hidden;
     display: flex;
     overscroll-behavior: none;
@@ -39,6 +37,10 @@
 .bullets {
     position: absolute;
     display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-self: center;
+    margin-left: 9.375vw;
 }
 
 .button-bullet {
@@ -52,5 +54,5 @@
 }
 
 .button-bullet-active {
-    background: #0c101d;
+    background: $black;
 }
