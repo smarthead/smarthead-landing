@@ -6,10 +6,10 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
+    width: 1000px;
     min-height: max(600px, 100vh);
     padding: 6.25vw 0;
     background-color: $white;
-    width: 1000px;
 }
 
 .headline {
@@ -31,10 +31,6 @@
 }
 
 .arrow {
-    // display: inline;
-    // position: absolute;
-    height: 0.5625em;
-    margin-left: 0.5em;
     // left: auto;
     // right: 0;
     // top: 50%;
@@ -42,6 +38,10 @@
     // transition: transform 0.1s ease-out;
     // transform: translate3d(0, -50%, 0);
     float: inline-end;
+    // display: inline;
+    // position: absolute;
+    height: 0.5625em;
+    margin-left: 0.5em;
 }
 
 .vacancies {
@@ -72,8 +72,8 @@
     }
 
     &-text {
-        white-space: break-spaces;
         height: 100%;
+        white-space: break-spaces;
 
         // &::after {
         //     content: "test";

@@ -21,7 +21,7 @@ const IndexPage = () => (
         <Partners />
         <Tagline />
         <Acquaintance />
-        {/* <JoinUs /> */}
+        <JoinUs />
         <Footer />
     </div>
 );

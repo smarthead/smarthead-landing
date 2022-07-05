@@ -8,23 +8,22 @@
     width: 100%;
     padding: 6.25vw 0;
     background-color: $black;
-    border-top: 1px solid tomato;
 }
 
 .title {
-    color: $white;
-    font-size: 4vw;
-    font-family: $gilroy-600;
     margin: 0;
+    color: $white;
+    font-family: $gilroy-600;
+    font-size: 4vw;
 }
 
 .contacts {
-    font-family: $inter-400;
-    color: $white;
-    font-size: 1.5vw;
     display: flex;
     margin-top: 6.25vw;
     padding-bottom: 3.125vw;
+    color: $white;
+    font-family: $inter-400;
+    font-size: 1.5vw;
     border-bottom: 2px white solid;
 }
 
@@ -32,21 +31,20 @@
 .contact-link:visited,
 .contact-link:hover {
     color: $white;
-    text-decoration: none;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .contacts-item {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    align-content: flex-start;
     flex: 1;
+    max-height: 13vw;
+    padding-top: 3.125vw;
+    border-top: 2px white solid;
     row-gap: 2.1875vw;
     column-gap: 3vw;
-    align-content: flex-start;
-    border-top: 2px white solid;
-    padding-top: 3.125vw;
-    flex-wrap: wrap;
-    max-height: 13vw;
 }
 
 .social-links {

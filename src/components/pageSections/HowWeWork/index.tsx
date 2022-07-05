@@ -1,32 +1,35 @@
 import React from 'react';
 import * as styles from './index.module.scss';
+import teamPhoto from '../../../assets/images/team_photo.jpg';
 
 const HowWeWork: React.FC = () => (
     <section className={styles.root}>
-        <div className="container">
-            <h2 className={styles.headline}>Наш подход</h2>
-
-            <ul className={styles.list}>
-                <li className={styles.listItem}>
-                    Думаем о ценности для потребителя
-                </li>
-                <li className={styles.listItem}>
-                    Формируем процесс исходя из цели
-                </li>
-                <li className={styles.listItem}>
-                    Сами управляем проектом и процессом разработки
-                </li>
-                <li className={styles.listItem}>
-                    Берем ответственность за продукт и работаем автономно
-                </li>
-            </ul>
-        </div>
-        <div className={styles.description}>
-            <div className="container">
-                <p className={styles.descriptionText}>
-                    Вы тратите меньше времени на управление и контроль — у вас
-                    остается больше времени на бизнес
+        <div
+            className={styles.photo}
+            style={{ backgroundImage: `url(${teamPhoto})` }}
+        ></div>
+        <div className={styles.content}>
+            <div className={styles.perks}>
+                <p className={styles.perksItem}>
+                    Думаем о ценности для&nbsp;потребителя
                 </p>
+                <p className={styles.perksItem}>
+                    Формируем процесс исходя&nbsp;из&nbsp;цели
+                </p>
+                <p className={styles.perksItem}>
+                    Сами управляем проектом и&nbsp;процессом разработки
+                </p>
+                <p className={styles.perksItem}>
+                    Берем ответственность за&nbsp;продукт и&nbsp;работаем
+                    автономно
+                </p>
+            </div>
+
+            <div className={styles.title}>
+                <span className={styles.titleText}>
+                    Вы тратите меньше времени на управление и контроль — <br />у
+                    вас остается больше времени на бизнес
+                </span>
             </div>
         </div>
     </section>

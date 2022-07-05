@@ -2,16 +2,16 @@
 
 .carousel {
     display: flex;
-    background-color: $black;
     min-height: 100vh;
+    background-color: $black;
 }
 
 .content {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     padding: 6.25vw 0;
-    justify-content: center;
-    flex-direction: column;
     gap: 3.75vw;
 }
 
@@ -28,10 +28,10 @@
 
 .logos {
     display: grid;
-    align-items: center;
-    justify-content: space-between;
-    row-gap: 2.9375vw;
     grid-template-columns: repeat(5, min-content);
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2.9375vw;
 
     @media (max-width: $screenXl) {
         row-gap: 2.3438vw;
@@ -39,6 +39,6 @@
 }
 
 .logo {
-    height: 3.4375vw;
     justify-self: center;
+    height: 3.4375vw;
 }

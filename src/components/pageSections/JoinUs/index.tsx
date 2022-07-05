@@ -27,12 +27,17 @@ const JoinUs: React.FC = () => (
                 <li className={styles.vacanciesItem}>
                     <a href="#" className={styles.vacanciesLink}>
                         <span className={styles.vacanciesText}>
-                            <span>Middle/Senior Node.js-разработчик</span>
-                            <img
-                                src={ArrowRightYellow}
-                                alt=""
-                                className={styles.arrow}
-                            />
+                            <span>
+                                Middle/Senior Node.js-разработчик{' '}
+                                <span>
+                                    &nbsp;
+                                    <img
+                                        src={ArrowRightYellow}
+                                        alt=""
+                                        className={styles.arrow}
+                                    />
+                                </span>
+                            </span>
                         </span>
                     </a>
                 </li>

@@ -17,40 +17,40 @@
 }
 
 .headline {
-    font-family: $inter-400;
-    font-size: 1.5vw;
-    color: $grayBlack;
-    line-height: 1.35em;
-    letter-spacing: 0.05em;
     margin-top: 0;
     margin-bottom: 0;
+    color: $grayBlack;
+    font-family: $inter-400;
+    font-size: 1.5vw;
+    line-height: 1.35em;
+    letter-spacing: 0.05em;
 }
 
 .title {
-    font-family: $gilroy-600;
-    color: $black;
-    font-size: 3vw;
-    line-height: 1.2em;
     margin-top: 1em;
     margin-bottom: 0.5em;
+    color: $black;
+    font-family: $gilroy-600;
+    font-size: 3vw;
+    line-height: 1.2em;
 }
 
 .description {
+    margin-top: 0;
+    color: $black;
     font-family: $inter-400;
     font-size: 1.5vw;
-    color: $black;
-    margin-top: 0;
 }
 
 .skip-button {
     width: 3.5vw;
     height: 3.5vw;
+    margin-top: auto;
+    padding: 0;
     background: none;
     border: none;
-    padding: 0;
-    cursor: pointer;
     border-radius: 50%;
-    margin-top: auto;
+    cursor: pointer;
 }
 
 .image {
