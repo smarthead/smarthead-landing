@@ -4,6 +4,7 @@ import Card from '../../shared/Card';
 import podcastCover from '../../../assets/images/podcast_cover.jpg';
 import instagramCover from '../../../assets/images/instagram_cover.jpg';
 import telegramCover from '../../../assets/images/telegram_cover.jpg';
+import { links } from '../../shared/links';
 
 const Acquaintance: React.FC = () => (
     <section className={styles.root}>
@@ -14,20 +15,20 @@ const Acquaintance: React.FC = () => (
                     image={podcastCover}
                     description="Подкаст о технологиях, менеджменте и саморазвитии"
                     buttonText="ПОСЛУШАТЬ"
-                    link="#"
+                    link={links.podcast}
                 />
                 <Card
                     image={instagramCover}
                     description="Инстаграм о нашей жизни в офисе и за его пределами"
                     buttonText="ПОСМОТРЕТЬ"
-                    link="#"
+                    link={links.instagram}
                 />
                 <Card
                     image={telegramCover}
                     description="Телеграм-канал, где собраны
                     наши лучшие практики"
                     buttonText="ПОЧИТАТЬ"
-                    link="#"
+                    link={links.telegram}
                 />
             </div>
         </div>

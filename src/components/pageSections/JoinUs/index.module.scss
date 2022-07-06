@@ -6,7 +6,6 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    width: 1000px;
     min-height: max(600px, 100vh);
     padding: 6.25vw 0;
     background-color: $white;
@@ -31,15 +30,9 @@
 }
 
 .arrow {
-    // left: auto;
-    // right: 0;
-    // top: 50%;
-    // margin-top: 50%;
-    // transition: transform 0.1s ease-out;
-    // transform: translate3d(0, -50%, 0);
-    float: inline-end;
-    // display: inline;
-    // position: absolute;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 0.5625em;
     margin-left: 0.5em;
 }
@@ -72,20 +65,16 @@
     }
 
     &-text {
-        height: 100%;
         white-space: break-spaces;
+    }
 
-        // &::after {
-        //     content: "test";
-        //     display: block;
-        //     position: absolute;
-        //     // margin-left: 10%;
-        // }
+    &-text-container {
+        position: relative;
+        height: 100%;
     }
 
     &-link {
         color: $black;
-        // display: inline-flex;
 
         &:hover > .arrow {
             transform: translateX(10%);

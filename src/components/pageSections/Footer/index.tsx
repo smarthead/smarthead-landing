@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SH_logo.svg';
+import { links } from '../../shared/links';
 
 const Footer: React.FC = () => (
     <section className={styles.root}>
@@ -17,15 +18,15 @@ const Footer: React.FC = () => (
                 <div className={styles.contactsItem}>
                     <a
                         className={styles.contactLink}
-                        href="mailto:hello@smarthead.ru"
+                        href={`mailto:${links.email.contact}`}
                     >
-                        hello@smarthead.ru
+                        {links.email.contact}
                     </a>
                     <a
                         className={styles.contactLink}
-                        href="mailto:hr@smarthead.ru"
+                        href={`mailto:${links.email.hr}`}
                     >
-                        hr@smarthead.ru
+                        {links.email.hr}
                     </a>
                     <a className={styles.contactLink} href="#">
                         Презентация компании
@@ -33,20 +34,23 @@ const Footer: React.FC = () => (
                 </div>
 
                 <div className={styles.contactsItem}>
-                    <a className={styles.contactLink} href="#">
+                    <a className={styles.contactLink} href={links.telegram}>
                         Telegram
                     </a>
-                    <a className={styles.contactLink} href="#">
+                    <a className={styles.contactLink} href={links.youtube}>
                         YouTube
                     </a>
-                    <a className={styles.contactLink} href="#">
+                    <a className={styles.contactLink} href={links.linkedIn}>
                         LinkedIn
                     </a>
-                    <a className={styles.contactLink} href="#">
+                    <a className={styles.contactLink} href={links.facebook}>
                         Facebook
                     </a>
-                    <a className={styles.contactLink} href="#">
+                    <a className={styles.contactLink} href={links.instagram}>
                         Instagram
+                    </a>
+                    <a className={styles.contactLink} href={links.habrCareer}>
+                        Хабр Карьера
                     </a>
                 </div>
             </div>

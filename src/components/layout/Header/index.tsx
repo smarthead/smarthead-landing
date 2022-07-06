@@ -17,7 +17,7 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
     };
 
     const mobileMenuClickHandler = (e) => {
-        // setMenuOpen(!menuOpen);
+        setMenuOpen(!menuOpen);
         console.log(e);
     };
 
@@ -47,7 +47,7 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                         Контакты
                     </a>
                 </div>
-                {/* <div
+                <div
                     className={`${styles.mobileMenu} ${
                         menuOpen ? styles.mobileMenuOpened : ''
                     }`}
@@ -79,7 +79,7 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                     <span></span>
                     <span></span>
                     <span></span>
-                </div> */}
+                </div>
             </nav>
         </header>
     );
