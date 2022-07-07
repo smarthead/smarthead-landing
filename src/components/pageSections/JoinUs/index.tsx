@@ -63,46 +63,61 @@ const JoinUs: React.FC = () => {
     return (
         <section id="join-us" className={styles.root}>
             <div className="container">
-                <h2 className={styles.headline}>Присоединяйтесь к нам</h2>
-                <p className={styles.subtext}>
-                    Мы сильны инженерной культурой, качеством реализации
-                    проектов, теплой атмосферой и бережным отношением к
-                    сотрудникам
-                </p>
-
-                <ul className={styles.vacancies} ref={vacancyList}>
-                    {fontIsLoaded &&
-                        vacancies.map((vacancy, index) => (
-                            <li key={index} className={styles.vacanciesItem}>
-                                <a
-                                    href={vacancy.link}
-                                    className={styles.vacanciesLink}
-                                >
-                                    <span
-                                        className={
-                                            styles.vacanciesTextContainer
-                                        }
+                <div className={styles.content}>
+                    <h2 className={styles.headline}>
+                        Присоединяйтесь к нашей команде
+                    </h2>
+                    <p className={styles.subtext}>
+                        Мы сильны инженерной культурой, качеством реализации
+                        проектов, теплой атмосферой и бережным отношением к
+                        сотрудникам
+                    </p>
+                    <div className={styles.contact}>
+                        <ul className={styles.vacancies} ref={vacancyList}>
+                            {fontIsLoaded &&
+                                vacancies.map((vacancy, index) => (
+                                    <li
+                                        key={index}
+                                        className={styles.vacanciesItem}
                                     >
-                                        <span className={styles.vacanciesText}>
-                                            {vacancy.text}
-                                        </span>
-                                        <img
-                                            src={ArrowRightYellow}
-                                            alt=""
-                                            className={styles.arrow}
-                                        />
-                                    </span>
-                                </a>
-                            </li>
-                        ))}
-                </ul>
-                <p className={styles.contactHr}>
-                    Если вы не нашли вакансию, которая вам подходит, можете
-                    смело написать нам на{' '}
-                    <a className={styles.email} href="mailto:hr@smarthead.ru">
-                        hr@smarthead.ru
-                    </a>
-                </p>
+                                        <a
+                                            href={vacancy.link}
+                                            className={styles.vacanciesLink}
+                                        >
+                                            <span
+                                                className={
+                                                    styles.vacanciesTextContainer
+                                                }
+                                            >
+                                                <span
+                                                    className={
+                                                        styles.vacanciesText
+                                                    }
+                                                >
+                                                    {vacancy.text}
+                                                </span>
+                                                <img
+                                                    src={ArrowRightYellow}
+                                                    alt=""
+                                                    className={styles.arrow}
+                                                />
+                                            </span>
+                                        </a>
+                                    </li>
+                                ))}
+                        </ul>
+                        <p className={styles.contactHr}>
+                            Если вы не нашли вакансию, которая вам подходит,
+                            можете смело написать нам на{' '}
+                            <a
+                                className={styles.email}
+                                href="mailto:hr@smarthead.ru"
+                            >
+                                hr@smarthead.ru
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     );

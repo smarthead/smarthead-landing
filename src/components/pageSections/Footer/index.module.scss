@@ -8,6 +8,19 @@
     width: 100%;
     padding: 6.25vw 0;
     background-color: $black;
+    @media (max-width: $screenXl) {
+        font-size: 3.6718vw;
+    }
+    @media (max-width: $screenLg) {
+        padding: 6.5vw 0;
+    }
+
+    @media (max-width: $screenSm) {
+        padding: 91px 0;
+    }
+    @media (max-width: $screenXs) {
+        padding: 19vw 0;
+    }
 }
 
 .title {
@@ -15,6 +28,15 @@
     color: $white;
     font-family: $gilroy-600;
     font-size: 4vw;
+    @media (max-width: $screenXl) {
+        font-size: 3.6718vw;
+    }
+    @media (max-width: $screenLg) {
+        font-size: 3.125vw;
+    }
+    @media (max-width: $screenMd) {
+        font-size: 24px;
+    }
 }
 
 .contacts {
@@ -24,8 +46,27 @@
     color: $white;
     font-family: $inter-400;
     font-size: 1.5vw;
-    border-bottom: 2px white solid;
+    border-bottom: 2px $white50 solid;
     column-gap: 2.1875vw;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+        padding-bottom: 50px;
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        padding-bottom: 3.90625vw;
+    }
+    @media (max-width: $screenLg) {
+        border-bottom: 1px $white50 solid;
+    }
+
+    @media (max-width: $screenSm) {
+        flex-direction: column;
+        row-gap: 5.555vw;
+        font-size: 3.333vw;
+    }
 }
 
 .contact-link,
@@ -43,9 +84,39 @@
     flex: 1;
     max-height: 13vw;
     padding-top: 3.125vw;
-    border-top: 2px white solid;
+    border-top: 2px $white50 solid;
     row-gap: 2.1875vw;
     column-gap: 3vw;
+
+    @media (max-width: $screen2Xl) {
+        max-height: 208px;
+        row-gap: 35px;
+    }
+    @media (max-width: $screenXl) {
+        max-height: 16.25vw;
+        row-gap: 2.734375vw;
+    }
+    @media (max-width: $screenLg) {
+        border-top: 1px $white50 solid;
+        &:last-child {
+            align-content: space-between;
+            & > :nth-last-child(-n + 3) {
+                text-align: right;
+            }
+        }
+    }
+
+    @media (max-width: $screenSm) {
+        max-height: 26vw;
+
+        &:last-child {
+            align-content: flex-start;
+            column-gap: 13.5vw;
+            & > :nth-last-child(-n + 3) {
+                text-align: left;
+            }
+        }
+    }
 }
 
 .social-links {
@@ -56,4 +127,13 @@
 .logo {
     width: 6.9375vw;
     margin-top: 3.6875vw;
+    @media (max-width: $screen2Xl) {
+        width: 111px;
+    }
+    @media (max-width: $screenLg) {
+        width: 10.546vw;
+    }
+    @media (max-width: $screenMd) {
+        width: 81px;
+    }
 }

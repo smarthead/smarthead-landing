@@ -4,6 +4,9 @@
     display: flex;
     min-height: 100vh;
     background-color: $black;
+    @media (max-width: $screenLg) {
+        min-height: auto;
+    }
 }
 
 .content {
@@ -13,6 +16,12 @@
     height: 100%;
     padding: 6.25vw 0;
     gap: 3.75vw;
+    @media (max-width: $screenLg) {
+        padding: 7.8125vw 0;
+    }
+    @media (max-width: $screenSm) {
+        font-size: 24px;
+    }
 }
 
 .headline {
@@ -22,7 +31,11 @@
     letter-spacing: 0.05em;
 
     @media (max-width: $screenXl) {
-        font-size: 2.9375vw;
+        font-size: 3.671875vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 24px;
     }
 }
 
@@ -36,9 +49,22 @@
     @media (max-width: $screenXl) {
         row-gap: 2.3438vw;
     }
+
+    @media (max-width: $screenLg) {
+        row-gap: 4.55vw;
+    }
+
+    @media (max-width: $screenXs) {
+        grid-template-columns: repeat(3, min-content);
+        row-gap: 8vw;
+    }
 }
 
 .logo {
     justify-self: center;
     height: 3.4375vw;
+
+    @media (max-width: $screenXs) {
+        height: 7.33vw;
+    }
 }

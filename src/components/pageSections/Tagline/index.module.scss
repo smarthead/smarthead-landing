@@ -6,8 +6,36 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 3.75vw 0;
+    height: 11.125vw;
     background-color: $yellow;
+
+    @media (max-width: $screen2Xl) {
+        height: 178px;
+    }
+    @media (max-width: $screenXl) {
+        height: 13.906vw;
+    }
+    @media (max-width: $screenMd) {
+        height: 12vw;
+    }
+    @media (max-width: $screenXs) {
+        height: auto;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $screenXs) {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 15px 0;
+        gap: 15px;
+    }
 }
 
 .title {
@@ -15,10 +43,24 @@
     color: $black;
     font-family: $gilroy-600;
     font-size: 2.9375vw;
-}
+    @media (max-width: $screen2Xl) {
+        font-size: 47px;
+    }
 
-.content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @media (max-width: $screenXl) {
+        font-size: 3.671875vw;
+    }
+    @media (max-width: $screenMd) {
+        font-size: 3.125vw;
+    }
+
+    @media (max-width: $screenSm) {
+        font-size: 18px;
+    }
+    @media (max-width: $screenXs) {
+        font-size: 5vw;
+    }
+    @media (max-width: $screen2Xs) {
+        font-size: 18px;
+    }
 }

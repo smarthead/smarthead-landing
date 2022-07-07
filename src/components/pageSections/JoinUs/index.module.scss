@@ -3,12 +3,21 @@
 .root {
     position: relative;
     display: flex;
-    align-items: center;
+    // align-items: center;
     overflow: hidden;
     width: 100%;
     min-height: max(600px, 100vh);
     padding: 6.25vw 0;
     background-color: $white;
+
+    @media (max-width: $screenLg) {
+        min-height: auto;
+        padding: 6.5vw 0 17.8vw 0;
+    }
+
+    @media (max-width: $screenSm) {
+        padding: 19.5vw 0 50vw 0;
+    }
 }
 
 .headline {
@@ -17,6 +26,18 @@
     color: $black;
     font-family: $gilroy-600;
     font-size: 4vw;
+
+    @media (max-width: $screenXl) {
+        font-size: 3.671875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 3.125vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 24px;
+    }
 }
 
 .subtext {
@@ -27,8 +48,30 @@
     font-family: $inter-400;
     font-size: 2vw;
     letter-spacing: 0.02em;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+    }
+    @media (max-width: $screenLg) {
+        font-size: 1.83vw;
+    }
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-bottom: 50px;
+    }
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.contact {
+    margin: auto 0;
+}
 .arrow {
     position: absolute;
     top: 0;
@@ -43,10 +86,31 @@
     padding-left: 0;
     list-style: none;
 
+    @media (max-width: $screenSm) {
+        margin-left: 0;
+        margin-bottom: 25px;
+    }
+
     &-item {
         font-family: $gilroy-600;
         font-size: 3vw;
         white-space: nowrap;
+
+        @media (max-width: $screenXl) {
+            font-size: 2.5vw;
+        }
+        @media (max-width: $screenLg) {
+            font-size: 2.09vw;
+            width: 50%;
+        }
+
+        @media (max-width: $screenMd) {
+            font-size: 16px;
+        }
+        @media (max-width: $screenSm) {
+            font-size: 18px;
+            width: 90%;
+        }
 
         &:not(:last-child) {
             margin-bottom: 1.7em;
@@ -76,7 +140,7 @@
     &-link {
         color: $black;
 
-        &:hover > .arrow {
+        &:hover > span > .arrow {
             transform: translateX(10%);
         }
     }
@@ -88,6 +152,31 @@
     font-family: $inter-400;
     font-size: 1.5vw;
     line-height: 1.55em;
+    padding-right: 15%;
+    width: auto;
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+        width: 700px;
+        padding-right: 0;
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        width: 54.6875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 1.5625vw;
+        width: 45vw;
+    }
+    @media (max-width: $screenMd) {
+        font-size: 12px;
+        width: 345px;
+    }
+    @media (max-width: $screenSm) {
+        margin-left: 0;
+        width: auto;
+    }
 }
 
 .email {

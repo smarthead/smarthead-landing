@@ -9,6 +9,7 @@
     letter-spacing: 0.05em;
     border-radius: 1.14em;
     column-gap: 0.714em;
+    justify-content: center;
 
     @media (max-width: $screen2Xl) {
         padding: 15px 30px;
