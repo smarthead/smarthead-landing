@@ -7,7 +7,13 @@ const HowWeWork: React.FC = () => (
         <div
             className={styles.photo}
             style={{ backgroundImage: `url(${teamPhoto})` }}
-        ></div>
+        >
+            <img
+                src={teamPhoto}
+                alt="Team Photo"
+                className={styles.photoImage}
+            />
+        </div>
         <div className={styles.content}>
             <div className={styles.perks}>
                 <p className={styles.perksItem}>
