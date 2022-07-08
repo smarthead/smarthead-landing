@@ -12,11 +12,11 @@
 
     @media (max-width: $screenLg) {
         min-height: auto;
-        padding: 6.5vw 0 17.8vw 0;
+        padding: 6.5vw 0 17.8vw;
     }
 
     @media (max-width: $screenSm) {
-        padding: 19.5vw 0 50vw 0;
+        padding: 19.5vw 0 50vw;
     }
 }
 
@@ -28,7 +28,7 @@
     font-size: 4vw;
 
     @media (max-width: $screenXl) {
-        font-size: 3.671875vw;
+        font-size: 3.6719vw;
     }
 
     @media (max-width: $screenLg) {
@@ -52,9 +52,11 @@
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
     }
+
     @media (max-width: $screenLg) {
         font-size: 1.83vw;
     }
+
     @media (max-width: $screenMd) {
         font-size: 14px;
     }
@@ -69,9 +71,11 @@
     flex-direction: column;
     height: 100%;
 }
+
 .contact {
     margin: auto 0;
 }
+
 .arrow {
     position: absolute;
     top: 0;
@@ -87,8 +91,8 @@
     list-style: none;
 
     @media (max-width: $screenSm) {
-        margin-left: 0;
         margin-bottom: 25px;
+        margin-left: 0;
     }
 
     &-item {
@@ -99,17 +103,19 @@
         @media (max-width: $screenXl) {
             font-size: 2.5vw;
         }
+
         @media (max-width: $screenLg) {
-            font-size: 2.09vw;
             width: 50%;
+            font-size: 2.09vw;
         }
 
         @media (max-width: $screenMd) {
             font-size: 16px;
         }
+
         @media (max-width: $screenSm) {
-            font-size: 18px;
             width: 90%;
+            font-size: 18px;
         }
 
         &:not(:last-child) {
@@ -147,35 +153,38 @@
 }
 
 .contact-hr {
+    width: auto;
     margin-left: 34.2%;
+    padding-right: 15%;
     color: $black;
     font-family: $inter-400;
     font-size: 1.5vw;
     line-height: 1.55em;
-    padding-right: 15%;
-    width: auto;
+
     @media (max-width: $screen2Xl) {
-        font-size: 24px;
         width: 700px;
         padding-right: 0;
+        font-size: 24px;
     }
 
     @media (max-width: $screenXl) {
-        font-size: 1.875vw;
         width: 54.6875vw;
+        font-size: 1.875vw;
     }
 
     @media (max-width: $screenLg) {
-        font-size: 1.5625vw;
         width: 45vw;
+        font-size: 1.5625vw;
     }
+
     @media (max-width: $screenMd) {
-        font-size: 12px;
         width: 345px;
+        font-size: 12px;
     }
+
     @media (max-width: $screenSm) {
-        margin-left: 0;
         width: auto;
+        margin-left: 0;
     }
 }
 

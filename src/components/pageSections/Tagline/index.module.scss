@@ -12,12 +12,15 @@
     @media (max-width: $screen2Xl) {
         height: 178px;
     }
+
     @media (max-width: $screenXl) {
         height: 13.906vw;
     }
+
     @media (max-width: $screenMd) {
         height: 12vw;
     }
+
     @media (max-width: $screenXs) {
         height: auto;
     }
@@ -43,13 +46,15 @@
     color: $black;
     font-family: $gilroy-600;
     font-size: 2.9375vw;
+
     @media (max-width: $screen2Xl) {
         font-size: 47px;
     }
 
     @media (max-width: $screenXl) {
-        font-size: 3.671875vw;
+        font-size: 3.6719vw;
     }
+
     @media (max-width: $screenMd) {
         font-size: 3.125vw;
     }
@@ -57,9 +62,11 @@
     @media (max-width: $screenSm) {
         font-size: 18px;
     }
+
     @media (max-width: $screenXs) {
         font-size: 5vw;
     }
+
     @media (max-width: $screen2Xs) {
         font-size: 18px;
     }

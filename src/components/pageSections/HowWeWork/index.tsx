@@ -4,30 +4,23 @@ import teamPhoto from '../../../assets/images/team_photo.jpg';
 
 const HowWeWork: React.FC = () => (
     <section className={styles.root}>
-        <div
-            className={styles.photo}
-            style={{ backgroundImage: `url(${teamPhoto})` }}
-        >
-            <img
-                src={teamPhoto}
-                alt="Team Photo"
-                className={styles.photoImage}
-            />
-        </div>
         <div className={styles.content}>
             <div className={styles.perks}>
                 <p className={styles.perksItem}>
-                    Думаем о ценности для&nbsp;потребителя
+                    Думаем о ценности
+                    <br /> для&nbsp;потребителя
                 </p>
                 <p className={styles.perksItem}>
-                    Формируем процесс исходя&nbsp;из&nbsp;цели
+                    Формируем процесс
+                    <br /> исходя из&nbsp;цели
                 </p>
                 <p className={styles.perksItem}>
-                    Сами управляем проектом и&nbsp;процессом разработки
+                    Сами управляем проектом
+                    <br /> и&nbsp;процессом разработки
                 </p>
                 <p className={styles.perksItem}>
-                    Берем ответственность за&nbsp;продукт и&nbsp;работаем
-                    автономно
+                    Берем ответственность
+                    <br /> за&nbsp;продукт и&nbsp;работаем&nbsp;автономно
                 </p>
             </div>
 
@@ -37,6 +30,16 @@ const HowWeWork: React.FC = () => (
                     вас остается больше времени на бизнес
                 </span>
             </div>
+        </div>
+        <div
+            className={styles.photo}
+            // style={{ backgroundImage: `url(${teamPhoto})` }}
+        >
+            <img
+                src={teamPhoto}
+                alt="Team Photo"
+                className={styles.photoImage}
+            />
         </div>
     </section>
 );

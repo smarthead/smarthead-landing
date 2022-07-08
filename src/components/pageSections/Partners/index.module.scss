@@ -4,6 +4,7 @@
     display: flex;
     min-height: 100vh;
     background-color: $black;
+
     @media (max-width: $screenLg) {
         min-height: auto;
     }
@@ -16,9 +17,11 @@
     height: 100%;
     padding: 6.25vw 0;
     gap: 3.75vw;
+
     @media (max-width: $screenLg) {
         padding: 7.8125vw 0;
     }
+
     @media (max-width: $screenSm) {
         font-size: 24px;
     }
@@ -31,7 +34,7 @@
     letter-spacing: 0.05em;
 
     @media (max-width: $screenXl) {
-        font-size: 3.671875vw;
+        font-size: 3.6719vw;
     }
 
     @media (max-width: $screenMd) {

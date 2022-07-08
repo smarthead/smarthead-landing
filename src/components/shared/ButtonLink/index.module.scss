@@ -2,6 +2,7 @@
 
 .button {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     padding: 1.07em 2.14em;
     font-family: $inter-400;
@@ -9,7 +10,6 @@
     letter-spacing: 0.05em;
     border-radius: 1.14em;
     column-gap: 0.714em;
-    justify-content: center;
 
     @media (max-width: $screen2Xl) {
         padding: 15px 30px;

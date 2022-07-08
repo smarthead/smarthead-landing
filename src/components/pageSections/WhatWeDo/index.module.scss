@@ -30,6 +30,7 @@
     @media (max-width: $screenXl) {
         font-size: 2.5vw;
     }
+
     @media (max-width: $screenSm) {
         margin-left: 0;
         font-size: 18px;
@@ -40,12 +41,15 @@
     overflow: hidden;
     line-height: 1.35em;
     list-style: none;
+
     & > br {
         display: none;
+
         @media (max-width: $screenSm) {
             display: inline;
         }
     }
+
     &:not(:last-child) {
         margin-bottom: 1.2em;
 
@@ -74,12 +78,15 @@
             @media (max-width: $screenXl) {
                 margin-top: 0.7em;
             }
+
             @media (max-width: $screenLg) {
                 margin-top: 1.385em;
             }
+
             @media (max-width: $screenMd) {
                 height: 1px;
             }
+
             @media (max-width: $screenSm) {
                 margin-top: 1.12em;
             }
@@ -96,6 +103,7 @@
     @media (max-width: $screenXl) {
         font-size: 0.75em;
     }
+
     @media (max-width: $screenSm) {
         font-size: 0.875em;
     }

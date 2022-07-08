@@ -24,8 +24,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: max(600px, 100vh);
     height: 100vh;
+    min-height: max(600px, 100vh);
     background-color: $black;
 
     @media (max-width: $screenLg) {
@@ -52,7 +52,7 @@
     @media (max-width: $screenXl) {
         margin-bottom: 6.4vw;
         // font-size: 7.8125vw;
-        font-size: 7.03125vw;
+        font-size: 7.0313vw;
     }
 
     @media (max-width: $screenLg) {
