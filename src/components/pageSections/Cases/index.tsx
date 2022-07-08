@@ -15,20 +15,7 @@ const Cases: React.FC = () => {
     const casesContainer = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
     const [activeSlide, setActiveSlide] = useState<number>(0);
-    const [pinnedScroll, setPinnedScroll] = useState(true);
-
-    const resize = () => {
-        if (window.innerWidth <= 992) {
-            setPinnedScroll(false);
-        } else {
-            setPinnedScroll(true);
-        }
-    };
-    useEffect(() => {
-        resize();
-        window.addEventListener('resize', resize);
-        return () => window.removeEventListener('resize', resize);
-    }, []);
+    const [isPinnedScroll, setIsPinnedScroll] = useState(false);
 
     const casesAmount = casesList.length;
 
@@ -54,6 +41,8 @@ const Cases: React.FC = () => {
     };
 
     const jumpTo = (index: number | null) => {
+        console.log('test');
+
         if (
             casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
             casesContainer.current
@@ -66,7 +55,6 @@ const Cases: React.FC = () => {
                     (sectionProgress -
                         casesTimeline.current.scrollTrigger.progress) +
                 (index === null ? container.offsetHeight : 0);
-
             gsap.to(window, {
                 duration: Math.abs(distance / 3000),
                 scrollTo: {
@@ -82,16 +70,23 @@ const Cases: React.FC = () => {
     useEffect(() => {
         const container = casesContainer.current;
         if (container !== null && casesContainer.current !== null) {
-            const caseItemsImages = gsap.utils.toArray(
-                container.querySelectorAll('.case-item-image')
+            const casesInfoItems = gsap.utils.toArray(
+                container.querySelectorAll('.cases-info-item')
+            );
+            const casesImagesItems = gsap.utils.toArray(
+                container.querySelectorAll('.cases-image-item')
+            );
+            const transformArrayStart = [...Array(casesAmount)].map(
+                (_, index) => index * 100
             );
 
-            const caseItemsInfo = gsap.utils.toArray(
-                container.querySelectorAll('.case-item-info')
-            );
+            const transformArrayEnd = [...transformArrayStart]
+                .reverse()
+                .map((position) => -position);
 
             ScrollTrigger.matchMedia({
                 '(min-width: 993px)': function () {
+                    setIsPinnedScroll(true);
                     casesTimeline.current = gsap
                         .timeline({
                             scrollTrigger: {
@@ -111,56 +106,74 @@ const Cases: React.FC = () => {
                                     `+=${container.offsetHeight * casesAmount}`,
                             },
                         })
-                        .to(
-                            caseItemsImages,
+                        .fromTo(
+                            casesInfoItems,
+                            { yPercent: gsap.utils.wrap(transformArrayStart) },
+
                             {
-                                xPercent: -100 * (caseItemsImages.length - 1),
+                                yPercent: gsap.utils.wrap(transformArrayEnd),
                                 ease: 'none',
                             },
                             0
                         )
-                        .to(
-                            caseItemsInfo,
+                        .fromTo(
+                            casesImagesItems,
+                            { xPercent: gsap.utils.wrap(transformArrayStart) },
                             {
-                                yPercent: -100 * (caseItemsInfo.length - 1),
+                                xPercent: gsap.utils.wrap(transformArrayEnd),
                                 ease: 'none',
                             },
                             0
                         );
                 },
+                '(max-width: 992px)': function () {
+                    setIsPinnedScroll(false);
+                    casesTimeline.current = gsap
+                        .timeline()
+                        .fromTo(
+                            casesInfoItems,
+                            { yPercent: 0 },
+                            { yPercent: 0 },
+                            0
+                        )
+                        .fromTo(
+                            casesImagesItems,
+                            { xPercent: 0 },
+                            { xPercent: 0 },
+                            0
+                        );
+                },
             });
         }
-    }, [pinnedScroll]);
+    }, []);
 
     return (
         <section className={`cases-sections ${styles.root}`}>
-            {pinnedScroll ? (
-                <section className={styles.casesContainer} ref={casesContainer}>
-                    <div
-                        className={`cases-infos ${styles.caseInfo}`}
-                        style={{ height: 100 * casesAmount + 'vh' }}
-                    >
-                        {casesList.map((x, index) => (
-                            <CaseItemInfo
-                                key={index}
-                                title={x.title}
-                                description={x.description}
-                                onSkip={() => {
-                                    jumpTo(null);
-                                }}
-                            />
-                        ))}
+            <section className={styles.casesContainer} ref={casesContainer}>
+                {casesList.map((x, index) => (
+                    <div className={styles.cases} key={index}>
+                        <div className={styles.casesInfo}>
+                            <div
+                                className={`${styles.casesInfoItem} cases-info-item`}
+                            >
+                                <CaseItemInfo
+                                    isFirst={isPinnedScroll || index === 0}
+                                    title={x.title}
+                                    description={x.description}
+                                    onSkip={() => {
+                                        jumpTo(null);
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.casesImage}>
+                            <div className="cases-image-item">
+                                <CaseItemImage image={x.image} />
+                            </div>
+                        </div>
                     </div>
-
-                    <div className={`cases-images ${styles.caseImage}`}>
-                        {casesList.map((x, index) => (
-                            <CaseItemImage key={index} image={x.image} />
-                        ))}
-                    </div>
-                </section>
-            ) : (
-                <></>
-            )}
+                ))}
+            </section>
 
             <div className={styles.bullets}>
                 {casesList.map((_, index) => (
