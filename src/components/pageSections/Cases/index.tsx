@@ -15,6 +15,20 @@ const Cases: React.FC = () => {
     const casesContainer = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
     const [activeSlide, setActiveSlide] = useState<number>(0);
+    const [pinnedScroll, setPinnedScroll] = useState(true);
+
+    const resize = () => {
+        if (window.innerWidth <= 992) {
+            setPinnedScroll(false);
+        } else {
+            setPinnedScroll(true);
+        }
+    };
+    useEffect(() => {
+        resize();
+        window.addEventListener('resize', resize);
+        return () => window.removeEventListener('resize', resize);
+    }, []);
 
     const casesAmount = casesList.length;
 
@@ -67,7 +81,7 @@ const Cases: React.FC = () => {
 
     useEffect(() => {
         const container = casesContainer.current;
-        if (container !== null) {
+        if (container !== null && casesContainer.current !== null) {
             const caseItemsImages = gsap.utils.toArray(
                 container.querySelectorAll('.case-item-image')
             );
@@ -77,7 +91,7 @@ const Cases: React.FC = () => {
             );
 
             ScrollTrigger.matchMedia({
-                '(min-width: 992px)': function () {
+                '(min-width: 993px)': function () {
                     casesTimeline.current = gsap
                         .timeline({
                             scrollTrigger: {
@@ -116,33 +130,38 @@ const Cases: React.FC = () => {
                 },
             });
         }
-    }, []);
+    }, [pinnedScroll]);
 
     return (
         <section className={`cases-sections ${styles.root}`}>
-            <section className={styles.casesContainer} ref={casesContainer}>
-                <div
-                    className={`cases-infos ${styles.caseInfo}`}
-                    style={{ height: 100 * casesAmount + 'vh' }}
-                >
-                    {casesList.map((x, index) => (
-                        <CaseItemInfo
-                            key={index}
-                            title={x.title}
-                            description={x.description}
-                            onSkip={() => {
-                                jumpTo(null);
-                            }}
-                        />
-                    ))}
-                </div>
+            {pinnedScroll ? (
+                <section className={styles.casesContainer} ref={casesContainer}>
+                    <div
+                        className={`cases-infos ${styles.caseInfo}`}
+                        style={{ height: 100 * casesAmount + 'vh' }}
+                    >
+                        {casesList.map((x, index) => (
+                            <CaseItemInfo
+                                key={index}
+                                title={x.title}
+                                description={x.description}
+                                onSkip={() => {
+                                    jumpTo(null);
+                                }}
+                            />
+                        ))}
+                    </div>
 
-                <div className={`cases-images ${styles.caseImage}`}>
-                    {casesList.map((x, index) => (
-                        <CaseItemImage key={index} image={x.image} />
-                    ))}
-                </div>
-            </section>
+                    <div className={`cases-images ${styles.caseImage}`}>
+                        {casesList.map((x, index) => (
+                            <CaseItemImage key={index} image={x.image} />
+                        ))}
+                    </div>
+                </section>
+            ) : (
+                <></>
+            )}
+
             <div className={styles.bullets}>
                 {casesList.map((_, index) => (
                     <button

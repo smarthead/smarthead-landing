@@ -6,6 +6,10 @@
     width: 100vw;
     height: 100vh;
     min-height: max(600px, 100vh);
+
+    @media (max-width: $screenLg) {
+        min-height: auto;
+    }
 }
 
 .cases-container {
@@ -20,7 +24,6 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    // height: 300vh;
     width: 65vw;
     overscroll-behavior: none;
 }
@@ -28,7 +31,6 @@
 .case-image {
     display: flex;
     flex-wrap: nowrap;
-    // width: 105vw;
     overflow: hidden;
     height: 100%;
     overscroll-behavior: none;
@@ -41,6 +43,14 @@
     gap: 2vw;
     align-self: center;
     margin-left: 9.375vw;
+
+    @media (max-width: $screen2Xl) {
+        gap: 32px;
+    }
+
+    @media (max-width: $screenXl) {
+        margin-left: 7.8125vw;
+    }
 }
 
 .button-bullet {
@@ -51,8 +61,13 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-}
 
-.button-bullet-active {
-    background: $black;
+    @media (max-width: $screen2Xl) {
+        width: 12px;
+        height: 12px;
+    }
+
+    &-active {
+        background: $black;
+    }
 }
