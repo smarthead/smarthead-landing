@@ -33,12 +33,25 @@ export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
 
 interface ICaseItemImage {
     image: string;
+    origin?: string;
 }
-export const CaseItemImage: React.FC<ICaseItemImage> = ({ image }) => {
+
+export const CaseItemImage: React.FC<ICaseItemImage> = ({ image, origin }) => {
+    const bgStyle: {
+        backgroundImage: string;
+        backgroundPosition?: string;
+    } = {
+        backgroundImage: `url("${image}")`,
+    };
+
+    if (origin !== undefined) {
+        bgStyle.backgroundPosition = origin;
+    }
+
     return (
         <div
             className={`case-item-image ${styles.image}`}
-            style={{ backgroundImage: `url("${image}")` }}
+            style={bgStyle}
         ></div>
     );
 };

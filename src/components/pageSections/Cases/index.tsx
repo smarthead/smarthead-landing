@@ -17,6 +17,8 @@ const Cases: React.FC = () => {
     const [activeSlide, setActiveSlide] = useState<number>(0);
     const [isPinnedScroll, setIsPinnedScroll] = useState(false);
 
+    const [isTablet, setIsTablet] = useState(false);
+
     const casesAmount = casesList.length;
 
     const slideSize = 1 / (casesAmount - 1);
@@ -41,8 +43,6 @@ const Cases: React.FC = () => {
     };
 
     const jumpTo = (index: number | null) => {
-        console.log('test');
-
         if (
             casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
             casesContainer.current
@@ -99,6 +99,7 @@ const Cases: React.FC = () => {
                                     directional: false,
                                     duration: 0.5,
                                 },
+
                                 onUpdate: (self) => {
                                     handleScrollUpdate(self.progress);
                                 },
@@ -147,10 +148,21 @@ const Cases: React.FC = () => {
         }
     }, []);
 
+    const handleResize = () => {
+        const width = window.innerWidth;
+        setIsTablet(width > 640 && width <= 992);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <section className={`cases-sections ${styles.root}`}>
             <section className={styles.casesContainer} ref={casesContainer}>
-                {casesList.map((x, index) => (
+                {casesList.map((caseObj, index) => (
                     <div className={styles.cases} key={index}>
                         <div className={styles.casesInfo}>
                             <div
@@ -158,8 +170,8 @@ const Cases: React.FC = () => {
                             >
                                 <CaseItemInfo
                                     isFirst={isPinnedScroll || index === 0}
-                                    title={x.title}
-                                    description={x.description}
+                                    title={caseObj.title}
+                                    description={caseObj.description}
                                     onSkip={() => {
                                         jumpTo(null);
                                     }}
@@ -168,7 +180,18 @@ const Cases: React.FC = () => {
                         </div>
                         <div className={styles.casesImage}>
                             <div className="cases-image-item">
-                                <CaseItemImage image={x.image} />
+                                <CaseItemImage
+                                    image={
+                                        isTablet
+                                            ? caseObj.image.tablet.src
+                                            : caseObj.image.original.src
+                                    }
+                                    origin={
+                                        isTablet
+                                            ? caseObj.image.tablet.origin
+                                            : caseObj.image.original.origin
+                                    }
+                                />
                             </div>
                         </div>
                     </div>
