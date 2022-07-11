@@ -1,22 +1,22 @@
 @import "../../../styles/variables";
 
 .header {
-    margin: 3.846vw 0 6.5625vw;
+    margin: 3.846vw 0 0;
 
     @media (max-width: $screen2Xl) {
-        margin: 50px 0 105px;
+        margin: 50px 0 0;
     }
 
     @media (max-width: $screenXl) {
-        margin: 4vw 0 7.8125vw;
+        margin: 4vw 0 0;
     }
 
     @media (max-width: $screenLg) {
-        margin: 30px 0 94px;
+        margin: 30px 0 0;
     }
 
     @media (max-width: $screenXs) {
-        margin: 30px 0 69px;
+        margin: 30px 0 0;
     }
 }
 
@@ -36,14 +36,25 @@
 .content {
     display: flex;
     flex-direction: column;
+    margin: auto 0;
+    padding: 1.5vw 0 4vw;
+
+    @media (max-width: $screenLg) {
+        padding: 10% 0 11%;
+    }
+
+    @media (max-width: $screenXs) {
+        padding: 10% 0 8%;
+    }
 }
 
 .headline {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin-top: 0;
     margin-bottom: 4vw;
-    color: white;
+    color: $white;
     font-family: $gilroy-700;
     font-size: 7.5vw;
     line-height: 0.9em;
@@ -66,18 +77,17 @@
     }
 
     @media (max-width: $screenXs) {
-        font-size: 32px;
-        line-height: 36px;
+        font-size: 8.888vw;
+        line-height: 10vw;
     }
 }
 
 .second-line {
-    display: inline-block;
-    width: 100%;
-    text-align: right;
+    display: inline-flex;
+    align-self: flex-end;
 
     @media (max-width: $screenXs) {
-        text-align: left;
+        align-self: flex-start;
     }
 }
 
@@ -108,7 +118,7 @@
 
     @media (max-width: $screenXs) {
         margin-bottom: 40px;
-        font-size: 14px;
+        font-size: 3.8888vw;
     }
 }
 
