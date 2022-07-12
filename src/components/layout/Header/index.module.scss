@@ -35,6 +35,7 @@
     color: white;
     font-family: $inter-400;
     font-size: 1.5vw; //24px
+    transition: color 0.15s ease-out;
 
     @media (max-width: $screen2Xl) {
         font-size: 24px;
@@ -46,6 +47,10 @@
 
     &:not(:last-child) {
         margin-right: 1.333em;
+    }
+
+    &:hover {
+        color: $yellow;
     }
 }
 

@@ -77,11 +77,15 @@
 }
 
 .contact-link,
-.contact-link:visited,
-.contact-link:hover {
+.contact-link:visited {
     color: $white;
     white-space: nowrap;
     text-decoration: none;
+    transition: color 0.15s ease-out;
+
+    &:hover {
+        color: $yellow;
+    }
 }
 
 .contacts-item {

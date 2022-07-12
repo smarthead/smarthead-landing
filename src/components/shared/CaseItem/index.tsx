@@ -25,7 +25,7 @@ export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
                     onSkip();
                 }}
             >
-                <img src={arrowDown} alt="" />
+                <img className={styles.skipButtonImg} src={arrowDown} alt="" />
             </button>
         </div>
     );
