@@ -16,7 +16,6 @@ const Header: React.FC<ILinks> = ({ links }) => {
             document.body.style.position = 'fixed';
         }
         setMenuOpened(!menuOpened);
-        console.log(menuOpened);
     };
 
     const mobileMenuClickHandler = (e: React.MouseEvent) => {
@@ -49,7 +48,7 @@ const Header: React.FC<ILinks> = ({ links }) => {
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
-            setMenuOpened(false);
+            hamburgerClickHandler();
         }
     };
     useEffect(() => {
