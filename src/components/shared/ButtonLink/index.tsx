@@ -4,6 +4,7 @@ import ArrowRightBlack from '../../../assets/images/arrow-right-black.svg';
 import ArrowRightWhite from '../../../assets/images/arrow-right-white.svg';
 
 interface IButtonLinkProps {
+    className?: string;
     text: string;
     type: string;
     link: string;
@@ -11,7 +12,12 @@ interface IButtonLinkProps {
 type TButtonPreset = {
     [name: string]: { style: string; arrowSrc: string };
 };
-const ButtonLink: React.FC<IButtonLinkProps> = ({ text, type, link }) => {
+const ButtonLink: React.FC<IButtonLinkProps> = ({
+    text,
+    type,
+    link,
+    className,
+}) => {
     const buttonPresets: TButtonPreset = {
         yellow: {
             style: styles.yellowButton,
@@ -25,7 +31,10 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({ text, type, link }) => {
     const buttonSettings = buttonPresets[type] || buttonPresets.yellow;
 
     return (
-        <a href={link} className={`${styles.button} ${buttonSettings.style}`}>
+        <a
+            href={link}
+            className={`${styles.button} ${buttonSettings.style} ${className}`}
+        >
             <img
                 src={buttonSettings.arrowSrc}
                 alt="Arrow right icon"

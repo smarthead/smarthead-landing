@@ -20,9 +20,14 @@
     }
 }
 
+.hero-button {
+    visibility: hidden;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     width: 100%;
     min-height: max(600px, 100vh);
     background-color: $black;
