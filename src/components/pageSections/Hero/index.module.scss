@@ -26,10 +26,6 @@
     width: 100%;
     min-height: max(600px, 100vh);
     background-color: $black;
-
-    @media (max-width: $screenLg) {
-        min-height: auto;
-    }
 }
 
 .content {
