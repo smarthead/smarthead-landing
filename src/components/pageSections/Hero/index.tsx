@@ -4,7 +4,13 @@ import Header from '../../layout/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 
-const Hero: React.FC = () => {
+export interface ILinks {
+    links: {
+        [key: string]: string;
+    };
+}
+
+const Hero: React.FC<ILinks> = ({ links }) => {
     const resize = () => {
         const secondLineElem = document.getElementsByClassName(
             styles.secondLine
@@ -34,13 +40,15 @@ const Hero: React.FC = () => {
         );
 
         window.addEventListener('resize', resize);
-        return () => window.removeEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
     }, []);
 
     return (
         <section className={`${styles.hero} container`}>
             <div className={styles.header}>
-                <Header />
+                <Header links={links} />
             </div>
             <div className={styles.content}>
                 <h1 className={styles.headline}>

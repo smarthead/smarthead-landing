@@ -26,7 +26,7 @@
     @media (max-width: $screenLg) {
         width: 100%;
         height: auto;
-        padding: 9.6354vw 7.8125vw 3.125vw 7.8125vw;
+        padding: 9.6354vw 7.8125vw 3.125vw;
     }
 }
 
@@ -50,6 +50,7 @@
     @media (max-width: $screenLg) {
         font-size: 1.823vw;
     }
+
     @media (max-width: $screenSm) {
         font-size: 12px;
     }
@@ -72,9 +73,11 @@
     @media (max-width: $screenXl) {
         font-size: 3.75vw;
     }
+
     @media (max-width: $screenLg) {
         font-size: 3.125vw;
     }
+
     @media (max-width: $screenSm) {
         font-size: 24px;
     }
@@ -93,9 +96,11 @@
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
     }
+
     @media (max-width: $screenLg) {
         font-size: 1.823vw;
     }
+
     @media (max-width: $screenSm) {
         font-size: 12px;
     }
@@ -115,6 +120,7 @@
         width: 56px;
         height: 56px;
     }
+
     @media (max-width: $screenLg) {
         display: none;
     }
@@ -129,6 +135,7 @@
         width: 100vw;
         height: 94.8vw;
     }
+
     @media (max-width: $screenSm) {
         height: 100vw;
     }

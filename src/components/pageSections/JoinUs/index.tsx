@@ -8,12 +8,12 @@ const vacancies = [
         text: 'Middle .NET-разработчик',
         link: 'https://kazan.hh.ru/vacancy/54583226?from=employer&hhtmFrom=employer ',
     },
-    { text: 'Middle/Senior Node.js-разработчик', link: '#' },
+    // { text: 'Middle/Senior Node.js-разработчик', link: '#' },
 ];
 
 // TODO: Divide elements picking from arrow positioning
 
-const JoinUs: React.FC = () => {
+const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
     const vacancyList = useRef(null as HTMLElement | null);
     const [fontIsLoaded, setFontIsLoaded] = useState(false);
     const resize = () => {
@@ -49,7 +49,9 @@ const JoinUs: React.FC = () => {
 
     useEffect(() => {
         window.addEventListener('resize', resize);
-        return () => window.removeEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
     }, []);
 
     useEffect(() => {
@@ -61,7 +63,7 @@ const JoinUs: React.FC = () => {
     }, []);
 
     return (
-        <section id="join-us" className={styles.root}>
+        <section id={id} className={styles.root}>
             <div className="container">
                 <div className={styles.content}>
                     <h2 className={styles.headline}>

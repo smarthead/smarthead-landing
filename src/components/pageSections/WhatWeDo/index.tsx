@@ -1,8 +1,8 @@
 import React from 'react';
 import * as styles from './index.module.scss';
 
-const WhatWeDo: React.FC = () => (
-    <section className={styles.root}>
+const WhatWeDo: React.FC<{ id?: string }> = ({ id }) => (
+    <section className={styles.root} id={id}>
         <div className="container">
             <ul className={styles.task}>
                 <li className={styles.taskItem}>

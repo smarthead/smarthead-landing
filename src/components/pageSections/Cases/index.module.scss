@@ -19,8 +19,8 @@
     overscroll-behavior: none;
 
     @media (max-width: $screenLg) {
-        height: auto;
         flex-direction: column;
+        height: auto;
     }
 }
 
@@ -39,6 +39,7 @@
     @media (max-width: $screenXl) {
         margin-left: 7.8125vw;
     }
+
     @media (max-width: $screenLg) {
         display: none;
     }
@@ -64,10 +65,10 @@
 }
 
 .cases {
+    position: absolute;
+    display: flex;
     width: 100%;
     height: 100%;
-    display: flex;
-    position: absolute;
     pointer-events: none;
 
     @media (max-width: $screenLg) {
@@ -92,19 +93,21 @@
         display: flex;
         flex-wrap: nowrap;
         overflow: hidden;
+        width: 35vw;
         height: 100%;
         overscroll-behavior: none;
-        width: 35vw;
 
         @media (max-width: $screenLg) {
             width: 100vw;
             height: 94.8vw;
         }
+
         @media (max-width: $screenSm) {
             height: 100vw;
         }
     }
 }
+
 .cases-info-item {
     pointer-events: all;
 }

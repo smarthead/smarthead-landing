@@ -100,7 +100,7 @@
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    background-color: black;
+    background-color: $black;
     transition: transform 0.4s ease;
     transform: translate3d(100%, 0, 0);
 }

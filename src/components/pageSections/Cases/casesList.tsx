@@ -3,18 +3,18 @@ import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty.jp
 import roboticsImage from '../../../assets/images/cases/case_robotics.jpg';
 import stringAppImage from '../../../assets/images/cases/case_StringApp.jpg';
 import visaPromoImage from '../../../assets/images/cases/case_VisaPromo.jpg';
-import cdsImage from '../../../assets/images/cases/case_CDS.jpg';
-import avastarImage from '../../../assets/images/cases/case_avastar.jpg';
-import lifeAirImage from '../../../assets/images/cases/case_LifeAir.jpg';
+// import cdsImage from '../../../assets/images/cases/case_CDS.jpg';
+// import avastarImage from '../../../assets/images/cases/case_avastar.jpg';
+// import lifeAirImage from '../../../assets/images/cases/case_LifeAir.jpg';
 
 import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
 import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet.jpg';
 import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet.jpg';
 import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet.jpg';
 import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet.jpg';
-import cdsImageTablet from '../../../assets/images/cases/case_CDS_tablet.jpg';
-import avastarImageTablet from '../../../assets/images/cases/case_avastar_tablet.jpg';
-import lifeAirImageTablet from '../../../assets/images/cases/case_LifeAir_tablet.jpg';
+// import cdsImageTablet from '../../../assets/images/cases/case_CDS_tablet.jpg';
+// import avastarImageTablet from '../../../assets/images/cases/case_avastar_tablet.jpg';
+// import lifeAirImageTablet from '../../../assets/images/cases/case_LifeAir_tablet.jpg';
 
 export const casesList = [
     {
@@ -90,46 +90,46 @@ export const casesList = [
         },
     },
 
-    {
-        title: 'Cirque du soleil',
-        description:
-            'Обновили российский сайт известного на весь мир цирка. Облегчили выбор шоу и покупку билетов, привели сайт к единому оформлению с международной площадкой и создали мобильную версию.',
-        image: {
-            original: {
-                src: cdsImage,
-                origin: '0% 50%',
-            },
-            tablet: {
-                src: cdsImageTablet,
-            },
-        },
-    },
-    {
-        title: 'Avastar',
-        description:
-            'Разработали систему для трансляции рекламы на задние стекла автомобилей. Для этого мы создали собственный аппаратный прототип с системой охлаждения и платой расширения, к которой подключены модем, датчики освещения, мониторы и GPS.',
-        image: {
-            original: {
-                src: avastarImage,
-                origin: '0% 50%',
-            },
-            tablet: {
-                src: avastarImageTablet,
-            },
-        },
-    },
-    {
-        title: 'LifeAir',
-        description:
-            'Создали систему для тестирования на COVID–19 в аэропортах Шереметьево, Домодедово и Внуково. Она помогла уменьшить время ожидания в очереди со 120 до 15 минут. С начала использования в системе было зарегистрировано более миллиона пассажиров.',
-        image: {
-            original: {
-                src: lifeAirImage,
-                origin: '0% 25%',
-            },
-            tablet: {
-                src: lifeAirImageTablet,
-            },
-        },
-    },
+    // {
+    //     title: 'Cirque du soleil',
+    //     description:
+    //         'Обновили российский сайт известного на весь мир цирка. Облегчили выбор шоу и покупку билетов, привели сайт к единому оформлению с международной площадкой и создали мобильную версию.',
+    //     image: {
+    //         original: {
+    //             src: cdsImage,
+    //             origin: '0% 50%',
+    //         },
+    //         tablet: {
+    //             src: cdsImageTablet,
+    //         },
+    //     },
+    // },
+    // {
+    //     title: 'Avastar',
+    //     description:
+    //         'Разработали систему для трансляции рекламы на задние стекла автомобилей. Для этого мы создали собственный аппаратный прототип с системой охлаждения и платой расширения, к которой подключены модем, датчики освещения, мониторы и GPS.',
+    //     image: {
+    //         original: {
+    //             src: avastarImage,
+    //             origin: '0% 50%',
+    //         },
+    //         tablet: {
+    //             src: avastarImageTablet,
+    //         },
+    //     },
+    // },
+    // {
+    //     title: 'LifeAir',
+    //     description:
+    //         'Создали систему для тестирования на COVID–19 в аэропортах Шереметьево, Домодедово и Внуково. Она помогла уменьшить время ожидания в очереди со 120 до 15 минут. С начала использования в системе было зарегистрировано более миллиона пассажиров.',
+    //     image: {
+    //         original: {
+    //             src: lifeAirImage,
+    //             origin: '0% 25%',
+    //         },
+    //         tablet: {
+    //             src: lifeAirImageTablet,
+    //         },
+    //     },
+    // },
 ];

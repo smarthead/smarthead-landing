@@ -12,18 +12,27 @@ import Cases from '../components/pageSections/Cases';
 import Footer from '../components/pageSections/Footer';
 import Tagline from '../components/pageSections/Tagline';
 
-const IndexPage = () => (
-    <div>
-        <Hero />
-        <HowWeWork />
-        <WhatWeDo />
-        <Cases />
-        <Partners />
-        <Tagline />
-        <Acquaintance />
-        <JoinUs />
-        <Footer />
-    </div>
-);
+const IndexPage = () => {
+    const links = {
+        services: 'services',
+        cases: 'cases',
+        aboutUs: 'about-us',
+        vacancies: 'vacancies',
+        contacts: 'contacts',
+    };
+    return (
+        <div>
+            <Hero links={links} />
+            <HowWeWork />
+            <WhatWeDo id={links.services} />
+            <Cases id={links.cases} />
+            <Partners />
+            <Tagline />
+            <Acquaintance id={links.aboutUs} />
+            <JoinUs id={links.vacancies} />
+            <Footer id={links.contacts} />
+        </div>
+    );
+};
 
 export default IndexPage;

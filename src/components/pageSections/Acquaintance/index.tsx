@@ -6,8 +6,8 @@ import instagramCover from '../../../assets/images/instagram_cover.jpg';
 import telegramCover from '../../../assets/images/telegram_cover.jpg';
 import { links } from '../../shared/links';
 
-const Acquaintance: React.FC = () => (
-    <section className={styles.root}>
+const Acquaintance: React.FC<{ id?: string }> = ({ id }) => (
+    <section id={id} className={styles.root}>
         <div className="container">
             <h2 className={styles.headline}>Познакомьтесь с нами поближе</h2>
             <div className={styles.cards}>

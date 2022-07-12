@@ -1,47 +1,47 @@
 {
-  "name": "smarthead-landing",
-  "version": "0.1.0",
-  "description": "",
-  "private": true,
-  "engines": {
-    "node": ">=16",
-    "npm": ">=8"
-  },
-  "scripts": {
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "build:development": "",
-    "build:stage": "",
-    "build:production": "",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
-    "lint": "npm run lint:css",
-    "lint:fix": "npm run lint:css:fix",
-    "lint:css": "stylelint --quiet --cache --allow-empty-input \"src/**/*.{css,scss}\"",
-    "lint:css:fix": "stylelint --quiet --cache --allow-empty-input --fix --config .stylelintrc-extended \"src/**/*.{css,scss}\""
-  },
-  "dependencies": {
-    "@types/fontfaceobserver": "^2.1.0",
-    "fontfaceobserver": "^2.3.0",
-    "gatsby": "^4.15.0",
-    "gatsby-plugin-manifest": "^4.15.0",
-    "gatsby-plugin-sass": "^5.15.0",
-    "gsap": "^3.10.4",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sass": "^1.52.1"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.35",
-    "@types/react": "^17.0.45",
-    "@types/react-dom": "^17.0.17",
-    "stylelint": "^14.8.5",
-    "stylelint-config-recommended-scss": "^6.0.0",
-    "stylelint-config-standard": "^25.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.2.0",
-    "typescript": "^4.6.4"
-  }
+    "name": "smarthead-landing",
+    "version": "0.1.0",
+    "description": "",
+    "private": true,
+    "engines": {
+        "node": ">=16",
+        "npm": ">=8"
+    },
+    "scripts": {
+        "start": "gatsby develop",
+        "build": "gatsby build",
+        "build:development": "",
+        "build:stage": "",
+        "build:production": "",
+        "develop": "gatsby develop -H 0.0.0.0",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "typecheck": "tsc --noEmit",
+        "lint": "npm run lint:css",
+        "lint:fix": "npm run lint:css:fix",
+        "lint:css": "stylelint --quiet --cache --allow-empty-input \"src/**/*.{css,scss}\"",
+        "lint:css:fix": "stylelint --quiet --cache --allow-empty-input --fix --config .stylelintrc-extended \"src/**/*.{css,scss}\""
+    },
+    "dependencies": {
+        "@types/fontfaceobserver": "^2.1.0",
+        "fontfaceobserver": "^2.3.0",
+        "gatsby": "^4.15.0",
+        "gatsby-plugin-manifest": "^4.15.0",
+        "gatsby-plugin-sass": "^5.15.0",
+        "gsap": "^3.10.4",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "sass": "^1.52.1"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.35",
+        "@types/react": "^17.0.45",
+        "@types/react-dom": "^17.0.17",
+        "stylelint": "^14.8.5",
+        "stylelint-config-recommended-scss": "^6.0.0",
+        "stylelint-config-standard": "^25.0.0",
+        "stylelint-order": "^5.0.0",
+        "stylelint-scss": "^4.2.0",
+        "typescript": "^4.6.4"
+    }
 }

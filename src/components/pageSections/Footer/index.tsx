@@ -3,8 +3,8 @@ import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SH_logo.svg';
 import { links } from '../../shared/links';
 
-const Footer: React.FC = () => (
-    <section className={styles.root}>
+const Footer: React.FC<{ id?: string }> = ({ id }) => (
+    <section id={id} className={styles.root}>
         <div className="container">
             <h2 className={styles.title}>Давайте поработаем вместе?</h2>
             <div className={styles.contacts}>

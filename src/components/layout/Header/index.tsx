@@ -1,25 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import * as styles from './index.module.scss';
-
+import { ILinks } from '../../pageSections/Hero';
 import shLogo from '../../../assets/images/SH_logo.svg';
-import { style } from '@mui/system';
 
-interface IHeaderProps {
-    title?: string;
-}
-
-const Header: React.FC<IHeaderProps> = ({ title }) => {
-    const [menuOpen, setMenuOpen] = useState(false);
+const Header: React.FC<ILinks> = ({ links }) => {
+    gsap.registerPlugin(ScrollToPlugin);
+    const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
-        setMenuOpen(!menuOpen);
-        console.log(menuOpen);
+        if (menuOpened) {
+            document.body.style.position = 'static';
+        } else {
+            document.body.style.position = 'fixed';
+        }
+        setMenuOpened(!menuOpened);
+        console.log(menuOpened);
     };
 
-    const mobileMenuClickHandler = (e) => {
-        setMenuOpen(!menuOpen);
-        console.log(e);
+    const mobileMenuClickHandler = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const target = e.target as HTMLElement;
+        const isMenuLink = target.className.includes(styles.mobileMenuLink);
+        if (isMenuLink) {
+            hamburgerClickHandler();
+            setMenuOpened(!menuOpened);
+            const targetSectionId = target.getAttribute('href');
+            linkClickHandler(targetSectionId);
+        }
     };
+    const desktopMenuClickHandler = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const targetSectionId = (e.target as HTMLElement).getAttribute('href');
+        linkClickHandler(targetSectionId);
+    };
+    const linkClickHandler = (section: string | null) => {
+        if (section === null) return;
+        gsap.to(window, {
+            duration: 0.7,
+            scrollTo: {
+                y: section,
+            },
+            ease: 'power1.inOut',
+            overwrite: true,
+        });
+    };
+
+    const resizeHandler = () => {
+        console.log('resize');
+    };
+    useEffect(() => {
+        window.addEventListener('resize', resizeHandler);
+        return () => {
+            window.removeEventListener('resize', resizeHandler);
+        };
+    });
 
     return (
         <header>
@@ -30,49 +66,64 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
                     className={styles.logo}
                 />
 
-                <div className={styles.menu}>
-                    <a href="#" className={styles.menuLink}>
+                <div className={styles.menu} onClick={desktopMenuClickHandler}>
+                    <a href={`#${links.services}`} className={styles.menuLink}>
                         Услуги
                     </a>
-                    <a href="#" className={styles.menuLink}>
+                    <a href={`#${links.cases}`} className={styles.menuLink}>
                         Кейсы
                     </a>
-                    <a href="#join-us" className={styles.menuLink}>
+                    <a href={`#${links.aboutUs}`} className={styles.menuLink}>
                         О нас
                     </a>
-                    <a href="#" className={styles.menuLink}>
+                    <a href={`#${links.vacancies}`} className={styles.menuLink}>
                         Вакансии
                     </a>
-                    <a href="#" className={styles.menuLink}>
+                    <a href={`#${links.contacts}`} className={styles.menuLink}>
                         Контакты
                     </a>
                 </div>
                 <div
                     className={`${styles.mobileMenu} ${
-                        menuOpen ? styles.mobileMenuOpened : ''
+                        menuOpened ? styles.mobileMenuOpened : ''
                     }`}
                     onClick={mobileMenuClickHandler}
                 >
-                    <a href="#" className={styles.mobileMenuLink}>
+                    <a
+                        href={`#${links.services}`}
+                        className={styles.mobileMenuLink}
+                    >
                         Услуги
                     </a>
-                    <a href="#" className={styles.mobileMenuLink}>
+                    <a
+                        href={`#${links.cases}`}
+                        className={styles.mobileMenuLink}
+                    >
                         Кейсы
                     </a>
-                    <a href="#" className={styles.mobileMenuLink}>
+                    <a
+                        href={`#${links.aboutUs}`}
+                        className={styles.mobileMenuLink}
+                    >
                         О нас
                     </a>
-                    <a href="#" className={styles.mobileMenuLink}>
+                    <a
+                        href={`#${links.vacancies}`}
+                        className={styles.mobileMenuLink}
+                    >
                         Вакансии
                     </a>
-                    <a href="#" className={styles.mobileMenuLink}>
+                    <a
+                        href={`#${links.contacts}`}
+                        className={styles.mobileMenuLink}
+                    >
                         Контакты
                     </a>
                 </div>
 
                 <div
                     className={`${styles.hamburger} ${
-                        menuOpen ? styles.hamburgerClose : ''
+                        menuOpened ? styles.hamburgerClose : ''
                     }`}
                     onClick={hamburgerClickHandler}
                 >

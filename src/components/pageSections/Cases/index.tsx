@@ -8,7 +8,7 @@ import * as styles from './index.module.scss';
 import { casesList } from './casesList';
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 
-const Cases: React.FC = () => {
+const Cases: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
 
@@ -55,8 +55,12 @@ const Cases: React.FC = () => {
                     (sectionProgress -
                         casesTimeline.current.scrollTrigger.progress) +
                 (index === null ? container.offsetHeight : 0);
+            const duration =
+                index === null
+                    ? Math.min(0.6, Math.abs(distance / 3000))
+                    : Math.abs(distance / 3000);
             gsap.to(window, {
-                duration: Math.abs(distance / 3000),
+                duration: duration,
                 scrollTo: {
                     y: container,
                     offsetY: -distance,
@@ -156,11 +160,13 @@ const Cases: React.FC = () => {
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         handleResize();
-        return () => window.removeEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
-        <section className={`cases-sections ${styles.root}`}>
+        <section id={id} className={`cases-sections ${styles.root}`}>
             <section className={styles.casesContainer} ref={casesContainer}>
                 {casesList.map((caseObj, index) => (
                     <div className={styles.cases} key={index}>
