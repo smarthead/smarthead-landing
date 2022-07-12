@@ -48,7 +48,9 @@ const Header: React.FC<ILinks> = ({ links }) => {
     };
 
     const resizeHandler = () => {
-        console.log('resize');
+        if (window.innerWidth > 768 && menuOpened) {
+            setMenuOpened(false);
+        }
     };
     useEffect(() => {
         window.addEventListener('resize', resizeHandler);
