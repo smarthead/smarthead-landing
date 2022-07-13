@@ -96,7 +96,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                             scrollTrigger: {
                                 trigger: '.cases-sections',
                                 pin: true,
-                                scrub: 0.5,
+                                scrub: 0,
                                 snap: {
                                     snapTo: 1 / (casesAmount - 1),
                                     delay: 0.1,
