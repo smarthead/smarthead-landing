@@ -27,6 +27,7 @@
 }
 
 .title {
+    visibility: hidden;
     margin: 0;
     color: $white;
     font-family: $gilroy-600;
@@ -46,13 +47,14 @@
 }
 
 .contacts {
+    position: relative;
     display: flex;
     margin-top: 6.25vw;
     padding-bottom: 3.125vw;
     color: $white;
     font-family: $inter-400;
     font-size: 1.5vw;
-    border-bottom: 2px $white50 solid;
+    // border-bottom: 2px $white50 solid;
     column-gap: 2.1875vw;
 
     @media (max-width: $screen2Xl) {
@@ -65,14 +67,28 @@
         font-size: 1.875vw;
     }
 
-    @media (max-width: $screenLg) {
-        border-bottom: 1px $white50 solid;
-    }
+    // @media (max-width: $screenLg) {
+    //     border-bottom: 1px $white50 solid;
+    // }
 
     @media (max-width: $screenSm) {
         flex-direction: column;
         row-gap: 5.555vw;
         font-size: 3.333vw;
+    }
+}
+
+.border {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 2px;
+    background-color: $white50;
+
+    @media (max-width: $screenLg) {
+        height: 1px;
     }
 }
 
@@ -90,6 +106,7 @@
 
 .contacts-item {
     display: flex;
+    visibility: hidden;
     flex-flow: column wrap;
     align-content: flex-start;
     flex: 1;

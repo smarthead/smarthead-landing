@@ -86,6 +86,7 @@
     }
 
     &-item {
+        visibility: hidden;
         width: calc(50% - 1.1vw);
         margin: 0;
         padding-bottom: 1.2em;

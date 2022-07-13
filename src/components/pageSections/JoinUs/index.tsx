@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import FontFaceObserver from 'fontfaceobserver';
 import * as styles from './index.module.scss';
 import ArrowRightYellow from '../../../assets/images/arrow-right-yellow.svg';
@@ -16,6 +19,8 @@ const vacancies = [
 const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
     const vacancyList = useRef(null as HTMLElement | null);
     const [fontIsLoaded, setFontIsLoaded] = useState(false);
+    gsap.registerPlugin(ScrollTrigger);
+
     const resize = () => {
         if (vacancyList.current) {
             const listElementsNodeList =
@@ -47,19 +52,44 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
         }
     };
 
-    useEffect(() => {
-        window.addEventListener('resize', resize);
-        return () => {
-            window.removeEventListener('resize', resize);
-        };
-    }, []);
+    const createAnimation = () => {
+        const height = (
+            document.getElementsByClassName(styles.headline)[0] as HTMLElement
+        ).offsetHeight;
+        console.log(height);
+        gsap.fromTo(
+            [
+                `.${styles.headline}`,
+                `.${styles.subtext}`,
+                `.${styles.vacanciesItem}`,
+                `.${styles.contactHr}`,
+            ],
+            { y: height, autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: `.${styles.content}`,
+                    start: 'top 70%',
+                },
+                duration: 0.5,
+                y: 0,
+                autoAlpha: 1,
+                stagger: 0.1,
+                ease: 'power2.out',
+            }
+        );
+    };
 
     useEffect(() => {
         const font = new FontFaceObserver('Gilroy-SemiBold');
         font.load().then(() => {
             setFontIsLoaded(true);
             resize();
+            createAnimation();
         });
+        window.addEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
     }, []);
 
     return (

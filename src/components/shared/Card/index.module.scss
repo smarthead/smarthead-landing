@@ -25,6 +25,7 @@
 }
 
 .cover {
+    overflow: hidden;
     width: 100%;
     height: 58.6%;
     background-position: 0 50%;
@@ -41,6 +42,14 @@
     @media (max-width: $screenSm) {
         height: 51%;
     }
+}
+
+.curtain {
+    width: 120%;
+    height: 110%;
+    margin-top: -10%;
+    margin-left: -10%;
+    background-color: $black;
 }
 
 .description {

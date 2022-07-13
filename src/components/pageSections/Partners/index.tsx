@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import * as styles from './index.module.scss';
 import sberSolutionsLogoSVG from '../../../assets/images/logos/sber_solutions_logo.svg';
 import veeamLogoSVG from '../../../assets/images/logos/veeam_logo.svg';
@@ -62,12 +65,51 @@ const Partners: React.FC = ({}) => {
         kelloggsLogoSVG,
         panasonicLogoSVG,
     ];
+    gsap.registerPlugin(ScrollTrigger);
 
+    useEffect(() => {
+        gsap.fromTo(
+            '.partners-headline',
+            { yPercent: 100, autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: '.partners-headline',
+                    start: 'bottom 70%',
+                },
+                duration: 0.5,
+                yPercent: 0,
+                autoAlpha: 1,
+                ease: 'power2.out',
+            }
+        );
+        gsap.fromTo(
+            '.partners-logo-item',
+            { yPercent: 100, autoAlpha: 0 },
+            {
+                scrollTrigger: {
+                    trigger: '.partners-logo-item',
+                    start: 'top 70%',
+                },
+                duration: 0.6,
+                yPercent: 0,
+                autoAlpha: 1,
+                ease: 'power2.out',
+                stagger: {
+                    grid: 'auto',
+                    axis: 'y',
+                    from: 'start',
+                    each: 0.15,
+                },
+            }
+        );
+    }, []);
     return (
         <div className={styles.carousel}>
             <div className="container">
                 <div className={styles.content}>
-                    <div className={styles.headline}>Нам доверяют</div>
+                    <div className={`${styles.headline} partners-headline`}>
+                        Нам доверяют
+                    </div>
 
                     <div className={styles.logos}>
                         {images.map((logo, index) => (
@@ -75,7 +117,7 @@ const Partners: React.FC = ({}) => {
                                 src={logo}
                                 key={index}
                                 alt=""
-                                className={styles.logo}
+                                className={`${styles.logo} partners-logo-item`}
                             />
                         ))}
                     </div>

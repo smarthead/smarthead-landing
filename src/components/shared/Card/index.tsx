@@ -7,19 +7,23 @@ interface ICardProps {
     description: string;
     buttonText: string;
     link: string;
+    curtainClassName: string;
 }
 const Card: React.FC<ICardProps> = ({
     image,
     description,
     buttonText,
     link,
+    curtainClassName,
 }) => {
     return (
         <div className={styles.card}>
             <div
                 className={styles.cover}
                 style={{ backgroundImage: `url("${image}")` }}
-            ></div>
+            >
+                <div className={`${curtainClassName} ${styles.curtain}`}></div>
+            </div>
             <div className={styles.description}>
                 <p className={styles.descriptionText}>{description}</p>
                 <ButtonLink text={buttonText} link={link} type="black" />

@@ -38,7 +38,8 @@
 }
 
 .task-item {
-    overflow: hidden;
+    position: relative;
+    visibility: hidden;
     line-height: 1.35em;
     list-style: none;
 
@@ -67,20 +68,20 @@
 
         &::after {
             position: absolute;
+            top: 2em;
             display: block;
             opacity: 0.5;
-            width: 100%;
+            width: 200%;
             height: 2px;
-            margin-top: 0.6em;
             background-color: $white;
             content: "";
 
             @media (max-width: $screenXl) {
-                margin-top: 0.7em;
+                top: 2em;
             }
 
             @media (max-width: $screenLg) {
-                margin-top: 1.385em;
+                top: 2.7em;
             }
 
             @media (max-width: $screenMd) {
@@ -88,7 +89,7 @@
             }
 
             @media (max-width: $screenSm) {
-                margin-top: 1.12em;
+                top: 3.8em;
             }
         }
     }

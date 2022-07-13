@@ -28,6 +28,7 @@
 }
 
 .headline {
+    visibility: hidden;
     color: $white;
     font-family: $gilroy-600;
     font-size: 4vw;
@@ -64,6 +65,7 @@
 }
 
 .logo {
+    visibility: hidden;
     justify-self: center;
     height: 3.4375vw;
 

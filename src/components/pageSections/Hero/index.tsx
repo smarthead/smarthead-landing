@@ -20,7 +20,7 @@ const Hero: React.FC<ILinks> = ({ links }) => {
     let revealTimeline = gsap.timeline({
         paused: true,
         scrollTrigger: {
-            trigger: `.${styles.hero}`,
+            trigger: `.${styles.content}`,
         },
     });
     const createTimeline = () => {
@@ -97,7 +97,6 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                 resize();
             }
         );
-
         window.addEventListener('resize', resize);
         return () => {
             window.removeEventListener('resize', resize);
