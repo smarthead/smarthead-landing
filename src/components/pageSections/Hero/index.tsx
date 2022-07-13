@@ -3,6 +3,8 @@ import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { invalidate } from '../../../utils/animation';
+import { scrollToSection } from '../../../utils/scroll';
+import { navigation } from '../../shared/navigation';
 
 import Header from '../../layout/Header';
 import ButtonLink from '../../shared/ButtonLink';
@@ -19,9 +21,9 @@ const Hero: React.FC<ILinks> = ({ links }) => {
 
     let revealTimeline = gsap.timeline({
         paused: true,
-        scrollTrigger: {
-            trigger: `.${styles.content}`,
-        },
+        // scrollTrigger: {
+        //     trigger: `.${styles.content}`,
+        // },
     });
     const createTimeline = () => {
         const headline =
@@ -48,7 +50,7 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                 stagger: 0.1,
                 ease: 'power2.out',
             },
-            0
+            0.2
         );
         const order = window.innerWidth > 992 ? 0.1 : -0.1;
         revealTimeline.fromTo(
@@ -62,7 +64,7 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                 stagger: order,
                 ease: 'power2.out',
             },
-            0.5
+            0.7
         );
     };
 
@@ -134,7 +136,10 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                         className={styles.heroButton}
                         type="yellow"
                         text="ХОЧУ С ВАМИ РАБОТАТЬ"
-                        link="#"
+                        link={`#${navigation.contacts}`}
+                        clickHandler={() => {
+                            scrollToSection(`#${navigation.contacts}`);
+                        }}
                     />
 
                     <p className={styles.subtext}>

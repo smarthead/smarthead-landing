@@ -56,7 +56,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
         const height = (
             document.getElementsByClassName(styles.headline)[0] as HTMLElement
         ).offsetHeight;
-        console.log(height);
+
         gsap.fromTo(
             [
                 `.${styles.headline}`,

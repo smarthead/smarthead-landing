@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { gsap } from 'gsap';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { scrollToSection } from '../../../utils/scroll';
+
 import * as styles from './index.module.scss';
 import { ILinks } from '../../pageSections/Hero';
 import shLogo from '../../../assets/images/SH_logo.svg';
 
 const Header: React.FC<ILinks> = ({ links }) => {
-    gsap.registerPlugin(ScrollToPlugin);
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -26,24 +25,13 @@ const Header: React.FC<ILinks> = ({ links }) => {
             hamburgerClickHandler();
             setMenuOpened(!menuOpened);
             const targetSectionId = target.getAttribute('href');
-            linkClickHandler(targetSectionId);
+            scrollToSection(targetSectionId);
         }
     };
     const desktopMenuClickHandler = (e: React.MouseEvent) => {
         e.preventDefault();
         const targetSectionId = (e.target as HTMLElement).getAttribute('href');
-        linkClickHandler(targetSectionId);
-    };
-    const linkClickHandler = (section: string | null) => {
-        if (section === null) return;
-        gsap.to(window, {
-            duration: 0.7,
-            scrollTo: {
-                y: section,
-            },
-            ease: 'power1.inOut',
-            overwrite: true,
-        });
+        scrollToSection(targetSectionId);
     };
 
     const resizeHandler = () => {

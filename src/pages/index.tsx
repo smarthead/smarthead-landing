@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import '../styles/index.scss';
 
@@ -11,26 +11,27 @@ import Partners from '../components/pageSections/Partners';
 import Cases from '../components/pageSections/Cases';
 import Footer from '../components/pageSections/Footer';
 import Tagline from '../components/pageSections/Tagline';
+import { navigation } from '../components/shared/navigation';
+import { scrollToSection } from '../utils/scroll';
 
 const IndexPage = () => {
-    const links = {
-        services: 'services',
-        cases: 'cases',
-        aboutUs: 'about-us',
-        vacancies: 'vacancies',
-        contacts: 'contacts',
-    };
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash.length > 0) {
+            scrollToSection(hash, 0);
+        }
+    }, []);
     return (
         <div>
-            <Hero links={links} />
+            <Hero links={navigation} />
             <HowWeWork />
-            <WhatWeDo id={links.services} />
-            <Cases id={links.cases} />
+            <WhatWeDo id={navigation.services} />
+            <Cases id={navigation.cases} />
             <Partners />
             <Tagline />
-            <Acquaintance id={links.aboutUs} />
-            <JoinUs id={links.vacancies} />
-            <Footer id={links.contacts} />
+            <Acquaintance id={navigation.aboutUs} />
+            <JoinUs id={navigation.vacancies} />
+            <Footer id={navigation.contacts} />
         </div>
     );
 };

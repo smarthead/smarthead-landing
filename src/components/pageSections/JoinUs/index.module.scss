@@ -21,6 +21,7 @@
 }
 
 .headline {
+    visibility: hidden;
     margin-top: 0;
     margin-bottom: 1.7vw;
     color: $black;
@@ -41,6 +42,7 @@
 }
 
 .subtext {
+    visibility: hidden;
     width: 90%;
     margin-top: 1.7vw;
     margin-bottom: 6.6vw;
@@ -96,6 +98,7 @@
     }
 
     &-item {
+        visibility: hidden;
         font-family: $gilroy-600;
         font-size: 3vw;
         white-space: nowrap;
@@ -154,6 +157,7 @@
 }
 
 .contact-hr {
+    visibility: hidden;
     width: auto;
     margin-left: 34.2%;
     padding-right: 15%;

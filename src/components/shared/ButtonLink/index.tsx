@@ -8,6 +8,7 @@ interface IButtonLinkProps {
     text: string;
     type: string;
     link: string;
+    clickHandler?: () => void;
 }
 type TButtonPreset = {
     [name: string]: { style: string; arrowSrc: string };
@@ -17,6 +18,7 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({
     type,
     link,
     className,
+    clickHandler,
 }) => {
     const buttonPresets: TButtonPreset = {
         yellow: {
@@ -33,6 +35,12 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({
     return (
         <a
             href={link}
+            onClick={(e) => {
+                if (clickHandler !== undefined) {
+                    e.preventDefault();
+                    clickHandler();
+                }
+            }}
             className={`${styles.button} ${buttonSettings.style} ${className}`}
         >
             <img

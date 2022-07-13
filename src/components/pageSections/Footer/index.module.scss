@@ -141,7 +141,7 @@
     @media (max-width: $screenSm) {
         max-height: 26vw;
 
-        &:last-child {
+        &:nth-last-child(2) {
             align-content: flex-start;
             column-gap: 13.5vw;
 
