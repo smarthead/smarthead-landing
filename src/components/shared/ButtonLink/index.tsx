@@ -35,6 +35,7 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({
     return (
         <a
             href={link}
+            target="_blank"
             onClick={(e) => {
                 if (clickHandler !== undefined) {
                     e.preventDefault();

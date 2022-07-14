@@ -60,6 +60,13 @@
     line-height: 0.9em;
     letter-spacing: 0.02em;
 
+    &-l1,
+    &-l2,
+    &-l3,
+    &-l4 {
+        visibility: hidden;
+    }
+
     @media (max-width: $screenXl) {
         margin-bottom: 6.4vw;
         // font-size: 7.8125vw;
@@ -92,6 +99,7 @@
 }
 
 .subtext {
+    visibility: hidden;
     margin: 0;
     color: $white;
     font-family: $inter-400;

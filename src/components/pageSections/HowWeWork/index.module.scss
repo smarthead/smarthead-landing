@@ -97,6 +97,7 @@
 
         @media (max-width: $screenLg) {
             padding-bottom: 0.9em;
+            border-bottom: 1px solid $black20;
         }
 
         @media (max-width: $screenSm) {

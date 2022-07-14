@@ -16,3 +16,17 @@ export const scrollToSection = (section: string | null, duration?: number) => {
         },
     });
 };
+
+export const scrollToTop = () => {
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.to(window, {
+        scrollTo: {
+            y: 0,
+        },
+        ease: 'power1.inOut',
+        overwrite: true,
+        onStart: () => {
+            history.replaceState(null, '', ' ');
+        },
+    });
+};

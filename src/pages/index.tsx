@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 import '../styles/index.scss';
 
@@ -23,6 +24,11 @@ const IndexPage = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>SmartHead — разработка цифровых продуктов</title>
+            </Helmet>
+
             <Hero links={navigation} />
             <HowWeWork />
             <WhatWeDo id={navigation.services} />

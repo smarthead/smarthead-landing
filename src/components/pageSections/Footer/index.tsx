@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { scrollToTop } from '../../../utils/scroll';
 import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SH_logo.svg';
 import { links } from '../../shared/links';
@@ -19,7 +20,7 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
             { yPercent: gsap.utils.wrap([60, 20, 20, 20, 200]), autoAlpha: 0 },
             {
                 scrollTrigger: {
-                    trigger: `.${styles.contactsItem}`,
+                    trigger: `.${styles.root}`,
                     start: 'top 70%',
                 },
                 duration: 0.5,
@@ -29,21 +30,6 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                 stagger: 0.2,
             }
         );
-        // gsap.fromTo(
-        //     [`.${styles.title}`, `.${styles.contactsItem}`],
-        //     { yPercent: gsap.utils.wrap([60, 20, 20, 20]), autoAlpha: 0 },
-        //     {
-        //         scrollTrigger: {
-        //             trigger: `.${styles.contactsItem}`,
-        //             start: 'top 70%',
-        //         },
-        //         duration: 0.5,
-        //         yPercent: 0,
-        //         autoAlpha: 1,
-        //         ease: 'power2.out',
-        //         stagger: 0.2,
-        //     }
-        // );
     }, []);
     return (
         <section id={id} className={styles.root}>
@@ -106,7 +92,9 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     </div>
                     <div className={styles.border}></div>
                 </div>
+
                 <img
+                    onClick={scrollToTop}
                     src={shLogo}
                     alt="SmartHead Logo"
                     className={styles.logo}

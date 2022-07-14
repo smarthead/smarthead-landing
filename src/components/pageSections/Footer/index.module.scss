@@ -172,4 +172,8 @@
     @media (max-width: $screenMd) {
         width: 81px;
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 }

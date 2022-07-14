@@ -25,20 +25,34 @@ const Hero: React.FC<ILinks> = ({ links }) => {
         //     trigger: `.${styles.content}`,
         // },
     });
+
     const createTimeline = () => {
         const headline =
             window.innerWidth > 480
                 ? [
-                      '.first-line',
-                      '.second-line',
-                      ['.third-line', '.fourth-line'],
+                      '.hero-h1-line1',
+                      '.hero-h1-line2',
+                      ['.hero-h1-line3', '.hero-h1-line4'],
                   ]
                 : [
-                      '.first-line',
-                      '.second-line',
-                      '.third-line',
-                      '.fourth-line',
+                      '.hero-h1-line1',
+                      '.hero-h1-line2',
+                      '.hero-h1-line3',
+                      '.hero-h1-line4',
                   ];
+        // const headline =
+        //     window.innerWidth > 480
+        //         ? [
+        //               `.${styles.headlineL1}`,
+        //               `.${styles.headlineL2}`,
+        //               [`.${styles.headlineL3}`, `.${styles.headlineL4}`],
+        //           ]
+        //         : [
+        //               `.${styles.headlineL1}`,
+        //               `.${styles.headlineL2}`,
+        //               `.${styles.headlineL3}`,
+        //               `.${styles.headlineL4}`,
+        //           ];
         revealTimeline.fromTo(
             headline,
             { yPercent: 100, autoAlpha: 0 },
@@ -112,20 +126,24 @@ const Hero: React.FC<ILinks> = ({ links }) => {
             </div>
             <div className={styles.content}>
                 <h1 className={styles.headline}>
-                    <span className="first-line">Разрабатываем</span>
-                    <span className={`second-line ${styles.secondLine}`}>
+                    <span className={`${styles.headlineL1} hero-h1-line1`}>
+                        Разрабатываем
+                    </span>
+                    <span
+                        className={`${styles.secondLine} ${styles.headlineL2} hero-h1-line2`}
+                    >
                         амбициозные
                     </span>
                     <span>
                         <span
                             style={{ display: 'inline-block' }}
-                            className="third-line"
+                            className={`${styles.headlineL3} hero-h1-line3`}
                         >
                             цифровые
                         </span>{' '}
                         <span
                             style={{ display: 'inline-block' }}
-                            className="fourth-line"
+                            className={`${styles.headlineL4} hero-h1-line4`}
                         >
                             продукты
                         </span>

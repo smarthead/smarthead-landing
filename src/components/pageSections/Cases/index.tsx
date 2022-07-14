@@ -55,10 +55,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                     (sectionProgress -
                         casesTimeline.current.scrollTrigger.progress) +
                 (index === null ? container.offsetHeight : 0);
-            const duration =
-                index === null
-                    ? Math.min(0.6, Math.abs(distance / 3000))
-                    : Math.abs(distance / 3000);
+            const duration = Math.min(0.6, Math.abs(distance / 3000));
             gsap.to(window, {
                 duration: duration,
                 scrollTo: {
@@ -97,12 +94,6 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                                 trigger: '.cases-sections',
                                 pin: true,
                                 scrub: 0,
-                                snap: {
-                                    snapTo: 1 / (casesAmount - 1),
-                                    delay: 0.1,
-                                    directional: false,
-                                    duration: 0.5,
-                                },
 
                                 onUpdate: (self) => {
                                     handleScrollUpdate(self.progress);
