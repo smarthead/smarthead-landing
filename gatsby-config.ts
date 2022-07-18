@@ -11,7 +11,16 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                icon: 'src/assets/images/icon.png',
+                icon: 'src/assets/images/favicon.svg',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: ['UA-3748959-16'],
+                pluginConfig: {
+                    head: true,
+                },
             },
         },
     ],

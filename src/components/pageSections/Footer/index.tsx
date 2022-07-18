@@ -65,26 +65,44 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     </div>
 
                     <div className={styles.contactsItem}>
-                        <a className={styles.contactLink} href={links.telegram}>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.telegram}
+                        >
                             Telegram
                         </a>
-                        <a className={styles.contactLink} href={links.youtube}>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.youtube}
+                        >
                             YouTube
                         </a>
-                        <a className={styles.contactLink} href={links.linkedIn}>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.linkedIn}
+                        >
                             LinkedIn
                         </a>
-                        <a className={styles.contactLink} href={links.facebook}>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.facebook}
+                        >
                             Facebook
                         </a>
                         <a
                             className={styles.contactLink}
+                            target="_blank"
                             href={links.instagram}
                         >
                             Instagram
                         </a>
                         <a
                             className={styles.contactLink}
+                            target="_blank"
                             href={links.habrCareer}
                         >
                             Хабр Карьера
