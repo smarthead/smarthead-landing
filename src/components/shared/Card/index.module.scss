@@ -1,0 +1,98 @@
+@import "../../../styles/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25.625vw;
+    height: 35.8125vw;
+    background-color: $white;
+
+    @media (max-width: $screenXl) {
+        width: 26.7969vw;
+        height: 33.75vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 29vw;
+        height: 44.14vw;
+    }
+
+    @media (max-width: $screenSm) {
+        width: 87.5vw;
+        height: 81.666vw;
+    }
+}
+
+.cover {
+    overflow: hidden;
+    width: 100%;
+    height: 58.6%;
+    background-position: 0 50%;
+    background-size: cover;
+
+    @media (max-width: $screenXl) {
+        height: 50.5%;
+    }
+
+    @media (max-width: $screenLg) {
+        height: 47%;
+    }
+
+    @media (max-width: $screenSm) {
+        height: 51%;
+    }
+}
+
+.curtain {
+    width: 120%;
+    height: 110%;
+    margin-top: -10%;
+    margin-left: -10%;
+    background-color: $black;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 41.4%;
+    padding: 5% 4.5%;
+    color: $black;
+    font-family: $gilroy-400;
+    font-size: 1.5vw;
+    text-align: center;
+    gap: 20%;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+        gap: 2.3vw;
+    }
+
+    @media (max-width: $screenXl) {
+        height: 49.5%;
+        font-size: 1.875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        align-items: stretch;
+        height: 53%;
+    }
+
+    @media (max-width: $screenSm) {
+        align-items: center;
+        height: 49%;
+        padding: 5% 12%;
+        font-size: 3.888vw;
+        gap: 5vw;
+    }
+
+    &-text {
+        margin: 0;
+
+        @media (max-width: $screenLg) {
+            line-height: 1.48em;
+        }
+    }
+}

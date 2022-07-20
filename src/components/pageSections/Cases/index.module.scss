@@ -1,0 +1,113 @@
+@import "../../../styles/variables";
+
+.root {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    @media (max-width: $screenLg) {
+        height: auto;
+    }
+}
+
+.cases-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100vw;
+    height: 100vh;
+    overscroll-behavior: none;
+
+    @media (max-width: $screenLg) {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.bullets {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-self: center;
+    margin-left: 9.375vw;
+
+    @media (max-width: $screen2Xl) {
+        gap: 32px;
+    }
+
+    @media (max-width: $screenXl) {
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenLg) {
+        display: none;
+    }
+}
+
+.button-bullet {
+    width: 0.75vw;
+    height: 0.75vw;
+    padding: 0;
+    background: #c3c3c3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @media (max-width: $screen2Xl) {
+        width: 12px;
+        height: 12px;
+    }
+
+    &-active {
+        background: $black;
+    }
+}
+
+.cases {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    @media (max-width: $screenLg) {
+        position: relative;
+        flex-direction: column;
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 65vw;
+        overscroll-behavior: none;
+
+        @media (max-width: $screenLg) {
+            width: 100vw;
+            height: auto;
+        }
+    }
+
+    &-image {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        width: 35vw;
+        height: 100%;
+        overscroll-behavior: none;
+
+        @media (max-width: $screenLg) {
+            width: 100vw;
+            height: 94.8vw;
+        }
+
+        @media (max-width: $screenSm) {
+            height: 100vw;
+        }
+    }
+}
+
+.cases-info-item {
+    pointer-events: all;
+}

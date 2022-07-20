@@ -1,0 +1,111 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    min-height: max(600px, 100vh);
+    background-color: $black;
+
+    @media (max-width: $screenLg) {
+        min-height: auto;
+        padding: 8.46vw 0;
+    }
+
+    @media (max-width: $screenSm) {
+        padding: 70px 0;
+    }
+}
+
+.task {
+    margin-left: 34.2%;
+    padding: 0;
+    color: $white;
+    font-family: $gilroy-600;
+    font-size: 3vw;
+    list-style: none;
+
+    @media (max-width: $screenXl) {
+        font-size: 2.5vw;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-left: 0;
+        font-size: 18px;
+    }
+}
+
+.task-item {
+    position: relative;
+    visibility: hidden;
+    line-height: 1.35em;
+    list-style: none;
+
+    & > br {
+        display: none;
+
+        @media (max-width: $screenSm) {
+            display: inline;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1.2em;
+
+        @media (max-width: $screenXl) {
+            margin-bottom: 1.4em;
+        }
+
+        @media (max-width: $screenLg) {
+            margin-bottom: 2.77em;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-bottom: 2.24em;
+        }
+
+        &::after {
+            position: absolute;
+            top: 2em;
+            display: block;
+            opacity: 0.5;
+            width: 200%;
+            height: 2px;
+            background-color: $white;
+            content: "";
+
+            @media (max-width: $screenXl) {
+                top: 2em;
+            }
+
+            @media (max-width: $screenLg) {
+                top: 2.7em;
+            }
+
+            @media (max-width: $screenMd) {
+                height: 1px;
+            }
+
+            @media (max-width: $screenSm) {
+                top: 3.8em;
+            }
+        }
+    }
+}
+
+.thin-text {
+    opacity: 0.5;
+    color: $white;
+    font-family: $gilroy-400;
+    font-size: 0.67em;
+
+    @media (max-width: $screenXl) {
+        font-size: 0.75em;
+    }
+
+    @media (max-width: $screenSm) {
+        font-size: 0.875em;
+    }
+}

@@ -1,0 +1,142 @@
+@import "../../../styles/variables";
+
+.header {
+    margin: 3.846vw 0 0;
+
+    @media (max-width: $screen2Xl) {
+        margin: 50px 0 0;
+    }
+
+    @media (max-width: $screenXl) {
+        margin: 4vw 0 0;
+    }
+
+    @media (max-width: $screenLg) {
+        margin: 30px 0 0;
+    }
+
+    @media (max-width: $screenXs) {
+        margin: 30px 0 0;
+    }
+}
+
+.hero-button {
+    visibility: hidden;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    min-height: max(600px, 100vh);
+    background-color: $black;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    padding: 1.5vw 0 4vw;
+
+    @media (max-width: $screenLg) {
+        padding: 10% 0 11%;
+    }
+
+    @media (max-width: $screenXs) {
+        padding: 10% 0 8%;
+    }
+}
+
+.headline {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 4vw;
+    color: $white;
+    font-family: $gilroy-700;
+    font-size: 7.5vw;
+    line-height: 0.9em;
+    letter-spacing: 0.02em;
+
+    &-l1,
+    &-l2,
+    &-l3,
+    &-l4 {
+        visibility: hidden;
+    }
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 6.4vw;
+        // font-size: 7.8125vw;
+        font-size: 7.0313vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-bottom: 3.8vw;
+        font-size: 64px;
+        letter-spacing: 0;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 8.33vw;
+    }
+
+    @media (max-width: $screenXs) {
+        font-size: 8.888vw;
+        line-height: 10vw;
+    }
+}
+
+.second-line {
+    display: inline-flex;
+    align-self: flex-end;
+
+    @media (max-width: $screenXs) {
+        align-self: flex-start;
+    }
+}
+
+.subtext {
+    visibility: hidden;
+    margin: 0;
+    color: $white;
+    font-family: $inter-400;
+    font-size: 2vw;
+    line-height: 1.21em;
+    letter-spacing: 0.02em;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 2vw;
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-bottom: 45px;
+        font-size: 24px;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 3.13vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-bottom: 40px;
+        font-size: 3.8888vw;
+    }
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media (max-width: $screenLg) {
+        flex-direction: column-reverse;
+        margin-bottom: 121px;
+    }
+}

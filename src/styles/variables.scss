@@ -1,8 +1,29 @@
 $textColor: #000;
 $bgColor: #fff;
+$yellow: #ffd101;
+$yellowLight: #ffe673;
+$white: #fff;
+$white50: rgb(255 255 255 / 50%);
+$black: #0c101d;
+$black20: rgb(12 16 29 / 20%);
+$grayBlack: #828384;
+$gray: #4d4d4d;
 
-$screenXl: 1500px;
+$screen3Xl: 1920px;
+$screen2Xl: 1600px;
+$screenXl: 1280px;
 $screenLg: 992px;
 $screenMd: 768px;
-$screenSm: 580px;
-$screenXs: 580px;
+$screenSm: 640px;
+$screenXs: 480px;
+$screen2Xs: 360px;
+$screen3Xs: 320px;
+
+/* fonts */
+$gilroy-400: "Gilroy-Regular";
+$gilroy-600: "Gilroy-SemiBold";
+$gilroy-700: "Gilroy-Bold";
+
+$inter-400: "Inter-Regular";
+$inter-600: "Inter-SemiBold";
+$inter-700: "Inter-Bold";

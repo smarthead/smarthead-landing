@@ -1,0 +1,179 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 6.25vw 0;
+    background-color: $black;
+
+    @media (max-width: $screenXl) {
+        font-size: 3.6718vw;
+    }
+
+    @media (max-width: $screenLg) {
+        padding: 6.5vw 0;
+    }
+
+    @media (max-width: $screenSm) {
+        padding: 91px 0;
+    }
+
+    @media (max-width: $screenXs) {
+        padding: 19vw 0;
+    }
+}
+
+.title {
+    visibility: hidden;
+    margin: 0;
+    color: $white;
+    font-family: $gilroy-600;
+    font-size: 4vw;
+
+    @media (max-width: $screenXl) {
+        font-size: 3.6718vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 3.125vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 24px;
+    }
+}
+
+.contacts {
+    position: relative;
+    display: flex;
+    margin-top: 6.25vw;
+    padding-bottom: 3.125vw;
+    color: $white;
+    font-family: $inter-400;
+    font-size: 1.5vw;
+    // border-bottom: 2px $white50 solid;
+    column-gap: 2.1875vw;
+
+    @media (max-width: $screen2Xl) {
+        padding-bottom: 50px;
+        font-size: 24px;
+    }
+
+    @media (max-width: $screenXl) {
+        padding-bottom: 3.9063vw;
+        font-size: 1.875vw;
+    }
+
+    // @media (max-width: $screenLg) {
+    //     border-bottom: 1px $white50 solid;
+    // }
+
+    @media (max-width: $screenSm) {
+        flex-direction: column;
+        row-gap: 5.555vw;
+        font-size: 3.333vw;
+    }
+}
+
+.border {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 2px;
+    background-color: $white50;
+
+    @media (max-width: $screenLg) {
+        height: 1px;
+    }
+}
+
+.contact-link,
+.contact-link:visited {
+    color: $white;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.15s ease-out;
+
+    &:hover {
+        color: $yellow;
+    }
+}
+
+.contacts-item {
+    display: flex;
+    visibility: hidden;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    flex: 1;
+    max-height: 13vw;
+    padding-top: 3.125vw;
+    border-top: 2px $white50 solid;
+    row-gap: 2.1875vw;
+    column-gap: 3vw;
+
+    @media (max-width: $screen2Xl) {
+        max-height: 208px;
+        row-gap: 35px;
+    }
+
+    @media (max-width: $screenXl) {
+        max-height: 16.25vw;
+        row-gap: 2.7344vw;
+    }
+
+    @media (max-width: $screenLg) {
+        border-top: 1px $white50 solid;
+
+        &:last-child {
+            align-content: space-between;
+
+            & > :nth-last-child(-n + 3) {
+                text-align: right;
+            }
+        }
+    }
+
+    @media (max-width: $screenSm) {
+        max-height: 26vw;
+
+        &:nth-last-child(2) {
+            align-content: flex-start;
+            column-gap: 13.5vw;
+
+            & > :nth-last-child(-n + 3) {
+                text-align: left;
+            }
+        }
+    }
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: 6.9375vw;
+    margin-top: 3.6875vw;
+
+    @media (max-width: $screen2Xl) {
+        width: 111px;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 10.546vw;
+    }
+
+    @media (max-width: $screenMd) {
+        width: 81px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,16 @@
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    padding-right: 9.375%;
+    padding-left: 9.375%;
+
+    @media (max-width: $screenXl) {
+        padding-right: 7.8125%;
+        padding-left: 7.8125%;
+    }
+}
