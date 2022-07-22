@@ -11,7 +11,7 @@ build-assets:
   stage: build
   artifacts:
     paths:
-      - public/
+      - /
   script:
     - npm install && npm install gatsby-plugin-s3
     - npm run build
