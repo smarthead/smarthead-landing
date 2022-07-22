@@ -13,7 +13,7 @@ build-assets:
     paths:
       - public/
   script:
-    - npm install
+    - npm install && npm install gatsby-plugin-s3
     - npm run build
 
 deploy-s3:
