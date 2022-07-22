@@ -25,7 +25,7 @@ deploy-s3:dev:
   before_script:
     - apk add --no-cache python3 py3-pip && pip3 install --upgrade pip && pip3 install --no-cache-dir awscli
   script:
-    - npm run deploy
+    - npm run deploy -- --bucket=$BUCKET_NAME
     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/*"
 
 deploy-s3:prod:
@@ -38,6 +38,6 @@ deploy-s3:prod:
   before_script:
     - apk add --no-cache python3 py3-pip && pip3 install --upgrade pip && pip3 install --no-cache-dir awscli
   script:
-    - npm run deploy
+    - npm run deploy -- --bucket=$BUCKET_NAME
     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/*"
   when: manual
