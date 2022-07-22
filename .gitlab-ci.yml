@@ -7,7 +7,7 @@ cache:
     - node_modules/
 
 build-assets:
-  image: 16.16.0-alpine
+  image: "node:16.16.0-alpine"
   stage: build
   artifacts:
     paths:
@@ -17,7 +17,7 @@ build-assets:
     - npm run build
 
 deploy-s3:
-  image: "16.16.0-alpine"
+  image: "node:16.16.0-alpine"
   stage: deploy
   dependencies:
     - build-assets
