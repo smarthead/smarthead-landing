@@ -2,6 +2,9 @@ stages:
   - build
   - deploy
 
+variables:
+  CI_DEBUG_TRACE: "true"
+
 build-assets:
   image: "node:16.16.0-alpine"
   stage: build
