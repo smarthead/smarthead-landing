@@ -15,6 +15,12 @@ const config: GatsbyConfig = {
             },
         },
         {
+            resolve: `gatsby-plugin-s3`,
+            options: {
+                bucketName: "smarthead-landing",
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: ['UA-3748959-16'],

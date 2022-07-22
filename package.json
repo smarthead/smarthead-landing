@@ -13,6 +13,7 @@
         "build:development": "",
         "build:stage": "",
         "build:production": "",
+        "deploy": "gatsby-plugin-s3 deploy",
         "develop": "gatsby develop",
         "develop:external": "gatsby develop -H 0.0.0.0",
         "serve": "gatsby serve",

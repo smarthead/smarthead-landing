@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+build-assets:
+  image: 16.16.0-alpine
+  stage: build
+  artifacts:
+    paths:
+      - public/
+  script:
+    - npm install
+    - npm run build
+
+deploy-s3:
+  image: "16.16.0-alpine"
+  stage: deploy
+  dependencies:
+    - build-assets
+  before_script:
+    - apk add --no-cache python3 py3-pip && pip3 install --upgrade pip && pip3 install --no-cache-dir awscli
+  script:
+    - npm run deploy
