@@ -27,6 +27,8 @@ deploy-s3:dev:
   script:
     - npm run deploy -- --bucket=$BUCKET_NAME
     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/*"
+  only:
+    - main
 
 deploy-s3:prod:
   environment:
@@ -40,4 +42,6 @@ deploy-s3:prod:
   script:
     - npm run deploy -- --bucket=$BUCKET_NAME
     - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths "/*"
+  only:
+    - main
   when: manual
