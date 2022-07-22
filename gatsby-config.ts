@@ -17,7 +17,7 @@ const config: GatsbyConfig = {
         {
             resolve: `gatsby-plugin-s3`,
             options: {
-                bucketName: "smarthead-landing",
+                bucketName: process.env.BUCKET_NAME || 'test',
             },
         },
         {

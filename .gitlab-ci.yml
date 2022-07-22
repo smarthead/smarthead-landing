@@ -2,10 +2,6 @@ stages:
   - build
   - deploy
 
-cache:
-  paths:
-    - node_modules/
-
 build-assets:
   image: "node:16.16.0-alpine"
   stage: build
@@ -13,7 +9,7 @@ build-assets:
     paths:
       - ./
   script:
-    - npm install && npm install gatsby-plugin-s3
+    - npm ci
     - npm run build
 
 deploy-s3:
