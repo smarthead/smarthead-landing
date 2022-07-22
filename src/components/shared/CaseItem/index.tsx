@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from './index.module.scss';
-import arrowDown from '../../../assets/images/arrow-down.svg';
+import arrowDown from '../../../assets/images/Arrow-Down.svg';
 
 interface ICaseItemInfo {
     isFirst: boolean;

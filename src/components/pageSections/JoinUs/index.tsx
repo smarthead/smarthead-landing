@@ -4,7 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import FontFaceObserver from 'fontfaceobserver';
 import * as styles from './index.module.scss';
-import ArrowRightYellow from '../../../assets/images/arrow-right-yellow.svg';
+import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 
 const vacancies = [
     {

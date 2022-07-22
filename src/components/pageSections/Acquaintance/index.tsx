@@ -4,9 +4,9 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import * as styles from './index.module.scss';
 import Card from '../../shared/Card';
-import podcastCover from '../../../assets/images/podcast_cover.jpg';
-import instagramCover from '../../../assets/images/instagram_cover.jpg';
-import telegramCover from '../../../assets/images/telegram_cover.jpg';
+import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
+import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
+import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
 import { links } from '../../shared/links';
 
 const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {

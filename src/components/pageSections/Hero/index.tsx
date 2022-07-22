@@ -6,7 +6,7 @@ import { invalidate } from '../../../utils/animation';
 import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 
-import Header from '../../layout/Header';
+import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 
@@ -19,12 +19,7 @@ export interface ILinks {
 const Hero: React.FC<ILinks> = ({ links }) => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let revealTimeline = gsap.timeline({
-        paused: true,
-        // scrollTrigger: {
-        //     trigger: `.${styles.content}`,
-        // },
-    });
+    let revealTimeline = gsap.timeline({ paused: true });
 
     const createTimeline = () => {
         const headline =
@@ -40,19 +35,6 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                       '.hero-h1-line3',
                       '.hero-h1-line4',
                   ];
-        // const headline =
-        //     window.innerWidth > 480
-        //         ? [
-        //               `.${styles.headlineL1}`,
-        //               `.${styles.headlineL2}`,
-        //               [`.${styles.headlineL3}`, `.${styles.headlineL4}`],
-        //           ]
-        //         : [
-        //               `.${styles.headlineL1}`,
-        //               `.${styles.headlineL2}`,
-        //               `.${styles.headlineL3}`,
-        //               `.${styles.headlineL4}`,
-        //           ];
         revealTimeline.fromTo(
             headline,
             { yPercent: 100, autoAlpha: 0 },
