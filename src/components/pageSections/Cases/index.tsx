@@ -51,7 +51,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
             const sectionProgress = index === null ? 1 : slideProgress[index];
             const distance =
                 container.offsetHeight *
-                    casesAmount *
+                    (casesAmount - 1) *
                     (sectionProgress -
                         casesTimeline.current.scrollTrigger.progress) +
                 (index === null ? container.offsetHeight : 0);
@@ -99,7 +99,10 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                                     handleScrollUpdate(self.progress);
                                 },
                                 end: () =>
-                                    `+=${container.offsetHeight * casesAmount}`,
+                                    `+=${
+                                        container.offsetHeight *
+                                        (casesAmount - 1)
+                                    }`,
                             },
                         })
                         .fromTo(
