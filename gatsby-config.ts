@@ -21,12 +21,9 @@ const config: GatsbyConfig = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-gtag`,
+            resolve: 'gatsby-plugin-google-tagmanager',
             options: {
-                trackingIds: ['UA-3748959-16'],
-                pluginConfig: {
-                    head: true,
-                },
+                id: 'GTM-P4LPG26',
             },
         },
     ],
