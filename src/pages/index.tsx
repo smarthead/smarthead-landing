@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import '../styles/index.scss';
@@ -14,17 +14,25 @@ import Footer from '../components/pageSections/Footer';
 import Tagline from '../components/pageSections/Tagline';
 import { navigation } from '../components/shared/navigation';
 import { scrollToSection } from '../utils/scroll';
+import CookiesNotification from '../components/shared/CookiesNotification';
 
 const IndexPage = () => {
+    const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
             scrollToSection(hash, 0);
         }
+        const localStorageCookiesAccepted =
+            localStorage.getItem('cookiesAccepted');
+
+        if (localStorageCookiesAccepted !== 'true') {
+            setCookiesAccepted(false);
+        }
     }, []);
 
     return (
-        <div>
+        <div className="main">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>SmartHead — разработка цифровых продуктов</title>
@@ -60,6 +68,15 @@ const IndexPage = () => {
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
+            {!cookiesAccepted && (
+                <CookiesNotification
+                    clickHandler={() => {
+                        setCookiesAccepted(true);
+                        localStorage.setItem('cookiesAccepted', 'true');
+                        // TODO: Google TagManager event
+                    }}
+                />
+            )}
         </div>
     );
 };
