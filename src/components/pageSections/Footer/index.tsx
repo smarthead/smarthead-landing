@@ -4,7 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { scrollToTop } from '../../../utils/scroll';
 import * as styles from './index.module.scss';
-import shLogo from '../../../assets/images/SH_logo.svg';
+import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { links } from '../../shared/links';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {
@@ -39,16 +39,6 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     <div className={styles.contactsItem}>
                         <a
                             className={styles.contactLink}
-                            href="tel:+78432060726"
-                        >
-                            +7 843 206 07 26
-                        </a>
-                        <span>Улица Петербургская, 50</span>
-                        <span>Казань</span>
-                    </div>
-                    <div className={styles.contactsItem}>
-                        <a
-                            className={styles.contactLink}
                             href={`mailto:${links.email.contact}`}
                         >
                             {links.email.contact}
@@ -59,11 +49,22 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                         >
                             {links.email.hr}
                         </a>
-                        <a className={styles.contactLink} href="#">
+                        <a
+                            className={styles.contactLink}
+                            href={links.presentation}
+                        >
                             Презентация компании
                         </a>
                     </div>
-
+                    <div className={styles.contactsItem}>
+                        <a
+                            className={styles.contactLink}
+                            href="tel:+78432060726"
+                        >
+                            +7 843 206 07 26
+                        </a>
+                        <span>Казань, Петербургская, 50</span>
+                    </div>
                     <div className={styles.contactsItem}>
                         <a
                             className={styles.contactLink}
@@ -111,12 +112,28 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     <div className={styles.border}></div>
                 </div>
 
-                <img
-                    onClick={scrollToTop}
-                    src={shLogo}
-                    alt="SmartHead Logo"
-                    className={styles.logo}
-                />
+                <div className={styles.legalBlock}>
+                    <p>
+                        <a
+                            className={styles.legalLink}
+                            target="_blank"
+                            href={links.privacyPolicy}
+                        >
+                            Политика Конфиденциальности
+                        </a>{' '}
+                        <span className={styles.delimeter}>
+                            &nbsp;/&nbsp;&nbsp;
+                        </span>
+                        <a
+                            className={styles.legalLink}
+                            target="_blank"
+                            href={links.userAgreement}
+                        >
+                            Пользовательское Соглашение
+                        </a>
+                    </p>
+                    <p>©SmartHead. Все права защищены.</p>
+                </div>
             </div>
         </section>
     );

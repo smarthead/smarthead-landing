@@ -10,4 +10,7 @@ export const links = {
         contact: 'hello@smarthead.ru',
         hr: 'hr@smarthead.ru',
     },
+    presentation: '/files/smarthead-products.pdf',
+    privacyPolicy: '/files/privacy-policy.pdf',
+    userAgreement: '/files/user-agreement.pdf',
 };

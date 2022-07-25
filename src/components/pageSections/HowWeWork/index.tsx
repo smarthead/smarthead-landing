@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import * as styles from './index.module.scss';
-import teamPhoto from '../../../assets/images/team_photo.jpg';
+import teamPhoto from '../../../assets/images/Team-Photo.jpg';
 
 const HowWeWork: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);

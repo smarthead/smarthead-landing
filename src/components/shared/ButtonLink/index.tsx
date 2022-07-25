@@ -1,7 +1,7 @@
 import React from 'react';
 import * as styles from './index.module.scss';
-import ArrowRightBlack from '../../../assets/images/arrow-right-black.svg';
-import ArrowRightWhite from '../../../assets/images/arrow-right-white.svg';
+import ArrowRightBlack from '../../../assets/images/Arrow-Right-Black.svg';
+import ArrowRightWhite from '../../../assets/images/Arrow-Right-White.svg';
 
 interface IButtonLinkProps {
     className?: string;

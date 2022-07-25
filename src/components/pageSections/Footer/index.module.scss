@@ -157,23 +157,61 @@
     flex-direction: row;
 }
 
-.logo {
-    width: 6.9375vw;
-    margin-top: 3.6875vw;
+.legal-block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.7vw;
+    color: $white50;
+    font-family: $inter-400;
+    font-size: 0.875vw;
+    line-height: 1em;
+
+    p {
+        margin: 0;
+    }
 
     @media (max-width: $screen2Xl) {
-        width: 111px;
+        margin-top: 27px;
+        font-size: 14px;
     }
 
     @media (max-width: $screenLg) {
-        width: 10.546vw;
+        font-size: 12px;
     }
 
     @media (max-width: $screenMd) {
-        width: 81px;
+        font-size: 1.5625vw;
     }
 
+    @media (max-width: $screenSm) {
+        flex-direction: column;
+        margin-top: 1.2em;
+        font-size: 3.3333vw;
+        row-gap: 110px;
+    }
+}
+
+.delimeter {
+    display: inline;
+
+    @media (max-width: $screenSm) {
+        display: none;
+    }
+}
+
+.legal-link,
+.legal-link:visited {
+    color: $white50;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.15s ease-out;
+
     &:hover {
-        cursor: pointer;
+        color: $white;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-bottom: 2.777vw;
+        line-height: 2.4em;
     }
 }
