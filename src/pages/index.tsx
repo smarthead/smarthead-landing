@@ -22,11 +22,33 @@ const IndexPage = () => {
             scrollToSection(hash, 0);
         }
     }, []);
+
     return (
         <div>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>SmartHead — разработка цифровых продуктов</title>
+                <meta
+                    property="og:title"
+                    content="SmartHead — разработка цифровых продуктов"
+                />
+                <meta
+                    property="og:description"
+                    name="description"
+                    content="Разрабатываем proof of concept, запускаем MVP и масштабируем цифровые продукты. Формируем команды и процессы разработки, ищем решения нетиповых задач. "
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://smarthead.ru/" />
+
+                {/* TODO: Update SEO information for sharing*/}
+                {/* <meta
+                    property="og:image"
+                    content=""
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="" />
+                <meta name="twitter:description" content="" />
+                <meta name="twitter:image" content="" />*/}
             </Helmet>
 
             <Hero links={navigation} />

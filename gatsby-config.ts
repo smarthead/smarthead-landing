@@ -15,12 +15,15 @@ const config: GatsbyConfig = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-gtag`,
+            resolve: `gatsby-plugin-s3`,
             options: {
-                trackingIds: ['UA-3748959-16'],
-                pluginConfig: {
-                    head: true,
-                },
+                bucketName: process.env.BUCKET_NAME || 'test',
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-P4LPG26',
             },
         },
     ],

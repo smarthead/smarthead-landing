@@ -11,6 +11,7 @@
     border-radius: 1.14em;
     column-gap: 0.714em;
     transition: background-color 0.15s ease-out;
+    white-space: nowrap;
 
     @media (max-width: $screen2Xl) {
         padding: 15px 30px;
