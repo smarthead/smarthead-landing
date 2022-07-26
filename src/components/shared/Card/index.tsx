@@ -8,6 +8,7 @@ interface ICardProps {
     buttonText: string;
     link: string;
     curtainClassName: string;
+    triggerClassName: string;
 }
 const Card: React.FC<ICardProps> = ({
     image,
@@ -15,9 +16,10 @@ const Card: React.FC<ICardProps> = ({
     buttonText,
     link,
     curtainClassName,
+    triggerClassName,
 }) => {
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${triggerClassName}`}>
             <div
                 className={styles.cover}
                 style={{ backgroundImage: `url("${image}")` }}
