@@ -57,6 +57,27 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                         >
                             Презентация компании
                         </a>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.telegram}
+                        >
+                            Telegram
+                        </a>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.youtube}
+                        >
+                            YouTube
+                        </a>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.linkedIn}
+                        >
+                            LinkedIn
+                        </a>
                     </div>
                     <div className={styles.contactsItem}>
                         <a
@@ -66,8 +87,32 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                             +7 843 206 07 26
                         </a>
                         <span>Казань, Петербургская, 50</span>
+                        <span>&nbsp;</span>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.facebook}
+                        >
+                            Facebook
+                        </a>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.instagram}
+                        >
+                            Instagram
+                        </a>
+                        <a
+                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
+                            target="_blank"
+                            href={links.habrCareer}
+                        >
+                            Хабр Карьера
+                        </a>
                     </div>
-                    <div className={styles.contactsItem}>
+                    <div
+                        className={`${styles.contactsItem} ${styles.socialNetworkDesktop}`}
+                    >
                         <a
                             className={styles.contactLink}
                             target="_blank"
