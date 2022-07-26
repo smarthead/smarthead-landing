@@ -20,8 +20,9 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
             { yPercent: gsap.utils.wrap([60, 20, 20, 20, 200]), autoAlpha: 0 },
             {
                 scrollTrigger: {
-                    trigger: `.${styles.root}`,
-                    start: 'top 70%',
+                    trigger: `.${styles.title}`,
+                    start: () =>
+                        window.innerWidth < 641 ? '0% 80%' : 'top 70%',
                 },
                 duration: 0.5,
                 yPercent: 0,
