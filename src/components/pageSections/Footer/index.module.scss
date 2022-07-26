@@ -44,6 +44,10 @@
     @media (max-width: $screenMd) {
         font-size: 24px;
     }
+
+    @media (max-width: $screenSm) {
+        font-size: 6.666vw;
+    }
 }
 
 .contacts {
@@ -140,21 +144,26 @@
 
     @media (max-width: $screenSm) {
         max-height: 26vw;
-
-        &:nth-last-child(2) {
-            align-content: flex-start;
-            column-gap: 13.5vw;
-
-            & > :nth-last-child(-n + 3) {
-                text-align: left;
-            }
-        }
+        align-content: space-between;
     }
 }
 
 .social-links {
     display: flex;
     flex-direction: row;
+}
+
+.social-network-desktop {
+    @media (max-width: $screenSm) {
+        display: none;
+    }
+}
+.social-network-mobile {
+    display: none;
+    @media (max-width: $screenSm) {
+        display: flex;
+        width: 31%;
+    }
 }
 
 .legal-block {

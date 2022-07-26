@@ -34,7 +34,6 @@ const IndexPage = () => {
     return (
         <div className="main">
             <Helmet>
-                <meta charSet="utf-8" />
                 <title>SmartHead — разработка цифровых продуктов</title>
                 <meta
                     property="og:title"
