@@ -11,7 +11,6 @@ const vacancies = [
         text: 'Middle .NET-разработчик',
         link: 'https://smartheadhiring.notion.site/Middle-NET-2a8a8434fba34d1ba335fbf4f1fa01b9',
     },
-    // { text: 'Middle/Senior Node.js-разработчик', link: '#' },
 ];
 
 // TODO: Divide elements picking from arrow positioning
@@ -68,7 +67,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
             {
                 scrollTrigger: {
                     trigger: `.${styles.content}`,
-                    start: 'top 70%',
+                    start: window.innerWidth < 641 ? 'top 80%' : 'top 70%',
                 },
                 duration: 0.5,
                 y: 0,
@@ -114,6 +113,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                                     >
                                         <a
                                             href={vacancy.link}
+                                            target="_blank"
                                             className={styles.vacanciesLink}
                                         >
                                             <span

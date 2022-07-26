@@ -74,7 +74,8 @@ const Partners: React.FC = ({}) => {
             {
                 scrollTrigger: {
                     trigger: '.partners-headline',
-                    start: 'bottom 70%',
+                    start: () =>
+                        window.innerWidth < 481 ? 'bottom 95%' : 'bottom 80%',
                 },
                 duration: 0.5,
                 yPercent: 0,
@@ -88,7 +89,8 @@ const Partners: React.FC = ({}) => {
             {
                 scrollTrigger: {
                     trigger: '.partners-logo-item',
-                    start: 'top 70%',
+                    start: () =>
+                        window.innerWidth < 481 ? 'top 85%' : 'top 70%',
                 },
                 duration: 0.6,
                 yPercent: 0,
