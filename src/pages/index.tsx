@@ -32,23 +32,25 @@ const IndexPage = () => {
                     property="og:title"
                     content="SmartHead — разработка цифровых продуктов"
                 />
+                <meta property="og:site_name" content="SmartHead" />
                 <meta
                     property="og:description"
                     name="description"
-                    content="Разрабатываем proof of concept, запускаем MVP и масштабируем цифровые продукты. Формируем команды и процессы разработки, ищем решения нетиповых задач. "
+                    content="Разрабатываем proof of concept, запускаем MVP и масштабируем цифровые продукты. Формируем команды и процессы разработки, ищем решения нетиповых задач."
                 />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://smarthead.ru/" />
-
-                {/* TODO: Update SEO information for sharing*/}
-                {/* <meta
+                <meta
                     property="og:image"
-                    content=""
+                    content="https://smarthead.ru/SmartHead-Logo.png"
                 />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="" />
-                <meta name="twitter:description" content="" />
-                <meta name="twitter:image" content="" />*/}
+                <meta
+                    name="facebook-domain-verification"
+                    content="ypjtjqnhfbwzzlc83uqjihzeaogz26"
+                ></meta>
             </Helmet>
 
             <Hero links={navigation} />

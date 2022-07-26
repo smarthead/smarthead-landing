@@ -15,7 +15,8 @@ const HowWeWork: React.FC = () => {
             {
                 scrollTrigger: {
                     trigger: `.${styles.perks}`,
-                    start: 'bottom 90%',
+                    start: () =>
+                        window.innerWidth < 641 ? '40% 100%' : '75% 90%',
                 },
                 duration: 0.5,
                 yPercent: 0,
@@ -30,7 +31,8 @@ const HowWeWork: React.FC = () => {
             {
                 scrollTrigger: {
                     trigger: `.${styles.title}`,
-                    start: 'center 90%',
+                    start: () =>
+                        window.innerWidth < 641 ? '100% 100%' : 'center 90%',
                 },
                 duration: 0.5,
                 yPercent: 0,

@@ -52,6 +52,7 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                         <a
                             className={styles.contactLink}
                             href={links.presentation}
+                            target="_blank"
                         >
                             Презентация компании
                         </a>

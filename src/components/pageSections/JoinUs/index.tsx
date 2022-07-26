@@ -9,7 +9,7 @@ import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 const vacancies = [
     {
         text: 'Middle .NET-разработчик',
-        link: 'https://kazan.hh.ru/vacancy/54583226?from=employer&hhtmFrom=employer ',
+        link: 'https://smartheadhiring.notion.site/Middle-NET-2a8a8434fba34d1ba335fbf4f1fa01b9',
     },
     // { text: 'Middle/Senior Node.js-разработчик', link: '#' },
 ];

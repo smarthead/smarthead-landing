@@ -14,7 +14,7 @@ const WhatWeDo: React.FC<{ id?: string }> = ({ id }) => {
             {
                 scrollTrigger: {
                     trigger: `.${styles.task}`,
-                    start: 'top 70%',
+                    start: '35% 100%',
                 },
                 duration: 0.5,
                 yPercent: 0,
