@@ -9,17 +9,17 @@
     background-color: $white;
 
     @media (max-width: $screenXl) {
-        width: 26.7969vw;
+        width: 26.6vw;
         height: 33.75vw;
     }
 
     @media (max-width: $screenLg) {
-        width: 29vw;
+        width: 26.6vw;
         height: 44.14vw;
     }
 
     @media (max-width: $screenSm) {
-        width: 87.5vw;
+        width: 84vw;
         height: 81.666vw;
     }
 }
@@ -63,11 +63,9 @@
     font-family: $gilroy-400;
     font-size: 1.5vw;
     text-align: center;
-    gap: 20%;
 
     @media (max-width: $screen2Xl) {
         font-size: 24px;
-        gap: 2.3vw;
     }
 
     @media (max-width: $screenXl) {
@@ -85,14 +83,18 @@
         height: 49%;
         padding: 5% 12%;
         font-size: 3.888vw;
-        gap: 5vw;
     }
 
     &-text {
-        margin: 0;
-
+        margin: 0 0 2.6vw 0;
+        @media (max-width: $screen2Xl) {
+            margin: 0 0 2.3vw 0;
+        }
         @media (max-width: $screenLg) {
             line-height: 1.48em;
+        }
+        @media (max-width: $screenSm) {
+            margin: 0 0 5vw 0;
         }
     }
 }

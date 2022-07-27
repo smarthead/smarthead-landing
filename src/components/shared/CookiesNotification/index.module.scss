@@ -21,7 +21,6 @@
     padding: 15px 30px;
     background-color: #232837;
     pointer-events: auto;
-    gap: 15px;
 
     @media (max-width: $screenSm) {
         flex-direction: column;
@@ -32,7 +31,6 @@
         margin-bottom: 2.777vw;
         padding: 4.166vw 2.777vw;
         letter-spacing: 0;
-        gap: 4.166vw;
     }
 }
 
@@ -41,9 +39,14 @@
     font-family: $inter-400;
     font-size: 14px;
     line-height: 1.48em;
-
+    margin-right: 15px;
+    @media (max-width: $screenSm) {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
     @media (max-width: $screenXs) {
         font-size: 3.333vw;
+        margin-bottom: 4.166vw;
     }
 
     & > br {

@@ -52,13 +52,13 @@
 
 .contacts {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 6.25vw;
     padding-bottom: 3.125vw;
     color: $white;
     font-family: $inter-400;
     font-size: 1.5vw;
-    // border-bottom: 2px $white50 solid;
     column-gap: 2.1875vw;
 
     @media (max-width: $screen2Xl) {
@@ -71,12 +71,8 @@
         font-size: 1.875vw;
     }
 
-    // @media (max-width: $screenLg) {
-    //     border-bottom: 1px $white50 solid;
-    // }
-
     @media (max-width: $screenSm) {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         row-gap: 5.555vw;
         font-size: 3.333vw;
     }
@@ -109,16 +105,17 @@
 }
 
 .contacts-item {
-    display: flex;
+    display: grid;
     visibility: hidden;
-    flex-flow: column wrap;
-    align-content: flex-start;
-    flex: 1;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-flow: column;
+
     max-height: 13vw;
     padding-top: 3.125vw;
     border-top: 2px $white50 solid;
     row-gap: 2.1875vw;
     column-gap: 3vw;
+    grid-template-columns: max-content;
 
     @media (max-width: $screen2Xl) {
         max-height: 208px;
@@ -134,8 +131,6 @@
         border-top: 1px $white50 solid;
 
         &:last-child {
-            align-content: space-between;
-
             & > :nth-last-child(-n + 3) {
                 text-align: right;
             }
@@ -144,7 +139,7 @@
 
     @media (max-width: $screenSm) {
         max-height: 26vw;
-        align-content: space-between;
+        grid-template-columns: 2fr 1fr;
     }
 }
 

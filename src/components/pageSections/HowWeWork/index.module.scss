@@ -59,9 +59,8 @@
 }
 
 .perks {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin: 4vw 9.375vw 6.875vw 37.1875vw;
     row-gap: 3.75vw;
     column-gap: 2.1875vw;
@@ -80,14 +79,13 @@
     }
 
     @media (max-width: $screenSm) {
-        flex-flow: column nowrap;
+        grid-template-columns: 1fr;
         margin: 12.5vw 6.944vw;
         row-gap: 8.9vw;
     }
 
     &-item {
         visibility: hidden;
-        width: calc(50% - 1.1vw);
         margin: 0;
         padding-bottom: 1.2em;
         font-family: $gilroy-400;
