@@ -9,7 +9,6 @@
     font-size: 0.875vw;
     letter-spacing: 0.05em;
     border-radius: 1.14em;
-    column-gap: 0.714em;
     transition: background-color 0.15s ease-out;
     white-space: nowrap;
 
@@ -48,4 +47,5 @@
 
 .arrow {
     height: 1em;
+    margin-right: 0.714em;
 }

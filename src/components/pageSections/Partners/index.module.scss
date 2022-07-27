@@ -16,7 +16,6 @@
     justify-content: center;
     height: 100%;
     padding: 6.25vw 0;
-    gap: 3.75vw;
 
     @media (max-width: $screenLg) {
         padding: 7.8125vw 0;
@@ -33,6 +32,7 @@
     font-family: $gilroy-600;
     font-size: 4vw;
     letter-spacing: 0.05em;
+    margin-bottom: 3.75vw;
 
     @media (max-width: $screenXl) {
         font-size: 3.6719vw;
@@ -40,6 +40,10 @@
 
     @media (max-width: $screenMd) {
         font-size: 24px;
+    }
+    @media (max-width: $screenXs) {
+        font-size: 6.6666vw;
+        margin-bottom: 10.555vw;
     }
 }
 

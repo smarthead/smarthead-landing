@@ -1,4 +1,4 @@
-import complianceImage from '../../../assets/images/cases/case_compliance.jpg';
+// import complianceImage from '../../../assets/images/cases/case_compliance.jpg';
 import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty.jpg';
 import roboticsImage from '../../../assets/images/cases/case_robotics.jpg';
 import stringAppImage from '../../../assets/images/cases/case_StringApp.jpg';
@@ -7,7 +7,7 @@ import visaPromoImage from '../../../assets/images/cases/case_VisaPromo.jpg';
 // import avastarImage from '../../../assets/images/cases/case_avastar.jpg';
 // import lifeAirImage from '../../../assets/images/cases/case_LifeAir.jpg';
 
-import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
+// import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
 import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet.jpg';
 import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet.jpg';
 import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet.jpg';
@@ -17,20 +17,20 @@ import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_ta
 // import lifeAirImageTablet from '../../../assets/images/cases/case_LifeAir_tablet.jpg';
 
 export const casesList = [
-    {
-        title: 'Комплаенс-помощник',
-        description:
-            'Развиваем сервис для анализа деятельности юридического лица на соответствие нормам закона. Мы разработали систему заказа консультации, автоматизировали распределение заявок и реализовали возможность сравнить данные между отчётными периодами для оценки динамики изменения рисков.',
-        image: {
-            original: {
-                src: complianceImage,
-                origin: '0% 0%',
-            },
-            tablet: {
-                src: complianceImageTablet,
-            },
-        },
-    },
+    // {
+    //     title: 'Комплаенс-помощник',
+    //     description:
+    //         'Развиваем сервис для анализа деятельности юридического лица на соответствие нормам закона. Мы разработали систему заказа консультации, автоматизировали распределение заявок и реализовали возможность сравнить данные между отчётными периодами для оценки динамики изменения рисков.',
+    //     image: {
+    //         original: {
+    //             src: complianceImage,
+    //             origin: '0% 0%',
+    //         },
+    //         tablet: {
+    //             src: complianceImageTablet,
+    //         },
+    //     },
+    // },
     {
         title: 'Effectiveaty',
         description:

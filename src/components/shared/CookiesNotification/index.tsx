@@ -13,14 +13,15 @@ const CookiesNotification: React.FC<ICookiesNotification> = ({
         <div className={styles.content}>
             <span className={styles.text}>
                 Мы используем cookie для нормальной работы сайта. <br />
-                Подробнее в
+                Подробнее в{' '}
                 <a
                     className={styles.link}
                     target="_blank"
                     href={links.privacyPolicy}
                 >
-                    политике&nbsp;конфиденциальности.
+                    политике&nbsp;конфиденциальности
                 </a>
+                .
             </span>
             <button className={styles.button} onClick={clickHandler}>
                 OK
