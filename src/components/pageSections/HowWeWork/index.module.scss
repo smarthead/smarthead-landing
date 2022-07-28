@@ -32,6 +32,10 @@
         height: 105%;
         transform: translate3d(-42.5%, -4%, 0);
 
+        @media (max-width: $screenLg) {
+            transform: translate3d(-23.5%, -4%, 0);
+        }
+
         @media (max-width: $screenSm) {
             width: 118.888%;
             height: auto;
