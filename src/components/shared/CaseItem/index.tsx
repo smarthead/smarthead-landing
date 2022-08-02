@@ -5,7 +5,7 @@ import arrowDown from '../../../assets/images/Arrow-Down.svg';
 interface ICaseItemInfo {
     isFirst: boolean;
     title: string;
-    description: string;
+    description: string | string[];
     onSkip: () => void;
 }
 export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
@@ -14,11 +14,19 @@ export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
     description,
     onSkip,
 }) => {
+    const descriptionJSX = Array.isArray(description)
+        ? description.map((line, index) => (
+              <span key={index}>
+                  {line} {index < description.length && <br />}
+              </span>
+          ))
+        : description;
+
     return (
         <div className={`case-item-info ${styles.info}`}>
             {isFirst ? <h4 className={styles.headline}>КЕЙСЫ</h4> : null}
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.description}>{description}</p>
+            <p className={styles.description}>{descriptionJSX}</p>
             <button
                 className={styles.skipButton}
                 onClick={() => {
