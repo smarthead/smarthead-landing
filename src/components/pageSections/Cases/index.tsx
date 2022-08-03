@@ -5,13 +5,28 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 import * as styles from './index.module.scss';
-import { casesList } from './casesList';
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 
-const Cases: React.FC<{ id?: string }> = ({ id }) => {
+interface ICases {
+    id: string;
+    data: {
+        title: string;
+        casesList: {
+            title: string;
+            description: string | string[];
+            image: {
+                original: { src: string };
+                tablet: { src: string };
+                desktop: { src: string; origin: string };
+            };
+        }[];
+    };
+}
+
+const Cases: React.FC<ICases> = ({ id, data }) => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
-
+    const casesList = data.casesList;
     const casesContainer = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
     const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -122,7 +137,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                                 xPercent: gsap.utils.wrap(transformArrayStart),
                                 x: gsap.utils.wrap(
                                     [...transformArrayStart].map(
-                                        (x, index) => -index * 0.5
+                                        (x, index) => -index * 1
                                     )
                                 ),
                             },
@@ -179,6 +194,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                             >
                                 <CaseItemInfo
                                     isFirst={isPinnedScroll || index === 0}
+                                    sectionTitle={data.title}
                                     title={caseObj.title}
                                     description={caseObj.description}
                                     onSkip={() => {
@@ -198,11 +214,9 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                                             : caseObj.image.desktop.src
                                     }
                                     origin={
-                                        isTablet
-                                            ? caseObj.image.tablet.origin
-                                            : isMobile
-                                            ? caseObj.image.original.origin
-                                            : caseObj.image.desktop.origin
+                                        !isTablet && !isMobile
+                                            ? caseObj.image.desktop.origin
+                                            : '50% 50%'
                                     }
                                 />
                             </div>

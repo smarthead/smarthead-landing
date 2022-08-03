@@ -8,7 +8,9 @@ import HowWeWork from '../pageSections/HowWeWork';
 import WhatWeDo from '../pageSections/WhatWeDo';
 import Partners from '../pageSections/Partners';
 import Cases from '../pageSections/Cases';
-import Footer from '../pageSections/Footer';
+import FooterEn from '../pageSections/FooterEn';
+import CookiesNotification from '../shared/CookiesNotification';
+
 import { navigation } from '../shared/navigation';
 import { scrollToSection } from '../../utils/scroll';
 
@@ -16,15 +18,22 @@ import heroData from '../../data/en/Hero.json';
 import howWeWorkData from '../../data/en/HowWeWork.json';
 import whatWeDoData from '../../data/en/WhatWeDo.json';
 import partnersData from '../../data/en/Partners.json';
+import { casesData } from '../../data/en/casesData';
 
 const RuLayout = () => {
+    const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
             scrollToSection(hash, 0);
         }
+        const localStorageCookiesAccepted =
+            localStorage.getItem('cookiesAccepted');
+
+        if (localStorageCookiesAccepted !== 'true') {
+            setCookiesAccepted(false);
+        }
     }, []);
-    console.log(heroData);
 
     return (
         <div className="main">
@@ -58,9 +67,18 @@ const RuLayout = () => {
             <Hero data={heroData} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} />
+            <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Footer id={navigation.contacts} />
+            <FooterEn id={navigation.contacts} />
+
+            {!cookiesAccepted && (
+                <CookiesNotification
+                    clickHandler={() => {
+                        setCookiesAccepted(true);
+                        localStorage.setItem('cookiesAccepted', 'true');
+                    }}
+                />
+            )}
         </div>
     );
 };

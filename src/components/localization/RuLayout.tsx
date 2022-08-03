@@ -18,6 +18,9 @@ import CookiesNotification from '../shared/CookiesNotification';
 
 import heroData from '../../data/ru/Hero.json';
 import howWeWorkData from '../../data/ru/HowWeWork.json';
+import whatWeDoData from '../../data/ru/WhatWeDo.json';
+import partnersData from '../../data/ru/Partners.json';
+import { casesData } from '../../data/ru/casesData';
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
@@ -65,9 +68,9 @@ const RuLayout = () => {
 
             <Hero data={heroData} />
             <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} />
-            <Cases id={navigation.cases} />
-            <Partners />
+            <WhatWeDo id={navigation.services} data={whatWeDoData} />
+            <Cases id={navigation.cases} data={casesData} />
+            <Partners data={partnersData} />
             <Tagline />
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
