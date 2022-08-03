@@ -18,6 +18,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
     const [isPinnedScroll, setIsPinnedScroll] = useState(false);
 
     const [isTablet, setIsTablet] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const casesAmount = casesList.length;
 
@@ -117,7 +118,14 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                         )
                         .fromTo(
                             casesImagesItems,
-                            { xPercent: gsap.utils.wrap(transformArrayStart) },
+                            {
+                                xPercent: gsap.utils.wrap(transformArrayStart),
+                                x: gsap.utils.wrap(
+                                    [...transformArrayStart].map(
+                                        (x, index) => -index * 0.5
+                                    )
+                                ),
+                            },
                             {
                                 xPercent: gsap.utils.wrap(transformArrayEnd),
                                 ease: 'none',
@@ -149,6 +157,7 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
     const handleResize = () => {
         const width = window.innerWidth;
         setIsTablet(width > 640 && width <= 992);
+        setIsMobile(width <= 640);
     };
 
     useEffect(() => {
@@ -184,12 +193,16 @@ const Cases: React.FC<{ id?: string }> = ({ id }) => {
                                     image={
                                         isTablet
                                             ? caseObj.image.tablet.src
-                                            : caseObj.image.original.src
+                                            : isMobile
+                                            ? caseObj.image.original.src
+                                            : caseObj.image.desktop.src
                                     }
                                     origin={
                                         isTablet
                                             ? caseObj.image.tablet.origin
-                                            : caseObj.image.original.origin
+                                            : isMobile
+                                            ? caseObj.image.original.origin
+                                            : caseObj.image.desktop.origin
                                     }
                                 />
                             </div>
