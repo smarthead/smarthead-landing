@@ -1,0 +1,13 @@
+{
+    "tasks": [
+        { "text": "Developing", "subtext": "proof of concept" },
+        { "text": "Launching", "subtext": "MVPs" },
+        { "text": "Scaling", "subtext": "digital products" },
+        { "text": "Building", "subtext": "teams and development processes" },
+        {
+            "text": "Consulting",
+            "subtext": "on business and product development"
+        },
+        { "text": "Searching", "subtext": "for offbeat solutions" }
+    ]
+}

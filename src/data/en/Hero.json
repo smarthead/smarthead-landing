@@ -9,5 +9,24 @@
         "line1": "We’re a truly product-oriented team,",
         "line2": "not just code monkeys"
     },
-    "button": "LET’S TALK PRODUCT DEV"
+    "button": "LET’S TALK PRODUCT DEV",
+    "header": {
+        "menu": [
+            {
+                "id": "services",
+                "anchor": "services",
+                "name": "Services"
+            },
+            {
+                "id": "cases",
+                "anchor": "cases",
+                "name": "Success Stories"
+            },
+            {
+                "id": "contacts",
+                "anchor": "contacts",
+                "name": "Сontact us"
+            }
+        ]
+    }
 }

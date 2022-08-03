@@ -1,11 +1,19 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { arrayToString } from '../../../utils/arrayToString';
 
 import * as styles from './index.module.scss';
 import teamPhoto from '../../../assets/images/Team-Photo.jpg';
 
-const HowWeWork: React.FC = () => {
+interface IHowWeWork {
+    data: {
+        perks: string[][];
+        title: string[];
+    };
+}
+
+const HowWeWork: React.FC<IHowWeWork> = ({ data }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
@@ -47,28 +55,16 @@ const HowWeWork: React.FC = () => {
         <section className={styles.root}>
             <div className={styles.content}>
                 <div className={styles.perks}>
-                    <p className={styles.perksItem}>
-                        Думаем о ценности
-                        <br /> для&nbsp;потребителя
-                    </p>
-                    <p className={styles.perksItem}>
-                        Формируем процесс
-                        <br /> исходя из&nbsp;цели
-                    </p>
-                    <p className={styles.perksItem}>
-                        Сами управляем проектом
-                        <br /> и&nbsp;процессом разработки
-                    </p>
-                    <p className={styles.perksItem}>
-                        Берем ответственность
-                        <br /> за&nbsp;продукт и&nbsp;работаем&nbsp;автономно
-                    </p>
+                    {data.perks.map((perk, index) => (
+                        <p key={index} className={styles.perksItem}>
+                            {arrayToString(perk)}
+                        </p>
+                    ))}
                 </div>
 
                 <div className={styles.title}>
                     <p className={styles.titleText}>
-                        Вы тратите меньше времени на управление и контроль —{' '}
-                        <br />у вас остается больше времени на бизнес
+                        {arrayToString(data.title)}
                     </p>
                 </div>
             </div>

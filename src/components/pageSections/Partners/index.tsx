@@ -33,7 +33,13 @@ import marsLogoSVG from '../../../assets/images/logos/mars_logo.svg';
 import kelloggsLogoSVG from '../../../assets/images/logos/kelloggs_logo.svg';
 import panasonicLogoSVG from '../../../assets/images/logos/panasonic_logo.svg';
 
-const Partners: React.FC = ({}) => {
+interface IPartners {
+    data: {
+        title: string;
+    };
+}
+
+const Partners: React.FC<IPartners> = ({ data }) => {
     const images = [
         sberSolutionsLogoSVG,
         veeamLogoSVG,
@@ -110,7 +116,7 @@ const Partners: React.FC = ({}) => {
             <div className="container">
                 <div className={styles.content}>
                     <div className={`${styles.headline} partners-headline`}>
-                        Нам доверяют
+                        {data.title}
                     </div>
 
                     <div className={styles.logos}>

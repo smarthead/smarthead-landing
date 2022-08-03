@@ -11,22 +11,20 @@ import Cases from '../pageSections/Cases';
 import Footer from '../pageSections/Footer';
 import { navigation } from '../shared/navigation';
 import { scrollToSection } from '../../utils/scroll';
-import CookiesNotification from '../shared/CookiesNotification';
+
+import heroData from '../../data/en/Hero.json';
+import howWeWorkData from '../../data/en/HowWeWork.json';
+import whatWeDoData from '../../data/en/WhatWeDo.json';
+import partnersData from '../../data/en/Partners.json';
 
 const RuLayout = () => {
-    const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
             scrollToSection(hash, 0);
         }
-        const localStorageCookiesAccepted =
-            localStorage.getItem('cookiesAccepted');
-
-        if (localStorageCookiesAccepted !== 'true') {
-            setCookiesAccepted(false);
-        }
     }, []);
+    console.log(heroData);
 
     return (
         <div className="main">
@@ -57,20 +55,12 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <Hero links={navigation} />
-            <HowWeWork />
-            <WhatWeDo id={navigation.services} />
+            <Hero data={heroData} />
+            <HowWeWork data={howWeWorkData} />
+            <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} />
-            <Partners />
+            <Partners data={partnersData} />
             <Footer id={navigation.contacts} />
-            {!cookiesAccepted && (
-                <CookiesNotification
-                    clickHandler={() => {
-                        setCookiesAccepted(true);
-                        localStorage.setItem('cookiesAccepted', 'true');
-                    }}
-                />
-            )}
         </div>
     );
 };

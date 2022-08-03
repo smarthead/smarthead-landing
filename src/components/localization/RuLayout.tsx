@@ -16,6 +16,9 @@ import { navigation } from '../shared/navigation';
 import { scrollToSection } from '../../utils/scroll';
 import CookiesNotification from '../shared/CookiesNotification';
 
+import heroData from '../../data/ru/Hero.json';
+import howWeWorkData from '../../data/ru/HowWeWork.json';
+
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
@@ -60,8 +63,8 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <Hero links={navigation} />
-            <HowWeWork />
+            <Hero data={heroData} />
+            <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} />
             <Cases id={navigation.cases} />
             <Partners />
