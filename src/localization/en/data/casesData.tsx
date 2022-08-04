@@ -10,31 +10,14 @@ import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tabl
 import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet_en.jpg';
 import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet_en.jpg';
 
-import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop.jpg';
-import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop.jpg';
-import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop.jpg';
-import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop.jpg';
-import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop.jpg';
+import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop_en.jpg';
+import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop_en.jpg';
+import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop_en.jpg';
+import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop_en.jpg';
+import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop_en.jpg';
 
 const title = 'OUR SUCCESS STORIES';
 const casesList = [
-    {
-        title: 'Compliance Assistant',
-        description:
-            'We are currently developing a service that will analyze the legal actions compliance of entities. We are helping our client to design and develop new functionality that will improve UX and increase product value for customers. In addition, it will streamline the service delivery process.',
-        image: {
-            original: {
-                src: complianceImage,
-            },
-            tablet: {
-                src: complianceImageTablet,
-            },
-            desktop: {
-                src: complianceImageDesktop,
-                origin: '50% 0%',
-            },
-        },
-    },
     {
         title: 'Effectiveaty',
         description:
@@ -102,6 +85,23 @@ const casesList = [
             desktop: {
                 src: visaPromoImageDesktop,
                 origin: '0% 50%',
+            },
+        },
+    },
+    {
+        title: 'Compliance Assistant',
+        description:
+            'We are currently developing a service that will analyze the legal actions compliance of entities. We are helping our client to design and develop new functionality that will improve UX and increase product value for customers. In addition, it will streamline the service delivery process.',
+        image: {
+            original: {
+                src: complianceImage,
+            },
+            tablet: {
+                src: complianceImageTablet,
+            },
+            desktop: {
+                src: complianceImageDesktop,
+                origin: '50% 0%',
             },
         },
     },

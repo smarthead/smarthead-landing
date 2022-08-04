@@ -143,11 +143,13 @@
 
     @media (max-width: $screenSm) {
         max-height: 100%;
+        row-gap: 4vw;
         grid-template-rows: min-content;
         grid-auto-flow: row;
-        padding-top: 7vw;
-        padding-bottom: 6.5vw;
+        padding-top: 6.5vw;
+        padding-bottom: 5.5vw;
         grid-template-columns: 1fr;
+        margin: 0;
     }
 }
 
