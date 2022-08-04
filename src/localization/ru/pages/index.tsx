@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
-import '../styles/index.scss';
+import '../../../styles/index.scss';
 
-import Hero from '../components/pageSections/Hero';
-import HowWeWork from '../components/pageSections/HowWeWork';
-import WhatWeDo from '../components/pageSections/WhatWeDo';
-import Acquaintance from '../components/pageSections/Acquaintance';
-import JoinUs from '../components/pageSections/JoinUs';
-import Partners from '../components/pageSections/Partners';
-import Cases from '../components/pageSections/Cases';
-import Footer from '../components/pageSections/Footer';
-import Tagline from '../components/pageSections/Tagline';
-import { navigation } from '../components/shared/navigation';
-import { scrollToSection } from '../utils/scroll';
-import CookiesNotification from '../components/shared/CookiesNotification';
+import Hero from '../../../components/pageSections/Hero';
+import HowWeWork from '../../../components/pageSections/HowWeWork';
+import WhatWeDo from '../../../components/pageSections/WhatWeDo';
+import Acquaintance from '../../../components/pageSections/Acquaintance';
+import JoinUs from '../../../components/pageSections/JoinUs';
+import Partners from '../../../components/pageSections/Partners';
+import Cases from '../../../components/pageSections/Cases';
+import Footer from '../../../components/pageSections/Footer';
+import Tagline from '../../../components/pageSections/Tagline';
+import { navigation } from '../../../components/shared/navigation';
+import { scrollToSection } from '../../../utils/scroll';
+import CookiesNotification from '../../../components/shared/CookiesNotification';
 
-const IndexPage = () => {
+import heroData from '../data/Hero.json';
+import howWeWorkData from '../data/HowWeWork.json';
+import whatWeDoData from '../data/WhatWeDo.json';
+import partnersData from '../data/Partners.json';
+import cookiesNotificationData from '../data/CookiesNotification.json';
+import { casesData } from '../data/casesData';
+
+const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
@@ -60,21 +67,21 @@ const IndexPage = () => {
                 ></meta>
             </Helmet>
 
-            <Hero links={navigation} />
-            <HowWeWork />
-            <WhatWeDo id={navigation.services} />
-            <Cases id={navigation.cases} />
-            <Partners />
+            <Hero data={heroData} />
+            <HowWeWork data={howWeWorkData} />
+            <WhatWeDo id={navigation.services} data={whatWeDoData} />
+            <Cases id={navigation.cases} data={casesData} />
+            <Partners data={partnersData} />
             <Tagline />
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
             {!cookiesAccepted && (
                 <CookiesNotification
+                    data={cookiesNotificationData}
                     clickHandler={() => {
                         setCookiesAccepted(true);
                         localStorage.setItem('cookiesAccepted', 'true');
-                        // TODO: Google TagManager event
                     }}
                 />
             )}
@@ -82,4 +89,4 @@ const IndexPage = () => {
     );
 };
 
-export default IndexPage;
+export default RuLayout;

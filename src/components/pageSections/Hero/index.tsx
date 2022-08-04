@@ -10,13 +10,23 @@ import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 
-export interface ILinks {
-    links: {
-        [key: string]: string;
+interface Item {
+    [key: string]: string;
+}
+
+export interface IHero {
+    isEnglish?: boolean;
+    data: {
+        title: Item;
+        subtitle: Item;
+        button: string;
+        header: {
+            menu: Item[];
+        };
     };
 }
 
-const Hero: React.FC<ILinks> = ({ links }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -65,20 +75,23 @@ const Hero: React.FC<ILinks> = ({ links }) => {
     };
 
     const resize = () => {
-        const secondLineElem = document.getElementsByClassName(
-            styles.secondLine
-        )[0] as HTMLElement;
-        const subtextElem = document.getElementsByClassName(
-            styles.subtext
-        )[0] as HTMLElement;
+        if (!isEnglish) {
+            const secondLineElem = document.getElementsByClassName(
+                styles.secondLine
+            )[0] as HTMLElement;
+            const subtextElem = document.getElementsByClassName(
+                styles.subtext
+            )[0] as HTMLElement;
 
-        const width = window.innerWidth;
-        if (width > 992 && width <= 1281) {
-            subtextElem.style.marginRight =
-                0.98 * (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
-                'px';
-        } else {
-            subtextElem.style.marginRight = '0';
+            const width = window.innerWidth;
+            if (width > 992 && width <= 1281) {
+                subtextElem.style.marginRight =
+                    0.98 *
+                        (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
+                    'px';
+            } else {
+                subtextElem.style.marginRight = '0';
+            }
         }
 
         invalidate(createTimeline, revealTimeline);
@@ -104,30 +117,34 @@ const Hero: React.FC<ILinks> = ({ links }) => {
     return (
         <section className={`${styles.hero} container`}>
             <div className={styles.header}>
-                <Header links={links} />
+                <Header menuLinks={data.header.menu} />
             </div>
             <div className={styles.content}>
-                <h1 className={styles.headline}>
+                <h1
+                    className={`${styles.headline} ${
+                        isEnglish && styles.headlineEn
+                    }`}
+                >
                     <span className={`${styles.headlineL1} hero-h1-line1`}>
-                        Разрабатываем
+                        {data.title.line1}
                     </span>
                     <span
                         className={`${styles.secondLine} ${styles.headlineL2} hero-h1-line2`}
                     >
-                        амбициозные
+                        {data.title.line2}
                     </span>
-                    <span>
+                    <span className={`${isEnglish && styles.thirdLine}`}>
                         <span
                             style={{ display: 'inline-block' }}
                             className={`${styles.headlineL3} hero-h1-line3`}
                         >
-                            цифровые
+                            {data.title.line3}
                         </span>{' '}
                         <span
                             style={{ display: 'inline-block' }}
                             className={`${styles.headlineL4} hero-h1-line4`}
                         >
-                            продукты
+                            {data.title.line4}
                         </span>
                     </span>
                 </h1>
@@ -135,7 +152,7 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                     <ButtonLink
                         className={styles.heroButton}
                         type="yellow"
-                        text="ХОЧУ С ВАМИ РАБОТАТЬ"
+                        text={data.button}
                         link={`#${navigation.contacts}`}
                         clickHandler={() => {
                             scrollToSection(`#${navigation.contacts}`);
@@ -143,8 +160,8 @@ const Hero: React.FC<ILinks> = ({ links }) => {
                     />
 
                     <p className={styles.subtext}>
-                        Продуктоориентированная команда,
-                        <br /> а не просто «руки на аутстаффе»
+                        {data.subtitle.line1}
+                        <br /> {data.subtitle.line2}
                     </p>
                 </div>
             </div>

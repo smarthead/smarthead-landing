@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
-import { ILinks } from '../../pageSections/Hero';
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 
-const Header: React.FC<ILinks> = ({ links }) => {
+import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import { links } from '../links';
+
+interface IHeader {
+    menuLinks: { [key: string]: string }[];
+}
+
+const Header: React.FC<IHeader> = ({ menuLinks }) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -56,21 +61,15 @@ const Header: React.FC<ILinks> = ({ links }) => {
                 />
 
                 <div className={styles.menu} onClick={desktopMenuClickHandler}>
-                    <a href={`#${links.services}`} className={styles.menuLink}>
-                        Услуги
-                    </a>
-                    <a href={`#${links.cases}`} className={styles.menuLink}>
-                        Кейсы
-                    </a>
-                    <a href={`#${links.aboutUs}`} className={styles.menuLink}>
-                        О нас
-                    </a>
-                    <a href={`#${links.vacancies}`} className={styles.menuLink}>
-                        Вакансии
-                    </a>
-                    <a href={`#${links.contacts}`} className={styles.menuLink}>
-                        Контакты
-                    </a>
+                    {menuLinks.map((link) => (
+                        <a
+                            key={link.id}
+                            href={`#${link.id}`}
+                            className={styles.menuLink}
+                        >
+                            {link.name}
+                        </a>
+                    ))}
                 </div>
                 <div
                     className={`${styles.mobileMenu} ${
@@ -78,36 +77,15 @@ const Header: React.FC<ILinks> = ({ links }) => {
                     }`}
                     onClick={mobileMenuClickHandler}
                 >
-                    <a
-                        href={`#${links.services}`}
-                        className={styles.mobileMenuLink}
-                    >
-                        Услуги
-                    </a>
-                    <a
-                        href={`#${links.cases}`}
-                        className={styles.mobileMenuLink}
-                    >
-                        Кейсы
-                    </a>
-                    <a
-                        href={`#${links.aboutUs}`}
-                        className={styles.mobileMenuLink}
-                    >
-                        О нас
-                    </a>
-                    <a
-                        href={`#${links.vacancies}`}
-                        className={styles.mobileMenuLink}
-                    >
-                        Вакансии
-                    </a>
-                    <a
-                        href={`#${links.contacts}`}
-                        className={styles.mobileMenuLink}
-                    >
-                        Контакты
-                    </a>
+                    {menuLinks.map((link) => (
+                        <a
+                            key={link.id}
+                            href={`#${link.id}`}
+                            className={styles.mobileMenuLink}
+                        >
+                            {link.name}
+                        </a>
+                    ))}
                 </div>
 
                 <div

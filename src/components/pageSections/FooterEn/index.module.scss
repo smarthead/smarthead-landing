@@ -55,26 +55,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 6.25vw;
-    padding-bottom: 3.125vw;
+    padding-bottom: 2vw;
     color: $white;
     font-family: $inter-400;
     font-size: 1.5vw;
     column-gap: 2.1875vw;
 
     @media (max-width: $screen2Xl) {
-        padding-bottom: 50px;
+        padding-bottom: 30px;
         font-size: 24px;
     }
 
     @media (max-width: $screenXl) {
-        padding-bottom: 3.9063vw;
+        padding-bottom: 2.3437vw;
         font-size: 1.875vw;
     }
 
     @media (max-width: $screenSm) {
-        grid-template-columns: 1fr;
-        row-gap: 5.555vw;
+        grid-template-rows: min-content;
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
         font-size: 3.333vw;
+        row-gap: 0;
     }
 }
 
@@ -107,18 +109,20 @@
 .contacts-item {
     display: grid;
     visibility: hidden;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: min-content;
     grid-template-columns: max-content;
-    grid-auto-flow: column;
-    max-height: 13vw;
-    padding-top: 3.125vw;
+    grid-auto-flow: rows;
+    max-height: 100%;
+    padding-top: 2.8vw;
+    line-height: 1.4em;
+    white-space: nowrap;
     border-top: 2px $white50 solid;
-    row-gap: 2.1875vw;
+    row-gap: 1.25vw;
     column-gap: 3vw;
 
     @media (max-width: $screen2Xl) {
         max-height: 208px;
-        row-gap: 35px;
+        row-gap: 20px;
     }
 
     @media (max-width: $screenXl) {
@@ -128,6 +132,7 @@
 
     @media (max-width: $screenLg) {
         border-top: 1px $white50 solid;
+        row-gap: 1.5vw;
 
         &:last-child {
             & > :nth-last-child(-n + 3) {
@@ -137,62 +142,14 @@
     }
 
     @media (max-width: $screenSm) {
-        grid-template-columns: 2fr 1fr;
-        max-height: 26vw;
-    }
-}
-
-.social-links {
-    display: flex;
-    flex-direction: row;
-}
-
-.social-network-desktop {
-    @media (max-width: $screenSm) {
-        display: none;
-    }
-}
-
-.social-network-mobile {
-    display: none;
-
-    @media (max-width: $screenSm) {
-        display: flex;
-        width: 31%;
-    }
-}
-
-.legal-block {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.7vw;
-    color: $white50;
-    font-family: $inter-400;
-    font-size: 0.875vw;
-    line-height: 1em;
-
-    p {
+        grid-template-rows: min-content;
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        max-height: 100%;
         margin: 0;
-    }
-
-    @media (max-width: $screen2Xl) {
-        margin-top: 27px;
-        font-size: 14px;
-    }
-
-    @media (max-width: $screenLg) {
-        font-size: 12px;
-    }
-
-    @media (max-width: $screenMd) {
-        font-size: 1.5625vw;
-    }
-
-    @media (max-width: $screenSm) {
-        flex-direction: column;
-        margin-top: 1.2em;
-        font-size: 3.3333vw;
-        row-gap: 110px;
+        padding-top: 6.5vw;
+        padding-bottom: 5.5vw;
+        row-gap: 4vw;
     }
 }
 
@@ -204,19 +161,28 @@
     }
 }
 
-.legal-link,
-.legal-link:visited {
-    color: $white50;
-    white-space: nowrap;
-    text-decoration: none;
-    transition: color 0.15s ease-out;
+.logo {
+    width: 6.9375vw;
+    margin-top: 3.75vw;
+    cursor: pointer;
 
-    &:hover {
-        color: $white;
+    @media (max-width: $screen2Xl) {
+        width: 111px;
+        margin-top: 60px;
+    }
+
+    @media (max-width: $screenXl) {
+        width: 8.5938vw;
+        margin-top: 4.6875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 10.5468vw;
+        margin-top: 3.2552vw;
     }
 
     @media (max-width: $screenSm) {
-        margin-bottom: 2.777vw;
-        line-height: 2.4em;
+        width: 22.5vw;
+        margin-top: 8.6vw;
     }
 }

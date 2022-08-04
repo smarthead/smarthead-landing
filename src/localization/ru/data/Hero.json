@@ -1,0 +1,42 @@
+{
+    "title": {
+        "line1": "Разрабатываем",
+        "line2": "амбициозные",
+        "line3": "цифровые",
+        "line4": "продукты"
+    },
+    "subtitle": {
+        "line1": " Продуктоориентированная команда,",
+        "line2": "а не просто «руки на аутстаффе»"
+    },
+    "button": "ХОЧУ С ВАМИ РАБОТАТЬ",
+    "header": {
+        "menu": [
+            {
+                "id": "services",
+                "anchor": "services",
+                "name": "Услуги"
+            },
+            {
+                "id": "cases",
+                "anchor": "cases",
+                "name": "Кейсы"
+            },
+            {
+                "id": "about-us",
+                "anchor": "about-us",
+                "name": "О нас"
+            },
+            {
+                "id": "vacancies",
+                "anchor": "vacancies",
+                "name": "Вакансии"
+            },
+            {
+                "id": "contacts",
+                "anchor": "contacts",
+                "name": "Контакты"
+            }
+        ]
+    }
+}

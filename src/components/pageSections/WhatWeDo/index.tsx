@@ -4,7 +4,12 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import * as styles from './index.module.scss';
 
-const WhatWeDo: React.FC<{ id?: string }> = ({ id }) => {
+interface IWhatWeDo {
+    id: string;
+    data: { tasks: { text: string; subtext: string }[] };
+}
+
+const WhatWeDo: React.FC<IWhatWeDo> = ({ id, data }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
@@ -30,51 +35,16 @@ const WhatWeDo: React.FC<{ id?: string }> = ({ id }) => {
         <section className={styles.root} id={id}>
             <div className="container">
                 <ul className={styles.task}>
-                    <li className={styles.taskItem}>
-                        Разрабатываем
-                        <br />
-                        <span className={styles.thinText}>
-                            {' '}
-                            proof of concept
-                        </span>
-                    </li>
-                    <li className={styles.taskItem}>
-                        Запускаем
-                        <br />
-                        <span className={styles.thinText}> MVP</span>
-                    </li>
-                    <li className={styles.taskItem}>
-                        Масштабируем
-                        <br />
-                        <span className={styles.thinText}>
-                            {' '}
-                            цифровые продукты
-                        </span>
-                    </li>
-                    <li className={styles.taskItem}>
-                        Формируем
-                        <br />
-                        <span className={styles.thinText}>
-                            {' '}
-                            команды и процессы разработки
-                        </span>
-                    </li>
-                    <li className={styles.taskItem}>
-                        Консультируем
-                        <br />
-                        <span className={styles.thinText}>
-                            {' '}
-                            по процессам разработки
-                        </span>
-                    </li>
-                    <li className={styles.taskItem}>
-                        Ищем
-                        <br />
-                        <span className={styles.thinText}>
-                            {' '}
-                            решения нетиповых задач
-                        </span>
-                    </li>
+                    {data.tasks.map((task, index) => (
+                        <li key={index} className={styles.taskItem}>
+                            {task.text}
+                            <br />
+                            <span className={styles.thinText}>
+                                {' '}
+                                {task.subtext}
+                            </span>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>

@@ -105,6 +105,7 @@
         @media (max-width: $screenSm) {
             width: 100%;
             font-size: 3.3333vw;
+            line-height: 1.34em;
 
             & > br {
                 display: none;
@@ -116,15 +117,15 @@
 .title {
     width: 100%;
     margin-left: 17.5vw;
-    padding: 3.625vw 9.375vw 3.625vw 5.0625vw;
+    padding: 3.625vw 17.5vw 3.625vw 5.0625vw;
     background-color: $black;
 
     @media (max-width: $screenXl) {
-        padding: 3.28vw 12.5vw 3.28vw 6.484vw;
+        padding: 3.28vw 17.5vw 3.28vw 6.484vw;
     }
 
     @media (max-width: $screenLg) {
-        padding: 3.776vw 20vw 3.776vw 6.9vw;
+        padding: 3.776vw 25vw 3.776vw 6.9vw;
     }
 
     @media (max-width: $screenSm) {
