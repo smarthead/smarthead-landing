@@ -15,6 +15,7 @@ interface Item {
 }
 
 export interface IHero {
+    isEnglish?: boolean;
     data: {
         title: Item;
         subtitle: Item;
@@ -25,7 +26,7 @@ export interface IHero {
     };
 }
 
-const Hero: React.FC<IHero> = ({ data }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -74,20 +75,23 @@ const Hero: React.FC<IHero> = ({ data }) => {
     };
 
     const resize = () => {
-        const secondLineElem = document.getElementsByClassName(
-            styles.secondLine
-        )[0] as HTMLElement;
-        const subtextElem = document.getElementsByClassName(
-            styles.subtext
-        )[0] as HTMLElement;
+        if (!isEnglish) {
+            const secondLineElem = document.getElementsByClassName(
+                styles.secondLine
+            )[0] as HTMLElement;
+            const subtextElem = document.getElementsByClassName(
+                styles.subtext
+            )[0] as HTMLElement;
 
-        const width = window.innerWidth;
-        if (width > 992 && width <= 1281) {
-            subtextElem.style.marginRight =
-                0.98 * (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
-                'px';
-        } else {
-            subtextElem.style.marginRight = '0';
+            const width = window.innerWidth;
+            if (width > 992 && width <= 1281) {
+                subtextElem.style.marginRight =
+                    0.98 *
+                        (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
+                    'px';
+            } else {
+                subtextElem.style.marginRight = '0';
+            }
         }
 
         invalidate(createTimeline, revealTimeline);
@@ -116,7 +120,11 @@ const Hero: React.FC<IHero> = ({ data }) => {
                 <Header menuLinks={data.header.menu} />
             </div>
             <div className={styles.content}>
-                <h1 className={styles.headline}>
+                <h1
+                    className={`${styles.headline} ${
+                        isEnglish && styles.headlineEn
+                    }`}
+                >
                     <span className={`${styles.headlineL1} hero-h1-line1`}>
                         {data.title.line1}
                     </span>
@@ -125,7 +133,7 @@ const Hero: React.FC<IHero> = ({ data }) => {
                     >
                         {data.title.line2}
                     </span>
-                    <span>
+                    <span className={`${isEnglish && styles.thirdLine}`}>
                         <span
                             style={{ display: 'inline-block' }}
                             className={`${styles.headlineL3} hero-h1-line3`}
