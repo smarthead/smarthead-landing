@@ -1,20 +1,20 @@
-import complianceImage from '../../assets/images/cases/case_compliance.jpg';
-import effectiveatyImage from '../../assets/images/cases/case_effectiveaty_en.jpg';
-import roboticsImage from '../../assets/images/cases/case_robotics_en.jpg';
-import stringAppImage from '../../assets/images/cases/case_StringApp_en.jpg';
-import visaPromoImage from '../../assets/images/cases/case_VisaPromo_en.jpg';
+import complianceImage from '../../../assets/images/cases/case_compliance.jpg';
+import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty_en.jpg';
+import roboticsImage from '../../../assets/images/cases/case_robotics_en.jpg';
+import stringAppImage from '../../../assets/images/cases/case_StringApp_en.jpg';
+import visaPromoImage from '../../../assets/images/cases/case_VisaPromo_en.jpg';
 
-import complianceImageTablet from '../../assets/images/cases/case_compliance_tablet.jpg';
-import effectiveatyImageTablet from '../../assets/images/cases/case_effectiveaty_tablet_en.jpg';
-import roboticsImageTablet from '../../assets/images/cases/case_robotics_tablet_en.jpg';
-import stringAppImageTablet from '../../assets/images/cases/case_StringApp_tablet_en.jpg';
-import visaPromoImageTablet from '../../assets/images/cases/case_VisaPromo_tablet_en.jpg';
+import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
+import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet_en.jpg';
+import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet_en.jpg';
+import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet_en.jpg';
+import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet_en.jpg';
 
-import complianceImageDesktop from '../../assets/images/cases/case_compliance_desktop.jpg';
-import effectiveatyImageDesktop from '../../assets/images/cases/case_effectiveaty_desktop.jpg';
-import roboticsImageDesktop from '../../assets/images/cases/case_robotics_desktop.jpg';
-import stringAppImageDesktop from '../../assets/images/cases/case_StringApp_desktop.jpg';
-import visaPromoImageDesktop from '../../assets/images/cases/case_VisaPromo_desktop.jpg';
+import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop.jpg';
+import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop.jpg';
+import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop.jpg';
+import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop.jpg';
+import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop.jpg';
 
 const title = 'OUR SUCCESS STORIES';
 const casesList = [

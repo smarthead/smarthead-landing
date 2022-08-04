@@ -1,11 +1,10 @@
 import type { GatsbyConfig } from 'gatsby';
 
-require('dotenv').config({
-    path: `.env.${process.env.NODE_ENV}`,
-});
+const isEnLanguange = process.env.GATSBY_ACTIVE_ENV === 'en';
 
-const staticPath =
-    './static_local/' + (process.env.GATSBY_ACTIVE_ENV === 'en' ? 'en' : 'ru');
+const folderPath = `./src/localization/${isEnLanguange ? 'en' : 'ru'}`;
+const indexPath = `${folderPath}/pages`;
+const staticPath = `${folderPath}/static`;
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -25,6 +24,12 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-plugin-static-folders',
             options: {
                 folders: [staticPath],
+            },
+        },
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: indexPath,
             },
         },
         {

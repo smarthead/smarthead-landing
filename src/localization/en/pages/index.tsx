@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
-import '../../styles/index.scss';
+import '../../../styles/index.scss';
 
-import Hero from '../pageSections/Hero';
-import HowWeWork from '../pageSections/HowWeWork';
-import WhatWeDo from '../pageSections/WhatWeDo';
-import Partners from '../pageSections/Partners';
-import Cases from '../pageSections/Cases';
-import FooterEn from '../pageSections/FooterEn';
-import CookiesNotification from '../shared/CookiesNotification';
+import Hero from '../../../components/pageSections/Hero';
+import HowWeWork from '../../../components/pageSections/HowWeWork';
+import WhatWeDo from '../../../components/pageSections/WhatWeDo';
+import Partners from '../../../components/pageSections/Partners';
+import Cases from '../../../components/pageSections/Cases';
+import FooterEn from '../../../components/pageSections/FooterEn';
+import CookiesNotification from '../../../components/shared/CookiesNotification';
 
-import { navigation } from '../shared/navigation';
-import { scrollToSection } from '../../utils/scroll';
+import { navigation } from '../../../components/shared/navigation';
+import { scrollToSection } from '../../../utils/scroll';
 
-import heroData from '../../data/en/Hero.json';
-import howWeWorkData from '../../data/en/HowWeWork.json';
-import whatWeDoData from '../../data/en/WhatWeDo.json';
-import partnersData from '../../data/en/Partners.json';
-import { casesData } from '../../data/en/casesData';
+import heroData from '../data/Hero.json';
+import howWeWorkData from '../data/HowWeWork.json';
+import whatWeDoData from '../data/WhatWeDo.json';
+import partnersData from '../data/Partners.json';
+import { casesData } from '../data/casesData';
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);

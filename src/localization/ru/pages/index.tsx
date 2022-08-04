@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
-import '../../styles/index.scss';
+import '../../../styles/index.scss';
 
-import Hero from '../pageSections/Hero';
-import HowWeWork from '../pageSections/HowWeWork';
-import WhatWeDo from '../pageSections/WhatWeDo';
-import Acquaintance from '../pageSections/Acquaintance';
-import JoinUs from '../pageSections/JoinUs';
-import Partners from '../pageSections/Partners';
-import Cases from '../pageSections/Cases';
-import Footer from '../pageSections/Footer';
-import Tagline from '../pageSections/Tagline';
-import { navigation } from '../shared/navigation';
-import { scrollToSection } from '../../utils/scroll';
-import CookiesNotification from '../shared/CookiesNotification';
+import Hero from '../../../components/pageSections/Hero';
+import HowWeWork from '../../../components/pageSections/HowWeWork';
+import WhatWeDo from '../../../components/pageSections/WhatWeDo';
+import Acquaintance from '../../../components/pageSections/Acquaintance';
+import JoinUs from '../../../components/pageSections/JoinUs';
+import Partners from '../../../components/pageSections/Partners';
+import Cases from '../../../components/pageSections/Cases';
+import Footer from '../../../components/pageSections/Footer';
+import Tagline from '../../../components/pageSections/Tagline';
+import { navigation } from '../../../components/shared/navigation';
+import { scrollToSection } from '../../../utils/scroll';
+import CookiesNotification from '../../../components/shared/CookiesNotification';
 
-import heroData from '../../data/ru/Hero.json';
-import howWeWorkData from '../../data/ru/HowWeWork.json';
-import whatWeDoData from '../../data/ru/WhatWeDo.json';
-import partnersData from '../../data/ru/Partners.json';
-import { casesData } from '../../data/ru/casesData';
+import heroData from '../data/Hero.json';
+import howWeWorkData from '../data/HowWeWork.json';
+import whatWeDoData from '../data/WhatWeDo.json';
+import partnersData from '../data/Partners.json';
+import { casesData } from '../data/casesData';
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);

@@ -1,20 +1,20 @@
-import complianceImage from '../../assets/images/cases/case_compliance.jpg';
-import effectiveatyImage from '../../assets/images/cases/case_effectiveaty.jpg';
-import roboticsImage from '../../assets/images/cases/case_robotics.jpg';
-import stringAppImage from '../../assets/images/cases/case_StringApp.jpg';
-import visaPromoImage from '../../assets/images/cases/case_VisaPromo.jpg';
+import complianceImage from '../../../assets/images/cases/case_compliance.jpg';
+import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty.jpg';
+import roboticsImage from '../../../assets/images/cases/case_robotics.jpg';
+import stringAppImage from '../../../assets/images/cases/case_StringApp.jpg';
+import visaPromoImage from '../../../assets/images/cases/case_VisaPromo.jpg';
 
-import complianceImageTablet from '../../assets/images/cases/case_compliance_tablet.jpg';
-import effectiveatyImageTablet from '../../assets/images/cases/case_effectiveaty_tablet.jpg';
-import roboticsImageTablet from '../../assets/images/cases/case_robotics_tablet.jpg';
-import stringAppImageTablet from '../../assets/images/cases/case_StringApp_tablet.jpg';
-import visaPromoImageTablet from '../../assets/images/cases/case_VisaPromo_tablet.jpg';
+import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
+import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet.jpg';
+import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet.jpg';
+import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet.jpg';
+import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet.jpg';
 
-import complianceImageDesktop from '../../assets/images/cases/case_compliance_desktop.jpg';
-import effectiveatyImageDesktop from '../../assets/images/cases/case_effectiveaty_desktop.jpg';
-import roboticsImageDesktop from '../../assets/images/cases/case_robotics_desktop.jpg';
-import stringAppImageDesktop from '../../assets/images/cases/case_StringApp_desktop.jpg';
-import visaPromoImageDesktop from '../../assets/images/cases/case_VisaPromo_desktop.jpg';
+import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop.jpg';
+import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop.jpg';
+import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop.jpg';
+import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop.jpg';
+import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop.jpg';
 
 const title = 'КЕЙСЫ';
 const casesList = [
