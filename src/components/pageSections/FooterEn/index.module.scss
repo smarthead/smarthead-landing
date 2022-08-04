@@ -72,10 +72,10 @@
     }
 
     @media (max-width: $screenSm) {
-        grid-template-columns: 100%;
-        font-size: 3.333vw;
         grid-template-rows: min-content;
+        grid-template-columns: 100%;
         grid-auto-flow: row;
+        font-size: 3.333vw;
         row-gap: 0;
     }
 }
@@ -109,16 +109,16 @@
 .contacts-item {
     display: grid;
     visibility: hidden;
+    grid-template-rows: min-content;
+    grid-template-columns: max-content;
     grid-auto-flow: rows;
     max-height: 100%;
-    grid-template-rows: min-content;
     padding-top: 2.8vw;
+    line-height: 1.4em;
+    white-space: nowrap;
     border-top: 2px $white50 solid;
     row-gap: 1.25vw;
     column-gap: 3vw;
-    grid-template-columns: max-content;
-    line-height: 1.4em;
-    white-space: nowrap;
 
     @media (max-width: $screen2Xl) {
         max-height: 208px;
@@ -142,14 +142,14 @@
     }
 
     @media (max-width: $screenSm) {
-        max-height: 100%;
-        row-gap: 4vw;
         grid-template-rows: min-content;
+        grid-template-columns: 1fr;
         grid-auto-flow: row;
+        max-height: 100%;
+        margin: 0;
         padding-top: 6.5vw;
         padding-bottom: 5.5vw;
-        grid-template-columns: 1fr;
-        margin: 0;
+        row-gap: 4vw;
     }
 }
 

@@ -7,10 +7,10 @@
     padding: 1.07em 2.14em;
     font-family: $inter-600;
     font-size: 0.875vw;
+    white-space: nowrap;
     letter-spacing: 0.05em;
     border-radius: 1.14em;
     transition: background-color 0.15s ease-out;
-    white-space: nowrap;
 
     @media (max-width: $screen2Xl) {
         padding: 15px 30px;

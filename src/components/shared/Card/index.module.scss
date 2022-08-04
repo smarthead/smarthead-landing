@@ -86,15 +86,18 @@
     }
 
     &-text {
-        margin: 0 0 2.6vw 0;
+        margin: 0 0 2.6vw;
+
         @media (max-width: $screen2Xl) {
-            margin: 0 0 2.3vw 0;
+            margin: 0 0 2.3vw;
         }
+
         @media (max-width: $screenLg) {
             line-height: 1.48em;
         }
+
         @media (max-width: $screenSm) {
-            margin: 0 0 5vw 0;
+            margin: 0 0 5vw;
         }
     }
 }

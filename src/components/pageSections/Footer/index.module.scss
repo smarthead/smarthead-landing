@@ -108,14 +108,13 @@
     display: grid;
     visibility: hidden;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: max-content;
     grid-auto-flow: column;
-
     max-height: 13vw;
     padding-top: 3.125vw;
     border-top: 2px $white50 solid;
     row-gap: 2.1875vw;
     column-gap: 3vw;
-    grid-template-columns: max-content;
 
     @media (max-width: $screen2Xl) {
         max-height: 208px;
@@ -138,8 +137,8 @@
     }
 
     @media (max-width: $screenSm) {
-        max-height: 26vw;
         grid-template-columns: 2fr 1fr;
+        max-height: 26vw;
     }
 }
 
@@ -153,8 +152,10 @@
         display: none;
     }
 }
+
 .social-network-mobile {
     display: none;
+
     @media (max-width: $screenSm) {
         display: flex;
         width: 31%;

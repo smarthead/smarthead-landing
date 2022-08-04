@@ -16,12 +16,12 @@
     display: flex;
     align-items: center;
     align-self: center;
+    max-width: 90%;
     margin-top: auto;
     margin-bottom: 25px;
     padding: 15px 30px;
     background-color: #232837;
     pointer-events: auto;
-    max-width: 90%;
 
     @media (max-width: $screenSm) {
         flex-direction: column;
@@ -37,11 +37,11 @@
 }
 
 .text {
+    margin-right: 15px;
     color: $white;
     font-family: $inter-400;
     font-size: 14px;
     line-height: 1.48em;
-    margin-right: 15px;
 
     @media (max-width: $screenSm) {
         margin-right: 0;
@@ -49,8 +49,8 @@
     }
 
     @media (max-width: $screenXs) {
-        font-size: 3.333vw;
         margin-bottom: 4.166vw;
+        font-size: 3.333vw;
     }
 
     & > br {
