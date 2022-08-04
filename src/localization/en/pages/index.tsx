@@ -18,6 +18,7 @@ import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
 import whatWeDoData from '../data/WhatWeDo.json';
 import partnersData from '../data/Partners.json';
+import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 
 const RuLayout = () => {
@@ -73,6 +74,7 @@ const RuLayout = () => {
 
             {!cookiesAccepted && (
                 <CookiesNotification
+                    data={cookiesNotificationData}
                     clickHandler={() => {
                         setCookiesAccepted(true);
                         localStorage.setItem('cookiesAccepted', 'true');

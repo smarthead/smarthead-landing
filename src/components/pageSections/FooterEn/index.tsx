@@ -47,13 +47,6 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                             USA
                         </span>
                         <span>SmartHead LLC</span>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
                     </div>
                     <div className={styles.contactsItem}>
                         <a
@@ -70,19 +63,23 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                             LinkedIn
                         </a>
                     </div>
-                    <div
-                        className={`${styles.contactsItem} ${styles.socialNetworkDesktop}`}
-                    >
+                    <div className={styles.contactsItem}>
                         <a
                             className={styles.contactLink}
                             target="_blank"
-                            // href={links.linkedIn}
+                            href={links.privacyPolicy}
                         >
                             Privacy Policy
                         </a>
                     </div>
                     <div className={styles.border}></div>
                 </div>
+                <img
+                    onClick={scrollToTop}
+                    src={shLogo}
+                    alt="SmartHead Logo. Scroll to top"
+                    className={styles.logo}
+                />
             </div>
         </section>
     );

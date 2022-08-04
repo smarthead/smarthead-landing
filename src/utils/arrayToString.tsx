@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
-export function arrayToString(array: string[]) {
-    return array.map((line, index) => (
-        <Fragment key={index}>
-            {line.replaceAll('&nbsp;', '\u00a0')}{' '}
-            {index < array.length && <br />}
-        </Fragment>
-    ));
+export function arrayToString(input: string | string[]) {
+    return typeof input === 'string'
+        ? nonBreakHandler(input)
+        : input.map((line, index) => (
+              <Fragment key={index}>
+                  {nonBreakHandler(line)} {index < input.length && <br />}
+              </Fragment>
+          ));
 }
+
+const nonBreakHandler = (str: string) => str.replaceAll('&nbsp;', '\u00a0');

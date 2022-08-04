@@ -1,25 +1,31 @@
 import React from 'react';
+import { arrayToString } from '../../../utils/arrayToString';
+
 import { links } from '../../shared/links';
 import * as styles from './index.module.scss';
 
 interface ICookiesNotification {
     clickHandler: () => void;
+    data: {
+        title: string | string[];
+        linkText: string;
+    };
 }
 
 const CookiesNotification: React.FC<ICookiesNotification> = ({
     clickHandler,
+    data,
 }) => (
     <div className={styles.root}>
         <div className={styles.content}>
             <span className={styles.text}>
-                Мы используем cookie для нормальной работы сайта. <br />
-                Подробнее в{' '}
+                {arrayToString(data.title)}
                 <a
                     className={styles.link}
                     target="_blank"
                     href={links.privacyPolicy}
                 >
-                    политике&nbsp;конфиденциальности
+                    {arrayToString(data.linkText)}
                 </a>
                 .
             </span>
