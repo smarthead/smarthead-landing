@@ -4,6 +4,9 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 });
 
+const staticPath =
+    './static_local/' + (process.env.GATSBY_ACTIVE_ENV === 'en' ? 'en' : 'ru');
+
 const config: GatsbyConfig = {
     siteMetadata: {
         title: 'SmartHead — разработка цифровых продуктов',
@@ -16,6 +19,12 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-plugin-manifest',
             options: {
                 icon: 'src/assets/images/favicon.svg',
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-static-folders',
+            options: {
+                folders: [staticPath],
             },
         },
         {
