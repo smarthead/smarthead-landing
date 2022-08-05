@@ -1,0 +1,221 @@
+@import "../../../styles/variables";
+
+.root {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+
+    @media (max-width: $screenLg) {
+        height: auto;
+        min-height: auto;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    // visibility: hidden;
+    color: $black;
+    font-family: $gilroy-600;
+    font-size: 4vw;
+    letter-spacing: 0.05em;
+    margin-left: 9.375%;
+    margin-top: 6.25vw;
+    margin-bottom: 7vw;
+
+    @media (max-width: $screenXl) {
+        font-size: 3.672vw;
+        margin-bottom: 3.67vw;
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 3.125vw;
+        margin-bottom: 3.9063vw;
+        margin-left: 7.68vw;
+        margin-top: 7.5vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-bottom: 10.555vw;
+        font-size: 6.6666vw;
+    }
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: row;
+    // height: auto;
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    justify-content: left;
+    margin-bottom: 6.625vw;
+    border: 1px rgb(26 228 60) solid;
+    height: 23.5vw;
+    overflow: hidden;
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 3.828vw;
+        height: 31vw;
+    }
+
+    @media (max-width: $screenLg) {
+        height: 42.6vw;
+        margin-bottom: 2.3438vw;
+    }
+}
+
+.reviews-scroll-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+    padding-left: 9.375%;
+    padding-right: calc(100vw - 53.375vw - 9.375vw);
+    height: calc(23.5vw + 100px);
+
+    @media (max-width: $screenXl) {
+        height: calc(31vw + 100px);
+        padding-left: 7.8125vw;
+        padding-right: calc(100vw - 52.9vw - 7.8125vw);
+    }
+
+    @media (max-width: $screenLg) {
+        height: calc(42.6vw + 100px);
+        padding-left: 7.68vw;
+        padding-right: calc(100vw - 69.8vw - 7.68vw);
+    }
+}
+
+.reviews-scroll {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.bullets {
+    display: flex;
+    margin-left: 9.375vw;
+
+    @media (max-width: $screenXl) {
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-left: 7.68vw;
+    }
+
+    // @media (max-width: $screenLg) {
+    //     display: none;
+    // }
+}
+
+.button-bullet {
+    width: 0.75vw;
+    height: 0.75vw;
+    padding: 0;
+    background: #c3c3c3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-bottom: 6.25vw;
+
+    @media (max-width: $screen2Xl) {
+        width: 12px;
+        height: 12px;
+    }
+
+    @media (max-width: $screenMd) {
+        width: 8px;
+        height: 8px;
+    }
+
+    &:not(:last-child) {
+        margin-right: 2vw;
+
+        @media (max-width: $screen2Xl) {
+            margin-right: 32px;
+        }
+
+        @media (max-width: $screenMd) {
+            margin-right: 20px;
+        }
+    }
+
+    &-active {
+        background: $black;
+    }
+}
+
+.navigation {
+    margin-top: 6.9375vw;
+    margin-right: 2.8125vw;
+
+    @media (max-width: $screenXl) {
+        margin-top: 8vw;
+        margin-right: 4.6875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-top: 7.16vw;
+        margin-right: 7.812vw;
+    }
+}
+
+.forward-button,
+.backward-button {
+    width: 3.5vw;
+    height: 3.5vw;
+    padding: 0;
+    background: none;
+    border: 0.125vw solid $black;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @media (max-width: $screen2Xl) {
+        width: 56px;
+        height: 56px;
+        border: 2px solid $black;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 5.2vw;
+        height: 5.2vw;
+        border: 1px solid $black;
+    }
+    // @media (max-width: $screenLg) {
+    //     display: none;
+    // }
+    margin-left: 0.75vw;
+
+    &-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.button-hidden {
+    display: none;
+}
+
+.backward-click-area {
+    height: 100%;
+    width: 9.375%;
+    top: 0;
+    position: absolute;
+    cursor: pointer;
+}

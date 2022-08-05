@@ -20,6 +20,7 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import partnersData from '../data/Partners.json';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
+import Reviews from '../../../components/pageSections/Reviews';
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
@@ -70,6 +71,7 @@ const RuLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
+            <Reviews />
             <FooterEn id={navigation.contacts} />
 
             {!cookiesAccepted && (

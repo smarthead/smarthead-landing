@@ -1,0 +1,154 @@
+@import "../../../styles/variables";
+
+.review {
+    display: flex;
+    flex-direction: row;
+    width: 53.375vw;
+    height: 23.5vw;
+    height: auto;
+    background-color: $white;
+    color: $black;
+    margin-right: 9.375vw;
+    border: 1px solid red;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-right: 0;
+    }
+    // 677_395
+    @media (max-width: $screenXl) {
+        width: 52.9vw;
+        height: 30.8593vw;
+        margin-right: 11.718vw;
+    }
+
+    // 536_327
+    @media (max-width: $screenLg) {
+        width: 69.8vw;
+        height: 42.578vw;
+        flex-direction: column;
+        margin-right: 7.68vw;
+    }
+
+    // @media (max-width: $screenSm) {
+    //     width: 84vw;
+    //     height: 81.666vw;
+    // }
+}
+
+.non-active {
+    opacity: 0.6;
+    transition: opacity 0.15s ease-out;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.personal-info {
+    width: 27.28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $screenXl) {
+        width: 27.62%;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 100%;
+        height: 26.6%;
+        flex-direction: row;
+    }
+}
+
+.photo {
+    width: 11.25vw;
+    height: 11.25vw;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 2vw; //TEMP
+
+    &-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: $screenXl) {
+        width: 12.5vw;
+        height: 12.5vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 11.328vw;
+        height: 11.328vw;
+        margin-bottom: 0;
+        margin-right: 2.6vw;
+    }
+}
+
+.name {
+    font-family: $inter-400;
+    width: 11vw;
+    font-size: 1.5vw;
+    line-height: 1.34em;
+    letter-spacing: 0.05em;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 2.3437vw;
+        width: 100%;
+        margin: 0 0 1vw;
+    }
+}
+
+.position {
+    font-size: 0.875vw;
+    line-height: 1.142em;
+    font-family: $inter-600;
+    color: $grayBlack;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.0938vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 1.823vw;
+        margin: 0;
+    }
+}
+
+.text {
+    width: 68.618%;
+    height: 100%;
+    font-family: $inter-400;
+    font-size: 1.25vw;
+    color: $black;
+    line-height: 1.4em;
+
+    & > p {
+        margin-top: 0;
+        margin-bottom: 1vw;
+
+        @media (max-width: $screenXl) {
+            margin-bottom: 0.781vw;
+        }
+
+        @media (max-width: $screenLg) {
+            margin-bottom: 1.04vw;
+        }
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.4063vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 1.823vw;
+        width: 100%;
+        height: 69.11%;
+    }
+}
