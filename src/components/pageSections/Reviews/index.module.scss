@@ -2,11 +2,11 @@
 
 .root {
     display: flex;
-    overflow: hidden;
     flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
     width: 100%;
     min-height: 100vh;
-    justify-content: center;
 
     @media (max-width: $screenLg) {
         height: auto;
@@ -27,84 +27,100 @@
 }
 
 .title {
+    margin-top: 6.25vw;
+    margin-bottom: 7vw;
+    margin-left: 9.375%;
     // visibility: hidden;
     color: $black;
     font-family: $gilroy-600;
     font-size: 4vw;
     letter-spacing: 0.05em;
-    margin-left: 9.375%;
-    margin-top: 6.25vw;
-    margin-bottom: 7vw;
 
     @media (max-width: $screenXl) {
-        font-size: 3.672vw;
         margin-bottom: 3.67vw;
         margin-left: 7.8125vw;
+        font-size: 3.672vw;
     }
 
     @media (max-width: $screenLg) {
-        font-size: 3.125vw;
+        margin-top: 8vw;
         margin-bottom: 3.9063vw;
-        margin-left: 7.68vw;
-        margin-top: 7.5vw;
+        margin-left: 7.8125vw;
+        font-size: 3.125vw;
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 10.555vw;
-        font-size: 6.6666vw;
+        margin-bottom: 6vw;
+        // margin-left: 5.55vw;
+        font-size: 6.666vw;
+        margin-left: 7.8125vw;
     }
 }
 
 .reviews-container {
+    position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: left;
+    flex-shrink: 0;
+    overflow: hidden;
     // height: auto;
     width: 100%;
-    flex-shrink: 0;
-    position: relative;
-    justify-content: left;
-    margin-bottom: 6.625vw;
-    border: 1px rgb(26 228 60) solid;
     height: 23.5vw;
-    overflow: hidden;
+    margin-bottom: 6.625vw;
 
     @media (max-width: $screenXl) {
-        margin-bottom: 3.828vw;
         height: 31vw;
+        margin-bottom: 3.828vw;
     }
 
     @media (max-width: $screenLg) {
-        height: 42.6vw;
-        margin-bottom: 2.3438vw;
+        height: 42vw;
+        margin-bottom: 2vw;
+    }
+
+    @media (max-width: $screenXs) {
+        height: 118.88vw;
+        margin-bottom: 11vw;
     }
 }
 
 .reviews-scroll-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
     overflow-x: scroll;
-    padding-left: 9.375%;
-    padding-right: calc(100vw - 53.375vw - 9.375vw);
+    width: 100%;
     height: calc(23.5vw + 100px);
+    padding-right: calc(100vw - 53.375vw - 9.375vw);
+    padding-left: 9.375%;
 
     @media (max-width: $screenXl) {
         height: calc(31vw + 100px);
-        padding-left: 7.8125vw;
         padding-right: calc(100vw - 52.9vw - 7.8125vw);
+        padding-left: 7.8125vw;
     }
 
     @media (max-width: $screenLg) {
-        height: calc(42.6vw + 100px);
-        padding-left: 7.68vw;
-        padding-right: calc(100vw - 69.8vw - 7.68vw);
+        height: calc(42vw + 100px);
+        padding-right: calc(100vw - 69.8vw - 7.8125vw);
+        padding-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenXs) {
+        // height: calc(118.88vw + 100px);
+        height: calc(120vw + 100px);
+        padding-right: calc(100vw - 84.375vw - 7.8125vw);
+        padding-left: 7.8125vw;
+
+        // padding-right: calc(100vw - 88.9vw - 5.55vw);
+        // padding-left: 5.55vw;
     }
 }
 
 .reviews-scroll {
-    width: auto;
     display: flex;
     flex-direction: row;
+    width: auto;
 }
 
 .bullets {
@@ -116,32 +132,48 @@
     }
 
     @media (max-width: $screenLg) {
-        margin-left: 7.68vw;
+        margin-left: 7.8125vw;
     }
 
-    // @media (max-width: $screenLg) {
-    //     display: none;
-    // }
+    @media (max-width: $screenXs) {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .button-bullet {
     width: 0.75vw;
     height: 0.75vw;
+    margin-bottom: 6.25vw;
     padding: 0;
     background: #c3c3c3;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    margin-bottom: 6.25vw;
 
     @media (max-width: $screen2Xl) {
         width: 12px;
         height: 12px;
     }
 
+    @media (max-width: $screenLg) {
+        margin-bottom: 5.2vw;
+    }
+
     @media (max-width: $screenMd) {
         width: 8px;
         height: 8px;
+    }
+
+    @media (max-width: $screenXs) {
+        width: 1.67vw;
+        height: 1.67vw;
+        margin-bottom: 10vw;
+    }
+
+    @media (max-width: $screen2Xs) {
+        width: 6px;
+        height: 6px;
     }
 
     &:not(:last-child) {
@@ -153,6 +185,14 @@
 
         @media (max-width: $screenMd) {
             margin-right: 20px;
+        }
+
+        @media (max-width: $screenXs) {
+            margin-right: 2.77vw;
+        }
+
+        @media (max-width: $screen2Xs) {
+            margin-right: 10px;
         }
     }
 
@@ -174,12 +214,20 @@
         margin-top: 7.16vw;
         margin-right: 7.812vw;
     }
+
+    @media (max-width: $screenXs) {
+        display: none;
+    }
 }
 
 .forward-button,
 .backward-button {
     width: 3.5vw;
     height: 3.5vw;
+    // @media (max-width: $screenLg) {
+    //     display: none;
+    // }
+    margin-left: 0.75vw;
     padding: 0;
     background: none;
     border: 0.125vw solid $black;
@@ -197,10 +245,6 @@
         height: 5.2vw;
         border: 1px solid $black;
     }
-    // @media (max-width: $screenLg) {
-    //     display: none;
-    // }
-    margin-left: 0.75vw;
 
     &-img {
         width: 100%;
@@ -213,9 +257,9 @@
 }
 
 .backward-click-area {
-    height: 100%;
-    width: 9.375%;
-    top: 0;
     position: absolute;
+    top: 0;
+    width: 9.375%;
+    height: 100%;
     cursor: pointer;
 }

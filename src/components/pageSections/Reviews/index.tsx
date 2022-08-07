@@ -128,7 +128,7 @@ const Reviews: React.FC = () => {
                             {reviewsList.map((review, index) => (
                                 <ReviewItem
                                     className="review-item"
-                                    isActive={index === activeSlide}
+                                    isActive={index <= activeSlide}
                                     key={`review-${index}`}
                                     photo={review.photo}
                                     name={review.name}

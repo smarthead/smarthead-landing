@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonLink from '../ButtonLink';
+import { arrayToString } from '../../../utils/arrayToString';
 import * as styles from './index.module.scss';
 
 interface IReviewItem {
@@ -30,7 +30,9 @@ const ReviewItem: React.FC<IReviewItem> = ({
                 </div>
                 <div className={styles.personalInfoText}>
                     <h3 className={styles.name}>{name}</h3>
-                    <h4 className={styles.position}>{position}</h4>
+                    <h4 className={styles.position}>
+                        {arrayToString(position)}
+                    </h4>
                 </div>
             </div>
             <div className={styles.text}>
