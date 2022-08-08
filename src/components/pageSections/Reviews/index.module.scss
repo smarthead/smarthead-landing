@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/mixins";
 
 .root {
     display: flex;
@@ -17,8 +18,6 @@
 .content {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    // min-height: 100vh;
 }
 
 .header {
@@ -30,7 +29,6 @@
     margin-top: 6.25vw;
     margin-bottom: 7vw;
     margin-left: 9.375%;
-    // visibility: hidden;
     color: $black;
     font-family: $gilroy-600;
     font-size: 4vw;
@@ -49,9 +47,14 @@
         font-size: 3.125vw;
     }
 
+    @include for-phone-only {
+        margin-top: 5vw;
+        margin-bottom: 3.6vw;
+        font-size: 3.75vw;
+    }
+
     @media (max-width: $screenXs) {
         margin-bottom: 6vw;
-        // margin-left: 5.55vw;
         font-size: 6.666vw;
         margin-left: 7.8125vw;
     }
@@ -64,7 +67,6 @@
     justify-content: left;
     flex-shrink: 0;
     overflow: hidden;
-    // height: auto;
     width: 100%;
     height: 23.5vw;
     margin-bottom: 6.625vw;
@@ -77,6 +79,11 @@
     @media (max-width: $screenLg) {
         height: 42vw;
         margin-bottom: 2vw;
+    }
+
+    @include for-phone-only {
+        height: 42vw;
+        margin-bottom: 4vw;
     }
 
     @media (max-width: $screenXs) {
@@ -106,14 +113,14 @@
         padding-left: 7.8125vw;
     }
 
+    @include for-phone-only {
+        padding-right: calc(100vw - 84.375vw - 7.8125vw);
+    }
+
     @media (max-width: $screenXs) {
-        // height: calc(118.88vw + 100px);
         height: calc(120vw + 100px);
         padding-right: calc(100vw - 84.375vw - 7.8125vw);
         padding-left: 7.8125vw;
-
-        // padding-right: calc(100vw - 88.9vw - 5.55vw);
-        // padding-left: 5.55vw;
     }
 }
 
@@ -138,6 +145,20 @@
     @media (max-width: $screenXs) {
         margin-right: auto;
         margin-left: auto;
+    }
+
+    @include for-phone-only {
+        display: none;
+    }
+
+    &-mobile {
+        display: none;
+
+        @include for-phone-only {
+            display: flex;
+            margin-top: 6.875vw;
+            margin-right: 7.8125vw;
+        }
     }
 }
 
@@ -165,6 +186,11 @@
         height: 8px;
     }
 
+    @include for-phone-only {
+        width: 6px;
+        height: 6px;
+    }
+
     @media (max-width: $screenXs) {
         width: 1.67vw;
         height: 1.67vw;
@@ -185,6 +211,10 @@
 
         @media (max-width: $screenMd) {
             margin-right: 20px;
+        }
+
+        @include for-phone-only {
+            margin-right: 10px;
         }
 
         @media (max-width: $screenXs) {
@@ -215,6 +245,10 @@
         margin-right: 7.812vw;
     }
 
+    @include for-phone-only {
+        display: none;
+    }
+
     @media (max-width: $screenXs) {
         display: none;
     }
@@ -224,9 +258,6 @@
 .backward-button {
     width: 3.5vw;
     height: 3.5vw;
-    // @media (max-width: $screenLg) {
-    //     display: none;
-    // }
     margin-left: 0.75vw;
     padding: 0;
     background: none;

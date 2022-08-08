@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/mixins";
 
 .review {
     display: flex;
@@ -27,6 +28,11 @@
         width: 69.8vw;
         height: 42.578vw;
         margin-right: 7.68vw;
+    }
+
+    @include for-phone-only {
+        width: 84.375vw;
+        margin-right: 15.625vw;
     }
 
     // 320_428
@@ -68,6 +74,10 @@
         margin-bottom: 2.3vw;
     }
 
+    @include for-phone-only {
+        height: 7%;
+    }
+
     @media (max-width: $screenXs) {
         height: 18%;
     }
@@ -77,6 +87,10 @@
 
         @media (max-width: $screenLg) {
             width: 47.76%;
+        }
+
+        @include for-phone-only {
+            width: 90%;
         }
 
         @media (max-width: $screenXs) {
@@ -110,6 +124,13 @@
         margin-bottom: 0;
     }
 
+    @include for-phone-only {
+        width: 6.406vw;
+        height: 6.406vw;
+        margin-right: 2.65vw;
+        margin-bottom: 0;
+    }
+
     @media (max-width: $screenXs) {
         width: 21.388vw;
         height: 21.388vw;
@@ -137,7 +158,13 @@
         font-size: 2.3437vw;
     }
 
+    @include for-phone-only {
+        font-size: 2.5vw;
+        margin: 0.3vw 0 0;
+    }
+
     @media (max-width: $screenXs) {
+        margin: 0 0 1vw;
         font-size: 4.444vw;
     }
 }
@@ -160,6 +187,10 @@
         margin: 0;
         font-size: 1.823vw;
         line-height: 1.357em;
+    }
+
+    @include for-phone-only {
+        font-size: 1.875vw;
     }
 
     @media (max-width: $screenXs) {
@@ -203,6 +234,11 @@
         width: 100%;
         height: 69.11%;
         font-size: 1.823vw;
+    }
+
+    @include for-phone-only {
+        height: 79%;
+        font-size: 2.1875vw;
     }
 
     @media (max-width: $screenXs) {

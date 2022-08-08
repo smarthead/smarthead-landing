@@ -19,3 +19,10 @@
         src: $src;
     }
 }
+
+@mixin for-phone-only {
+    @media (min-aspect-ratio: 5 / 3) and (max-width: 900px) and (min-width: 450px) {
+        // @media (min-aspect-ratio: 5/4) and (max-width: 720px) and (min-width: 450px) {
+        @content;
+    }
+}

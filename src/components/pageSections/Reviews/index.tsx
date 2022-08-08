@@ -89,6 +89,23 @@ const Reviews: React.FC = () => {
             <div className={styles.content}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>Our clients about us</h1>
+                    <div
+                        className={`${styles.bullets} ${styles.bulletsMobile}`}
+                    >
+                        {reviewsList.map((_, index) => (
+                            <button
+                                key={`bullet-mobile-${index}`}
+                                onClick={() => {
+                                    jumpTo(index);
+                                }}
+                                className={`${styles.buttonBullet} ${
+                                    index === activeSlide
+                                        ? styles.buttonBulletActive
+                                        : ''
+                                }`}
+                            ></button>
+                        ))}
+                    </div>
                     <div className={styles.navigation}>
                         <button
                             className={`${styles.backwardButton} ${
