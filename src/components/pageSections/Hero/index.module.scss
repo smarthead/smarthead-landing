@@ -46,6 +46,12 @@
     @media (max-width: $screenXs) {
         padding: 10% 0 8%;
     }
+
+    &-en {
+        @media (max-width: $screenXs) {
+            padding: 15% 0 8%;
+        }
+    }
 }
 
 .headline {
@@ -88,6 +94,29 @@
         font-size: 8.888vw;
         line-height: 10.5vw;
     }
+
+    &-en {
+        font-size: 7.499vw;
+
+        @media (max-width: $screenXl) {
+            font-size: 7.785vw;
+        }
+
+        @media (max-width: $screenLg) {
+            font-size: 8.115vw;
+            margin-bottom: 16vw;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-bottom: 8vw;
+        }
+
+        @media (max-width: $screenXs) {
+            font-size: 11.6vw;
+            line-height: 1.3em;
+            margin-bottom: 4vw;
+        }
+    }
 }
 
 .second-line {
@@ -129,6 +158,32 @@
         margin-bottom: 42px;
         font-size: 3.8888vw;
     }
+
+    &-en {
+        @media (max-width: $screenLg) {
+            & > br {
+                display: none;
+            }
+
+            margin-bottom: 0;
+            width: 55%;
+            font-size: 3.125vw;
+        }
+
+        @media (max-width: $screenSm) {
+            & > br {
+                display: inline;
+            }
+
+            margin-bottom: 8vw;
+            width: 100%;
+        }
+
+        @media (max-width: $screenXs) {
+            font-size: 3.888vw;
+            margin-bottom: 10vw;
+        }
+    }
 }
 
 .block {
@@ -139,5 +194,17 @@
     @media (max-width: $screenLg) {
         flex-direction: column-reverse;
         margin-bottom: 121px;
+    }
+
+    &-en {
+        @media (max-width: $screenLg) {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        @media (max-width: $screenSm) {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
     }
 }

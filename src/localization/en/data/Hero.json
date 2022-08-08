@@ -1,14 +1,14 @@
 {
     "title": {
-        "line1": "Developing",
+        "line1": "We develop",
         "line2": "sophisticated",
         "line3": "digital",
         "line4": "products"
     },
-    "subtitle": {
-        "line1": "We’re a truly product-oriented team,",
-        "line2": "not just code monkeys"
-    },
+    "subtitle": [
+        "We’re a truly product-oriented team,",
+        "not&nbsp;just&nbsp;code&nbsp;monkeys"
+    ],
     "button": "LET’S TALK PRODUCT DEV",
     "header": {
         "menu": [

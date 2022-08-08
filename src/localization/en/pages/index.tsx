@@ -66,7 +66,7 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <Hero data={heroData} />
+            <Hero data={heroData} isEnglish={true} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
