@@ -17,7 +17,7 @@ import { scrollToSection } from '../../../utils/scroll';
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
 import whatWeDoData from '../data/WhatWeDo.json';
-import partnersData from '../data/Partners.json';
+import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import Reviews from '../../../components/pageSections/Reviews';

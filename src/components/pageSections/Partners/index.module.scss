@@ -34,6 +34,10 @@
     font-size: 4vw;
     letter-spacing: 0.05em;
 
+    &-en {
+        margin-bottom: 4.8vw;
+    }
+
     @media (max-width: $screenXl) {
         font-size: 3.6719vw;
     }
@@ -43,7 +47,7 @@
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 10.555vw;
+        margin-bottom: 10vw;
         font-size: 6.6666vw;
     }
 }
@@ -66,6 +70,22 @@
     @media (max-width: $screenXs) {
         grid-template-columns: repeat(3, min-content);
         row-gap: 8vw;
+    }
+
+    &-en {
+        row-gap: 3.3vw;
+
+        @media (max-width: $screenXl) {
+            row-gap: 3.5vw;
+        }
+
+        @media (max-width: $screenLg) {
+            row-gap: 5vw;
+        }
+
+        @media (max-width: $screenXs) {
+            row-gap: 8vw;
+        }
     }
 }
 
