@@ -55,7 +55,7 @@ const casesList = [
     {
         title: 'String: Instant Checkout',
         description:
-            'We built a mobile platform for instant checkout based on App clips technology and Shopify integration for a US-based client. They had a strict deadline for submitting an application to their accelerator, but we managed to create the first version of the app in just 2 weeks.',
+            'We built a mobile platform for instant checkout based on App Clips technology and Shopify integration for a US-based client. They had a strict deadline for submitting an application to their accelerator, but we managed to create the first version of the app in just 2 weeks.',
 
         image: {
             original: {

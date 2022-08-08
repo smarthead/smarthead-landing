@@ -120,11 +120,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                 <Header menuLinks={data.header.menu} />
             </div>
             <div className={styles.content}>
-                <h1
-                    className={`${styles.headline} ${
-                        isEnglish && styles.headlineEn
-                    }`}
-                >
+                <h1 className={`${styles.headline} `}>
                     <span className={`${styles.headlineL1} hero-h1-line1`}>
                         {data.title.line1}
                     </span>
@@ -133,7 +129,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     >
                         {data.title.line2}
                     </span>
-                    <span className={`${isEnglish && styles.thirdLine}`}>
+                    <span>
                         <span
                             style={{ display: 'inline-block' }}
                             className={`${styles.headlineL3} hero-h1-line3`}

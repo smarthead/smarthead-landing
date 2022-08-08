@@ -1,0 +1,212 @@
+@import "../../../styles/variables";
+
+.review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 53.375vw;
+    height: 23.5vw;
+    height: auto;
+    margin-right: 9.375vw;
+    color: $black;
+    background-color: $white;
+
+    &:last-child {
+        margin-right: 0;
+    }
+    // 677_395
+    @media (max-width: $screenXl) {
+        width: 52.9vw;
+        height: 30.8593vw;
+        margin-right: 11.718vw;
+    }
+
+    // 536_327
+    @media (max-width: $screenLg) {
+        flex-direction: column;
+        width: 69.8vw;
+        height: 42.578vw;
+        margin-right: 7.68vw;
+    }
+
+    // 320_428
+
+    @media (max-width: $screenXs) {
+        // width: 88.89vw;
+        width: 84.375vw;
+        // height: 118.89vw;
+        height: 120vw;
+        // margin-right: 11.11vw;
+        margin-right: 15.625vw;
+    }
+}
+
+.non-active {
+    opacity: 0.6;
+    transition: opacity 0.15s ease-out;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    width: 27.28%;
+    height: 100%;
+
+    @media (max-width: $screenXl) {
+        width: 27.62%;
+        width: 30%;
+    }
+
+    @media (max-width: $screenLg) {
+        flex-direction: row;
+        width: 100%;
+        height: 26.6%;
+        margin-bottom: 2.3vw;
+    }
+
+    @media (max-width: $screenXs) {
+        height: 18%;
+    }
+
+    &-text {
+        flex-direction: column;
+
+        @media (max-width: $screenLg) {
+            width: 47.76%;
+        }
+
+        @media (max-width: $screenXs) {
+            width: 62%;
+        }
+    }
+}
+
+.photo {
+    overflow: hidden;
+    width: 11.25vw;
+    height: 11.25vw;
+    margin-bottom: 2vw; //TEMP
+    border-radius: 50%;
+
+    &-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: $screenXl) {
+        width: 12.5vw;
+        height: 12.5vw;
+        margin-bottom: 2.4vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 11.328vw;
+        height: 11.328vw;
+        margin-right: 2.6vw;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: $screenXs) {
+        width: 21.388vw;
+        height: 21.388vw;
+        margin-right: 7.222vw;
+    }
+}
+
+.name {
+    width: 11vw;
+    font-family: $inter-400;
+    font-size: 1.5vw;
+    line-height: 1.34em;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5vw;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        width: 13.5vw;
+        margin: 0 0 0.75vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 100%;
+        margin: 0 0 1vw;
+        font-size: 2.3437vw;
+    }
+
+    @media (max-width: $screenXs) {
+        font-size: 4.444vw;
+    }
+}
+
+.position {
+    color: $grayBlack;
+    font-family: $inter-600;
+    font-size: 0.875vw;
+    line-height: 1.142em;
+    letter-spacing: 0.05em;
+    width: 96%;
+    margin: 0;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.0938vw;
+        width: 100%;
+    }
+
+    @media (max-width: $screenLg) {
+        margin: 0;
+        font-size: 1.823vw;
+        line-height: 1.357em;
+    }
+
+    @media (max-width: $screenXs) {
+        font-size: 3.33vw;
+        line-height: 1.333em;
+        width: 90%;
+    }
+}
+
+.text {
+    width: 68.618%;
+    height: 100%;
+    color: $black;
+    font-family: $inter-400;
+    font-size: 1.25vw;
+    line-height: 1.4em;
+
+    & > p {
+        margin-top: 0;
+        margin-bottom: 1vw;
+
+        @media (max-width: $screenXl) {
+            margin-bottom: 0.781vw;
+        }
+
+        @media (max-width: $screenLg) {
+            margin-bottom: 1.04vw;
+        }
+
+        @media (max-width: $screenXs) {
+            margin-bottom: 2.25vw;
+        }
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.4063vw;
+        width: 65.58%;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 100%;
+        height: 69.11%;
+        font-size: 1.823vw;
+    }
+
+    @media (max-width: $screenXs) {
+        height: 77.35%;
+        font-size: 3.888vw;
+    }
+}

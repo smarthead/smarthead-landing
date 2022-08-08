@@ -1,0 +1,269 @@
+@import "../../../styles/variables";
+
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+
+    @media (max-width: $screenLg) {
+        height: auto;
+        min-height: auto;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    margin-top: 6.25vw;
+    margin-bottom: 7vw;
+    margin-left: 9.375%;
+    // visibility: hidden;
+    color: $black;
+    font-family: $gilroy-600;
+    font-size: 4vw;
+    letter-spacing: 0.05em;
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 3.67vw;
+        margin-left: 7.8125vw;
+        font-size: 3.672vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-top: 8vw;
+        margin-bottom: 3.9063vw;
+        margin-left: 7.8125vw;
+        font-size: 3.125vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-bottom: 6vw;
+        // margin-left: 5.55vw;
+        font-size: 6.666vw;
+        margin-left: 7.8125vw;
+    }
+}
+
+.reviews-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-shrink: 0;
+    overflow: hidden;
+    // height: auto;
+    width: 100%;
+    height: 23.5vw;
+    margin-bottom: 6.625vw;
+
+    @media (max-width: $screenXl) {
+        height: 31vw;
+        margin-bottom: 3.828vw;
+    }
+
+    @media (max-width: $screenLg) {
+        height: 42vw;
+        margin-bottom: 2vw;
+    }
+
+    @media (max-width: $screenXs) {
+        height: 118.88vw;
+        margin-bottom: 11vw;
+    }
+}
+
+.reviews-scroll-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+    height: calc(23.5vw + 100px);
+    padding-right: calc(100vw - 53.375vw - 9.375vw);
+    padding-left: 9.375%;
+
+    @media (max-width: $screenXl) {
+        height: calc(31vw + 100px);
+        padding-right: calc(100vw - 52.9vw - 7.8125vw);
+        padding-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenLg) {
+        height: calc(42vw + 100px);
+        padding-right: calc(100vw - 69.8vw - 7.8125vw);
+        padding-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenXs) {
+        // height: calc(118.88vw + 100px);
+        height: calc(120vw + 100px);
+        padding-right: calc(100vw - 84.375vw - 7.8125vw);
+        padding-left: 7.8125vw;
+
+        // padding-right: calc(100vw - 88.9vw - 5.55vw);
+        // padding-left: 5.55vw;
+    }
+}
+
+.reviews-scroll {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.bullets {
+    display: flex;
+    margin-left: 9.375vw;
+
+    @media (max-width: $screenXl) {
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.button-bullet {
+    width: 0.75vw;
+    height: 0.75vw;
+    margin-bottom: 6.25vw;
+    padding: 0;
+    background: #c3c3c3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @media (max-width: $screen2Xl) {
+        width: 12px;
+        height: 12px;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-bottom: 5.2vw;
+    }
+
+    @media (max-width: $screenMd) {
+        width: 8px;
+        height: 8px;
+    }
+
+    @media (max-width: $screenXs) {
+        width: 1.67vw;
+        height: 1.67vw;
+        margin-bottom: 10vw;
+    }
+
+    @media (max-width: $screen2Xs) {
+        width: 6px;
+        height: 6px;
+    }
+
+    &:not(:last-child) {
+        margin-right: 2vw;
+
+        @media (max-width: $screen2Xl) {
+            margin-right: 32px;
+        }
+
+        @media (max-width: $screenMd) {
+            margin-right: 20px;
+        }
+
+        @media (max-width: $screenXs) {
+            margin-right: 2.77vw;
+        }
+
+        @media (max-width: $screen2Xs) {
+            margin-right: 10px;
+        }
+    }
+
+    &-active {
+        background: $black;
+    }
+}
+
+.navigation {
+    margin-top: 6.9375vw;
+    margin-right: 2.8125vw;
+
+    @media (max-width: $screenXl) {
+        margin-top: 8vw;
+        margin-right: 4.6875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        margin-top: 7.16vw;
+        margin-right: 7.812vw;
+    }
+
+    @media (max-width: $screenXs) {
+        display: none;
+    }
+}
+
+.forward-button,
+.backward-button {
+    width: 3.5vw;
+    height: 3.5vw;
+    // @media (max-width: $screenLg) {
+    //     display: none;
+    // }
+    margin-left: 0.75vw;
+    padding: 0;
+    background: none;
+    border: 0.125vw solid $black;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @media (max-width: $screen2Xl) {
+        width: 56px;
+        height: 56px;
+        border: 2px solid $black;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 5.2vw;
+        height: 5.2vw;
+        border: 1px solid $black;
+    }
+
+    &-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.button-hidden {
+    display: none;
+}
+
+.backward-click-area {
+    position: absolute;
+    top: 0;
+    width: 9.375%;
+    height: 100%;
+    cursor: pointer;
+
+    @media (max-width: $screenXl) {
+        width: 7.8125vw;
+    }
+}
