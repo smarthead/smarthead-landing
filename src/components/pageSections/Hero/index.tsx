@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { invalidate } from '../../../utils/animation';
 import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
+import { arrayToString } from '../../../utils/arrayToString';
 
 import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
@@ -18,7 +19,7 @@ export interface IHero {
     isEnglish?: boolean;
     data: {
         title: Item;
-        subtitle: Item;
+        subtitle: string[];
         button: string;
         header: {
             menu: Item[];
@@ -119,8 +120,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
             <div className={styles.header}>
                 <Header menuLinks={data.header.menu} />
             </div>
-            <div className={styles.content}>
-                <h1 className={`${styles.headline} `}>
+            <div
+                className={`${styles.content} ${isEnglish && styles.contentEn}`}
+            >
+                <h1
+                    className={`${styles.headline} ${
+                        isEnglish && styles.headlineEn
+                    }`}
+                >
                     <span className={`${styles.headlineL1} hero-h1-line1`}>
                         {data.title.line1}
                     </span>
@@ -144,7 +151,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         </span>
                     </span>
                 </h1>
-                <div className={styles.block}>
+                <div
+                    className={`${styles.block} ${isEnglish && styles.blockEn}`}
+                >
                     <ButtonLink
                         className={styles.heroButton}
                         type="yellow"
@@ -155,9 +164,12 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         }}
                     />
 
-                    <p className={styles.subtext}>
-                        {data.subtitle.line1}
-                        <br /> {data.subtitle.line2}
+                    <p
+                        className={`${styles.subtext} ${
+                            isEnglish && styles.subtextEn
+                        }`}
+                    >
+                        {arrayToString(data.subtitle)}
                     </p>
                 </div>
             </div>
