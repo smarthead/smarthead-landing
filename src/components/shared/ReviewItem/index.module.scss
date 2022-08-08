@@ -13,7 +13,23 @@
     background-color: $white;
 
     &:last-child {
-        margin-right: 0;
+        margin-right: 37.25vw;
+
+        @media (max-width: $screenXl) {
+            margin-right: 39.2875vw;
+        }
+
+        @media (max-width: $screenLg) {
+            margin-right: 22.3875vw;
+        }
+
+        @include for-phone-only {
+            margin-right: 7.8125vw;
+        }
+
+        @media (max-width: $screenXs) {
+            margin-right: 7.8125vw;
+        }
     }
     // 677_395
     @media (max-width: $screenXl) {
