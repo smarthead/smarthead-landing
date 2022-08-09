@@ -1,5 +1,7 @@
 import React from 'react';
 import * as styles from './index.module.scss';
+import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
+
 import arrowDown from '../../../assets/images/Arrow-Down.svg';
 
 interface ICaseItemInfo {
@@ -16,19 +18,13 @@ export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
     description,
     onSkip,
 }) => {
-    const descriptionJSX = Array.isArray(description)
-        ? description.map((line, index) => (
-              <span key={index}>
-                  {line} {index < description.length && <br />}
-              </span>
-          ))
-        : description;
-
     return (
         <div className={`case-item-info ${styles.info}`}>
             {isFirst && <h4 className={styles.headline}>{sectionTitle}</h4>}
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.description}>{descriptionJSX}</p>
+            <p className={styles.description}>
+                {arrayToParagraphs(description)}
+            </p>
             <button
                 className={styles.skipButton}
                 onClick={() => {

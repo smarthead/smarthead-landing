@@ -21,7 +21,7 @@ const casesList = [
     {
         title: 'Effectiveaty',
         description:
-            'We developed a mobile app with full backend IT-infrastructure for a service that allows its clients to form individual meal plans based on their preferences, and then delivers these meals to clients. ',
+            'We&nbsp;developed a&nbsp;mobile app with full backend IT-infrastructure for a&nbsp;service that allows its clients to&nbsp;form individual meal plans based on&nbsp;their preferences, and then delivers these meals to&nbsp;clients.',
         image: {
             original: {
                 src: effectiveatyImage,
@@ -38,7 +38,7 @@ const casesList = [
     {
         title: 'Robotics Lab Shell',
         description:
-            'We created software for controlling robotic manipulators that allows people without programming skills to develop and test technological chain prototypes. We complemented the software with a 3D editor, as well as a monitoring system for parts machining.',
+            'We&nbsp;created software for controlling robotic manipulators that allows people without programming skills to&nbsp;develop and test technological chain prototypes. We&nbsp;complemented the software with a&nbsp;3D&nbsp;editor, as&nbsp;well as&nbsp;a&nbsp;monitoring system for parts machining.',
         image: {
             original: {
                 src: roboticsImage,
@@ -55,7 +55,7 @@ const casesList = [
     {
         title: 'String: Instant Checkout',
         description:
-            'We built a mobile platform for instant checkout based on App Clips technology and Shopify integration for a US-based client. They had a strict deadline for submitting an application to their accelerator, but we managed to create the first version of the app in just 2 weeks.',
+            'We&nbsp;built a&nbsp;mobile platform for instant checkout based on&nbsp;App Clips technology and Shopify integration for a&nbsp;US-based client. They had a&nbsp;strict deadline for submitting an&nbsp;application to&nbsp;their accelerator, but we&nbsp;managed to&nbsp;create the first version of&nbsp;the app in&nbsp;just 2&nbsp;weeks.',
 
         image: {
             original: {
@@ -91,7 +91,7 @@ const casesList = [
     {
         title: 'Compliance Assistant',
         description:
-            'We are currently developing a service that will analyze the legal actions compliance of entities. We are helping our client to design and develop new functionality that will improve UX and increase product value for customers. In addition, it will streamline the service delivery process.',
+            'In&nbsp;collaboration with Proximity agency, we&nbsp;launched a&nbsp;cash receipt promotional campaign for VISA. The project included chatbot development and rollout, and integration of&nbsp;the receipt identification and validation system. We&nbsp;are especially proud of&nbsp;the fact that our solution was verified by&nbsp;VISA Global office for&nbsp;IT security at&nbsp;the first time of&nbsp;asking.',
         image: {
             original: {
                 src: complianceImage,

@@ -89,6 +89,11 @@
     font-family: $inter-400;
     font-size: 1.5vw;
 
+    & > p {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+
     @media (max-width: $screen2Xl) {
         font-size: 24px;
     }
