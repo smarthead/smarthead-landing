@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import 'swiper/css';
 
 import * as styles from './index.module.scss';
 import { reviewsList } from './reviewsList';
@@ -12,78 +11,22 @@ import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 
 const Reviews: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(ScrollToPlugin);
     const [activeSlide, setActiveSlide] = useState(0);
-    const scrollTimeline = useRef<gsap.core.Timeline>();
+
+    const [swiper, setSwiper] = useState<any>(null);
+
+    const slideTo = (index: number) => swiper.slideTo(index);
     const reviewsAmount = reviewsList.length;
-
-    const slideSize = 1 / (reviewsAmount - 1);
-    const slideProgress = [...Array(reviewsAmount)].map(
-        (_, index) => index * slideSize
-    );
-
-    const handleScrollUpdate = (progress: number) => {
-        setActiveSlide(getNearestSlide(progress).index);
-    };
-
-    const getNearestSlide = (
-        progress: number
-    ): { progress: number; index: number } => {
-        return slideProgress.reduce(
-            (prev, curr, index) =>
-                Math.abs(curr - progress) < Math.abs(prev.progress - progress)
-                    ? { progress: curr, index: index }
-                    : prev,
-            { progress: 0, index: 0 }
-        );
-    };
-
-    const jumpTo = (index: number) => {
-        if (scrollTimeline.current?.scrollTrigger) {
-            const start = scrollTimeline.current.scrollTrigger.start;
-            const end = scrollTimeline.current.scrollTrigger.end;
-
-            gsap.to(`.${styles.reviewsScrollContainer}`, {
-                duration: 0.5,
-                scrollTo: {
-                    x: Math.ceil(start + (end - start) * slideProgress[index]),
-                },
-                ease: 'power1.inOut',
-                overwrite: true,
-            });
-        }
-    };
 
     const forwardHandle = () => {
         if (activeSlide > reviewsAmount - 1) return;
-        jumpTo(activeSlide + 1);
+        slideTo(activeSlide + 1);
     };
     const backwardHandle = () => {
         if (activeSlide < 1) return;
-        jumpTo(activeSlide - 1);
+        slideTo(activeSlide - 1);
     };
 
-    useEffect(() => {
-        scrollTimeline.current = gsap.timeline({
-            scrollTrigger: {
-                scroller: `.${styles.reviewsScrollContainer}`,
-
-                horizontal: true,
-                snap: {
-                    snapTo: 1 / (reviewsAmount - 1),
-                    duration: 0.5,
-                    delay: 0.2,
-                    directional: false,
-                    ease: 'power1.inOut',
-                },
-                onUpdate: (self) => {
-                    // console.log(self.progress);
-                    handleScrollUpdate(self.progress);
-                },
-            },
-        });
-    }, []);
     return (
         <section className={styles.root}>
             <div className={styles.content}>
@@ -96,7 +39,7 @@ const Reviews: React.FC = () => {
                             <button
                                 key={`bullet-mobile-${index}`}
                                 onClick={() => {
-                                    jumpTo(index);
+                                    slideTo(index);
                                 }}
                                 className={`${styles.buttonBullet} ${
                                     index === activeSlide
@@ -140,24 +83,38 @@ const Reviews: React.FC = () => {
                 </div>
 
                 <section className={styles.reviewsContainer}>
-                    <div className={styles.reviewsScrollContainer}>
-                        <div className={styles.reviewsScroll}>
-                            {reviewsList.map((review, index) => (
+                    <Swiper
+                        onSwiper={(swiper) => {
+                            setSwiper(swiper);
+                            setActiveSlide(swiper.activeIndex);
+                        }}
+                        mousewheel={true}
+                        spaceBetween={0}
+                        slidesPerView={'auto'}
+                        className={styles.swiper}
+                        onActiveIndexChange={(swiper) => {
+                            setActiveSlide(swiper.activeIndex);
+                        }}
+                    >
+                        {reviewsList.map((review, index) => (
+                            <SwiperSlide
+                                key={`review-${index}`}
+                                className={styles.swiperSlide}
+                            >
                                 <ReviewItem
                                     className="review-item"
                                     isActive={index <= activeSlide}
-                                    key={`review-${index}`}
                                     photo={review.photo}
                                     name={review.name}
                                     text={review.text}
                                     position={review.position}
                                 />
-                            ))}
-                        </div>
-                    </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                     <div
                         className={`${
-                            activeSlide > 0 && styles.backwardClickArea
+                            activeSlide > 0 ? styles.backwardClickArea : ''
                         }`}
                         onClick={backwardHandle}
                     ></div>
@@ -167,7 +124,7 @@ const Reviews: React.FC = () => {
                         <button
                             key={`bullet-${index}`}
                             onClick={() => {
-                                jumpTo(index);
+                                slideTo(index);
                             }}
                             className={`${styles.buttonBullet} ${
                                 index === activeSlide

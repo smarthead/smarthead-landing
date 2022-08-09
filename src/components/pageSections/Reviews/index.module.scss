@@ -92,39 +92,56 @@
     }
 }
 
-.reviews-scroll-container {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    width: 100%;
-    height: calc(23.5vw + 100px);
+.swiper {
     padding-left: 9.375%;
 
     @media (max-width: $screenXl) {
-        height: calc(31vw + 100px);
         padding-left: 7.8125vw;
     }
 
     @media (max-width: $screenLg) {
-        height: calc(42vw + 100px);
         padding-left: 7.8125vw;
     }
 
-    @include for-phone-only {
-        // padding-right: calc(100vw - 84.375vw - 7.8125vw);
-        // padding-right: 7.8125vw;
-    }
-
     @media (max-width: $screenXs) {
-        height: calc(120vw + 100px);
         padding-left: 7.8125vw;
     }
 }
 
-.reviews-scroll {
-    display: flex;
-    flex-direction: row;
-    width: auto;
+.swiper-slide {
+    width: 62.75vw;
+
+    &:last-child {
+        width: 90.625vw;
+
+        @media (max-width: $screenXl) {
+            width: 92.1875vw;
+        }
+
+        @media (max-width: $screenLg) {
+            width: 92.1875vw;
+        }
+
+        @media (max-width: $screenXs) {
+            width: 92.1875vw;
+        }
+    }
+
+    @media (max-width: $screenXl) {
+        width: 64.618vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 77.48vw;
+    }
+
+    @include for-phone-only {
+        width: 100vw;
+    }
+
+    @media (max-width: $screenXs) {
+        width: 100vw;
+    }
 }
 
 .bullets {
@@ -290,6 +307,7 @@
     width: 9.375%;
     height: 100%;
     cursor: pointer;
+    z-index: 10;
 
     @media (max-width: $screenXl) {
         width: 7.8125vw;
