@@ -8,34 +8,34 @@
     width: 53.375vw;
     height: 23.5vw;
     height: auto;
-    margin-right: 9.375vw;
+    // margin-right: 9.375vw;
     color: $black;
     background-color: $white;
 
-    &:last-child {
-        margin-right: 37.25vw;
+    // &:last-child {
+    //     margin-right: 37.25vw;
 
-        @media (max-width: $screenXl) {
-            margin-right: 39.2875vw;
-        }
+    //     @media (max-width: $screenXl) {
+    //         margin-right: 39.2875vw;
+    //     }
 
-        @media (max-width: $screenLg) {
-            margin-right: 22.3875vw;
-        }
+    //     @media (max-width: $screenLg) {
+    //         margin-right: 22.3875vw;
+    //     }
 
-        @include for-phone-only {
-            margin-right: 7.8125vw;
-        }
+    //     @include for-phone-only {
+    //         margin-right: 7.8125vw;
+    //     }
 
-        @media (max-width: $screenXs) {
-            margin-right: 7.8125vw;
-        }
-    }
+    //     @media (max-width: $screenXs) {
+    //         margin-right: 7.8125vw;
+    //     }
+    // }
     // 677_395
     @media (max-width: $screenXl) {
         width: 52.9vw;
         height: 30.8593vw;
-        margin-right: 11.718vw;
+        // margin-right: 11.718vw;
     }
 
     // 536_327
@@ -43,12 +43,12 @@
         flex-direction: column;
         width: 69.8vw;
         height: 42.578vw;
-        margin-right: 7.68vw;
+        // margin-right: 7.68vw;
     }
 
     @include for-phone-only {
         width: 84.375vw;
-        margin-right: 15.625vw;
+        // margin-right: 15.625vw;
     }
 
     // 320_428
@@ -59,7 +59,7 @@
         // height: 118.89vw;
         height: 120vw;
         // margin-right: 11.11vw;
-        margin-right: 15.625vw;
+        // margin-right: 15.625vw;
     }
 }
 
