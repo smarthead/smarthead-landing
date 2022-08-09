@@ -22,7 +22,7 @@ const ReviewItem: React.FC<IReviewItem> = ({
     return (
         <div
             className={`${styles.review} ${className} ${
-                !isActive && styles.nonActive
+                !isActive ? styles.nonActive : ''
             }`}
         >
             <div className={styles.personalInfo}>

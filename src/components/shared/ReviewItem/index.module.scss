@@ -66,6 +66,7 @@
 .non-active {
     opacity: 0.6;
     transition: opacity 0.15s ease-out;
+    cursor: pointer;
 
     &:hover {
         opacity: 1;
@@ -125,6 +126,7 @@
     &-image {
         width: 100%;
         height: 100%;
+        pointer-events: none;
     }
 
     @media (max-width: $screenXl) {
