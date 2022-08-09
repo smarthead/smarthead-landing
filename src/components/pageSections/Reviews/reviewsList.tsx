@@ -11,9 +11,9 @@ export const reviewsList = [
         position:
             'Ancestry Design System and&nbsp;DNA Product, UX&nbsp;Design&nbsp;Director',
         text: [
-            'I worked with SmartHead’s front-end development team on multiple occasions for various clients like Illumina, Invitae, and most recently Ancestry where they helped to develop Ancestry’s new design system.',
-            'SmartHead developers are rock-stars that were able to rapidly code and test front-end libraries based on our designs and specs. This allowed us to evaluate our designs in live code and make necessary adjustments to evolve our design system much further in no time.',
-            'SmartHead’s team is highly professional and a great pleasure to work with. Highly recommended to anyone who’d want to make their software product shine!  ',
+            'I&nbsp;worked with SmartHead’s front-end development team on&nbsp;multiple occasions for various clients like Illumina, Invitae, and most recently Ancestry where they helped to&nbsp;develop Ancestry’s new design system.',
+            'SmartHead developers are rock-stars that were able to&nbsp;rapidly code and test front-end libraries based on&nbsp;our designs and specs. This allowed&nbsp;us to&nbsp;evaluate our designs in&nbsp;live code and make necessary adjustments to&nbsp;evolve our design system much further in&nbsp;no&nbsp;time.',
+            'SmartHead’s team is&nbsp;highly professional and a&nbsp;great pleasure to&nbsp;work with. Highly recommended to&nbsp;anyone who’d want to&nbsp;make their software product shine!',
         ],
     },
     {
@@ -21,9 +21,9 @@ export const reviewsList = [
         name: 'NATALIA ROMANOVA',
         position: 'Cirque du Soleil, Chief&nbsp;Executive&nbsp;Officer',
         text: [
-            'Over the years, SmarHead has become not only our trusted contractor, but a truly reliable and like-minded partner.',
-            'We highly appreciate SmartHead’s high professionalism and top-tier results they delivered when developing our new website and universal platform for Cirque du Soleil shows.',
-            'It’s always a pleasure to work with a company that is capable to implement upscale technical solutions, while being proactive and forward-thinking. At SmartHead, each person is a true passionate professional that contributes in your project’s success.',
+            'Over the years, SmarHead has become not only our trusted contractor, but a&nbsp;truly reliable and like-minded partner.',
+            'We&nbsp;highly appreciate SmartHead’s high professionalism and top-tier results they delivered when developing our new website and universal platform for Cirque du&nbsp;Soleil shows.',
+            'It’s always a&nbsp;pleasure to&nbsp;work with a&nbsp;company that is&nbsp;capable to&nbsp;implement upscale technical solutions, while being proactive and forward-thinking. At&nbsp;SmartHead, each person is&nbsp;a&nbsp;true passionate professional that contributes in&nbsp;your project’s success.',
         ],
     },
     {
@@ -32,8 +32,8 @@ export const reviewsList = [
         position:
             'Proximity, BBDO Group Creative digital agency, Digital&nbsp;manager',
         text: [
-            'I highly appreciate their excellence in coding, project management and communication that makes the working process really smooth and effective.',
-            'SmartHead is definitely the most reliable technical partner I had a pleasure to work with. We hold a special event with SmartHead on a regular basis. When a project goes live they get together in a meeting room, so I could call them to say a lot of thanks to every member of the project team for a great job. Highly recommended.',
+            'I&nbsp;highly appreciate their excellence in&nbsp;coding, project management and communication that makes the working process really smooth and effective.',
+            'SmartHead is&nbsp;definitely the most reliable technical partner&nbsp;I had a&nbsp;pleasure to&nbsp;work with. We&nbsp;hold a&nbsp;special event with SmartHead on&nbsp;a&nbsp;regular basis. When a&nbsp;project goes live they get together in&nbsp;a&nbsp;meeting room, so&nbsp;I could call them to&nbsp;say a&nbsp;lot of&nbsp;thanks to&nbsp;every member of&nbsp;the project team for a&nbsp;great job. Highly recommended.',
         ],
     },
     {
@@ -41,8 +41,8 @@ export const reviewsList = [
         name: 'ARSENY HARKUNOV',
         position: 'STILL HUMAN product design agency, Founder',
         text: [
-            'Besides writing excellent code their great strength is in project management. They always deliver and I’m never worried.',
-            'I’ve been working with SmartHead for over 4 years and can honestly say they are the best development company I’ve come across in over 15 years. Together we’ve produced numerous projects for various clients ranging from biotech to insurance. I’m proud to call them the extension of my team and it’s always a pleasure to work together. Don’t miss. Highly recommended.',
+            'Besides writing excellent code their great strength is&nbsp;in&nbsp;project management. They always deliver and I’m never worried.',
+            'I’ve been working with SmartHead for over 4&nbsp;years and can honestly say they are the best development company I’ve come across in&nbsp;over 15&nbsp;years. Together we’ve produced numerous projects for various clients ranging from biotech to&nbsp;insurance. I’m proud to&nbsp;call them the extension of&nbsp;my&nbsp;team and it’s always a&nbsp;pleasure to&nbsp;work together. Don’t miss. Highly recommended.',
         ],
     },
     {
@@ -51,8 +51,8 @@ export const reviewsList = [
         position:
             'Instinct, BBDO group Creative agency, Digital&nbsp;Producer ',
         text: [
-            'SmartHead has proved a reliable, tech-savvy partner who is ready to investigate any problem.',
-            'I’ve been working with SmartHead as digital production partner for 4 years. Over this time we’ve produced digital projects of various complexity. They’re very attentive to details, careful about timings and budgets and successfully work in stressful tight deadlines (an important skill in advertising industry!).',
+            'SmartHead has proved a&nbsp;reliable, tech-savvy partner who is&nbsp;ready to&nbsp;investigate any problem.',
+            'I’ve been working with SmartHead as&nbsp;digital production partner for 4&nbsp;years. Over this time we’ve produced digital projects of&nbsp;various complexity. They’re very attentive to&nbsp;details, careful about timings and budgets and successfully work in&nbsp;stressful tight deadlines (an&nbsp;important skill in&nbsp;advertising industry!).',
         ],
     },
 ];

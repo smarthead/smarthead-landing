@@ -1,4 +1,5 @@
 import React from 'react';
+import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
 import { arrayToString } from '../../../utils/arrayToString';
 import * as styles from './index.module.scss';
 
@@ -35,11 +36,7 @@ const ReviewItem: React.FC<IReviewItem> = ({
                     </h4>
                 </div>
             </div>
-            <div className={styles.text}>
-                {text.map((paragraph, index) => (
-                    <p key={`${name}-p-${index}`}>{paragraph}</p>
-                ))}
-            </div>
+            <div className={styles.text}>{arrayToParagraphs(text)}</div>
         </div>
     );
 };
