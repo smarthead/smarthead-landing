@@ -88,8 +88,8 @@ const Reviews: React.FC = () => {
                             setSwiper(swiper);
                             setActiveSlide(swiper.activeIndex);
                         }}
-                        mousewheel={true}
                         spaceBetween={0}
+                        simulateTouch={false}
                         slidesPerView={'auto'}
                         className={styles.swiper}
                         onActiveIndexChange={(swiper) => {
@@ -100,6 +100,10 @@ const Reviews: React.FC = () => {
                             <SwiperSlide
                                 key={`review-${index}`}
                                 className={styles.swiperSlide}
+                                onClick={() => {
+                                    if (activeSlide === index) return;
+                                    slideTo(index);
+                                }}
                             >
                                 <ReviewItem
                                     className="review-item"
