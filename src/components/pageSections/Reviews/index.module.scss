@@ -301,6 +301,11 @@
     display: none;
 }
 
+.button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 .backward-click-area {
     position: absolute;
     top: 0;

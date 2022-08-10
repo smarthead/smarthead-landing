@@ -67,7 +67,7 @@ const Reviews: React.FC = () => {
                         <button
                             className={`${styles.forwardButton} ${
                                 activeSlide > reviewsAmount - 2 &&
-                                styles.buttonHidden
+                                styles.buttonDisabled
                             }`}
                             onClick={() => {
                                 forwardHandle();
