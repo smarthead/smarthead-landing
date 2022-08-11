@@ -22,9 +22,9 @@ export const CaseItemInfo: React.FC<ICaseItemInfo> = ({
         <div className={`case-item-info ${styles.info}`}>
             {isFirst && <h4 className={styles.headline}>{sectionTitle}</h4>}
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.description}>
+            <div className={styles.description}>
                 {arrayToParagraphs(description)}
-            </p>
+            </div>
             <button
                 className={styles.skipButton}
                 onClick={() => {
