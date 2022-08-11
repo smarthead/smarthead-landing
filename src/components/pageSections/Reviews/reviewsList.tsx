@@ -19,7 +19,8 @@ export const reviewsList = [
     {
         photo: nataliaRomanova,
         name: 'NATALIA ROMANOVA',
-        position: 'Cirque du Soleil, Chief&nbsp;Executive&nbsp;Officer',
+        position:
+            'Cirque du Soleil, Regional&nbsp;Chief Executive&nbsp;Officer',
         text: [
             'Over the years, SmarHead has become not only our trusted contractor, but a&nbsp;truly reliable and like-minded partner.',
             'We&nbsp;highly appreciate SmartHead’s high professionalism and top-tier results they delivered when developing our new website and universal platform for Cirque du&nbsp;Soleil shows.',
