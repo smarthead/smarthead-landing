@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import FontFaceObserver from 'fontfaceobserver';
@@ -8,10 +8,24 @@ import Card from '../../shared/Card';
 import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
 import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
 import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
+
+import podcastCoverMobile from '../../../assets/images/Podcast-Cover-Mobile.jpg';
+import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.jpg';
+import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.jpg';
+
 import { links } from '../../shared/links';
 
 const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
+    const [isMobile, setMobile] = useState(false);
+
+    const handleResize = () => {
+        if (window.innerWidth < 641) {
+            setMobile(true);
+        } else {
+            setMobile(false);
+        }
+    };
 
     useEffect(() => {
         const fontGilroyBold = new FontFaceObserver('Gilroy-Regular');
@@ -68,6 +82,12 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                 });
             },
         });
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
@@ -78,7 +98,7 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                 </h2>
                 <div className={styles.cards}>
                     <Card
-                        image={podcastCover}
+                        image={isMobile ? podcastCoverMobile : podcastCover}
                         description="Подкаст о технологиях, менеджменте и саморазвитии"
                         buttonText="ПОСЛУШАТЬ"
                         link={links.podcast}
@@ -86,7 +106,7 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         triggerClassName="card-trigger"
                     />
                     <Card
-                        image={instagramCover}
+                        image={isMobile ? instagramCoverMobile : instagramCover}
                         description="Инстаграм о нашей жизни в офисе и за его пределами"
                         buttonText="ПОСМОТРЕТЬ"
                         link={links.instagram}
@@ -94,7 +114,7 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         triggerClassName="card-trigger"
                     />
                     <Card
-                        image={telegramCover}
+                        image={isMobile ? telegramCoverMobile : telegramCover}
                         description="Телеграм-канал, где собраны
                     наши лучшие практики"
                         buttonText="ПОЧИТАТЬ"

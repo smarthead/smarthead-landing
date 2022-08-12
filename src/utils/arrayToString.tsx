@@ -4,7 +4,7 @@ export function arrayToString(input: string | string[]) {
         ? nonBreakHandler(input)
         : input.map((line, index) => (
               <Fragment key={index}>
-                  {nonBreakHandler(line)} {index < input.length && <br />}
+                  {nonBreakHandler(line)} {index < input.length - 1 && <br />}
               </Fragment>
           ));
 }
