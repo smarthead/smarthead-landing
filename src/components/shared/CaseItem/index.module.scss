@@ -104,10 +104,12 @@
 
     @media (max-width: $screenLg) {
         font-size: 1.823vw;
+        line-height: 1.48em;
     }
 
     @media (max-width: $screenSm) {
         font-size: 12px;
+        line-height: 1.5em;
     }
 }
 

@@ -26,7 +26,10 @@
     @media (max-width: $screenSm) {
         flex-direction: column;
         align-items: flex-start;
-        max-width: 94.5%;
+        max-width: 95%;
+        // padding: 4.166vw 2.777vw;
+        padding: 20px 14px;
+        margin-bottom: 14px;
     }
 
     @media (max-width: $screenXs) {
@@ -45,7 +48,8 @@
 
     @media (max-width: $screenSm) {
         margin-right: 0;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        font-size: 16px;
     }
 
     @media (max-width: $screenXs) {
