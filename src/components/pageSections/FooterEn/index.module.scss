@@ -6,92 +6,118 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 6.25vw 0;
+    padding: 9.375vw 0;
     background-color: $black;
 
     @media (max-width: $screenXl) {
-        font-size: 3.6718vw;
+        padding: 10.156 0;
     }
 
-    @media (max-width: $screenLg) {
-        padding: 6.5vw 0;
-    }
+    // @media (max-width: $screenLg) {
+    //     padding: 6.5vw 0;
+    // }
 
-    @media (max-width: $screenSm) {
-        padding: 91px 0;
-    }
+    // @media (max-width: $screenSm) {
+    //     padding: 91px 0;
+    // }
 
-    @media (max-width: $screenXs) {
-        padding: 19vw 0;
-    }
+    // @media (max-width: $screenXs) {
+    //     padding: 19vw 0;
+    // }
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     visibility: hidden;
-    margin: 0;
+    margin: 0 0 1.1vw;
     color: $white;
     font-family: $gilroy-600;
     font-size: 4vw;
+    line-height: 1.2em;
+    width: 68%;
 
     @media (max-width: $screenXl) {
-        font-size: 3.6718vw;
+        font-size: 3.6719vw;
     }
 
-    @media (max-width: $screenLg) {
-        font-size: 3.125vw;
+    // @media (max-width: $screenLg) {
+    //     font-size: 3.125vw;
+    // }
+
+    // @media (max-width: $screenMd) {
+    //     font-size: 24px;
+    // }
+
+    // @media (max-width: $screenSm) {
+    //     font-size: 6.666vw;
+    // }
+}
+
+.mail {
+    color: $white;
+    font-size: 2.0625vw;
+    letter-spacing: 0.02em;
+    font-family: $inter-600;
+    display: inline-flex;
+    align-self: flex-end;
+    white-space: nowrap;
+    transition: color 0.15s ease-out;
+    line-height: 1em;
+
+    @media (max-width: $screenXl) {
+        font-size: 2.1875vw;
     }
 
-    @media (max-width: $screenMd) {
-        font-size: 24px;
+    &-arrow {
+        display: inline-block;
+        width: 1.42em;
+        margin-right: 1em;
+        align-self: center;
+        transition: transform 0.15s ease-out;
     }
 
-    @media (max-width: $screenSm) {
-        font-size: 6.666vw;
+    &:hover {
+        color: $yellow;
+
+        & > .mail-arrow {
+            transform: translateX(25%);
+        }
     }
 }
 
 .contacts {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 6.25vw;
-    padding-bottom: 2vw;
-    color: $white;
+    display: flex;
+    flex-direction: row;
+    border-top: 2px solid $white20;
     font-family: $inter-400;
     font-size: 1.5vw;
-    column-gap: 2.1875vw;
+    padding-top: 1.9vw;
+    margin-top: 9vw;
 
     @media (max-width: $screen2Xl) {
-        padding-bottom: 30px;
         font-size: 24px;
+        margin-top: 144px;
     }
 
     @media (max-width: $screenXl) {
-        padding-bottom: 2.3437vw;
         font-size: 1.875vw;
+        margin-top: 11.25vw;
     }
 
-    @media (max-width: $screenSm) {
-        grid-template-rows: min-content;
-        grid-template-columns: 100%;
-        grid-auto-flow: row;
-        font-size: 3.333vw;
-        row-gap: 0;
+    @media (max-width: $screenLg) {
+        border-top: 1px solid $white20;
     }
 }
 
-.border {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    visibility: hidden;
-    width: 100%;
-    height: 2px;
-    background-color: $white50;
-
-    @media (max-width: $screenLg) {
-        height: 1px;
-    }
+.adress {
+    color: $white50;
+    margin-right: auto;
 }
 
 .contact-link,
@@ -100,89 +126,13 @@
     white-space: nowrap;
     text-decoration: none;
     transition: color 0.15s ease-out;
+    justify-self: flex-end;
 
     &:hover {
         color: $yellow;
     }
-}
 
-.contacts-item {
-    display: grid;
-    visibility: hidden;
-    grid-template-rows: min-content;
-    grid-template-columns: max-content;
-    grid-auto-flow: rows;
-    max-height: 100%;
-    padding-top: 2.8vw;
-    line-height: 1.4em;
-    white-space: nowrap;
-    border-top: 2px $white50 solid;
-    row-gap: 1.25vw;
-    column-gap: 3vw;
-
-    @media (max-width: $screen2Xl) {
-        max-height: 208px;
-        row-gap: 20px;
-    }
-
-    @media (max-width: $screenXl) {
-        max-height: 16.25vw;
-        row-gap: 2.7344vw;
-    }
-
-    @media (max-width: $screenLg) {
-        border-top: 1px $white50 solid;
-        row-gap: 1.5vw;
-
-        &:last-child {
-            & > :nth-last-child(-n + 3) {
-                text-align: right;
-            }
-        }
-    }
-
-    @media (max-width: $screenSm) {
-        grid-template-rows: min-content;
-        grid-template-columns: 1fr;
-        grid-auto-flow: row;
-        max-height: 100%;
-        margin: 0;
-        padding-top: 6.5vw;
-        padding-bottom: 5.5vw;
-        row-gap: 4vw;
-    }
-}
-
-.delimeter {
-    display: inline;
-
-    @media (max-width: $screenSm) {
-        display: none;
-    }
-}
-
-.logo {
-    width: 6.9375vw;
-    margin-top: 3.75vw;
-    cursor: pointer;
-
-    @media (max-width: $screen2Xl) {
-        width: 111px;
-        margin-top: 60px;
-    }
-
-    @media (max-width: $screenXl) {
-        width: 8.5938vw;
-        margin-top: 4.6875vw;
-    }
-
-    @media (max-width: $screenLg) {
-        width: 10.5468vw;
-        margin-top: 3.2552vw;
-    }
-
-    @media (max-width: $screenSm) {
-        width: 22.5vw;
-        margin-top: 8.6vw;
+    &:not(:last-child) {
+        margin-right: 3vw;
     }
 }

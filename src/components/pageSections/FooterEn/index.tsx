@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { scrollToTop } from '../../../utils/scroll';
 import * as styles from './index.module.scss';
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 import { links } from '../../shared/links';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {
@@ -12,17 +11,13 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
 
     useEffect(() => {
         gsap.fromTo(
-            [
-                `.${styles.title}`,
-                `.${styles.contactsItem}`,
-                `.${styles.border}`,
-            ],
-            { yPercent: gsap.utils.wrap([60, 20, 20, 20, 200]), autoAlpha: 0 },
+            [`.${styles.title}`, `.${styles.mail}`, `.${styles.contacts}`],
+            { yPercent: gsap.utils.wrap([60, 100, 80]), autoAlpha: 0 },
             {
                 scrollTrigger: {
                     trigger: `.${styles.title}`,
-                    start: () =>
-                        window.innerWidth < 641 ? '0% 80%' : 'top 70%',
+                    // start: () =>
+                    //     window.innerWidth < 641 ? '0% 80%' : 'top 70%',
                 },
                 duration: 0.5,
                 yPercent: 0,
@@ -36,50 +31,41 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         <section id={id} className={styles.root}>
             <div className="container">
                 <h2 className={styles.title}>
-                    Ready to bring your [product] ideas to life?
+                    Ready to&nbsp;bring your product ideas to&nbsp;life?
                 </h2>
-                <div className={styles.contacts}>
-                    <div className={styles.contactsItem}>
-                        <span>
-                            5616 Geary Blvd., Ste. 207 <br />
-                            San Francisco, CA 94121
-                            <br />
-                            USA
-                        </span>
-                        <span>SmartHead LLC</span>
-                    </div>
-                    <div className={styles.contactsItem}>
-                        <a
-                            className={styles.contactLink}
-                            href="mailto:hello@smarthead.digital"
-                        >
-                            hello@smarthead.digital
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
-                    </div>
-                    <div className={styles.contactsItem}>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.privacyPolicy}
-                        >
-                            Privacy Policy
-                        </a>
-                    </div>
-                    <div className={styles.border}></div>
+                <div className={styles.content}>
+                    <a
+                        className={styles.mail}
+                        href="mailto:hello@smarthead.digital"
+                    >
+                        <img
+                            className={styles.mailArrow}
+                            src={ArrowRightYellow}
+                            alt=""
+                        />
+                        hello@smarthead.digital
+                    </a>
                 </div>
-                <img
-                    onClick={scrollToTop}
-                    src={shLogo}
-                    alt="SmartHead Logo. Scroll to top"
-                    className={styles.logo}
-                />
+
+                <div className={styles.contacts}>
+                    <span className={styles.adress}>
+                        SmartHead LLC, San Francisco, USA
+                    </span>
+                    <a
+                        className={styles.contactLink}
+                        target="_blank"
+                        href={links.linkedIn}
+                    >
+                        LinkedIn
+                    </a>
+                    <a
+                        className={styles.contactLink}
+                        target="_blank"
+                        href={links.privacyPolicy}
+                    >
+                        Privacy Policy
+                    </a>
+                </div>
             </div>
         </section>
     );
