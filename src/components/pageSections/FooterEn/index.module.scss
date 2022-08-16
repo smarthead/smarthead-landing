@@ -181,10 +181,6 @@
     text-decoration: none;
     transition: color 0.15s ease-out;
 
-    &:hover {
-        color: $yellow;
-    }
-
     &:not(:last-child) {
         margin-right: 3vw;
 
@@ -208,5 +204,9 @@
     &:visited {
         color: $white;
         text-decoration: none;
+    }
+
+    &:hover {
+        color: $yellow;
     }
 }
