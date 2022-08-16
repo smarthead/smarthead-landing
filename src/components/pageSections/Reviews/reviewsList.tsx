@@ -1,7 +1,6 @@
 import yuryFrolov from '../../../assets/images/reviews/Yury_Frolov.jpg';
 import nataliaRomanova from '../../../assets/images/reviews/Natalia_Romanova.jpg';
 import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.jpg';
-import arsenyHarkunov from '../../../assets/images/reviews/Arseny_Harkunov.jpg';
 import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.jpg';
 
 export const reviewsList = [
@@ -35,15 +34,6 @@ export const reviewsList = [
         text: [
             'I&nbsp;highly appreciate their excellence in&nbsp;coding, project management and communication that makes the working process really smooth and effective.',
             'SmartHead is&nbsp;definitely the most reliable technical partner&nbsp;I had a&nbsp;pleasure to&nbsp;work with. We&nbsp;hold a&nbsp;special event with SmartHead on&nbsp;a&nbsp;regular basis. When a&nbsp;project goes live they get together in&nbsp;a&nbsp;meeting room, so&nbsp;I could call them to&nbsp;say a&nbsp;lot of&nbsp;thanks to&nbsp;every member of&nbsp;the project team for a&nbsp;great job. Highly recommended.',
-        ],
-    },
-    {
-        photo: arsenyHarkunov,
-        name: 'ARSENY HARKUNOV',
-        position: 'STILL HUMAN product design agency, Founder',
-        text: [
-            'Besides writing excellent code their great strength is&nbsp;in&nbsp;project management. They always deliver and I’m never worried.',
-            'I’ve been working with SmartHead for over 4&nbsp;years and can honestly say they are the best development company I’ve come across in&nbsp;over 15&nbsp;years. Together we’ve produced numerous projects for various clients ranging from biotech to&nbsp;insurance. I’m proud to&nbsp;call them the extension of&nbsp;my&nbsp;team and it’s always a&nbsp;pleasure to&nbsp;work together. Don’t miss. Highly recommended.',
         ],
     },
     {

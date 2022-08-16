@@ -4,10 +4,7 @@
         { "text": "Launching", "subtext": "MVPs" },
         { "text": "Scaling", "subtext": "digital products" },
         { "text": "Building", "subtext": "teams and development processes" },
-        {
-            "text": "Consulting",
-            "subtext": "on business and product development"
-        },
+        { "text": "Consulting", "subtext": "on software development" },
         { "text": "Searching", "subtext": "for offbeat solutions" }
     ]
 }

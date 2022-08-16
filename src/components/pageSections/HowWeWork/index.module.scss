@@ -97,6 +97,7 @@
         font-size: 1.5625vw;
         line-height: 1.2em;
         border-bottom: 2px solid $black20;
+        white-space: nowrap;
 
         @media (max-width: $screenLg) {
             padding-bottom: 0.9em;
@@ -107,6 +108,7 @@
             width: 100%;
             font-size: 3.3333vw;
             line-height: 1.34em;
+            white-space: normal;
 
             & > br {
                 display: none;
