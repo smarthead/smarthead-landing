@@ -55,8 +55,8 @@
 
     @media (max-width: $screenXs) {
         margin-bottom: 6vw;
-        font-size: 6.666vw;
         margin-left: 7.8125vw;
+        font-size: 6.666vw;
     }
 }
 
@@ -309,10 +309,10 @@
 .backward-click-area {
     position: absolute;
     top: 0;
+    z-index: 10;
     width: 9.375%;
     height: 100%;
     cursor: pointer;
-    z-index: 10;
 
     @media (max-width: $screenXl) {
         width: 7.8125vw;

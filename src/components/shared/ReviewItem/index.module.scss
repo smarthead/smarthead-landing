@@ -158,16 +158,16 @@
 
 .name {
     width: 11vw;
+    margin: 0 0 0.5vw;
     font-family: $inter-400;
     font-size: 1.5vw;
     line-height: 1.34em;
     letter-spacing: 0.05em;
-    margin: 0 0 0.5vw;
 
     @media (max-width: $screenXl) {
-        font-size: 1.875vw;
         width: 13.5vw;
         margin: 0 0 0.75vw;
+        font-size: 1.875vw;
     }
 
     @media (max-width: $screenLg) {
@@ -177,8 +177,8 @@
     }
 
     @include for-phone-only {
-        font-size: 2.5vw;
         margin: 0.3vw 0 0;
+        font-size: 2.5vw;
     }
 
     @media (max-width: $screenXs) {
@@ -188,17 +188,17 @@
 }
 
 .position {
+    width: 96%;
+    margin: 0;
     color: $grayBlack;
     font-family: $inter-600;
     font-size: 0.875vw;
     line-height: 1.142em;
     letter-spacing: 0.05em;
-    width: 96%;
-    margin: 0;
 
     @media (max-width: $screenXl) {
-        font-size: 1.0938vw;
         width: 100%;
+        font-size: 1.0938vw;
     }
 
     @media (max-width: $screenLg) {
@@ -212,9 +212,9 @@
     }
 
     @media (max-width: $screenXs) {
+        width: 90%;
         font-size: 3.33vw;
         line-height: 1.333em;
-        width: 90%;
     }
 }
 
@@ -244,8 +244,8 @@
     }
 
     @media (max-width: $screenXl) {
-        font-size: 1.4063vw;
         width: 65.58%;
+        font-size: 1.4063vw;
     }
 
     @media (max-width: $screenLg) {
