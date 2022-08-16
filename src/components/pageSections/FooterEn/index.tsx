@@ -31,7 +31,9 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         <section id={id} className={styles.root}>
             <div className="container">
                 <h2 className={styles.title}>
-                    Ready to&nbsp;bring your product ideas to&nbsp;life?
+                    Ready to&nbsp;bring your product
+                    <br />
+                    ideas to&nbsp;life?
                 </h2>
                 <div className={styles.content}>
                     <a
@@ -51,20 +53,22 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     <span className={styles.adress}>
                         SmartHead LLC, San Francisco, USA
                     </span>
-                    <a
-                        className={styles.contactLink}
-                        target="_blank"
-                        href={links.linkedIn}
-                    >
-                        LinkedIn
-                    </a>
-                    <a
-                        className={styles.contactLink}
-                        target="_blank"
-                        href={links.privacyPolicy}
-                    >
-                        Privacy Policy
-                    </a>
+                    <div>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.linkedIn}
+                        >
+                            LinkedIn
+                        </a>
+                        <a
+                            className={styles.contactLink}
+                            target="_blank"
+                            href={links.privacyPolicy}
+                        >
+                            Privacy Policy
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
