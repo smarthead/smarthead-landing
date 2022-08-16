@@ -6,96 +6,176 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 6.25vw 0;
+    padding: 9.375vw 0;
     background-color: $black;
 
     @media (max-width: $screenXl) {
-        font-size: 3.6718vw;
+        padding: 10.156vw 0;
     }
 
     @media (max-width: $screenLg) {
-        padding: 6.5vw 0;
+        padding: 6.8vw 0;
     }
 
     @media (max-width: $screenSm) {
-        padding: 91px 0;
+        padding: 66px 0 31px;
     }
 
-    @media (max-width: $screenXs) {
-        padding: 19vw 0;
+    @media (max-width: $screen2Xs) {
+        padding: 18.333vw 0 8.61vw;
     }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .title {
     visibility: hidden;
-    margin: 0;
+    width: 68%;
+    margin: 0 0 1.1vw;
     color: $white;
     font-family: $gilroy-600;
     font-size: 4vw;
+    line-height: 1.2em;
+    white-space: nowrap;
 
     @media (max-width: $screenXl) {
-        font-size: 3.6718vw;
+        font-size: 3.6719vw;
     }
 
     @media (max-width: $screenLg) {
+        width: 55%;
+        margin: 0 0 1.7vw;
         font-size: 3.125vw;
     }
 
     @media (max-width: $screenMd) {
+        width: 340px;
         font-size: 24px;
     }
 
     @media (max-width: $screenSm) {
-        font-size: 6.666vw;
+        margin: 0 0 53px;
+        font-size: 23px;
+    }
+
+    @media (max-width: $screen2Xs) {
+        width: 94.444vw;
+        margin: 0 0 14.72vw;
+        font-size: 6.388vw;
+    }
+}
+
+.mail {
+    display: inline-flex;
+    align-self: flex-end;
+    color: $white;
+    font-family: $inter-600;
+    font-size: 2.0625vw;
+    line-height: 1em;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease-out;
+
+    @media (max-width: $screenXl) {
+        font-size: 2.1875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 2.1vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 16.15px;
+    }
+
+    @media (max-width: $screenSm) {
+        align-self: flex-start;
+    }
+
+    @media (max-width: $screen2Xs) {
+        font-size: 4.4861vw;
+    }
+
+    &-arrow {
+        display: inline-block;
+        align-self: center;
+        width: 1.42em;
+        margin-right: 1em;
+        transition: transform 0.15s ease-out;
+    }
+
+    &:hover {
+        color: $yellow;
+
+        & > .mail-arrow {
+            transform: translateX(25%);
+        }
     }
 }
 
 .contacts {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 6.25vw;
-    padding-bottom: 2vw;
-    color: $white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 9vw;
+    padding-top: 1.9vw;
     font-family: $inter-400;
     font-size: 1.5vw;
-    column-gap: 2.1875vw;
+    border-top: 2px solid $white20;
 
     @media (max-width: $screen2Xl) {
-        padding-bottom: 30px;
+        margin-top: 144px;
         font-size: 24px;
     }
 
     @media (max-width: $screenXl) {
-        padding-bottom: 2.3437vw;
+        margin-top: 11.25vw;
         font-size: 1.875vw;
     }
 
-    @media (max-width: $screenSm) {
-        grid-template-rows: min-content;
-        grid-template-columns: 100%;
-        grid-auto-flow: row;
-        font-size: 3.333vw;
-        row-gap: 0;
-    }
-}
-
-.border {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    visibility: hidden;
-    width: 100%;
-    height: 2px;
-    background-color: $white50;
-
     @media (max-width: $screenLg) {
-        height: 1px;
+        margin-top: 12.8vw;
+        font-size: 1.823vw;
+        border-top: 1px solid $white20;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+    }
+
+    @media (max-width: $screenSm) {
+        flex-direction: column-reverse;
+        margin-top: 120px;
+        padding-top: 22px;
+    }
+
+    @media (max-width: $screen2Xs) {
+        flex-direction: column-reverse;
+        margin-top: 33.333vw;
+        padding-top: 6.111vw;
+        font-size: 3.888vw;
     }
 }
 
-.contact-link,
-.contact-link:visited {
+.adress {
+    margin-right: auto;
+    color: $white50;
+
+    @media (max-width: $screenSm) {
+        margin-top: 20px;
+    }
+
+    @media (max-width: $screen2Xs) {
+        margin-top: 5.5555vw;
+    }
+}
+
+.contact-link {
+    justify-self: flex-end;
     color: $white;
     white-space: nowrap;
     text-decoration: none;
@@ -104,85 +184,29 @@
     &:hover {
         color: $yellow;
     }
-}
 
-.contacts-item {
-    display: grid;
-    visibility: hidden;
-    grid-template-rows: min-content;
-    grid-template-columns: max-content;
-    grid-auto-flow: rows;
-    max-height: 100%;
-    padding-top: 2.8vw;
-    line-height: 1.4em;
-    white-space: nowrap;
-    border-top: 2px $white50 solid;
-    row-gap: 1.25vw;
-    column-gap: 3vw;
+    &:not(:last-child) {
+        margin-right: 3vw;
 
-    @media (max-width: $screen2Xl) {
-        max-height: 208px;
-        row-gap: 20px;
-    }
+        @media (max-width: $screenLg) {
+            margin-right: 3.255vw;
+        }
 
-    @media (max-width: $screenXl) {
-        max-height: 16.25vw;
-        row-gap: 2.7344vw;
-    }
+        @media (max-width: $screenMd) {
+            margin-right: 25px;
+        }
 
-    @media (max-width: $screenLg) {
-        border-top: 1px $white50 solid;
-        row-gap: 1.5vw;
+        @media (max-width: $screenSm) {
+            margin-right: 56px;
+        }
 
-        &:last-child {
-            & > :nth-last-child(-n + 3) {
-                text-align: right;
-            }
+        @media (max-width: $screen2Xs) {
+            margin-right: 15.555vw;
         }
     }
 
-    @media (max-width: $screenSm) {
-        grid-template-rows: min-content;
-        grid-template-columns: 1fr;
-        grid-auto-flow: row;
-        max-height: 100%;
-        margin: 0;
-        padding-top: 6.5vw;
-        padding-bottom: 5.5vw;
-        row-gap: 4vw;
-    }
-}
-
-.delimeter {
-    display: inline;
-
-    @media (max-width: $screenSm) {
-        display: none;
-    }
-}
-
-.logo {
-    width: 6.9375vw;
-    margin-top: 3.75vw;
-    cursor: pointer;
-
-    @media (max-width: $screen2Xl) {
-        width: 111px;
-        margin-top: 60px;
-    }
-
-    @media (max-width: $screenXl) {
-        width: 8.5938vw;
-        margin-top: 4.6875vw;
-    }
-
-    @media (max-width: $screenLg) {
-        width: 10.5468vw;
-        margin-top: 3.2552vw;
-    }
-
-    @media (max-width: $screenSm) {
-        width: 22.5vw;
-        margin-top: 8.6vw;
+    &:visited {
+        color: $white;
+        text-decoration: none;
     }
 }
