@@ -91,7 +91,7 @@ const casesList = [
     {
         title: 'Compliance Assistant',
         description:
-            'We&nbsp;are currently developing a&nbsp;service that will analyze the legal actions compliance of&nbsp;entities. We&nbsp;are helping our client to&nbsp;design and develop new functionality that will improve&nbsp;UX and increase product value for customers. In&nbsp;addition, it&nbsp;will streamline the service delivery process.',
+            'We&nbsp;are currently developing a&nbsp;service that analyses the transaction history and provides compliance reports and recommendations for legal entities. We&nbsp;are helping our client to&nbsp;design and develop new functionality that will improve&nbsp;UX and increase product value for customers. In&nbsp;addition, it&nbsp;will streamline the service delivery process.',
         image: {
             original: {
                 src: complianceImage,
