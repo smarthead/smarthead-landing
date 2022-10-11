@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -7,7 +7,6 @@ import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
-import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 
@@ -117,9 +116,6 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     return (
         <section className={`${styles.hero} container`}>
-            <div className={styles.header}>
-                <Header menuLinks={data.header.menu} />
-            </div>
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >

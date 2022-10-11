@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
+import StickyHeader from '../../../components/shared/StickyHeader';
 import Hero from '../../../components/pageSections/Hero';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
@@ -67,6 +68,7 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
+            <StickyHeader menuLinks={heroData.header.menu} buttonText={heroData.button}/>
             <Hero data={heroData} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
