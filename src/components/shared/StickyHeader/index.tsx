@@ -11,7 +11,7 @@ import { useWindowScrollY } from '../../../utils/hooks/useWindowScrollY';
 interface IHeader {
     menuLinks: { [key: string]: string }[];
     buttonText: string;
-    heroSectionHeight: number;
+    heroSectionHeight: number | null;
 }
 
 const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHeight }) => {
@@ -57,7 +57,7 @@ const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHei
 
     const scrollY = useWindowScrollY();
     useEffect(() => {
-        if(scrollY > heroSectionHeight) {
+        if(scrollY > Number(heroSectionHeight)) {
             console.log('scroll')
         }
     });
