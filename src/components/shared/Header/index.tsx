@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
+
 import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
-import { links } from '../links';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
+    setIsFixedHeaderShown: (isShown: boolean) => void;
 }
 
-const Header: React.FC<IHeader> = ({ menuLinks }) => {
+const HeroHeader: React.FC<IHeader> = ({ menuLinks, setIsFixedHeaderShown}) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -33,11 +34,11 @@ const Header: React.FC<IHeader> = ({ menuLinks }) => {
             scrollToSection(targetSectionId);
         }
     };
-    const desktopMenuClickHandler = (e: React.MouseEvent) => {
-        e.preventDefault();
-        const targetSectionId = (e.target as HTMLElement).getAttribute('href');
-        scrollToSection(targetSectionId);
-    };
+
+    const handleDesktopMenuItemClick = (linkId:string) => {
+        scrollToSection(`#${linkId}`);
+        setIsFixedHeaderShown(true);
+    }
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -52,7 +53,7 @@ const Header: React.FC<IHeader> = ({ menuLinks }) => {
     });
 
     return (
-        <header>
+        <header className={styles.header}>
             <nav className={styles.navbar}>
                 <img
                     src={shLogo}
@@ -60,47 +61,50 @@ const Header: React.FC<IHeader> = ({ menuLinks }) => {
                     className={styles.logo}
                 />
 
-                <div className={styles.menu} onClick={desktopMenuClickHandler}>
-                    {menuLinks.map((link) => (
-                        <a
-                            key={link.id}
-                            href={`#${link.id}`}
-                            className={styles.menuLink}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-                <div
-                    className={`${styles.mobileMenu} ${
-                        menuOpened ? styles.mobileMenuOpened : ''
-                    }`}
-                    onClick={mobileMenuClickHandler}
-                >
-                    {menuLinks.map((link) => (
-                        <a
-                            key={link.id}
-                            href={`#${link.id}`}
-                            className={styles.mobileMenuLink}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
+                <div className={styles.menuContainer}>
+                    <div className={styles.menu}>
+                        {menuLinks.map((link) => (
+                            <a
+                                key={link.id}
+                                className={styles.menuLink}
+                                onClick={() => handleDesktopMenuItemClick(link.id)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
 
-                <div
-                    className={`${styles.hamburger} ${
-                        menuOpened ? styles.hamburgerClose : ''
-                    }`}
-                    onClick={hamburgerClickHandler}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div
+                        className={`${styles.mobileMenu} ${
+                            menuOpened ? styles.mobileMenuOpened : ''
+                        }`}
+                        onClick={mobileMenuClickHandler}
+                    >
+                        {menuLinks.map((link) => (
+                            <a
+                                key={link.id}
+                                href={`#${link.id}`}
+                                className={styles.mobileMenuLink}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+
+                    <div
+                        className={`${styles.hamburger} ${
+                            menuOpened ? styles.hamburgerClose : ''
+                        }`}
+                        onClick={hamburgerClickHandler}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
     );
 };
 
-export default Header;
+export default HeroHeader;

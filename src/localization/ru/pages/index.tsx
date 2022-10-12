@@ -44,6 +44,11 @@ const RuLayout = () => {
         setHeroScreenHeight(height)
     };
 
+    const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
+    const handleFixedHeaderShown = (isShown: boolean) => {
+        setIsFixedHeaderShown(isShown);
+    }
+
     return (
         <div className="main">
             <Helmet>
@@ -73,8 +78,14 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <StickyHeader menuLinks={heroData.header.menu} buttonText={heroData.button} heroSectionHeight={heroSectionHeight} />
-            <Hero data={heroData} handleHeroScreenHeight={handleHeroScreenHeight}/>
+            <StickyHeader
+                menuLinks={heroData.header.menu}
+                buttonText={heroData.button}
+                heroSectionHeight={heroSectionHeight}
+                isShown={isFixedHeaderShown}
+                setIsShown={handleFixedHeaderShown}
+            />
+            <Hero data={heroData} handleHeroScreenHeight={handleHeroScreenHeight} setIsFixedHeaderShown={setIsFixedHeaderShown}/>
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />

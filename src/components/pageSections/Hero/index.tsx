@@ -9,6 +9,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
+import HeroHeader from '../../shared/Header';
 
 interface Item {
     [key: string]: string;
@@ -25,9 +26,10 @@ export interface IHero {
         };
     };
     handleHeroScreenHeight: (height: number) => void;
+    setIsFixedHeaderShown: (isShown: boolean) => void;
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight, setIsFixedHeaderShown }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -116,7 +118,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     }, []);
 
     const handleResize = () => {
-        if(heroSection.current?.offsetHeight) {
+        if (heroSection.current?.offsetHeight) {
             handleHeroScreenHeight(heroSection.current?.offsetHeight);
         }
     };
@@ -133,6 +135,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
 
     return (
         <section className={`${styles.hero} container`} ref={heroSection}>
+            <HeroHeader menuLinks={data.header.menu}  setIsFixedHeaderShown={setIsFixedHeaderShown} />
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >

@@ -1,11 +1,13 @@
 @import "../../../styles/variables";
 
 .header {
-    position: absolute;
+    position: fixed;
+    top: -100px;
+    transition: top 0.5s ease-in;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
     height: 5.375vw;
     background: $black;
     z-index: 9999;
@@ -17,6 +19,10 @@
     @media (max-width: $screenSm) {
         height: 54px;
     }
+}
+
+.header-animation-on {
+    top: 0;
 }
 
 .navbar {
@@ -56,14 +62,14 @@
 
 .menu-button {
     margin-right: 3.5em;
-    display: none !important;
 }
 
 .menu-link {
     color: white;
     font-family: $inter-400;
     font-size: 1.5vw; //24px
-    transition: color 0.15s ease-out;
+    transition: color 0.15s ease;
+    cursor: pointer;
 
     @media (max-width: $screen2Xl) {
         font-size: 24px;

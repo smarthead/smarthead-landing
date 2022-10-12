@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import cn from 'classnames';
+
 import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
@@ -12,9 +14,45 @@ interface IHeader {
     menuLinks: { [key: string]: string }[];
     buttonText: string;
     heroSectionHeight: number | null;
+    isShown: boolean;
+    setIsShown: (isShown: boolean) => void;
 }
 
-const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHeight }) => {
+// function useScrollDirection() {
+//     const [lastScrollTop, setLastScrollTop] = useState(window.scrollY);
+//
+//     const handleScroll = () => {
+//         if (window.scrollY > lastScrollTop){
+//             console.log('down');
+//         } else {
+//             console.log('up');
+//         }
+//         setLastScrollTop(window.scrollY)
+//     }
+//
+//     useEffect(() => {
+//         const current = window.scrollY;
+//         console.log(current);
+//
+//         window.addEventListener("scroll", () => {
+//             if (current > lastScrollTop){
+//                 console.log('down');
+//             } else {
+//                 console.log('up');
+//             }
+//             const newScrollTop = current <= lastScrollTop ? lastScrollTop : current;
+//             setLastScrollTop(newScrollTop)
+//         });
+//         }, [lastScrollTop]);
+// }
+
+const StickyHeader: React.FC<IHeader> = ({
+    menuLinks,
+    buttonText,
+    heroSectionHeight,
+    isShown,
+    setIsShown
+}) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -37,11 +75,10 @@ const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHei
             scrollToSection(targetSectionId);
         }
     };
-    const desktopMenuClickHandler = (e: React.MouseEvent) => {
-        e.preventDefault();
-        const targetSectionId = (e.target as HTMLElement).getAttribute('href');
-        scrollToSection(targetSectionId);
-    };
+
+    const handleDesktopMenuItemClick = (linkId:string) => {
+        scrollToSection(`#${linkId}`);
+    }
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -55,15 +92,33 @@ const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHei
         };
     });
 
+    //useScrollDirection();
+
     const scrollY = useWindowScrollY();
-    useEffect(() => {
-        if(scrollY > Number(heroSectionHeight)) {
-            console.log('scroll')
+    const handleWheel = (e: WheelEvent) => {
+        if (scrollY > Number(heroSectionHeight)) {
+            if (e.deltaY < 0) {
+                setIsShown(true);
+            } else {
+                setIsShown(false);
+            }
+        } else {
+            setIsShown(false);
         }
+    }
+
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheel);
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        };
     });
 
     return (
-        <header className={`${styles.header} container`}>
+        <header className={cn(styles.header, 'container', {
+            [styles.headerAnimationOn]: isShown
+        })}>
             <nav className={styles.navbar}>
                 <img
                     src={shLogo}
@@ -82,12 +137,12 @@ const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHei
                         }}
                     />
 
-                    <div className={styles.menu} onClick={desktopMenuClickHandler}>
+                    <div className={styles.menu}>
                         {menuLinks.map((link) => (
                             <a
                                 key={link.id}
-                                href={`#${link.id}`}
                                 className={styles.menuLink}
+                                onClick={() => handleDesktopMenuItemClick(link.id)}
                             >
                                 {link.name}
                             </a>
