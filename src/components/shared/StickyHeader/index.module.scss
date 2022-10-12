@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .header {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +55,8 @@
 }
 
 .menu-button {
-    margin-right: 4em;
+    margin-right: 3.5em;
+    display: none !important;
 }
 
 .menu-link {

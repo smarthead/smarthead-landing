@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -24,9 +24,10 @@ export interface IHero {
             menu: Item[];
         };
     };
+    handleHeroScreenHeight: (height: number) => void;
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -114,8 +115,24 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         };
     }, []);
 
+    const handleResize = () => {
+        if(heroSection.current?.offsetHeight) {
+            handleHeroScreenHeight(heroSection.current?.offsetHeight);
+        }
+    };
+
+    const heroSection = useRef<HTMLElement>(null);
+    useEffect(() => {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    });
+
     return (
-        <section className={`${styles.hero} container`}>
+        <section className={`${styles.hero} container`} ref={heroSection}>
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >

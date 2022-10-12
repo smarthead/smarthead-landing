@@ -39,6 +39,11 @@ const RuLayout = () => {
         }
     }, []);
 
+    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(null);
+    const handleHeroScreenHeight = (height: number) => {
+        setHeroScreenHeight(height)
+    };
+
     return (
         <div className="main">
             <Helmet>
@@ -68,8 +73,8 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <StickyHeader menuLinks={heroData.header.menu} buttonText={heroData.button}/>
-            <Hero data={heroData} />
+            <StickyHeader menuLinks={heroData.header.menu} buttonText={heroData.button} heroSectionHeight={heroSectionHeight} />
+            <Hero data={heroData} handleHeroScreenHeight={handleHeroScreenHeight}/>
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />

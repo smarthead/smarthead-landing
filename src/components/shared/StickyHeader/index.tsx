@@ -6,13 +6,15 @@ import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { navigation } from '../navigation';
 import ButtonLink from '../ButtonLink';
+import { useWindowScrollY } from '../../../utils/hooks/useWindowScrollY';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
     buttonText: string;
+    heroSectionHeight: number;
 }
 
-const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText }) => {
+const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText, heroSectionHeight }) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -51,6 +53,13 @@ const StickyHeader: React.FC<IHeader> = ({ menuLinks, buttonText }) => {
         return () => {
             window.removeEventListener('resize', resizeHandler);
         };
+    });
+
+    const scrollY = useWindowScrollY();
+    useEffect(() => {
+        if(scrollY > heroSectionHeight) {
+            console.log('scroll')
+        }
     });
 
     return (
