@@ -9,6 +9,7 @@ import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { navigation } from '../navigation';
 import ButtonLink from '../ButtonLink';
 import { useWindowScrollY } from '../../../utils/hooks/useWindowScrollY';
+// import { useVerticalScrollDirection } from '../../../utils/hooks/useVerticalScrollDirection';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -17,34 +18,6 @@ interface IHeader {
     isShown: boolean;
     setIsShown: (isShown: boolean) => void;
 }
-
-// function useScrollDirection() {
-//     const [lastScrollTop, setLastScrollTop] = useState(window.scrollY);
-//
-//     const handleScroll = () => {
-//         if (window.scrollY > lastScrollTop){
-//             console.log('down');
-//         } else {
-//             console.log('up');
-//         }
-//         setLastScrollTop(window.scrollY)
-//     }
-//
-//     useEffect(() => {
-//         const current = window.scrollY;
-//         console.log(current);
-//
-//         window.addEventListener("scroll", () => {
-//             if (current > lastScrollTop){
-//                 console.log('down');
-//             } else {
-//                 console.log('up');
-//             }
-//             const newScrollTop = current <= lastScrollTop ? lastScrollTop : current;
-//             setLastScrollTop(newScrollTop)
-//         });
-//         }, [lastScrollTop]);
-// }
 
 const StickyHeader: React.FC<IHeader> = ({
     menuLinks,
@@ -92,7 +65,8 @@ const StickyHeader: React.FC<IHeader> = ({
         };
     });
 
-    //useScrollDirection();
+    // const scrollYDirection = useVerticalScrollDirection();
+    // console.log(scrollYDirection);
 
     const scrollY = useWindowScrollY();
     const handleWheel = (e: WheelEvent) => {
