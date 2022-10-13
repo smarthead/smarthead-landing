@@ -15,16 +15,12 @@ interface IHeader {
     menuLinks: { [key: string]: string }[];
     buttonText: string;
     heroSectionHeight: number | null;
-    isShown: boolean;
-    setIsShown: (isShown: boolean) => void;
 }
 
 const StickyHeader: React.FC<IHeader> = ({
     menuLinks,
     buttonText,
     heroSectionHeight,
-    isShown,
-    setIsShown
 }) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
@@ -68,16 +64,18 @@ const StickyHeader: React.FC<IHeader> = ({
     // const scrollYDirection = useVerticalScrollDirection();
     // console.log(scrollYDirection);
 
+    const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
+
     const scrollY = useWindowScrollY();
     const handleWheel = (e: WheelEvent) => {
         if (scrollY > Number(heroSectionHeight)) {
             if (e.deltaY < 0) {
-                setIsShown(true);
+                setIsFixedHeaderShown(true);
             } else {
-                setIsShown(false);
+                setIsFixedHeaderShown(false);
             }
         } else {
-            setIsShown(false);
+            setIsFixedHeaderShown(false);
         }
     }
 
@@ -91,7 +89,7 @@ const StickyHeader: React.FC<IHeader> = ({
 
     return (
         <header className={cn(styles.header, 'container', {
-            [styles.headerAnimationOn]: isShown
+            [styles.headerAnimationOn]: isFixedHeaderShown
         })}>
             <nav className={styles.navbar}>
                 <img

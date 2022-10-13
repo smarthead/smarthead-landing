@@ -8,10 +8,9 @@ import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
-    setIsFixedHeaderShown: (isShown: boolean) => void;
 }
 
-const HeroHeader: React.FC<IHeader> = ({ menuLinks, setIsFixedHeaderShown}) => {
+const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
     const [menuOpened, setMenuOpened] = useState(false);
 
     const hamburgerClickHandler = () => {
@@ -37,7 +36,6 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks, setIsFixedHeaderShown}) => {
 
     const handleDesktopMenuItemClick = (linkId:string) => {
         scrollToSection(`#${linkId}`);
-        setIsFixedHeaderShown(true);
     }
 
     const resizeHandler = () => {

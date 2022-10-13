@@ -26,10 +26,9 @@ export interface IHero {
         };
     };
     handleHeroScreenHeight: (height: number) => void;
-    setIsFixedHeaderShown: (isShown: boolean) => void;
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight, setIsFixedHeaderShown }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -135,7 +134,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight, setIsF
 
     return (
         <section className={`${styles.hero} container`} ref={heroSection}>
-            <HeroHeader menuLinks={data.header.menu}  setIsFixedHeaderShown={setIsFixedHeaderShown} />
+            <HeroHeader menuLinks={data.header.menu} />
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >
