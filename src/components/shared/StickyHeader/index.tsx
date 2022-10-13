@@ -8,8 +8,10 @@ import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { navigation } from '../navigation';
 import ButtonLink from '../ButtonLink';
-import { useWindowScrollY } from '../../../utils/hooks/useWindowScrollY';
-import { useVerticalScrollDirection, VerticalScrollDirection } from '../../../utils/hooks/useVerticalScrollDirection';
+import {
+    useVerticalScroll,
+    VerticalScrollDirection
+} from '../../../utils/hooks/useVerticalScroll';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -81,9 +83,7 @@ const StickyHeader: React.FC<IHeader> = ({
         };
     });
 
-    const scrollY = useWindowScrollY();
-    const scrollYDirection = useVerticalScrollDirection();
-
+    const [scrollY, scrollYDirection] = useVerticalScroll();
     const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
 
     const handleScroll = useCallback(() => {
