@@ -1,7 +1,13 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-export const scrollToSection = (section: string | null, duration?: number) => {
+interface IScrollDurationArgs {
+    section: string | null;
+    duration?: number;
+    onComplete?: () => void;
+}
+
+export const scrollToSection = ({ section, duration, onComplete }: IScrollDurationArgs) => {
     gsap.registerPlugin(ScrollToPlugin);
     if (section === null || document.querySelector(section) === null) return;
     gsap.to(window, {
@@ -14,6 +20,7 @@ export const scrollToSection = (section: string | null, duration?: number) => {
         onStart: () => {
             window.location.hash = section;
         },
+        onComplete: onComplete ? onComplete : undefined,
     });
 };
 

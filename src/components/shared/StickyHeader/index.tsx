@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 
 import { scrollToSection } from '../../../utils/scroll';
@@ -9,7 +9,7 @@ import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { navigation } from '../navigation';
 import ButtonLink from '../ButtonLink';
 import { useWindowScrollY } from '../../../utils/hooks/useWindowScrollY';
-// import { useVerticalScrollDirection } from '../../../utils/hooks/useVerticalScrollDirection';
+import { useVerticalScrollDirection, VerticalScrollDirection } from '../../../utils/hooks/useVerticalScrollDirection';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -41,12 +41,30 @@ const StickyHeader: React.FC<IHeader> = ({
             hamburgerClickHandler();
             setMenuOpened(!menuOpened);
             const targetSectionId = target.getAttribute('href');
-            scrollToSection(targetSectionId);
+            scrollToSection({ section: targetSectionId });
         }
     };
 
+    const [isScrollByMenuCLick, setIsScrollByMenuClick] = useState(false);
+
     const handleDesktopMenuItemClick = (linkId:string) => {
-        scrollToSection(`#${linkId}`);
+        setIsScrollByMenuClick(true);
+        scrollToSection({
+            section: `#${linkId}`,
+            onComplete: () => {
+                setIsScrollByMenuClick(false);
+            }
+        });
+    }
+
+    const handleButtonClick = () => {
+        setIsScrollByMenuClick(true);
+        scrollToSection({
+            section: `#${navigation.contacts}`,
+            onComplete: () => {
+                setIsScrollByMenuClick(false);
+            }
+        });
     }
 
     const resizeHandler = () => {
@@ -61,31 +79,32 @@ const StickyHeader: React.FC<IHeader> = ({
         };
     });
 
-    // const scrollYDirection = useVerticalScrollDirection();
-    // console.log(scrollYDirection);
+    const scrollY = useWindowScrollY();
+    const scrollYDirection = useVerticalScrollDirection();
 
     const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
 
-    const scrollY = useWindowScrollY();
-    const handleWheel = (e: WheelEvent) => {
+    const handleScroll = useCallback(() => {
         if (scrollY > Number(heroSectionHeight)) {
-            if (e.deltaY < 0) {
+            if (scrollYDirection === VerticalScrollDirection.up) {
                 setIsFixedHeaderShown(true);
             } else {
-                setIsFixedHeaderShown(false);
+                if (!isScrollByMenuCLick) {
+                    setIsFixedHeaderShown(false);
+                }
             }
         } else {
             setIsFixedHeaderShown(false);
         }
-    }
+    },[scrollY, scrollYDirection]);
 
     useEffect(() => {
-        window.addEventListener('wheel', handleWheel);
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('scroll', handleScroll);
         };
-    });
+    },[handleScroll]);
 
     return (
         <header className={cn(styles.header, 'container', {
@@ -104,9 +123,7 @@ const StickyHeader: React.FC<IHeader> = ({
                         type="yellow"
                         text={buttonText}
                         link={`#${navigation.contacts}`}
-                        clickHandler={() => {
-                            scrollToSection(`#${navigation.contacts}`);
-                        }}
+                        clickHandler={handleButtonClick}
                     />
 
                     <div className={styles.menu}>

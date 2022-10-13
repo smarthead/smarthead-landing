@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-enum VerticalScrollDirection {
+export enum VerticalScrollDirection {
     initial = 'initial',
     down = 'down',
     up ='up',

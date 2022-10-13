@@ -30,12 +30,12 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
             hamburgerClickHandler();
             setMenuOpened(!menuOpened);
             const targetSectionId = target.getAttribute('href');
-            scrollToSection(targetSectionId);
+            scrollToSection({ section: targetSectionId });
         }
     };
 
     const handleDesktopMenuItemClick = (linkId:string) => {
-        scrollToSection(`#${linkId}`);
+        scrollToSection({ section: `#${linkId}`});
     }
 
     const resizeHandler = () => {
