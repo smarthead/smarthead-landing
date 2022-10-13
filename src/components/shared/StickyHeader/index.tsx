@@ -35,6 +35,8 @@ const StickyHeader: React.FC<IHeader> = ({
 
     const mobileMenuClickHandler = (e: React.MouseEvent) => {
         e.preventDefault();
+        setIsFixedHeaderShown(false);
+
         const target = e.target as HTMLElement;
         const isMenuLink = target.className.includes(styles.mobileMenuLink);
         if (isMenuLink) {
