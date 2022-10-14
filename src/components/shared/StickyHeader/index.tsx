@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import cn from 'classnames';
 
 import { scrollToSection } from '../../../utils/scroll';
@@ -25,11 +25,14 @@ const StickyHeader: React.FC<IHeader> = ({
     heroSectionHeight,
 }) => {
     const [menuOpened, setMenuOpened] = useState(false);
+    const savedScrollYRef = useRef<number>(0);
 
     const hamburgerClickHandler = () => {
         if (menuOpened) {
             document.body.style.position = 'static';
+            scrollTo(0, savedScrollYRef.current);
         } else {
+            savedScrollYRef.current = window.scrollY;
             document.body.style.position = 'fixed';
         }
         setMenuOpened(!menuOpened);

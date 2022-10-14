@@ -6,7 +6,7 @@ export enum VerticalScrollDirection {
     up ='up',
 }
 
-export function useVerticalScroll() {
+export function useVerticalScroll(): [number, VerticalScrollDirection] {
     const [lastScrollTop, setLastScrollTop] = useState(window.scrollY);
     const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial)
 
