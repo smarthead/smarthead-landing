@@ -12,6 +12,7 @@ import {
     useVerticalScroll,
     VerticalScrollDirection
 } from '../../../utils/hooks/useVerticalScroll';
+import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -50,32 +51,26 @@ const StickyHeader: React.FC<IHeader> = ({
 
             scrollToSection({
                 section: targetSectionId,
-                onComplete: () => {
-                    setIsScrollByMenuClick(false);
-                }
             });
         }
     };
 
-    const [isScrollByMenuCLick, setIsScrollByMenuClick] = useState(false);
+    const isScrollByMenuClick = useRef(false);
 
     const handleDesktopMenuItemClick = (linkId:string) => {
-        setIsScrollByMenuClick(true);
+        // console.log('/// menu item click ///')
+        isScrollByMenuClick.current = true;
+
         scrollToSection({
             section: `#${linkId}`,
-            onComplete: () => {
-                setIsScrollByMenuClick(false);
-            }
         });
     }
 
     const handleButtonClick = () => {
-        setIsScrollByMenuClick(true);
+        isScrollByMenuClick.current = true;
+
         scrollToSection({
             section: `#${navigation.contacts}`,
-            onComplete: () => {
-                setIsScrollByMenuClick(false);
-            }
         });
     }
 
@@ -84,6 +79,7 @@ const StickyHeader: React.FC<IHeader> = ({
             hamburgerClickHandler();
         }
     };
+
     useEffect(() => {
         window.addEventListener('resize', resizeHandler);
         return () => {
@@ -95,13 +91,13 @@ const StickyHeader: React.FC<IHeader> = ({
     const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
 
     const handleScroll = useCallback(() => {
+        if (isScrollByMenuClick.current) return;
+
         if (scrollY > Number(heroSectionHeight)) {
             if (scrollYDirection === VerticalScrollDirection.up) {
                 setIsFixedHeaderShown(true);
             } else {
-                if (!isScrollByMenuCLick) {
-                    setIsFixedHeaderShown(false);
-                }
+                setIsFixedHeaderShown(false);
             }
         } else {
             setIsFixedHeaderShown(false);
@@ -114,7 +110,12 @@ const StickyHeader: React.FC<IHeader> = ({
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    },[handleScroll]);
+    }, [handleScroll]);
+
+    useWindowScrollEnd(() =>{
+        // console.log('scroll end');
+        isScrollByMenuClick.current = false;
+    }, 100);
 
     return (
         <header className={cn(styles.header, 'container', {

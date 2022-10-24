@@ -8,19 +8,21 @@ export enum VerticalScrollDirection {
 
 export function useVerticalScroll(): [number, VerticalScrollDirection] {
     const [lastScrollTop, setLastScrollTop] = useState(window.scrollY);
-    const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial)
+    const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial);
 
     const handleScroll = useCallback(() => {
         if (window.scrollY > lastScrollTop){
             setVerticalScrollDirection(VerticalScrollDirection.down);
-        } else {
+        } else if (window.scrollY < lastScrollTop){
             setVerticalScrollDirection(VerticalScrollDirection.up);
         }
-        setLastScrollTop(window.scrollY)
+
+        if (lastScrollTop !== window.scrollY) {
+            setLastScrollTop(window.scrollY);
+        }
     },[lastScrollTop]);
 
     useEffect(() => {
-        setLastScrollTop(window.scrollY);
         window.addEventListener("scroll", handleScroll);
 
         return () => {

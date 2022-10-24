@@ -7,7 +7,7 @@ interface IScrollDurationArgs {
     onComplete?: () => void;
 }
 
-export const scrollToSection = ({ section, duration, onComplete }: IScrollDurationArgs) => {
+export const scrollToSection = ({ section, duration }: IScrollDurationArgs) => {
     gsap.registerPlugin(ScrollToPlugin);
     if (section === null || document.querySelector(section) === null) return;
     gsap.to(window, {
@@ -20,7 +20,6 @@ export const scrollToSection = ({ section, duration, onComplete }: IScrollDurati
         onStart: () => {
             window.location.hash = section;
         },
-        onComplete: onComplete ? onComplete : undefined,
     });
 };
 
