@@ -49,6 +49,8 @@
         "@types/react": "^17.0.45",
         "@types/react-dom": "^17.0.17",
         "classnames": "^2.3.2",
+        "@types/react-helmet": "^6.1.5",
+        "prettier": "^2.7.1",
         "stylelint": "^14.8.5",
         "stylelint-config-recommended-scss": "^6.0.0",
         "stylelint-config-standard": "^25.0.0",
