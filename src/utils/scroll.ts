@@ -1,13 +1,7 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-interface IScrollDurationArgs {
-    section: string | null;
-    duration?: number;
-    onComplete?: () => void;
-}
-
-export const scrollToSection = ({ section, duration }: IScrollDurationArgs) => {
+export const scrollToSection = (section: string | null, duration?: number) => {
     gsap.registerPlugin(ScrollToPlugin);
     if (section === null || document.querySelector(section) === null) return;
     gsap.to(window, {

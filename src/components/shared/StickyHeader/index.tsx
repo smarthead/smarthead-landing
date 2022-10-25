@@ -46,26 +46,20 @@ const StickyHeader: React.FC<IHeader> = ({
             setMenuOpened(!menuOpened);
             const targetSectionId = target.getAttribute('href');
 
-            scrollToSection({
-                section: targetSectionId,
-            });
+            scrollToSection(targetSectionId);
         }
     };
 
     const handleDesktopMenuItemClick = (linkId:string) => {
         setIsScrollBehaviorDisabled(true);
 
-        scrollToSection({
-            section: `#${linkId}`,
-        });
+        scrollToSection(`#${linkId}`);
     }
 
     const handleButtonClick = () => {
         setIsScrollBehaviorDisabled(true);
 
-        scrollToSection({
-            section: `#${navigation.contacts}`,
-        });
+        scrollToSection(`#${navigation.contacts}`);
     }
 
     const { isStickyHeaderShown, setIsScrollBehaviorDisabled } = useStickyHeader(heroSectionHeight);

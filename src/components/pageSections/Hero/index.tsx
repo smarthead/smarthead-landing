@@ -9,7 +9,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
-import HeroHeader from '../../shared/Header';
+import HeroHeader from '../../shared/HeroHeader';
 
 interface Item {
     [key: string]: string;
