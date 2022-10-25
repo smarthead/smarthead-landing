@@ -7,7 +7,9 @@ export enum VerticalScrollDirection {
 }
 
 export function useVerticalScroll(): [number, VerticalScrollDirection] {
-    const [lastScrollTop, setLastScrollTop] = useState(window.scrollY);
+    const initialScrollY = typeof window !== "undefined" ? window.scrollY : 0; // for gatsby build
+
+    const [lastScrollTop, setLastScrollTop] = useState(initialScrollY);
     const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial);
 
     const handleScroll = useCallback(() => {
