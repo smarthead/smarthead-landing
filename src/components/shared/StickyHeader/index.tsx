@@ -1,18 +1,14 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
+import ButtonLink from '../ButtonLink';
 import { scrollToSection } from '../../../utils/scroll';
+import { useStickyHeader } from './useStickyHeader';
 
 import * as styles from './index.module.scss';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { navigation } from '../navigation';
-import ButtonLink from '../ButtonLink';
-import {
-    useVerticalScroll,
-    VerticalScrollDirection
-} from '../../../utils/hooks/useVerticalScroll';
-import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -41,6 +37,7 @@ const StickyHeader: React.FC<IHeader> = ({
 
     const mobileMenuClickHandler = (e: React.MouseEvent) => {
         e.preventDefault();
+        setIsScrollBehaviorDisabled(true);
 
         const target = e.target as HTMLElement;
         const isMenuLink = target.className.includes(styles.mobileMenuLink);
@@ -55,11 +52,8 @@ const StickyHeader: React.FC<IHeader> = ({
         }
     };
 
-    const isScrollByMenuClick = useRef(false);
-
     const handleDesktopMenuItemClick = (linkId:string) => {
-        // console.log('/// menu item click ///')
-        isScrollByMenuClick.current = true;
+        setIsScrollBehaviorDisabled(true);
 
         scrollToSection({
             section: `#${linkId}`,
@@ -67,12 +61,14 @@ const StickyHeader: React.FC<IHeader> = ({
     }
 
     const handleButtonClick = () => {
-        isScrollByMenuClick.current = true;
+        setIsScrollBehaviorDisabled(true);
 
         scrollToSection({
             section: `#${navigation.contacts}`,
         });
     }
+
+    const { isStickyHeaderShown, setIsScrollBehaviorDisabled } = useStickyHeader(heroSectionHeight);
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -87,39 +83,9 @@ const StickyHeader: React.FC<IHeader> = ({
         };
     });
 
-    const [scrollY, scrollYDirection] = useVerticalScroll();
-    const [isFixedHeaderShown, setIsFixedHeaderShown] = useState(false);
-
-    const handleScroll = useCallback(() => {
-        if (isScrollByMenuClick.current) return;
-
-        if (scrollY > Number(heroSectionHeight)) {
-            if (scrollYDirection === VerticalScrollDirection.up) {
-                setIsFixedHeaderShown(true);
-            } else {
-                setIsFixedHeaderShown(false);
-            }
-        } else {
-            setIsFixedHeaderShown(false);
-        }
-    },[scrollY, scrollYDirection]);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [handleScroll]);
-
-    useWindowScrollEnd(() =>{
-        // console.log('scroll end');
-        isScrollByMenuClick.current = false;
-    }, 100);
-
     return (
         <header className={cn(styles.header, 'container', {
-            [styles.headerAnimationOn]: isFixedHeaderShown
+            [styles.headerAnimationOn]: isStickyHeaderShown
         })}>
             <nav className={styles.navbar}>
                 <img
