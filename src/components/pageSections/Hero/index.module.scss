@@ -21,7 +21,7 @@
 }
 
 .hero-button {
-    visibility: hidden;
+    //visibility: hidden;
 }
 
 .hero {
@@ -61,10 +61,10 @@
     flex-direction: column;
     width: 100%;
     margin-top: 0;
-    margin-bottom: 4vw;
+    //margin-bottom: 4vw;
     color: $white;
     font-family: $gilroy-700;
-    font-size: 7.5vw;
+    font-size: 5.45vw;
     line-height: 0.9em;
     letter-spacing: 0.02em;
 
@@ -72,7 +72,7 @@
     &-l2,
     &-l3,
     &-l4 {
-        visibility: hidden;
+        //visibility: hidden;
     }
 
     @media (max-width: $screenXl) {
@@ -136,7 +136,7 @@
 }
 
 .subtext {
-    visibility: hidden;
+    // visibility: hidden;
     margin: 0;
     color: $white;
     font-family: $inter-400;
@@ -217,4 +217,44 @@
             align-items: flex-start;
         }
     }
+}
+
+.slider {
+    width: 100%;
+    height: 7vw;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    //height: 10vw;
+    user-select: none;
+    color: $white;
+}
+
+.second-line {
+    display: flex;
+
+    @media (max-width: $screenXs) {
+        align-self: flex-start;
+    }
+}
+
+.center {
+    justify-content: center;
+}
+
+.small-offset-right {
+    justify-content: flex-end;
+    margin-right: 6.5vw;
+}
+
+.middle-offset-right {
+    justify-content: flex-end;
+    margin-right: 10vw;
+}
+
+.big-offset-right {
+    justify-content: flex-end;
+    margin-right: 11vw;
 }
