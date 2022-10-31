@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import FontFaceObserver from 'fontfaceobserver';
+// import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 // import { invalidate } from '../../../utils/animation';
@@ -34,6 +34,30 @@ export interface IHero {
         };
     };
 }
+
+const upperSliderData = [
+    'Разрабатываем',
+    'Поддерживаем',
+    'Развиваем',
+    'Масштабируем',
+    'Запускаем',
+];
+
+const middleSliderData = [
+    'амбициозные',
+    'масштабируемые',
+    'нагруженные',
+    'технологичные',
+    'востребованные',
+];
+
+const downSliderData = [
+    'цифровые сервисы',
+    'информационные системы',
+    'интеграционные решения',
+    'мобильные приложения',
+    'инструменты автоматизации',
+];
 
 const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -126,23 +150,21 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     //     invalidate(createTimeline, revealTimeline);
     // };
 
-    useEffect(() => {
-        //createTimeline();
-        //revealTimeline.play(0);
-
-        const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
-        const fontInterRegular = new FontFaceObserver('Inter-Regular');
-
-        Promise.all([fontGilroyBold.load(), fontInterRegular.load()]).then(
-            () => {
-                handleSlideChange(upperSwiper);
-            }
-        );
-        //window.addEventListener('resize', resize);
-        // return () => {
-        //     window.removeEventListener('resize', resize);
-        // };
-    }, []);
+    // useEffect(() => {
+    //createTimeline();
+    //revealTimeline.play(0);
+    //const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
+    //const fontInterRegular = new FontFaceObserver('Inter-Regular');
+    // Promise.all([fontGilroyBold.load(), fontInterRegular.load()]).then(
+    //     () => {
+    //         handleSlideChange(upperSwiper);
+    //     }
+    // );
+    //window.addEventListener('resize', resize);
+    // return () => {
+    //     window.removeEventListener('resize', resize);
+    // };
+    // }, []);
 
     const upperSwiper = useRef<SwiperInstanceRef>(null);
     const middleSwiper = useRef<SwiperInstanceRef>(null);
@@ -159,15 +181,15 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         }
     };
 
-    /*const isFirstRenderPassed = useRef(false);
+    const isFirstRenderPassed = useRef(false);
     useEffect(() => {
-        console.log('effect');
         if (!isFirstRenderPassed.current) {
             handleSlideChange(upperSwiper);
             isFirstRenderPassed.current = true;
         }
-    });*/
+    });
 
+    // const [upperSwiperColorState, setUpperSwiperColorState] = useState(false);
     return (
         <section className={`${styles.hero} container`}>
             <div className={styles.header}>
@@ -195,21 +217,11 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         }}
                         className={styles.slider}
                     >
-                        <SwiperSlide className={styles.slide}>
-                            Разрабатываем
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            Поддерживаем
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            Развиваем
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            Масштабируем
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            Запускаем
-                        </SwiperSlide>
+                        {upperSliderData.map((name) => (
+                            <SwiperSlide className={styles.slide} key={name}>
+                                {name}
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
 
                     <Swiper
@@ -223,55 +235,19 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         onSlideChange={() => handleSlideChange(downSwiper)}
                         className={styles.slider}
                     >
-                        <SwiperSlide
-                            className={cn(
-                                styles.slide,
-                                styles.secondLine,
-                                styles.smallOffsetRight
-                            )}
-                        >
-                            амбициозные
-                        </SwiperSlide>
-
-                        <SwiperSlide
-                            className={cn(
-                                styles.slide,
-                                styles.secondLine,
-                                styles.middleOffsetRight
-                            )}
-                        >
-                            масштабируемые
-                        </SwiperSlide>
-
-                        <SwiperSlide
-                            className={cn(
-                                styles.slide,
-                                styles.secondLine,
-                                styles.center
-                            )}
-                        >
-                            нагруженные
-                        </SwiperSlide>
-
-                        <SwiperSlide
-                            className={cn(
-                                styles.slide,
-                                styles.secondLine,
-                                styles.center
-                            )}
-                        >
-                            технологичные
-                        </SwiperSlide>
-
-                        <SwiperSlide
-                            className={cn(
-                                styles.slide,
-                                styles.secondLine,
-                                styles.bigOffsetRight
-                            )}
-                        >
-                            востребованные
-                        </SwiperSlide>
+                        {middleSliderData.map((name, i) => (
+                            <SwiperSlide
+                                key={name}
+                                className={cn(styles.slide, styles.secondLine, {
+                                    [styles.smallOffsetRight]: i === 0,
+                                    [styles.middleOffsetRight]: i === 1,
+                                    [styles.center]: i === 2 || i === 3,
+                                    [styles.bigOffsetRight]: i === 4,
+                                })}
+                            >
+                                {name}
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
 
                     <Swiper
@@ -283,23 +259,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         onSlideChange={() => handleSlideChange(upperSwiper)}
                         className={styles.slider}
                     >
-                        <SwiperSlide className={styles.slide}>
-                            цифровые сервисы
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            информационные системы
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            интеграционные решения
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            мобильные приложения
-                        </SwiperSlide>
-                        <SwiperSlide className={styles.slide}>
-                            инструменты автоматизации
-                        </SwiperSlide>
+                        {downSliderData.map((name) => (
+                            <SwiperSlide className={styles.slide} key={name}>
+                                {name}
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </h1>
+
                 <div
                     className={`${styles.block} ${isEnglish && styles.blockEn}`}
                 >
