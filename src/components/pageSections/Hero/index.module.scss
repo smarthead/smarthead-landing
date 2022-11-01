@@ -21,7 +21,7 @@
 }
 
 .hero-button {
-    //visibility: hidden;
+    visibility: hidden;
 }
 
 .hero {
@@ -72,7 +72,7 @@
     &-l2,
     &-l3,
     &-l4 {
-        //visibility: hidden;
+        visibility: hidden;
     }
 
     @media (max-width: $screenXl) {
@@ -136,7 +136,7 @@
 }
 
 .subtext {
-    // visibility: hidden;
+    visibility: hidden;
     margin: 0;
     color: $white;
     font-family: $inter-400;
@@ -221,7 +221,7 @@
 
 .slider {
     width: 100%;
-    height: 7vw;
+    height: 6vw;
 }
 
 .slide {
@@ -230,14 +230,6 @@
     //height: 10vw;
     user-select: none;
     transition: color 500ms ease;
-}
-
-.second-line {
-    display: flex;
-
-    @media (max-width: $screenXs) {
-        align-self: flex-start;
-    }
 }
 
 .center {

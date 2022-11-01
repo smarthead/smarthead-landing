@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-// import FontFaceObserver from 'fontfaceobserver';
+import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-// import { invalidate } from '../../../utils/animation';
+import { invalidate } from '../../../utils/animation';
 import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
@@ -155,109 +155,93 @@ const colorChangingSequence = [
 const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
-    //let revealTimeline = gsap.timeline({ paused: true });
+    let revealTimeline = gsap.timeline({ paused: true });
 
-    // const createTimeline = () => {
-    //     const headline =
-    //         window.innerWidth > 480
-    //             ? [
-    //                   '.hero-h1-line1',
-    //                   '.hero-h1-line2',
-    //                   ['.hero-h1-line3', '.hero-h1-line4'],
-    //               ]
-    //             : [
-    //                   '.hero-h1-line1',
-    //                   '.hero-h1-line2',
-    //                   '.hero-h1-line3',
-    //                   '.hero-h1-line4',
-    //               ];
-    //     revealTimeline.fromTo(
-    //         headline,
-    //         { yPercent: 100, autoAlpha: 0 },
-    //
-    //         {
-    //             yPercent: 0,
-    //             autoAlpha: 1,
-    //             duration: 0.6,
-    //             stagger: 0.1,
-    //             ease: 'power2.out',
-    //         },
-    //         0.2
-    //     );
-    //     const order = window.innerWidth > 992 ? 0.1 : -0.1;
-    //     revealTimeline.fromTo(
-    //         [`.${styles.heroButton}`, `.${styles.subtext}`],
-    //         { yPercent: 100, autoAlpha: 0 },
-    //
-    //         {
-    //             yPercent: 0,
-    //             autoAlpha: 1,
-    //             duration: 0.6,
-    //             stagger: order,
-    //             ease: 'power2.out',
-    //         },
-    //         0.7
-    //     );
-    // };
+    const createTimeline = () => {
+        const headline =
+            window.innerWidth > 480
+                ? [
+                      '.hero-h1-line1',
+                      '.hero-h1-line2',
+                      ['.hero-h1-line3', '.hero-h1-line4'],
+                  ]
+                : [
+                      '.hero-h1-line1',
+                      '.hero-h1-line2',
+                      '.hero-h1-line3',
+                      '.hero-h1-line4',
+                  ];
+        revealTimeline.fromTo(
+            headline,
+            { yPercent: 100, autoAlpha: 0 },
 
-    // const resize = () => {
-    //     if (!isEnglish) {
-    //         const secondLineElem = document.getElementsByClassName(
-    //             styles.secondLine
-    //         )[0] as HTMLElement;
-    //         const subtextElem = document.getElementsByClassName(
-    //             styles.subtext
-    //         )[0] as HTMLElement;
-    //
-    //         const width = window.innerWidth;
-    //         if (width > 992 && width <= 1281) {
-    //             subtextElem.style.marginRight =
-    //                 0.98 *
-    //                     (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
-    //                 'px';
-    //         } else {
-    //             subtextElem.style.marginRight = '0';
-    //         }
-    //     }
+            {
+                yPercent: 0,
+                autoAlpha: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+            },
+            0.2
+        );
+        const order = window.innerWidth > 992 ? 0.1 : -0.1;
+        revealTimeline.fromTo(
+            [`.${styles.heroButton}`, `.${styles.subtext}`],
+            { yPercent: 100, autoAlpha: 0 },
 
-    // const resize = () => {
-    //     if (!isEnglish) {
-    //         const secondLineElem = document.getElementsByClassName(
-    //             styles.secondLine
-    //         )[0] as HTMLElement;
-    //         const subtextElem = document.getElementsByClassName(
-    //             styles.subtext
-    //         )[0] as HTMLElement;
-    //
-    //         const width = window.innerWidth;
-    //         if (width > 992 && width <= 1281) {
-    //             subtextElem.style.marginRight =
-    //                 0.98 *
-    //                     (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
-    //                 'px';
-    //         } else {
-    //             subtextElem.style.marginRight = '0';
-    //         }
-    //     }
-    //
-    //     invalidate(createTimeline, revealTimeline);
-    // };
+            {
+                yPercent: 0,
+                autoAlpha: 1,
+                duration: 0.6,
+                stagger: order,
+                ease: 'power2.out',
+            },
+            0.7
+        );
+    };
 
-    // useEffect(() => {
-    //createTimeline();
-    //revealTimeline.play(0);
-    //const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
-    //const fontInterRegular = new FontFaceObserver('Inter-Regular');
-    // Promise.all([fontGilroyBold.load(), fontInterRegular.load()]).then(
-    //     () => {
-    //         handleSlideChange(upperSwiper);
-    //     }
-    // );
-    //window.addEventListener('resize', resize);
-    // return () => {
-    //     window.removeEventListener('resize', resize);
-    // };
-    // }, []);
+    const resize = () => {
+        if (!isEnglish) {
+            const secondLineElem = document.getElementsByClassName(
+                styles.secondLine
+            )[0] as HTMLElement;
+            const subtextElem = document.getElementsByClassName(
+                styles.subtext
+            )[0] as HTMLElement;
+
+            const width = window.innerWidth;
+            if (width > 992 && width <= 1281) {
+                subtextElem.style.marginRight =
+                    0.98 *
+                        (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
+                    'px';
+            } else {
+                subtextElem.style.marginRight = '0';
+            }
+        }
+
+        invalidate(createTimeline, revealTimeline);
+    };
+
+    useEffect(() => {
+        createTimeline();
+        revealTimeline.play(0);
+
+        const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
+        const fontInterRegular = new FontFaceObserver('Inter-Regular');
+        Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
+            .then(() => {
+                resize();
+            })
+            .then(() => {
+                handleSlideChange(upperSwiper);
+            });
+
+        window.addEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
+    }, []);
 
     const upperSwiper = useRef<SwiperInstanceRef>(null);
     const middleSwiper = useRef<SwiperInstanceRef>(null);
@@ -310,14 +294,12 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         direction="vertical"
                         allowTouchMove={false}
                         speed={700}
-                        loop={true}
+                        loop
                         onSwiper={(instance) =>
                             (upperSwiper.current = instance)
                         }
-                        onSlideChange={() => {
-                            handleSlideChange(middleSwiper);
-                        }}
-                        className={styles.slider}
+                        onSlideChange={() => handleSlideChange(middleSwiper)}
+                        className={cn(styles.slider, 'hero-h1-line1')}
                     >
                         {upperSliderData.map((name) => (
                             <SwiperSlide
@@ -333,12 +315,12 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         direction="vertical"
                         allowTouchMove={false}
                         speed={700}
-                        loop={true}
+                        loop
                         onSwiper={(instance) =>
                             (middleSwiper.current = instance)
                         }
                         onSlideChange={() => handleSlideChange(lowerSwiper)}
-                        className={styles.slider}
+                        className={cn(styles.slider, 'hero-h1-line2')}
                     >
                         {middleSliderData.map((name, i) => (
                             <SwiperSlide
@@ -364,12 +346,12 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         direction="vertical"
                         allowTouchMove={false}
                         speed={700}
-                        loop={true}
-                        onSwiper={(instance) => (lowerSwiper.current = instance)}
-                        onSlideChange={() => {
-                            handleSlideChange(upperSwiper);
-                        }}
-                        className={styles.slider}
+                        loop
+                        onSwiper={(instance) =>
+                            (lowerSwiper.current = instance)
+                        }
+                        onSlideChange={() => handleSlideChange(upperSwiper)}
+                        className={cn(styles.slider, 'hero-h1-line3')}
                     >
                         {downSliderData.map((name) => (
                             <SwiperSlide
