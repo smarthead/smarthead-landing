@@ -59,6 +59,99 @@ const downSliderData = [
     'инструменты автоматизации',
 ];
 
+const colorChangingSequence = [
+    {
+        upper: [styles.white],
+        middle: [styles.white],
+        lower: [styles.purple],
+        id: 1,
+    },
+    {
+        upper: [styles.cream],
+        middle: [styles.white],
+        lower: [styles.white],
+        id: 2,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.orange],
+        lower: [styles.white],
+        id: 3,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.white],
+        lower: [styles.blue],
+        id: 4,
+    },
+    {
+        upper: [styles.purple],
+        middle: [styles.white],
+        lower: [styles.white],
+        id: 5,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.cream],
+        lower: [styles.white],
+        id: 6,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.white],
+        lower: [styles.orange],
+        id: 7,
+    },
+    {
+        upper: [styles.blue],
+        middle: [styles.white],
+        lower: [styles.white],
+        id: 8,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.purple],
+        lower: [styles.white],
+        id: 9,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.white],
+        lower: [styles.cream],
+        id: 10,
+    },
+    {
+        upper: [styles.orange],
+        middle: [styles.white],
+        lower: [styles.white],
+        id: 11,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.blue],
+        lower: [styles.white],
+        id: 12,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.white],
+        lower: [styles.purple],
+        id: 13,
+    },
+    {
+        upper: [styles.cream],
+        middle: [styles.white],
+        lower: [styles.white],
+        id: 14,
+    },
+    {
+        upper: [styles.white],
+        middle: [styles.orange],
+        lower: [styles.white],
+        id: 15,
+    },
+];
+
 const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -168,13 +261,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     const upperSwiper = useRef<SwiperInstanceRef>(null);
     const middleSwiper = useRef<SwiperInstanceRef>(null);
-    const downSwiper = useRef<SwiperInstanceRef>(null);
+    const lowerSwiper = useRef<SwiperInstanceRef>(null);
 
     const handleSlideChange = (
         swiperInstanceRef: React.MutableRefObject<SwiperInstanceRef>
     ) => {
         if (swiperInstanceRef?.current) {
             const timeout = setTimeout(() => {
+                changeSlidesColors();
                 swiperInstanceRef.current?.slideNext();
                 clearTimeout(timeout);
             }, 3000);
@@ -189,7 +283,15 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         }
     });
 
-    // const [upperSwiperColorState, setUpperSwiperColorState] = useState(false);
+    const [slidesColors, setSlideColors] = useState(colorChangingSequence[0]);
+    const changeSlidesColors = () => {
+        if (slidesColors.id >= colorChangingSequence.length) {
+            setSlideColors(colorChangingSequence[0]);
+        } else {
+            setSlideColors(colorChangingSequence[slidesColors.id]);
+        }
+    };
+
     return (
         <section className={`${styles.hero} container`}>
             <div className={styles.header}>
@@ -218,7 +320,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         className={styles.slider}
                     >
                         {upperSliderData.map((name) => (
-                            <SwiperSlide className={styles.slide} key={name}>
+                            <SwiperSlide
+                                className={cn(styles.slide, slidesColors.upper)}
+                                key={name}
+                            >
                                 {name}
                             </SwiperSlide>
                         ))}
@@ -232,18 +337,23 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         onSwiper={(instance) =>
                             (middleSwiper.current = instance)
                         }
-                        onSlideChange={() => handleSlideChange(downSwiper)}
+                        onSlideChange={() => handleSlideChange(lowerSwiper)}
                         className={styles.slider}
                     >
                         {middleSliderData.map((name, i) => (
                             <SwiperSlide
                                 key={name}
-                                className={cn(styles.slide, styles.secondLine, {
-                                    [styles.smallOffsetRight]: i === 0,
-                                    [styles.middleOffsetRight]: i === 1,
-                                    [styles.center]: i === 2 || i === 3,
-                                    [styles.bigOffsetRight]: i === 4,
-                                })}
+                                className={cn(
+                                    styles.slide,
+                                    styles.secondLine,
+                                    {
+                                        [styles.smallOffsetRight]: i === 0,
+                                        [styles.middleOffsetRight]: i === 1,
+                                        [styles.center]: i === 2 || i === 3,
+                                        [styles.bigOffsetRight]: i === 4,
+                                    },
+                                    slidesColors.middle
+                                )}
                             >
                                 {name}
                             </SwiperSlide>
@@ -255,12 +365,17 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         allowTouchMove={false}
                         speed={700}
                         loop={true}
-                        onSwiper={(instance) => (downSwiper.current = instance)}
-                        onSlideChange={() => handleSlideChange(upperSwiper)}
+                        onSwiper={(instance) => (lowerSwiper.current = instance)}
+                        onSlideChange={() => {
+                            handleSlideChange(upperSwiper);
+                        }}
                         className={styles.slider}
                     >
                         {downSliderData.map((name) => (
-                            <SwiperSlide className={styles.slide} key={name}>
+                            <SwiperSlide
+                                className={cn(styles.slide, slidesColors.lower)}
+                                key={name}
+                            >
                                 {name}
                             </SwiperSlide>
                         ))}

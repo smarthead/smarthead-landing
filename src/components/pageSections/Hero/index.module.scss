@@ -229,7 +229,7 @@
     align-items: center;
     //height: 10vw;
     user-select: none;
-    color: $white;
+    transition: color 500ms ease;
 }
 
 .second-line {
@@ -257,4 +257,24 @@
 .big-offset-right {
     justify-content: flex-end;
     margin-right: 11vw;
+}
+
+.white {
+    color: $white
+}
+
+.cream {
+    color: $cream;
+}
+
+.orange {
+    color: $orange;
+}
+
+.blue {
+    color: $blue;
+}
+
+.purple {
+    color: $purple;
 }
