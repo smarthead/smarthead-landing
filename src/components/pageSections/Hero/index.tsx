@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
@@ -223,49 +223,59 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         invalidate(createTimeline, revealTimeline);
     };
 
-    useEffect(() => {
-        createTimeline();
-        revealTimeline.play(0);
+    // const upperSwiper = useRef<SwiperInstanceRef>(null);
+    // const middleSwiper = useRef<SwiperInstanceRef>(null);
+    // const lowerSwiper = useRef<SwiperInstanceRef>(null);
 
-        const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
-        const fontInterRegular = new FontFaceObserver('Inter-Regular');
-        Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
-            .then(() => {
-                resize();
-            })
-            .then(() => {
-                handleSlideChange(upperSwiper);
-            });
-
-        window.addEventListener('resize', resize);
-        return () => {
-            window.removeEventListener('resize', resize);
-        };
-    }, []);
-
-    const upperSwiper = useRef<SwiperInstanceRef>(null);
-    const middleSwiper = useRef<SwiperInstanceRef>(null);
-    const lowerSwiper = useRef<SwiperInstanceRef>(null);
+    const [upperSwiper, setUpperSwiper] = useState<SwiperInstanceRef>(null);
+    const [middleSwiper, setMiddleSwiper] = useState<SwiperInstanceRef>(null);
+    const [lowerSwiper, setLowerSwiper] = useState<SwiperInstanceRef>(null);
 
     const handleSlideChange = (
-        swiperInstanceRef: React.MutableRefObject<SwiperInstanceRef>
+        //swiperInstanceRef: React.MutableRefObject<SwiperInstanceRef>
+        swiperInstance: SwiperInstanceRef
     ) => {
-        if (swiperInstanceRef?.current) {
+        if (swiperInstance) {
             const timeout = setTimeout(() => {
                 changeSlidesColors();
-                swiperInstanceRef.current?.slideNext();
+                swiperInstance?.slideNext();
                 clearTimeout(timeout);
             }, 3000);
         }
     };
 
-    const isFirstRenderPassed = useRef(false);
     useEffect(() => {
-        if (!isFirstRenderPassed.current) {
-            handleSlideChange(upperSwiper);
-            isFirstRenderPassed.current = true;
+        if (upperSwiper && middleSwiper && lowerSwiper) {
+            createTimeline();
+            revealTimeline.play(0);
+
+            const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
+            const fontInterRegular = new FontFaceObserver('Inter-Regular');
+
+            Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
+                .then(() => {
+                    resize();
+                })
+                .then(() => {
+                    handleSlideChange(upperSwiper);
+                });
         }
-    });
+
+        window.addEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        };
+    }, [upperSwiper, middleSwiper, lowerSwiper]);
+
+    // const isFirstRenderPassed = useRef(false);
+    // useEffect(() => {
+    //     if (!isFirstRenderPassed.current) {
+    //         handleSlideChange(upperSwiper);
+    //         isFirstRenderPassed.current = true;
+    //     }
+    // });
+
+    console.log(upperSwiper);
 
     const [slidesColors, setSlideColors] = useState(colorChangingSequence[0]);
     const changeSlidesColors = () => {
@@ -286,20 +296,27 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >
                 <h1
-                    className={`${styles.headline} ${
-                        isEnglish && styles.headlineEn
-                    }`}
+                    className={cn(
+                        styles.headline,
+                        {
+                            [styles.headlineEn]: isEnglish,
+                        },
+                        'h1'
+                    )}
                 >
                     <Swiper
                         direction="vertical"
                         allowTouchMove={false}
                         speed={700}
                         loop
-                        onSwiper={(instance) =>
-                            (upperSwiper.current = instance)
-                        }
+                        onSwiper={(instance) => {
+                            //(upperSwiper.current = instance)
+                            setUpperSwiper(instance);
+                        }}
                         onSlideChange={() => handleSlideChange(middleSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line1')}
+                        className={cn(styles.slider, 'hero-h1-line1', {
+                            [styles.sliderBlock]: !!upperSwiper,
+                        })}
                     >
                         {upperSliderData.map((name) => (
                             <SwiperSlide
@@ -316,11 +333,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         allowTouchMove={false}
                         speed={700}
                         loop
-                        onSwiper={(instance) =>
-                            (middleSwiper.current = instance)
-                        }
+                        onSwiper={(instance) => {
+                            //(middleSwiper.current = instance)
+                            setMiddleSwiper(instance);
+                        }}
                         onSlideChange={() => handleSlideChange(lowerSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line2')}
+                        className={cn(styles.slider, 'hero-h1-line2', {
+                            [styles.sliderBlock]: !!middleSwiper,
+                        })}
                     >
                         {middleSliderData.map((name, i) => (
                             <SwiperSlide
@@ -333,6 +353,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                                         [styles.middleOffsetRight]: i === 1,
                                         [styles.center]: i === 2 || i === 3,
                                         [styles.bigOffsetRight]: i === 4,
+                                        [styles.sliderBlock]: middleSwiper,
                                     },
                                     slidesColors.middle
                                 )}
@@ -347,11 +368,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         allowTouchMove={false}
                         speed={700}
                         loop
-                        onSwiper={(instance) =>
-                            (lowerSwiper.current = instance)
-                        }
+                        onSwiper={(instance) => {
+                            // (lowerSwiper.current = instance)
+                            setLowerSwiper(instance);
+                        }}
                         onSlideChange={() => handleSlideChange(upperSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line3')}
+                        className={cn(styles.slider, 'hero-h1-line3', {
+                            [styles.sliderBlock]: !!lowerSwiper,
+                        })}
                     >
                         {downSliderData.map((name) => (
                             <SwiperSlide
