@@ -223,18 +223,11 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         invalidate(createTimeline, revealTimeline);
     };
 
-    // const upperSwiper = useRef<SwiperInstanceRef>(null);
-    // const middleSwiper = useRef<SwiperInstanceRef>(null);
-    // const lowerSwiper = useRef<SwiperInstanceRef>(null);
-
     const [upperSwiper, setUpperSwiper] = useState<SwiperInstanceRef>(null);
     const [middleSwiper, setMiddleSwiper] = useState<SwiperInstanceRef>(null);
     const [lowerSwiper, setLowerSwiper] = useState<SwiperInstanceRef>(null);
 
-    const handleSlideChange = (
-        //swiperInstanceRef: React.MutableRefObject<SwiperInstanceRef>
-        swiperInstance: SwiperInstanceRef
-    ) => {
+    const handleSlideChange = (swiperInstance: SwiperInstanceRef) => {
         if (swiperInstance) {
             const timeout = setTimeout(() => {
                 changeSlidesColors();
@@ -246,14 +239,14 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     useEffect(() => {
         if (upperSwiper && middleSwiper && lowerSwiper) {
-            createTimeline();
-            revealTimeline.play(0);
-
             const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
             const fontInterRegular = new FontFaceObserver('Inter-Regular');
 
+            createTimeline();
+
             Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
                 .then(() => {
+                    revealTimeline.play(0);
                     resize();
                 })
                 .then(() => {
@@ -266,16 +259,6 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
             window.removeEventListener('resize', resize);
         };
     }, [upperSwiper, middleSwiper, lowerSwiper]);
-
-    // const isFirstRenderPassed = useRef(false);
-    // useEffect(() => {
-    //     if (!isFirstRenderPassed.current) {
-    //         handleSlideChange(upperSwiper);
-    //         isFirstRenderPassed.current = true;
-    //     }
-    // });
-
-    console.log(upperSwiper);
 
     const [slidesColors, setSlideColors] = useState(colorChangingSequence[0]);
     const changeSlidesColors = () => {
@@ -310,13 +293,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         speed={700}
                         loop
                         onSwiper={(instance) => {
-                            //(upperSwiper.current = instance)
                             setUpperSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(middleSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line1', {
-                            [styles.sliderBlock]: !!upperSwiper,
-                        })}
+                        className={cn(styles.slider, 'hero-h1-line1')}
                     >
                         {upperSliderData.map((name) => (
                             <SwiperSlide
@@ -334,13 +314,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         speed={700}
                         loop
                         onSwiper={(instance) => {
-                            //(middleSwiper.current = instance)
                             setMiddleSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(lowerSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line2', {
-                            [styles.sliderBlock]: !!middleSwiper,
-                        })}
+                        className={cn(styles.slider, 'hero-h1-line2')}
                     >
                         {middleSliderData.map((name, i) => (
                             <SwiperSlide
@@ -369,13 +346,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                         speed={700}
                         loop
                         onSwiper={(instance) => {
-                            // (lowerSwiper.current = instance)
                             setLowerSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(upperSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line3', {
-                            [styles.sliderBlock]: !!lowerSwiper,
-                        })}
+                        className={cn(styles.slider, 'hero-h1-line3')}
                     >
                         {downSliderData.map((name) => (
                             <SwiperSlide
@@ -410,58 +384,6 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     </p>
                 </div>
             </div>
-
-            {/*<div*/}
-            {/*    className={`${styles.content} ${isEnglish && styles.contentEn}`}*/}
-            {/*>*/}
-            {/*    <h1*/}
-            {/*        className={`${styles.headline} ${*/}
-            {/*            isEnglish && styles.headlineEn*/}
-            {/*        }`}*/}
-            {/*    >*/}
-            {/*        <span className={`${styles.headlineL1} hero-h1-line1`}>*/}
-            {/*            {data.title.line1}*/}
-            {/*        </span>*/}
-            {/*        <span*/}
-            {/*            className={`${styles.secondLine} ${styles.headlineL2} hero-h1-line2`}*/}
-            {/*        >*/}
-            {/*            {data.title.line2}*/}
-            {/*        </span>*/}
-            {/*        <span>*/}
-            {/*            <span*/}
-            {/*                style={{ display: 'inline-block' }}*/}
-            {/*                className={`${styles.headlineL3} hero-h1-line3`}*/}
-            {/*            >*/}
-            {/*                {data.title.line3}*/}
-            {/*            </span>{' '}*/}
-            {/*            <span*/}
-            {/*                style={{ display: 'inline-block' }}*/}
-            {/*                className={`${styles.headlineL4} hero-h1-line4`}*/}
-            {/*            >*/}
-            {/*                {data.title.line4}*/}
-            {/*            </span>*/}
-            {/*        </span>*/}
-            {/*    </h1>*/}
-
-            {/*<div className={`${styles.block} ${isEnglish && styles.blockEn}`}>*/}
-            {/*    <ButtonLink*/}
-            {/*        className={styles.heroButton}*/}
-            {/*        type="yellow"*/}
-            {/*        text={data.button}*/}
-            {/*        link={`#${navigation.contacts}`}*/}
-            {/*        clickHandler={() => {*/}
-            {/*            scrollToSection(`#${navigation.contacts}`);*/}
-            {/*        }}*/}
-            {/*    />*/}
-
-            {/*    <p*/}
-            {/*        className={`${styles.subtext} ${*/}
-            {/*            isEnglish && styles.subtextEn*/}
-            {/*        }`}*/}
-            {/*    >*/}
-            {/*        {arrayToString(data.subtitle)}*/}
-            {/*    </p>*/}
-            {/*</div>*/}
         </section>
     );
 };
