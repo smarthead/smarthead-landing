@@ -19,6 +19,10 @@ import * as styles from './index.module.scss';
 
 type SwiperInstanceRef = null | SwiperType;
 
+interface TitleItem {
+    [key: string]: string[];
+}
+
 interface Item {
     [key: string]: string;
 }
@@ -26,7 +30,7 @@ interface Item {
 export interface IHero {
     isEnglish?: boolean;
     data: {
-        title: Item;
+        title: TitleItem;
         subtitle: string[];
         button: string;
         header: {
@@ -34,30 +38,6 @@ export interface IHero {
         };
     };
 }
-
-const upperSliderData = [
-    'Разрабатываем',
-    'Поддерживаем',
-    'Развиваем',
-    'Масштабируем',
-    'Запускаем',
-];
-
-const middleSliderData = [
-    'амбициозные',
-    'масштабируемые',
-    'нагруженные',
-    'технологичные',
-    'востребованные',
-];
-
-const downSliderData = [
-    'цифровые сервисы',
-    'информационные системы',
-    'интеграционные решения',
-    'мобильные приложения',
-    'инструменты автоматизации',
-];
 
 const colorChangingSequence = [
     {
@@ -152,6 +132,11 @@ const colorChangingSequence = [
     },
 ];
 
+const h1Line1Class = '.hero-h1-line1';
+const h1Line2Class = '.hero-h1-line2';
+const h1Line3Class = '.hero-h1-line3';
+const h1Line4Class = '.hero-h1-line4';
+
 const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -160,17 +145,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     const createTimeline = () => {
         const headline =
             window.innerWidth > 480
-                ? [
-                      '.hero-h1-line1',
-                      '.hero-h1-line2',
-                      ['.hero-h1-line3', '.hero-h1-line4'],
-                  ]
-                : [
-                      '.hero-h1-line1',
-                      '.hero-h1-line2',
-                      '.hero-h1-line3',
-                      '.hero-h1-line4',
-                  ];
+                ? [h1Line1Class, h1Line2Class, [h1Line3Class, h1Line4Class]]
+                : [h1Line1Class, h1Line2Class, h1Line3Class, h1Line4Class];
+
         revealTimeline.fromTo(
             headline,
             { yPercent: 100, autoAlpha: 0 },
@@ -270,13 +247,15 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     };
 
     return (
-        <section className={`${styles.hero} container`}>
+        <section className={cn(styles.hero, 'container')}>
             <div className={styles.header}>
                 <Header menuLinks={data.header.menu} />
             </div>
 
             <div
-                className={`${styles.content} ${isEnglish && styles.contentEn}`}
+                className={cn(styles.content, {
+                    [styles.contentEn]: isEnglish,
+                })}
             >
                 <h1
                     className={cn(
@@ -296,9 +275,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                             setUpperSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(middleSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line1')}
+                        className={cn(styles.slider, h1Line1Class.slice(1))}
                     >
-                        {upperSliderData.map((name) => (
+                        {data.title.line1.map((name) => (
                             <SwiperSlide
                                 className={cn(styles.slide, slidesColors.upper)}
                                 key={name}
@@ -317,9 +296,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                             setMiddleSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(lowerSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line2')}
+                        className={cn(styles.slider, h1Line2Class.slice(1))}
                     >
-                        {middleSliderData.map((name, i) => (
+                        {data.title.line2.map((name, i) => (
                             <SwiperSlide
                                 key={name}
                                 className={cn(
@@ -349,9 +328,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                             setLowerSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(upperSwiper)}
-                        className={cn(styles.slider, 'hero-h1-line3')}
+                        className={cn(styles.slider, h1Line3Class.slice(1))}
                     >
-                        {downSliderData.map((name) => (
+                        {data.title.line3.map((name) => (
                             <SwiperSlide
                                 className={cn(styles.slide, slidesColors.lower)}
                                 key={name}
@@ -363,7 +342,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                 </h1>
 
                 <div
-                    className={`${styles.block} ${isEnglish && styles.blockEn}`}
+                    className={cn(styles.block, {
+                        [styles.blockEn]: isEnglish,
+                    })}
                 >
                     <ButtonLink
                         className={styles.heroButton}
@@ -376,9 +357,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     />
 
                     <p
-                        className={`${styles.subtext} ${
-                            isEnglish && styles.subtextEn
-                        }`}
+                        className={cn(styles.subtext, {
+                            [styles.subtextEn]: isEnglish,
+                        })}
                     >
                         {arrayToString(data.subtitle)}
                     </p>
