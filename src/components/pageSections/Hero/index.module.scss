@@ -78,39 +78,40 @@
     @media (max-width: $screenXl) {
         margin-bottom: 6.4vw;
         // font-size: 7.8125vw;
-        font-size: 7.0313vw;
+        // font-size: 7.0313vw;
     }
 
     @media (max-width: $screenLg) {
         margin-bottom: 3.8vw;
-        font-size: 64px;
+        //font-size: 64px;
         letter-spacing: 0;
     }
 
     @media (max-width: $screenMd) {
-        font-size: 8.33vw;
+        font-size: 5.5vw;
+        line-height: 1em;
     }
 
     @media (max-width: $screenXs) {
         margin-bottom: 7.5vw;
-        font-size: 8.888vw;
+        //font-size: 8.888vw;
         line-height: 10.5vw;
     }
 
     &-en {
         margin-bottom: 4.7vw;
-        font-size: 7.9375vw;
+        //font-size: 7.9375vw;
         line-height: 0.97em;
 
-        @media (max-width: $screenXl) {
-            font-size: 8.2812vw;
-            line-height: 0.94em;
-        }
+        //@media (max-width: $screenXl) {
+        //    font-size: 8.2812vw;
+        //    line-height: 0.94em;
+        //}
 
         @media (max-width: $screenLg) {
             margin-bottom: 7.5vw;
-            font-size: 9.7656vw;
-            line-height: 1.1em;
+            //font-size: 9.7656vw;
+            //line-height: 1.1em;
             letter-spacing: 0;
         }
 
@@ -120,8 +121,8 @@
 
         @media (max-width: $screenXs) {
             margin-bottom: 4vw;
-            font-size: 11.6vw;
-            line-height: 1.25em;
+            //font-size: 11.6vw;
+            //line-height: 1.25em;
         }
     }
 }
@@ -228,7 +229,6 @@
 .slide {
     display: flex;
     align-items: center;
-    //height: 10vw;
     user-select: none;
     transition: color 500ms ease;
 }
