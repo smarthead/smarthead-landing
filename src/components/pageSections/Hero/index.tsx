@@ -85,26 +85,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         );
     };
 
-    const resize = () => {
-        if (!isEnglish) {
-            const secondLineElem = document.getElementsByClassName(
-                styles.secondLine
-            )[0] as HTMLElement;
-            const subtextElem = document.getElementsByClassName(
-                styles.subtext
-            )[0] as HTMLElement;
-
-            const width = window.innerWidth;
-            if (width > 992 && width <= 1281) {
-                subtextElem.style.marginRight =
-                    0.98 *
-                        (secondLineElem.offsetWidth - subtextElem.offsetWidth) +
-                    'px';
-            } else {
-                subtextElem.style.marginRight = '0';
-            }
-        }
-
+    const handleResize = () => {
         invalidate(createTimeline, revealTimeline);
     };
 
@@ -132,16 +113,16 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
             Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
                 .then(() => {
                     revealTimeline.play(0);
-                    resize();
+                    handleResize();
                 })
                 .then(() => {
                     handleSlideChange(upperSwiper);
                 });
         }
 
-        window.addEventListener('resize', resize);
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', resize);
+            window.removeEventListener('resize', handleResize);
         };
     }, [upperSwiper, middleSwiper, lowerSwiper]);
 
