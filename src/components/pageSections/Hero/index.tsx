@@ -10,6 +10,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 
 import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
+import { useSlidesColors } from './useSlidesColors';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper/types';
@@ -38,99 +39,6 @@ export interface IHero {
         };
     };
 }
-
-const colorChangingSequence = [
-    {
-        upper: [styles.white],
-        middle: [styles.white],
-        lower: [styles.purple],
-        id: 1,
-    },
-    {
-        upper: [styles.cream],
-        middle: [styles.white],
-        lower: [styles.white],
-        id: 2,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.orange],
-        lower: [styles.white],
-        id: 3,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.white],
-        lower: [styles.blue],
-        id: 4,
-    },
-    {
-        upper: [styles.purple],
-        middle: [styles.white],
-        lower: [styles.white],
-        id: 5,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.cream],
-        lower: [styles.white],
-        id: 6,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.white],
-        lower: [styles.orange],
-        id: 7,
-    },
-    {
-        upper: [styles.blue],
-        middle: [styles.white],
-        lower: [styles.white],
-        id: 8,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.purple],
-        lower: [styles.white],
-        id: 9,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.white],
-        lower: [styles.cream],
-        id: 10,
-    },
-    {
-        upper: [styles.orange],
-        middle: [styles.white],
-        lower: [styles.white],
-        id: 11,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.blue],
-        lower: [styles.white],
-        id: 12,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.white],
-        lower: [styles.purple],
-        id: 13,
-    },
-    {
-        upper: [styles.cream],
-        middle: [styles.white],
-        lower: [styles.white],
-        id: 14,
-    },
-    {
-        upper: [styles.white],
-        middle: [styles.orange],
-        lower: [styles.white],
-        id: 15,
-    },
-];
 
 const h1Line1Class = '.hero-h1-line1';
 const h1Line2Class = '.hero-h1-line2';
@@ -237,14 +145,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         };
     }, [upperSwiper, middleSwiper, lowerSwiper]);
 
-    const [slidesColors, setSlideColors] = useState(colorChangingSequence[0]);
-    const changeSlidesColors = () => {
-        if (slidesColors.id >= colorChangingSequence.length) {
-            setSlideColors(colorChangingSequence[0]);
-        } else {
-            setSlideColors(colorChangingSequence[slidesColors.id]);
-        }
-    };
+    const { slidesColors, changeSlidesColors } = useSlidesColors();
 
     return (
         <section className={cn(styles.hero, 'container')}>
