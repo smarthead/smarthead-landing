@@ -103,14 +103,19 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         }
     };
 
+    const [isFontsLoaded, setIsFontsLoaded] = useState(false);
+
     useEffect(() => {
-        if (upperSwiper && middleSwiper && lowerSwiper) {
+        if (!isFontsLoaded) {
             const fontGilroyBold = new FontFaceObserver('Gilroy-Bold');
             const fontInterRegular = new FontFaceObserver('Inter-Regular');
-
-            createTimeline();
-
-            Promise.all([fontGilroyBold.load(), fontInterRegular.load()])
+            Promise.all([fontGilroyBold.load(), fontInterRegular.load()]).then(
+                () => {
+                    setIsFontsLoaded(true);
+                }
+            );
+        } else if (upperSwiper && middleSwiper && lowerSwiper) {
+            Promise.resolve()
                 .then(() => {
                     revealTimeline.play(0);
                     handleResize();
@@ -124,7 +129,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [upperSwiper, middleSwiper, lowerSwiper]);
+    }, [isFontsLoaded, upperSwiper, middleSwiper, lowerSwiper]);
 
     const { slidesColors, changeSlidesColors } = useSlidesColors();
 
