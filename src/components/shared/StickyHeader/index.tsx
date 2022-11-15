@@ -50,19 +50,20 @@ const StickyHeader: React.FC<IHeader> = ({
         }
     };
 
-    const handleDesktopMenuItemClick = (linkId:string) => {
+    const handleDesktopMenuItemClick = (linkId: string) => {
         setIsScrollBehaviorDisabled(true);
 
         scrollToSection(`#${linkId}`);
-    }
+    };
 
     const handleButtonClick = () => {
         setIsScrollBehaviorDisabled(true);
 
         scrollToSection(`#${navigation.contacts}`);
-    }
+    };
 
-    const { isStickyHeaderShown, setIsScrollBehaviorDisabled } = useStickyHeader(heroSectionHeight);
+    const { isStickyHeaderShown, setIsScrollBehaviorDisabled } =
+        useStickyHeader(heroSectionHeight);
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -78,10 +79,12 @@ const StickyHeader: React.FC<IHeader> = ({
     });
 
     return (
-        <header className={cn(styles.header, 'container', {
-            [styles.headerAnimationOn]: isStickyHeaderShown
-        })}>
-            <nav className={styles.navbar}>
+        <header
+            className={cn(styles.header, 'container', {
+                [styles.headerAnimationOn]: isStickyHeaderShown,
+            })}
+        >
+            <nav className={cn(styles.navbar)}>
                 <img
                     src={shLogo}
                     alt="SmartHead Logo"
@@ -102,7 +105,9 @@ const StickyHeader: React.FC<IHeader> = ({
                             <a
                                 key={link.id}
                                 className={styles.menuLink}
-                                onClick={() => handleDesktopMenuItemClick(link.id)}
+                                onClick={() =>
+                                    handleDesktopMenuItemClick(link.id)
+                                }
                             >
                                 {link.name}
                             </a>

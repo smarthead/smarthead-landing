@@ -52,24 +52,12 @@
     }
 }
 
-.menu-button {
-    margin-right: 3.5em;
-}
-
 .menu-link {
     color: white;
     font-family: $inter-400;
-    font-size: 1.5vw; //24px
+    font-size: 1.3vw; //24px on 1920
     transition: color 0.15s ease-out;
     cursor: pointer;
-
-    @media (max-width: $screen2Xl) {
-        font-size: 24px;
-    }
-
-    @media (max-width: $screenXl) {
-        font-size: 1.875vw;
-    }
 
     &:not(:last-child) {
         margin-right: 1.333em;
@@ -77,6 +65,14 @@
 
     &:hover {
         color: $yellow;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 20px;
+
+        &:not(:last-child) {
+            margin-right: 1.6em;
+        }
     }
 }
 
