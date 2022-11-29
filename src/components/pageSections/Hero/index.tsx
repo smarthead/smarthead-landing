@@ -95,11 +95,11 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     const handleSlideChange = (swiperInstance: SwiperInstanceRef) => {
         if (swiperInstance) {
-            const timeout = setTimeout(() => {
+            const timeout = gsap.delayedCall(3, () => {
                 changeSlidesColors();
                 swiperInstance?.slideNext();
-                clearTimeout(timeout);
-            }, 3000);
+                timeout.kill();
+            });
         }
     };
 
