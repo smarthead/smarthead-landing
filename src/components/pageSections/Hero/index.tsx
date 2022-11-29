@@ -156,7 +156,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     <Swiper
                         direction="vertical"
                         allowTouchMove={false}
-                        speed={700}
+                        speed={500}
                         loop
                         onSwiper={(instance) => {
                             setUpperSwiper(instance);
@@ -177,7 +177,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     <Swiper
                         direction="vertical"
                         allowTouchMove={false}
-                        speed={700}
+                        speed={500}
                         loop
                         onSwiper={(instance) => {
                             setMiddleSwiper(instance);
@@ -209,7 +209,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     <Swiper
                         direction="vertical"
                         allowTouchMove={false}
-                        speed={700}
+                        speed={500}
                         loop
                         onSwiper={(instance) => {
                             setLowerSwiper(instance);
