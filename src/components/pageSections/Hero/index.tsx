@@ -133,6 +133,16 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     const { slidesColors, changeSlidesColors } = useSlidesColors();
 
+    const isMobileView = window.matchMedia(`(max-width: 992px)`).matches;
+    const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
+
+    const calcMiddleSwiperMarginClasses = (i: number) => ({
+        [styles.smallOffsetRight]: i === 0 && !isMobileView,
+        [styles.middleOffsetRight]: i === 1 && !isMobileView,
+        [styles.center]: (i === 2 || i === 3) && !isMobileView,
+        [styles.bigOffsetRight]: i === 4 && !isMobileView,
+    });
+
     return (
         <section className={cn(styles.hero, 'container')}>
             <div className={styles.header}>
@@ -154,7 +164,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     )}
                 >
                     <Swiper
-                        direction="vertical"
+                        direction={slidersDirection}
                         allowTouchMove={false}
                         speed={500}
                         loop
@@ -175,7 +185,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     </Swiper>
 
                     <Swiper
-                        direction="vertical"
+                        direction={slidersDirection}
                         allowTouchMove={false}
                         speed={500}
                         loop
@@ -191,13 +201,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                                 className={cn(
                                     styles.slide,
                                     styles.secondLine,
-                                    {
-                                        [styles.smallOffsetRight]: i === 0,
-                                        [styles.middleOffsetRight]: i === 1,
-                                        [styles.center]: i === 2 || i === 3,
-                                        [styles.bigOffsetRight]: i === 4,
-                                        [styles.sliderBlock]: middleSwiper,
-                                    },
+                                    calcMiddleSwiperMarginClasses(i),
                                     slidesColors.middle
                                 )}
                             >
@@ -207,7 +211,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                     </Swiper>
 
                     <Swiper
-                        direction="vertical"
+                        direction={slidersDirection}
                         allowTouchMove={false}
                         speed={500}
                         loop
@@ -215,7 +219,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                             setLowerSwiper(instance);
                         }}
                         onSlideChange={() => handleSlideChange(upperSwiper)}
-                        className={cn(styles.slider, h1Line3Class.slice(1))}
+                        className={cn(styles.slider, h1Line3Class.slice(1), {
+                            [styles.twoLinesSlider]: isMobileView,
+                        })}
                     >
                         {data.title.line3.map((name) => (
                             <SwiperSlide
