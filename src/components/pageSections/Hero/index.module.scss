@@ -230,7 +230,7 @@
     display: flex;
     align-items: center;
     user-select: none;
-    transition: color 500ms ease;
+    transition: color 750ms cubic-bezier(.68,.35,.04,1.09) !important;
 }
 
 .center {
@@ -253,7 +253,7 @@
 }
 
 .white {
-    color: $white
+    color: $white;
 }
 
 .cream {
