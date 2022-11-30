@@ -133,7 +133,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
 
     const { slidesColors, changeSlidesColors } = useSlidesColors();
 
-    const isMobileView = window.matchMedia(`(max-width: 992px)`).matches;
+    const isMobileView =
+        typeof window !== 'undefined' &&
+        window.matchMedia(`(max-width: 992px)`).matches;
+
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
 
     const calcMiddleSwiperMarginClasses = (i: number) => ({
