@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .header {
-    margin: 3.846vw 0 0;
+    margin: 5vw 0 0;
 
     @media (max-width: $screen2Xl) {
         margin: 50px 0 0;
@@ -61,7 +61,7 @@
     flex-direction: column;
     width: 100%;
     margin-top: 0;
-    margin-bottom: 8.625vw;
+    margin-bottom: 7.8vw;
     color: $white;
     font-family: $gilroy-700;
     letter-spacing: 0.02em;
@@ -74,7 +74,7 @@
     }
 
     @media (max-width: $screenXl) {
-        margin-bottom: 6.4vw;
+        margin-bottom: 7vw;
     }
 
     @media (max-width: $screenLg) {
@@ -118,12 +118,12 @@
 .slider {
     width: 100%;
     height: 6.3vw;
-    font-size: 5.65vw;
+    font-size: 5.6vw;
     line-height: 0.9em;
     opacity: 0;
 
     @media (max-width: $screenXl) {
-        font-size: 5.85vw;
+        font-size: 5.8vw;
         height: 6.5vw;
     }
 
