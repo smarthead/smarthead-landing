@@ -3,5 +3,6 @@ export const navigation = {
     cases: 'cases',
     aboutUs: 'about-us',
     vacancies: 'vacancies',
+    reviews: 'reviews',
     contacts: 'contacts',
 };

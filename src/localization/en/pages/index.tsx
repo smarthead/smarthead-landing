@@ -71,7 +71,7 @@ const RuLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Reviews />
+            <Reviews id={navigation.reviews} />
             <FooterEn id={navigation.contacts} />
 
             {!cookiesAccepted && (
