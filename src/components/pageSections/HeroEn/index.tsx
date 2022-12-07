@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -7,7 +7,6 @@ import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
-import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 import HeroHeader from '../../shared/HeroHeader';
@@ -26,10 +25,9 @@ export interface IHero {
             menu: Item[];
         };
     };
-    handleHeroScreenHeight: (height: number) => void;
 }
 
-const HeroEn: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
+const HeroEn: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -117,26 +115,10 @@ const HeroEn: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) =>
         };
     }, []);
 
-    //
-    const handleResize = () => {
-        if (heroSection.current?.offsetHeight) {
-            handleHeroScreenHeight(heroSection.current?.offsetHeight);
-        }
-    };
-
-    const heroSection = useRef<HTMLElement>(null);
-    useEffect(() => {
-        handleResize();
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    });
-
     return (
-        <section className={`${styles.hero} container`} ref={heroSection}>
+        <section className={`${styles.hero} container`}>
             <HeroHeader menuLinks={data.header.menu} />
+
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >
@@ -193,7 +175,5 @@ const HeroEn: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) =>
         </section>
     );
 };
-
-
 
 export default HeroEn;

@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import '../../../styles/index.scss';
 
 import StickyHeader from '../../../components/shared/StickyHeader';
-import Hero from '../../../components/pageSections/Hero';
 import HeroRu from '../../../components/pageSections/HeroRu';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
@@ -40,9 +39,11 @@ const RuLayout = () => {
         }
     }, []);
 
-    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(null);
+    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
+        null
+    );
     const handleHeroScreenHeight = (height: number) => {
-        setHeroScreenHeight(height)
+        setHeroScreenHeight(height);
     };
 
     return (
@@ -79,7 +80,11 @@ const RuLayout = () => {
                 buttonText={heroData.button}
                 heroSectionHeight={heroSectionHeight}
             />
-            <HeroRu data={heroData} handleHeroScreenHeight={handleHeroScreenHeight} />
+
+            <HeroRu
+                data={heroData}
+                handleHeroScreenHeight={handleHeroScreenHeight}
+            />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
