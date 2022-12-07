@@ -5,6 +5,7 @@ import '../../../styles/index.scss';
 
 import StickyHeader from '../../../components/shared/StickyHeader';
 import Hero from '../../../components/pageSections/Hero';
+import HeroRu from '../../../components/pageSections/HeroRu';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Acquaintance from '../../../components/pageSections/Acquaintance';
@@ -78,7 +79,7 @@ const RuLayout = () => {
                 buttonText={heroData.button}
                 heroSectionHeight={heroSectionHeight}
             />
-            <Hero data={heroData} handleHeroScreenHeight={handleHeroScreenHeight} />
+            <HeroRu data={heroData} handleHeroScreenHeight={handleHeroScreenHeight} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />

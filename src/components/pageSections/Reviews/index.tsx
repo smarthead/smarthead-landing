@@ -10,7 +10,11 @@ import ReviewItem from '../../shared/ReviewItem';
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 
-const Reviews: React.FC = () => {
+interface ReviewsProps {
+    id: string;
+}
+
+const Reviews: React.FC<ReviewsProps> = ({ id }) => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     const [swiper, setSwiper] = useState<any>(null);
@@ -28,7 +32,7 @@ const Reviews: React.FC = () => {
     };
 
     return (
-        <section className={styles.root}>
+        <section className={styles.root} id={id}>
             <div className={styles.content}>
                 <div className={styles.header}>
                     <h1 className={styles.title}>Our clients about us</h1>

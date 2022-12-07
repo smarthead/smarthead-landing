@@ -7,6 +7,7 @@ import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
+import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
 import HeroHeader from '../../shared/HeroHeader';
@@ -28,7 +29,7 @@ export interface IHero {
     handleHeroScreenHeight: (height: number) => void;
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
+const HeroEn: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -116,6 +117,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
         };
     }, []);
 
+    //
     const handleResize = () => {
         if (heroSection.current?.offsetHeight) {
             handleHeroScreenHeight(heroSection.current?.offsetHeight);
@@ -192,4 +194,6 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     );
 };
 
-export default Hero;
+
+
+export default HeroEn;
