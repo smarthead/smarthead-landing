@@ -38,7 +38,6 @@ export interface HeroData {
 }
 
 export interface IHero {
-    isEnglish?: boolean;
     data: HeroData;
 }
 
@@ -47,7 +46,7 @@ const h1Line2Class = '.hero-h1-line2';
 const h1Line3Class = '.hero-h1-line3';
 const h1Line4Class = '.hero-h1-line4';
 
-const HeroRu: React.FC<IHero> = ({ data, isEnglish }) => {
+const HeroRu: React.FC<IHero> = ({ data }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -141,11 +140,7 @@ const HeroRu: React.FC<IHero> = ({ data, isEnglish }) => {
                 <Header menuLinks={data.header.menu} />
             </div>
 
-            <div
-                className={cn(styles.content, {
-                    [styles.contentEn]: isEnglish,
-                })}
-            >
+            <div className={styles.content}>
                 <HeroTitle
                     title={data.title}
                     swiperCommonProps={{
@@ -175,13 +170,10 @@ const HeroRu: React.FC<IHero> = ({ data, isEnglish }) => {
                         className: h1Line3Class.slice(1),
                     }}
                     slidesColors={slidesColors}
+                    className={styles.title}
                 />
 
-                <div
-                    className={cn(styles.block, {
-                        [styles.blockEn]: isEnglish,
-                    })}
-                >
+                <div className={styles.block}>
                     <ButtonLink
                         className={styles.heroButton}
                         type="yellow"
@@ -192,11 +184,7 @@ const HeroRu: React.FC<IHero> = ({ data, isEnglish }) => {
                         }}
                     />
 
-                    <p
-                        className={cn(styles.subtext, {
-                            [styles.subtextEn]: isEnglish,
-                        })}
-                    >
+                    <p className={styles.subtext}>
                         {arrayToString(data.subtitle)}
                     </p>
                 </div>

@@ -17,6 +17,7 @@ interface SlidingHeroTitleProps {
     middleSwiperProps: SwiperProps;
     lowerSwiperProps: SwiperProps;
     slidesColors: ColorSet;
+    className?: string;
 }
 
 const calcIsMobile = () =>
@@ -29,6 +30,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     middleSwiperProps,
     lowerSwiperProps,
     slidesColors,
+    className,
 }) => {
     const [isMobileView, setIsMobileView] = useState(calcIsMobile());
 
@@ -53,7 +55,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     });
 
     return (
-        <h1 className={cn(styles.headline, 'h1')}>
+        <h1 className={cn(styles.headline, 'h1', className)}>
             <Swiper
                 {...swiperCommonProps}
                 {...upperSwiperProps}

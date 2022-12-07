@@ -20,10 +20,6 @@
     }
 }
 
-.hero-button {
-    visibility: hidden;
-}
-
 .hero {
     display: flex;
     flex-direction: column;
@@ -56,6 +52,39 @@
     }
 }
 
+.title {
+    margin-top: 0;
+    margin-bottom: 7.8vw;
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 7vw;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-bottom: 10.2vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-bottom: 4.5vw;
+    }
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $screenSm) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        margin-bottom: 121px;
+    }
+}
+
+.hero-button {
+    visibility: hidden;
+}
+
 .subtext {
     visibility: hidden;
     margin: 0;
@@ -74,68 +103,21 @@
     }
 
     @media (max-width: $screenLg) {
-        margin-bottom: 45px;
-        font-size: 24px;
+        font-size: 2.5vw;
     }
 
     @media (max-width: $screenMd) {
+        font-size: 2.2vw;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: $screenSm) {
         font-size: 3.13vw;
+        margin-bottom: 45px;
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 42px;
+        margin-bottom: 30px;
         font-size: 3.8888vw;
-    }
-
-    &-en {
-        @media (max-width: $screenLg) {
-            & > br {
-                display: none;
-            }
-
-            width: 55%;
-            margin-bottom: 0;
-            font-size: 3.125vw;
-        }
-
-        @media (max-width: $screenSm) {
-            & > br {
-                display: inline;
-            }
-
-            width: 100%;
-            margin-bottom: 8vw;
-        }
-
-        @media (max-width: $screenXs) {
-            margin-bottom: 10vw;
-            font-size: 3.888vw;
-        }
-    }
-}
-
-.block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (max-width: $screenLg) {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        margin-bottom: 121px;
-    }
-
-    &-en {
-        align-items: center;
-
-        @media (max-width: $screenLg) {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        @media (max-width: $screenSm) {
-            flex-direction: column-reverse;
-            align-items: flex-start;
-        }
     }
 }
