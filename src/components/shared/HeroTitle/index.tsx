@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
+import { isBrowser } from '../../../utils/isBrowser';
 import { ColorSet } from './useSlidesColors';
 import { TitleItem } from '../../pageSections/HeroRu';
+
 import 'swiper/css';
 import * as styles from './index.module.scss';
 
@@ -17,6 +19,9 @@ interface SlidingHeroTitleProps {
     slidesColors: ColorSet;
 }
 
+const calcIsMobile = () =>
+    isBrowser() && window.matchMedia(`(max-width: 992px)`).matches;
+
 const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     title,
     swiperCommonProps,
@@ -25,9 +30,18 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     lowerSwiperProps,
     slidesColors,
 }) => {
-    const isMobileView =
-        typeof window !== 'undefined' &&
-        window.matchMedia(`(max-width: 992px)`).matches;
+    const [isMobileView, setIsMobileView] = useState(calcIsMobile());
+
+    const handleResize = useCallback(() => {
+        setIsMobileView(calcIsMobile());
+    }, [calcIsMobile]);
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [handleResize]);
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
 
@@ -82,9 +96,11 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                 {...swiperCommonProps}
                 {...lowerSwiperProps}
                 direction={slidersDirection}
-                className={cn(styles.slider, lowerSwiperProps.className, {
-                    [styles.twoLinesSlider]: isMobileView,
-                })}
+                className={cn(
+                    styles.slider,
+                    styles.thirdLine,
+                    lowerSwiperProps.className
+                )}
             >
                 {title.line3.map((name) => (
                     <SwiperSlide
