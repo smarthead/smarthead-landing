@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -27,7 +27,7 @@ export interface IHero {
     };
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
+const HeroEn: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -177,4 +177,4 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     );
 };
 
-export default Hero;
+export default HeroEn;

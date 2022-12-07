@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
-import Hero from '../../../components/pageSections/Hero';
+import HeroEn from '../../../components/pageSections/HeroEn';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Partners from '../../../components/pageSections/Partners';
@@ -66,7 +66,7 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <Hero data={heroData} isEnglish={true} />
+            <HeroEn data={heroData} isEnglish={true} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
