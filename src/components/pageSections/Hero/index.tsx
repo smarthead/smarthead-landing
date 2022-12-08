@@ -39,6 +39,7 @@ export interface HeroData {
 
 export interface IHero {
     data: HeroData;
+    isEnglish?: boolean;
 }
 
 const h1Line1Class = '.hero-h1-line1';
@@ -46,7 +47,7 @@ const h1Line2Class = '.hero-h1-line2';
 const h1Line3Class = '.hero-h1-line3';
 const h1Line4Class = '.hero-h1-line4';
 
-const HeroRu: React.FC<IHero> = ({ data }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -143,6 +144,7 @@ const HeroRu: React.FC<IHero> = ({ data }) => {
             <div className={styles.content}>
                 <HeroTitle
                     title={data.title}
+                    isEnglish={isEnglish}
                     swiperCommonProps={{
                         speed: 500,
                         loop: true,
@@ -193,4 +195,4 @@ const HeroRu: React.FC<IHero> = ({ data }) => {
     );
 };
 
-export default HeroRu;
+export default Hero;

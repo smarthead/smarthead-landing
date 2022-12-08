@@ -36,6 +36,21 @@
         font-size: 9.2vw;
         height: 10vw;
     }
+
+    &-en {
+        height: 7.3vw;
+        font-size: 6vw;
+
+        @media (max-width: $screenXl) {
+            font-size: 7vw;
+            height: 7.1vw;
+        }
+
+        @media (max-width: $screenLg) {
+            font-size: 9.8vw;
+            height: 10.6vw;
+        }
+    }
 }
 
 .second-line {
@@ -92,6 +107,11 @@
 .big-offset-right {
     justify-content: flex-end;
     margin-right: 11vw;
+}
+
+.big-offset-left {
+    align-self: flex-start;
+    margin-left: 21vw;
 }
 
 .white {

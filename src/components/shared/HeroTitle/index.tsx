@@ -5,7 +5,7 @@ import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
 import { isBrowser } from '../../../utils/isBrowser';
 import { ColorSet } from './useSlidesColors';
-import { TitleItem } from '../../pageSections/HeroRu';
+import { TitleItem } from '../../pageSections/Hero';
 
 import 'swiper/css';
 import * as styles from './index.module.scss';
@@ -18,10 +18,28 @@ interface SlidingHeroTitleProps {
     lowerSwiperProps: SwiperProps;
     slidesColors: ColorSet;
     className?: string;
+    isEnglish?: boolean;
 }
 
 const calcIsMobile = () =>
     isBrowser() && window.matchMedia(`(max-width: 992px)`).matches;
+
+const middleSlidesMarginDictionary = {
+    ru: [
+        styles.smallOffsetRight,
+        styles.middleOffsetRight,
+        styles.center,
+        styles.center,
+        styles.bigOffsetRight,
+    ],
+    en: [
+        styles.center,
+        styles.center,
+        styles.bigOffsetLeft,
+        styles.center,
+        styles.center,
+    ],
+};
 
 const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     title,
@@ -31,6 +49,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     lowerSwiperProps,
     slidesColors,
     className,
+    isEnglish = false,
 }) => {
     const [isMobileView, setIsMobileView] = useState(calcIsMobile());
 
@@ -47,12 +66,15 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
 
-    const calcMiddleSwiperMarginClasses = (i: number) => ({
-        [styles.smallOffsetRight]: i === 0 && !isMobileView,
-        [styles.middleOffsetRight]: i === 1 && !isMobileView,
-        [styles.center]: (i === 2 || i === 3) && !isMobileView,
-        [styles.bigOffsetRight]: i === 4 && !isMobileView,
-    });
+    const calcMiddleSwiperMarginClasses = (i: number, isEnglish?: boolean) => {
+        if (isMobileView) return '';
+
+        if (isEnglish) {
+            return middleSlidesMarginDictionary.en[i];
+        } else {
+            return middleSlidesMarginDictionary.ru[i];
+        }
+    };
 
     return (
         <h1 className={cn(styles.headline, 'h1', className)}>
@@ -61,7 +83,9 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                 {...upperSwiperProps}
                 direction={slidersDirection}
                 allowTouchMove={false}
-                className={cn(styles.slider, upperSwiperProps.className)}
+                className={cn(styles.slider, upperSwiperProps.className, {
+                    [styles.sliderEn]: isEnglish,
+                })}
             >
                 {title.line1.map((name) => (
                     <SwiperSlide
@@ -77,7 +101,9 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                 {...swiperCommonProps}
                 {...middleSwiperProps}
                 direction={slidersDirection}
-                className={cn(styles.slider, middleSwiperProps.className)}
+                className={cn(styles.slider, middleSwiperProps.className, {
+                    [styles.sliderEn]: isEnglish,
+                })}
             >
                 {title.line2.map((name, i) => (
                     <SwiperSlide
@@ -85,7 +111,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                         className={cn(
                             styles.slide,
                             styles.secondLine,
-                            calcMiddleSwiperMarginClasses(i),
+                            calcMiddleSwiperMarginClasses(i, isEnglish),
                             slidesColors.middle
                         )}
                     >
@@ -101,7 +127,10 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                 className={cn(
                     styles.slider,
                     styles.thirdLine,
-                    lowerSwiperProps.className
+                    lowerSwiperProps.className,
+                    {
+                        [styles.sliderEn]: isEnglish,
+                    }
                 )}
             >
                 {title.line3.map((name) => (

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
-import HeroRu from '../../../components/pageSections/HeroRu';
+import Hero from '../../../components/pageSections/Hero';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Acquaintance from '../../../components/pageSections/Acquaintance';
@@ -67,7 +67,7 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <HeroRu data={heroData} />
+            <Hero data={heroData} />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
@@ -76,6 +76,7 @@ const RuLayout = () => {
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
+
             {!cookiesAccepted && (
                 <CookiesNotification
                     data={cookiesNotificationData}
