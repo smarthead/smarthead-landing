@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
 
 import ButtonLink from '../ButtonLink';
-import { scrollToSection } from '../../../utils/scroll';
+import { scrollToSection, scrollToTop } from '../../../utils/scroll';
 import { useStickyHeader } from './useStickyHeader';
 
 import * as styles from './index.module.scss';
@@ -78,6 +78,10 @@ const StickyHeader: React.FC<IHeader> = ({
         };
     });
 
+    const handleLogoClick = () => {
+        scrollToTop();
+    };
+
     return (
         <header
             className={cn(styles.header, 'container', {
@@ -89,6 +93,7 @@ const StickyHeader: React.FC<IHeader> = ({
                     src={shLogo}
                     alt="SmartHead Logo"
                     className={styles.logo}
+                    onClick={handleLogoClick}
                 />
 
                 <div className={styles.menuContainer}>
