@@ -15,10 +15,14 @@ import {
 import 'swiper/css';
 import * as styles from './index.module.scss';
 
+interface UpperSwiperProps extends SwiperProps {
+    wrapClassName?: string;
+}
+
 interface SlidingHeroTitleProps {
     title: TitleItem;
     swiperCommonProps: SwiperProps;
-    upperSwiperProps: SwiperProps;
+    upperSwiperProps: UpperSwiperProps;
     middleSwiperProps: SwiperProps;
     lowerSwiperProps: SwiperProps;
     slidesColors: ColorSet;
@@ -52,33 +56,55 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
 
     return (
-        <h1 className={cn(styles.headline, 'h1', className)}>
-            <Swiper
-                {...swiperCommonProps}
-                {...upperSwiperProps}
-                direction={slidersDirection}
-                allowTouchMove={false}
-                className={cn(styles.slider, upperSwiperProps.className, {
-                    [styles.sliderEn]: isEnglish,
-                })}
+        <h1
+            className={cn(
+                styles.headline,
+                'h1',
+                {
+                    [styles.headlineEn]: isEnglish,
+                },
+                className
+            )}
+        >
+            <div
+                className={cn(
+                    styles.firstLineWrap,
+                    styles.zeroOpacity,
+                    upperSwiperProps.wrapClassName
+                )}
             >
-                {title.line1.map((name) => (
-                    <SwiperSlide
-                        className={cn(styles.slide, slidesColors.upper)}
-                        key={name}
-                    >
-                        {name}
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                {isEnglish && <span>We&nbsp;</span>}
+                <Swiper
+                    {...swiperCommonProps}
+                    {...upperSwiperProps}
+                    direction={slidersDirection}
+                    className={cn(styles.slider, upperSwiperProps.className, {
+                        [styles.sliderEn]: isEnglish,
+                    })}
+                >
+                    {title.line1.map((name) => (
+                        <SwiperSlide
+                            className={cn(styles.slide, slidesColors.upper)}
+                            key={name}
+                        >
+                            {name}
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
             <Swiper
                 {...swiperCommonProps}
                 {...middleSwiperProps}
                 direction={slidersDirection}
-                className={cn(styles.slider, middleSwiperProps.className, {
-                    [styles.sliderEn]: isEnglish,
-                })}
+                className={cn(
+                    styles.slider,
+                    styles.zeroOpacity,
+                    middleSwiperProps.className,
+                    {
+                        [styles.sliderEn]: isEnglish,
+                    }
+                )}
             >
                 {title.line2.map((name, i) => (
                     <SwiperSlide
@@ -98,13 +124,13 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                     </SwiperSlide>
                 ))}
             </Swiper>
-
             <Swiper
                 {...swiperCommonProps}
                 {...lowerSwiperProps}
                 direction={slidersDirection}
                 className={cn(
                     styles.slider,
+                    styles.zeroOpacity,
                     styles.thirdLine,
                     lowerSwiperProps.className,
                     {

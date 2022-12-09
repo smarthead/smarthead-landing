@@ -45,7 +45,6 @@ export interface IHero {
 const h1Line1Class = '.hero-h1-line1';
 const h1Line2Class = '.hero-h1-line2';
 const h1Line3Class = '.hero-h1-line3';
-const h1Line4Class = '.hero-h1-line4';
 
 const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -55,8 +54,8 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
     const createTimeline = () => {
         const headline =
             window.innerWidth > 480
-                ? [h1Line1Class, h1Line2Class, [h1Line3Class, h1Line4Class]]
-                : [h1Line1Class, h1Line2Class, h1Line3Class, h1Line4Class];
+                ? [h1Line1Class, h1Line2Class, h1Line3Class]
+                : [h1Line1Class, h1Line2Class, h1Line3Class];
 
         revealTimeline.fromTo(
             headline,
@@ -155,7 +154,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish }) => {
                             setUpperSwiper(instance);
                         },
                         onSlideChange: () => handleSlideChange(middleSwiper),
-                        className: h1Line1Class.slice(1),
+                        wrapClassName: h1Line1Class.slice(1),
                     }}
                     middleSwiperProps={{
                         onSwiper: (instance) => {
