@@ -11,7 +11,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 import Header from '../../shared/Header';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
-import { useSlidesColors } from '../../shared/HeroTitle/useSlidesColors';
+import { useSlidesColors } from '../../shared/HeroTitle/utils';
 
 import { Swiper as SwiperType } from 'swiper/types';
 

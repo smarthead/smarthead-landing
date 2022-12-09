@@ -3,9 +3,14 @@ import cn from 'classnames';
 
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
-import { isBrowser } from '../../../utils/isBrowser';
-import { ColorSet } from './useSlidesColors';
+import { ColorSet } from './utils/useSlidesColors';
 import { TitleItem } from '../../pageSections/Hero';
+
+import {
+    calcMiddleLineSlideMargins,
+    calcIsMobile,
+    splitToSeveralLines,
+} from './utils';
 
 import 'swiper/css';
 import * as styles from './index.module.scss';
@@ -20,26 +25,6 @@ interface SlidingHeroTitleProps {
     className?: string;
     isEnglish?: boolean;
 }
-
-const calcIsMobile = () =>
-    isBrowser() && window.matchMedia(`(max-width: 992px)`).matches;
-
-const middleSlidesMarginDictionary = {
-    ru: [
-        styles.smallOffsetRight,
-        styles.middleOffsetRight,
-        styles.center,
-        styles.center,
-        styles.bigOffsetRight,
-    ],
-    en: [
-        styles.center,
-        styles.center,
-        styles.bigOffsetLeft,
-        styles.center,
-        styles.center,
-    ],
-};
 
 const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     title,
@@ -65,16 +50,6 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     }, [handleResize]);
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
-
-    const calcMiddleSwiperMarginClasses = (i: number, isEnglish?: boolean) => {
-        if (isMobileView) return '';
-
-        if (isEnglish) {
-            return middleSlidesMarginDictionary.en[i];
-        } else {
-            return middleSlidesMarginDictionary.ru[i];
-        }
-    };
 
     return (
         <h1 className={cn(styles.headline, 'h1', className)}>
@@ -111,7 +86,11 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                         className={cn(
                             styles.slide,
                             styles.secondLine,
-                            calcMiddleSwiperMarginClasses(i, isEnglish),
+                            calcMiddleLineSlideMargins({
+                                index: i,
+                                isMobileView,
+                                isEnglish,
+                            }),
                             slidesColors.middle
                         )}
                     >
@@ -130,15 +109,20 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                     lowerSwiperProps.className,
                     {
                         [styles.sliderEn]: isEnglish,
+                        [styles.thirdLineEn]: isEnglish,
                     }
                 )}
             >
                 {title.line3.map((name) => (
                     <SwiperSlide
-                        className={cn(styles.slide, slidesColors.lower)}
+                        className={cn(
+                            styles.slide,
+                            slidesColors.lower,
+                            styles.flexColumn
+                        )}
                         key={name}
                     >
-                        {name}
+                        {isMobileView ? splitToSeveralLines(name) : name}
                     </SwiperSlide>
                 ))}
             </Swiper>
