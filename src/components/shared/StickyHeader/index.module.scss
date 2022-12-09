@@ -10,11 +10,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 5.375vw;
+    height: 4.25vw;
     background: $black;
 
     @media (max-width: $screen2Xl) {
-        height: 86px;
+        height: 68px;
     }
 
     @media (max-width: $screenSm) {
@@ -63,7 +63,14 @@
 }
 
 .menu-button {
+    height: 2.3vw;
+    font-size: 14px;
     margin-right: 3.5em;
+
+    @media (max-width: $screenXl) {
+        height: 38px;
+        font-size: 16px;
+    }
 
     @media (max-width: $screenSm) {
         margin-right: 2em;
