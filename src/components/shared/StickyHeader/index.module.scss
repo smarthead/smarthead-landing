@@ -2,7 +2,7 @@
 
 .header {
     position: fixed;
-    top: -100px;
+    top: -4.25vw;
     z-index: 9999;
     transition: top 0.5s ease-in;
     width: 100vw;
@@ -15,9 +15,11 @@
 
     @media (max-width: $screen2Xl) {
         height: 68px;
+        top: -68px;
     }
 
     @media (max-width: $screenSm) {
+        top: -54px;
         height: 54px;
     }
 }
@@ -37,14 +39,18 @@
 }
 
 .logo {
-    height: 1.95vw;
+    height: 1.75vw;
 
-    @media (max-width: $screenXl) {
-        height: 25px;
+    @media (max-width: $screen2Xl) {
+        height: 28px;
     }
 
     @media (max-width: $screenMd) {
-        height: 20px;
+        height: 23px;
+    }
+
+    @media (max-width: $screenSm) {
+        height: 17px;
     }
 }
 
@@ -63,18 +69,25 @@
 }
 
 .menu-button {
-    height: 2.3vw;
-    font-size: 14px;
-    margin-right: 3.5em;
+    height: 2vw;
+    font-size: 0.625vw;
+    margin-right: 3.125vw;
 
-    @media (max-width: $screenXl) {
-        height: 38px;
-        font-size: 16px;
+    @media (max-width: $screen2Xl) {
+        height: 32px;
+        font-size: 10px;
+        margin-right: 50px;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-right: 30px;
     }
 
     @media (max-width: $screenSm) {
-        margin-right: 2em;
-        padding: 10px 15px !important;
+        height: 26px;
+        margin-right: 14px;
+        padding-top: 0;
+        padding-bottom: 0;
 
         & img {
             display: none;
@@ -85,12 +98,12 @@
 .menu-link {
     color: white;
     font-family: $inter-400;
-    font-size: 1.3vw; //24px on 1920
+    font-size: 1.0625vw;
     transition: color 0.15s ease;
     cursor: pointer;
 
     &:not(:last-child) {
-        margin-right: 1.333em;
+        margin-right: 2vw;
     }
 
     &:hover {
@@ -98,10 +111,10 @@
     }
 
     @media (max-width: $screen2Xl) {
-        font-size: 20px;
+        font-size: 17px;
 
         &:not(:last-child) {
-            margin-right: 1.6em;
+            margin-right: 32px;
         }
     }
 }
