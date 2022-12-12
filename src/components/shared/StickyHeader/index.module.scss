@@ -40,6 +40,7 @@
 
 .logo {
     height: 1.75vw;
+    cursor: pointer;
 
     @media (max-width: $screen2Xl) {
         height: 28px;
