@@ -4,7 +4,7 @@
     position: fixed;
     top: -4.25vw;
     z-index: 9999;
-    transition: top 0.5s ease-in;
+    //transition: top 50ms ease-in;
     width: 100vw;
 
     display: flex;
@@ -25,7 +25,7 @@
 }
 
 .header-animation-on {
-    top: 0;
+    //top: 0;
 }
 
 .navbar {

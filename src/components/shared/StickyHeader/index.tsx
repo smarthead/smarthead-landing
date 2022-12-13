@@ -62,8 +62,10 @@ const StickyHeader: React.FC<IHeader> = ({
         scrollToSection(`#${navigation.contacts}`);
     };
 
-    const { isStickyHeaderShown, setIsScrollBehaviorDisabled } =
-        useStickyHeader(heroSectionHeight);
+    const headerRef = useRef<HTMLElement>(null);
+
+    const { setIsScrollBehaviorDisabled } =
+        useStickyHeader(heroSectionHeight, headerRef.current);
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -85,8 +87,9 @@ const StickyHeader: React.FC<IHeader> = ({
     return (
         <header
             className={cn(styles.header, 'container', {
-                [styles.headerAnimationOn]: isStickyHeaderShown,
+                // [styles.headerAnimationOn]: isStickyHeaderShown,
             })}
+            ref={headerRef}
         >
             <nav className={cn(styles.navbar)}>
                 <img

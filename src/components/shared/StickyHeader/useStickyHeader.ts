@@ -2,11 +2,56 @@ import {
     useVerticalScroll,
     VerticalScrollDirection,
 } from '../../../utils/hooks/useVerticalScroll';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
+
+const SCROLL_STEP = 3;
+
+const showHeader = (headerDomElem: HTMLElement) => {
+    if (headerDomElem) {
+        const styles = getComputedStyle(headerDomElem);
+
+        const previousTopValue = parseFloat(styles.top);
+        console.log('previousTopValue', previousTopValue);
+        if (previousTopValue > 0) return;
+
+        const currentTopValue = previousTopValue + SCROLL_STEP;
+        console.log('currentTopValue', currentTopValue);
+
+        if (currentTopValue > 0) {
+            headerDomElem.style.top = `0px`;
+        } else {
+            headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
+        }
+    }
+};
+
+const hideHeader = (headerDomElem: HTMLElement) => {
+    if (headerDomElem) {
+        const styles = getComputedStyle(headerDomElem);
+
+        const headerHeight = parseFloat(styles.height);
+
+        const previousTopValue = parseFloat(styles.top);
+        console.log('previousTopValue', previousTopValue);
+
+        if (previousTopValue < headerHeight * (-1)) return;
+
+        const currentTopValue = previousTopValue - SCROLL_STEP;
+        console.log('currentTopValue', currentTopValue);
+
+        if (currentTopValue < headerHeight * (-1)) {
+            console.log(-headerHeight)
+            headerDomElem.style.top = `-${headerHeight}px`;
+        } else {
+            headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
+        }
+    }
+};
 
 export const useStickyHeader = (
     firstScreenHeight: number | null,
+    headerDomElem: HTMLElement | null,
     scrollEndTimeout?: number
 ) => {
     const isScrollBehaviourDisabled = useRef(false);
@@ -15,19 +60,19 @@ export const useStickyHeader = (
     };
 
     const [scrollY, scrollYDirection] = useVerticalScroll();
-    const [isStickyHeaderShown, setIsStickyHeaderShown] = useState(false);
 
     const handleScroll = useCallback(() => {
-        if (isScrollBehaviourDisabled.current) return;
+        console.log('scroll');
+        if (isScrollBehaviourDisabled.current || !headerDomElem) return;
 
         if (scrollY > Number(Number(firstScreenHeight))) {
             if (scrollYDirection === VerticalScrollDirection.up) {
-                setIsStickyHeaderShown(true);
+                showHeader(headerDomElem);
             } else {
-                setIsStickyHeaderShown(false);
+                hideHeader(headerDomElem);
             }
         } else {
-            setIsStickyHeaderShown(false);
+            hideHeader(headerDomElem);
         }
     }, [scrollY, scrollYDirection]);
 
@@ -46,7 +91,6 @@ export const useStickyHeader = (
     }, scrollEndTimeout || 200);
 
     return {
-        isStickyHeaderShown,
         isScrollBehaviourDisabled,
         setIsScrollBehaviorDisabled,
     };
