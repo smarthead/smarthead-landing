@@ -35,13 +35,13 @@ const hideHeader = (headerDomElem: HTMLElement) => {
         const previousTopValue = parseFloat(styles.top);
         console.log('previousTopValue', previousTopValue);
 
-        if (previousTopValue < headerHeight * (-1)) return;
+        if (previousTopValue < headerHeight * -1) return;
 
         const currentTopValue = previousTopValue - SCROLL_STEP;
         console.log('currentTopValue', currentTopValue);
 
-        if (currentTopValue < headerHeight * (-1)) {
-            console.log(-headerHeight)
+        if (currentTopValue < headerHeight * -1) {
+            console.log(-headerHeight);
             headerDomElem.style.top = `-${headerHeight}px`;
         } else {
             headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;

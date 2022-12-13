@@ -1,43 +1,43 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useDebounce } from './useDebounce';
 
 export enum VerticalScrollDirection {
     initial = 'initial',
     down = 'down',
-    up ='up',
+    up = 'up',
 }
 
 export function useVerticalScroll(): [number, VerticalScrollDirection] {
-    const initialScrollY = typeof window !== "undefined" ? window.scrollY : 0; // for gatsby build
+    const initialScrollY = typeof window !== 'undefined' ? window.scrollY : 0; // for gatsby build
 
     const [lastScrollTop, setLastScrollTop] = useState(initialScrollY);
-    const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial);
+    const [verticalScrollDirection, setVerticalScrollDirection] = useState(
+        VerticalScrollDirection.initial
+    );
 
-    const handleScrollDirection = useCallback(() => {
-        if (window.scrollY > lastScrollTop){
+    const handleScroll = useCallback(() => {
+        if (
+            window.scrollY > lastScrollTop &&
+            verticalScrollDirection !== VerticalScrollDirection.down
+        ) {
             setVerticalScrollDirection(VerticalScrollDirection.down);
-        } else if (window.scrollY < lastScrollTop){
+        } else if (
+            window.scrollY < lastScrollTop &&
+            verticalScrollDirection !== VerticalScrollDirection.up
+        ) {
             setVerticalScrollDirection(VerticalScrollDirection.up);
         }
-    },[lastScrollTop]);
-
-    const handleLastScrollTop = useDebounce(() => {
-        console.log('DEBOUNCED', window.scrollY);
         if (lastScrollTop !== window.scrollY) {
             setLastScrollTop(window.scrollY);
         }
-    }, 100);
+    }, [lastScrollTop, verticalScrollDirection]);
 
     useEffect(() => {
-        window.addEventListener("scroll", handleLastScrollTop);
-        window.addEventListener("scroll", handleScrollDirection);
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener("scroll", handleLastScrollTop);
-            window.removeEventListener("scroll", handleScrollDirection);
-        }
-    }, [handleLastScrollTop, handleScrollDirection]);
-
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [handleScroll]);
 
     return [lastScrollTop, verticalScrollDirection];
 }
