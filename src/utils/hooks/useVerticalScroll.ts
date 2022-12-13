@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useDebounce } from './useDebounce';
 
 export enum VerticalScrollDirection {
     initial = 'initial',
@@ -12,25 +13,31 @@ export function useVerticalScroll(): [number, VerticalScrollDirection] {
     const [lastScrollTop, setLastScrollTop] = useState(initialScrollY);
     const [verticalScrollDirection, setVerticalScrollDirection] = useState(VerticalScrollDirection.initial);
 
-    const handleScroll = useCallback(() => {
+    const handleScrollDirection = useCallback(() => {
         if (window.scrollY > lastScrollTop){
             setVerticalScrollDirection(VerticalScrollDirection.down);
         } else if (window.scrollY < lastScrollTop){
             setVerticalScrollDirection(VerticalScrollDirection.up);
         }
+    },[lastScrollTop]);
 
+    const handleLastScrollTop = useDebounce(() => {
+        console.log('DEBOUNCED', window.scrollY);
         if (lastScrollTop !== window.scrollY) {
             setLastScrollTop(window.scrollY);
         }
-    },[lastScrollTop]);
+    }, 100);
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleLastScrollTop);
+        window.addEventListener("scroll", handleScrollDirection);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleLastScrollTop);
+            window.removeEventListener("scroll", handleScrollDirection);
         }
-    }, [handleScroll]);
+    }, [handleLastScrollTop, handleScrollDirection]);
+
 
     return [lastScrollTop, verticalScrollDirection];
 }

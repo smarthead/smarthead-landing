@@ -5,7 +5,7 @@ import {
 import { useCallback, useEffect, useRef } from 'react';
 import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
 
-const SCROLL_STEP = 3;
+const SCROLL_STEP = 4;
 
 const showHeader = (headerDomElem: HTMLElement) => {
     if (headerDomElem) {
@@ -62,7 +62,6 @@ export const useStickyHeader = (
     const [scrollY, scrollYDirection] = useVerticalScroll();
 
     const handleScroll = useCallback(() => {
-        console.log('scroll');
         if (isScrollBehaviourDisabled.current || !headerDomElem) return;
 
         if (scrollY > Number(Number(firstScreenHeight))) {
