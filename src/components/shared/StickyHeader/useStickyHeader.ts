@@ -7,16 +7,13 @@ import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
 
 const SCROLL_STEP = 4;
 
-const showHeader = (headerDomElem: HTMLElement) => {
+const showHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
     if (headerDomElem) {
         const styles = getComputedStyle(headerDomElem);
-
         const previousTopValue = parseFloat(styles.top);
-        console.log('previousTopValue', previousTopValue);
-        if (previousTopValue > 0) return;
 
-        const currentTopValue = previousTopValue + SCROLL_STEP;
-        console.log('currentTopValue', currentTopValue);
+        if (previousTopValue > 0) return;
+        const currentTopValue = previousTopValue + step;
 
         if (currentTopValue > 0) {
             headerDomElem.style.top = `0px`;
@@ -26,22 +23,16 @@ const showHeader = (headerDomElem: HTMLElement) => {
     }
 };
 
-const hideHeader = (headerDomElem: HTMLElement) => {
+const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
     if (headerDomElem) {
         const styles = getComputedStyle(headerDomElem);
-
         const headerHeight = parseFloat(styles.height);
-
         const previousTopValue = parseFloat(styles.top);
-        console.log('previousTopValue', previousTopValue);
 
         if (previousTopValue < headerHeight * -1) return;
-
-        const currentTopValue = previousTopValue - SCROLL_STEP;
-        console.log('currentTopValue', currentTopValue);
+        const currentTopValue = previousTopValue - step;
 
         if (currentTopValue < headerHeight * -1) {
-            console.log(-headerHeight);
             headerDomElem.style.top = `-${headerHeight}px`;
         } else {
             headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
@@ -92,5 +83,7 @@ export const useStickyHeader = (
     return {
         isScrollBehaviourDisabled,
         setIsScrollBehaviorDisabled,
+        showHeader,
+        hideHeader
     };
 };
