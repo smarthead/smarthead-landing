@@ -81,10 +81,10 @@ const StickyHeader: React.FC<IHeader> = ({
     });
 
     const handleLogoClick = () => {
-        const headerDomELem = headerRef.current;
-        if (headerDomELem) {
-            const headerHeight = parseFloat(getComputedStyle(headerDomELem).height);
-            hideHeader(headerDomELem, headerHeight)
+        const headerDomElem = headerRef.current;
+        if (headerDomElem) {
+            const headerHeight = parseFloat(getComputedStyle(headerDomElem).height);
+            hideHeader(headerDomElem, headerHeight)
             setIsScrollBehaviorDisabled(true);
         }
 

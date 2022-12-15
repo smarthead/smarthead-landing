@@ -74,6 +74,12 @@ export const useStickyHeader = (
         };
     }, [handleScroll]);
 
+    useEffect(() => {
+        if (scrollY === 0 && headerDomElem) {
+            hideHeader(headerDomElem, parseFloat(getComputedStyle(headerDomElem).height));
+        }
+    }, [scrollY, headerDomElem, hideHeader]);
+
     useWindowScrollEnd(() => {
         if (isScrollBehaviourDisabled.current) {
             setIsScrollBehaviorDisabled(false);
