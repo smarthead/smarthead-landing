@@ -11,6 +11,7 @@ const showHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
     if (headerDomElem) {
         const styles = getComputedStyle(headerDomElem);
         const previousTopValue = parseFloat(styles.top);
+        console.log(previousTopValue);
 
         if (previousTopValue > 0) return;
         const currentTopValue = previousTopValue + step;
@@ -28,6 +29,7 @@ const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
         const styles = getComputedStyle(headerDomElem);
         const headerHeight = parseFloat(styles.height);
         const previousTopValue = parseFloat(styles.top);
+        console.log(previousTopValue);
 
         if (previousTopValue < headerHeight * -1) return;
         const currentTopValue = previousTopValue - step;
@@ -57,7 +59,7 @@ export const useStickyHeader = (
 
         if (scrollY > Number(Number(firstScreenHeight))) {
             if (scrollYDirection === VerticalScrollDirection.up) {
-                showHeader(headerDomElem);
+                showHeader(headerDomElem, 8);
             } else {
                 hideHeader(headerDomElem);
             }
