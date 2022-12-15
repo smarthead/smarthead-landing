@@ -64,7 +64,7 @@ const StickyHeader: React.FC<IHeader> = ({
 
     const headerRef = useRef<HTMLElement>(null);
 
-    const { setIsScrollBehaviorDisabled } =
+    const { setIsScrollBehaviorDisabled, hideHeader } =
         useStickyHeader(heroSectionHeight, headerRef.current);
 
     const resizeHandler = () => {
@@ -81,14 +81,19 @@ const StickyHeader: React.FC<IHeader> = ({
     });
 
     const handleLogoClick = () => {
+        const headerDomELem = headerRef.current;
+        if (headerDomELem) {
+            const headerHeight = parseFloat(getComputedStyle(headerDomELem).height);
+            hideHeader(headerDomELem, headerHeight)
+            setIsScrollBehaviorDisabled(true);
+        }
+
         scrollToTop();
     };
 
     return (
         <header
-            className={cn(styles.header, 'container', {
-                // [styles.headerAnimationOn]: isStickyHeaderShown,
-            })}
+            className={cn(styles.header, 'container')}
             ref={headerRef}
         >
             <nav className={cn(styles.navbar)}>
