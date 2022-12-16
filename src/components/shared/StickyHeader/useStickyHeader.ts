@@ -42,6 +42,19 @@ const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
     }
 };
 
+const getPageHeight = () =>
+    Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+    );
+
+const getPageBottomScrollHeight = () =>
+    getPageHeight() - document.documentElement.clientHeight;
+
 export const useStickyHeader = (
     firstScreenHeight: number | null,
     headerDomElem: HTMLElement | null,
@@ -59,7 +72,7 @@ export const useStickyHeader = (
 
         if (scrollY > Number(Number(firstScreenHeight))) {
             if (scrollYDirection === VerticalScrollDirection.up) {
-                showHeader(headerDomElem, 8);
+                showHeader(headerDomElem);
             } else {
                 hideHeader(headerDomElem);
             }
@@ -77,8 +90,14 @@ export const useStickyHeader = (
     }, [handleScroll]);
 
     useEffect(() => {
-        if (scrollY === 0 && headerDomElem) {
-            hideHeader(headerDomElem, parseFloat(getComputedStyle(headerDomElem).height));
+        if (
+            headerDomElem &&
+            (scrollY <= 0 || scrollY >= getPageBottomScrollHeight())
+        ) {
+            hideHeader(
+                headerDomElem,
+                parseFloat(getComputedStyle(headerDomElem).height)
+            );
         }
     }, [scrollY, headerDomElem, hideHeader]);
 
@@ -92,6 +111,6 @@ export const useStickyHeader = (
         isScrollBehaviourDisabled,
         setIsScrollBehaviorDisabled,
         showHeader,
-        hideHeader
+        hideHeader,
     };
 };
