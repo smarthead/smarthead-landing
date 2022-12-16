@@ -42,6 +42,15 @@ const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
     }
 };
 
+// const isHeaderInFinalPosition = (headerDomElem: HTMLElement) => {
+//     if (headerDomElem) {
+//         const headerHeight = parseFloat(getComputedStyle(headerDomElem).height);
+//         const headerTop = parseFloat(getComputedStyle(headerDomElem).top);
+//
+//         return headerTop === -headerHeight || headerTop === 0;
+//     }
+// };
+
 const getPageHeight = () =>
     Math.max(
         document.body.scrollHeight,
@@ -101,7 +110,32 @@ export const useStickyHeader = (
         }
     }, [scrollY, headerDomElem, hideHeader]);
 
+    // const [isCursorOnHeader, serIsCursorOnHeader] = useState(false);
+    //
+    // const handleMouseOver = useCallback(() => {
+    //     if (headerDomElem && isHeaderInFinalPosition(headerDomElem)) {
+    //         serIsCursorOnHeader(true);
+    //         setIsScrollBehaviorDisabled(true);
+    //     }
+    // }, [setIsScrollBehaviorDisabled]);
+    //
+    // const handleMouseLeave = useCallback(() => {
+    //     serIsCursorOnHeader(false);
+    //     setIsScrollBehaviorDisabled(false);
+    // }, [setIsScrollBehaviorDisabled]);
+    //
+    // useEffect(() => {
+    //     headerDomElem?.addEventListener('mouseover', handleMouseOver);
+    //     headerDomElem?.addEventListener('mouseleave', handleMouseLeave);
+    //
+    //     return () => {
+    //         headerDomElem?.removeEventListener('mouseover', handleMouseOver);
+    //         headerDomElem?.addEventListener('mouseleave', handleMouseLeave);
+    //     };
+    // }, [handleMouseOver, handleMouseLeave]);
+
     useWindowScrollEnd(() => {
+        //if (isScrollBehaviourDisabled.current && !isCursorOnHeader) {
         if (isScrollBehaviourDisabled.current) {
             setIsScrollBehaviorDisabled(false);
         }
