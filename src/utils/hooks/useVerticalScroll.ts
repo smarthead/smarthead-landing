@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { isBrowser } from '../isBrowser';
 
 export enum VerticalScrollDirection {
     initial = 'initial',
@@ -6,10 +7,12 @@ export enum VerticalScrollDirection {
     up = 'up',
 }
 
-export function useVerticalScroll(): [number, VerticalScrollDirection] {
-    const initialScrollY = typeof window !== 'undefined' ? window.scrollY : 0; // for gatsby build
+export function useVerticalScroll(): [number, VerticalScrollDirection, number] {
+    const initialScrollY = isBrowser() ? window.scrollY : 0;
 
     const [lastScrollTop, setLastScrollTop] = useState(initialScrollY);
+    const [prevScrollTop, setPrevScrollTop] = useState(initialScrollY);
+
     const [verticalScrollDirection, setVerticalScrollDirection] = useState(
         VerticalScrollDirection.initial
     );
@@ -27,6 +30,7 @@ export function useVerticalScroll(): [number, VerticalScrollDirection] {
             setVerticalScrollDirection(VerticalScrollDirection.up);
         }
         if (lastScrollTop !== window.scrollY) {
+            setPrevScrollTop(lastScrollTop);
             setLastScrollTop(window.scrollY);
         }
     }, [lastScrollTop, verticalScrollDirection]);
@@ -39,5 +43,5 @@ export function useVerticalScroll(): [number, VerticalScrollDirection] {
         };
     }, [handleScroll]);
 
-    return [lastScrollTop, verticalScrollDirection];
+    return [lastScrollTop, verticalScrollDirection, prevScrollTop];
 }
