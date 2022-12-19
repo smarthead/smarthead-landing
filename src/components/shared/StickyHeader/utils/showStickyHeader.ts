@@ -16,6 +16,6 @@ export const showStickyHeader = (
     if (currentTopValue > 0) {
         headerDomElem.style.top = `0px`;
     } else {
-        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
+        headerDomElem.style.top = `${currentTopValue}px`;
     }
 };

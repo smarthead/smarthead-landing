@@ -18,6 +18,6 @@ export const hideStickyHeader = (
     if (currentTopValue < headerHeight * -1) {
         headerDomElem.style.top = `-${headerHeight}px`;
     } else {
-        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
+        headerDomElem.style.top = `${currentTopValue}px`;
     }
 };
