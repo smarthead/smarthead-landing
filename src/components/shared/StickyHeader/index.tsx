@@ -3,12 +3,13 @@ import cn from 'classnames';
 
 import ButtonLink from '../ButtonLink';
 import { scrollToSection, scrollToTop } from '../../../utils/scroll';
-import { useStickyHeader } from './useStickyHeader';
+import { useStickyHeader } from './utils';
+import { navigation } from '../navigation';
+import { hideStickyHeader } from './utils';
 
 import * as styles from './index.module.scss';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
-import { navigation } from '../navigation';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -64,8 +65,10 @@ const StickyHeader: React.FC<IHeader> = ({
 
     const headerRef = useRef<HTMLElement>(null);
 
-    const { setIsScrollBehaviorDisabled, hideHeader } =
-        useStickyHeader(heroSectionHeight, headerRef.current);
+    const { setIsScrollBehaviorDisabled } = useStickyHeader(
+        heroSectionHeight,
+        headerRef.current
+    );
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -83,8 +86,10 @@ const StickyHeader: React.FC<IHeader> = ({
     const handleLogoClick = () => {
         const headerDomElem = headerRef.current;
         if (headerDomElem) {
-            const headerHeight = parseFloat(getComputedStyle(headerDomElem).height);
-            hideHeader(headerDomElem, headerHeight)
+            const headerHeight = parseFloat(
+                getComputedStyle(headerDomElem).height
+            );
+            hideStickyHeader(headerDomElem, headerHeight);
             setIsScrollBehaviorDisabled(true);
         }
 
@@ -92,10 +97,7 @@ const StickyHeader: React.FC<IHeader> = ({
     };
 
     return (
-        <header
-            className={cn(styles.header, 'container')}
-            ref={headerRef}
-        >
+        <header className={cn(styles.header, 'container')} ref={headerRef}>
             <nav className={cn(styles.navbar)}>
                 <img
                     src={shLogo}

@@ -1,48 +1,11 @@
 import {
     useVerticalScroll,
     VerticalScrollDirection,
-} from '../../../utils/hooks/useVerticalScroll';
+} from '../../../../utils/hooks/useVerticalScroll';
 import { useCallback, useEffect, useRef } from 'react';
-import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
-
-const SCROLL_STEP = 4;
-const BRAKING_COEFFICIENT = 0.7;
-
-const showHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
-    if (!headerDomElem) return;
-
-    const styles = getComputedStyle(headerDomElem);
-    const previousTopValue = parseFloat(styles.top);
-
-    if (previousTopValue > 0) return;
-    const currentTopValue =
-        previousTopValue + Math.abs(step) * BRAKING_COEFFICIENT;
-
-    if (currentTopValue > 0) {
-        headerDomElem.style.top = `0px`;
-    } else {
-        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
-    }
-};
-
-const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
-    if (!headerDomElem) return;
-
-    const styles = getComputedStyle(headerDomElem);
-    const previousTopValue = parseFloat(styles.top);
-
-    const headerHeight = parseFloat(styles.height);
-
-    if (previousTopValue < headerHeight * -1) return;
-    const currentTopValue =
-        previousTopValue - Math.abs(step) * BRAKING_COEFFICIENT;
-
-    if (currentTopValue < headerHeight * -1) {
-        headerDomElem.style.top = `-${headerHeight}px`;
-    } else {
-        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
-    }
-};
+import { useWindowScrollEnd } from '../../../../utils/hooks/useWindowScrollEnd';
+import { showStickyHeader } from './showStickyHeader';
+import { hideStickyHeader } from './hideStickyHeader';
 
 // const isHeaderInFinalPosition = (headerDomElem: HTMLElement) => {
 //     if (headerDomElem) {
@@ -85,12 +48,12 @@ export const useStickyHeader = (
 
         if (scrollY > Number(Number(firstScreenHeight))) {
             if (scrollYDirection === VerticalScrollDirection.up) {
-                showHeader(headerDomElem, step);
+                showStickyHeader(headerDomElem, step);
             } else {
-                hideHeader(headerDomElem, step);
+                hideStickyHeader(headerDomElem, step);
             }
         } else {
-            hideHeader(headerDomElem, step);
+            hideStickyHeader(headerDomElem, step);
         }
     }, [scrollY, scrollYDirection]);
 
@@ -108,12 +71,12 @@ export const useStickyHeader = (
             headerDomElem &&
             (scrollY <= 0 || scrollY >= getPageBottomScrollHeight())
         ) {
-            hideHeader(
+            hideStickyHeader(
                 headerDomElem,
                 parseFloat(getComputedStyle(headerDomElem).height)
             );
         }
-    }, [scrollY, headerDomElem, hideHeader]);
+    }, [scrollY, headerDomElem, hideStickyHeader]);
 
     // const [isCursorOnHeader, serIsCursorOnHeader] = useState(false);
     //
@@ -149,7 +112,5 @@ export const useStickyHeader = (
     return {
         isScrollBehaviourDisabled,
         setIsScrollBehaviorDisabled,
-        showHeader,
-        hideHeader,
     };
 };
