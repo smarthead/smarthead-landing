@@ -6,28 +6,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useWindowScrollEnd } from '../../../../utils/hooks/useWindowScrollEnd';
 import { showStickyHeader } from './showStickyHeader';
 import { hideStickyHeader } from './hideStickyHeader';
-
-// const isHeaderInFinalPosition = (headerDomElem: HTMLElement) => {
-//     if (headerDomElem) {
-//         const headerHeight = parseFloat(getComputedStyle(headerDomElem).height);
-//         const headerTop = parseFloat(getComputedStyle(headerDomElem).top);
-//
-//         return headerTop === -headerHeight || headerTop === 0;
-//     }
-// };
-
-const getPageHeight = () =>
-    Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight
-    );
-
-const getPageBottomScrollHeight = () =>
-    getPageHeight() - document.documentElement.clientHeight;
+import { useFixStickyHeaderMacOSscroll } from './useFixStickyHeaderMacOSscroll';
 
 export const useStickyHeader = (
     firstScreenHeight: number | null,
@@ -65,46 +44,9 @@ export const useStickyHeader = (
         };
     }, [handleScroll]);
 
-    // fix for macOS bouncing scroll
-    useEffect(() => {
-        if (
-            headerDomElem &&
-            (scrollY.current <= 0 ||
-                scrollY.current > getPageBottomScrollHeight())
-        ) {
-            hideStickyHeader(
-                headerDomElem,
-                parseFloat(getComputedStyle(headerDomElem).height)
-            );
-        }
-    }, [scrollY, headerDomElem, hideStickyHeader]);
-
-    // const [isCursorOnHeader, serIsCursorOnHeader] = useState(false);
-    //
-    // const handleMouseOver = useCallback(() => {
-    //     if (headerDomElem && isHeaderInFinalPosition(headerDomElem)) {
-    //         serIsCursorOnHeader(true);
-    //         setIsScrollBehaviorDisabled(true);
-    //     }
-    // }, [setIsScrollBehaviorDisabled]);
-    //
-    // const handleMouseLeave = useCallback(() => {
-    //     serIsCursorOnHeader(false);
-    //     setIsScrollBehaviorDisabled(false);
-    // }, [setIsScrollBehaviorDisabled]);
-    //
-    // useEffect(() => {
-    //     headerDomElem?.addEventListener('mouseover', handleMouseOver);
-    //     headerDomElem?.addEventListener('mouseleave', handleMouseLeave);
-    //
-    //     return () => {
-    //         headerDomElem?.removeEventListener('mouseover', handleMouseOver);
-    //         headerDomElem?.addEventListener('mouseleave', handleMouseLeave);
-    //     };
-    // }, [handleMouseOver, handleMouseLeave]);
+    useFixStickyHeaderMacOSscroll(headerDomElem, scrollY);
 
     useWindowScrollEnd(() => {
-        //if (isScrollBehaviourDisabled.current && !isCursorOnHeader) {
         if (isScrollBehaviourDisabled.current) {
             setIsScrollBehaviorDisabled(false);
         }
