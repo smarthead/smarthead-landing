@@ -39,14 +39,14 @@ export const useStickyHeader = (
         isScrollBehaviourDisabled.current = value;
     };
 
-    const [scrollY, scrollYDirection, prevScrollY] = useVerticalScroll();
+    const [scrollY, scrollYDirection] = useVerticalScroll();
 
     const handleScroll = useCallback(() => {
         if (isScrollBehaviourDisabled.current || !headerDomElem) return;
 
-        const step = scrollY - prevScrollY;
+        const step = scrollY.current - scrollY.previous;
 
-        if (scrollY > Number(Number(firstScreenHeight))) {
+        if (scrollY.current > Number(firstScreenHeight)) {
             if (scrollYDirection === VerticalScrollDirection.up) {
                 showStickyHeader(headerDomElem, step);
             } else {
@@ -69,7 +69,8 @@ export const useStickyHeader = (
     useEffect(() => {
         if (
             headerDomElem &&
-            (scrollY <= 0 || scrollY >= getPageBottomScrollHeight())
+            (scrollY.current <= 0 ||
+                scrollY.current > getPageBottomScrollHeight())
         ) {
             hideStickyHeader(
                 headerDomElem,

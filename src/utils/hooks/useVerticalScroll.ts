@@ -7,11 +7,18 @@ export enum VerticalScrollDirection {
     up = 'up',
 }
 
-export function useVerticalScroll(): [number, VerticalScrollDirection, number] {
+export interface ScrollTop {
+    current: number;
+    previous: number;
+}
+
+export function useVerticalScroll(): [ScrollTop, VerticalScrollDirection] {
     const initialScrollY = isBrowser() ? window.scrollY : 0;
 
-    const [lastScrollTop, setLastScrollTop] = useState(initialScrollY);
-    const [prevScrollTop, setPrevScrollTop] = useState(initialScrollY);
+    const [scrollTop, setScrollTop] = useState<ScrollTop>({
+        current: initialScrollY,
+        previous: initialScrollY,
+    });
 
     const [verticalScrollDirection, setVerticalScrollDirection] = useState(
         VerticalScrollDirection.initial
@@ -19,21 +26,23 @@ export function useVerticalScroll(): [number, VerticalScrollDirection, number] {
 
     const handleScroll = useCallback(() => {
         if (
-            window.scrollY > lastScrollTop &&
+            window.scrollY > scrollTop.current &&
             verticalScrollDirection !== VerticalScrollDirection.down
         ) {
             setVerticalScrollDirection(VerticalScrollDirection.down);
         } else if (
-            window.scrollY < lastScrollTop &&
+            window.scrollY < scrollTop.current &&
             verticalScrollDirection !== VerticalScrollDirection.up
         ) {
             setVerticalScrollDirection(VerticalScrollDirection.up);
         }
-        if (lastScrollTop !== window.scrollY) {
-            setPrevScrollTop(lastScrollTop);
-            setLastScrollTop(window.scrollY);
+        if (scrollTop.current !== window.scrollY) {
+            setScrollTop({
+                current: window.scrollY,
+                previous: scrollTop.current,
+            });
         }
-    }, [lastScrollTop, verticalScrollDirection]);
+    }, [scrollTop, verticalScrollDirection]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -43,5 +52,5 @@ export function useVerticalScroll(): [number, VerticalScrollDirection, number] {
         };
     }, [handleScroll]);
 
-    return [lastScrollTop, verticalScrollDirection, prevScrollTop];
+    return [scrollTop, verticalScrollDirection];
 }
