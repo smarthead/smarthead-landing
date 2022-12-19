@@ -6,39 +6,41 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useWindowScrollEnd } from '../../../utils/hooks/useWindowScrollEnd';
 
 const SCROLL_STEP = 4;
+const BRAKING_COEFFICIENT = 0.7;
 
 const showHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
-    if (headerDomElem) {
-        const styles = getComputedStyle(headerDomElem);
-        const previousTopValue = parseFloat(styles.top);
-        console.log(previousTopValue);
+    if (!headerDomElem) return;
 
-        if (previousTopValue > 0) return;
-        const currentTopValue = previousTopValue + step;
+    const styles = getComputedStyle(headerDomElem);
+    const previousTopValue = parseFloat(styles.top);
 
-        if (currentTopValue > 0) {
-            headerDomElem.style.top = `0px`;
-        } else {
-            headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
-        }
+    if (previousTopValue > 0) return;
+    const currentTopValue =
+        previousTopValue + Math.abs(step) * BRAKING_COEFFICIENT;
+
+    if (currentTopValue > 0) {
+        headerDomElem.style.top = `0px`;
+    } else {
+        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
     }
 };
 
 const hideHeader = (headerDomElem: HTMLElement, step: number = SCROLL_STEP) => {
-    if (headerDomElem) {
-        const styles = getComputedStyle(headerDomElem);
-        const headerHeight = parseFloat(styles.height);
-        const previousTopValue = parseFloat(styles.top);
-        console.log(previousTopValue);
+    if (!headerDomElem) return;
 
-        if (previousTopValue < headerHeight * -1) return;
-        const currentTopValue = previousTopValue - step;
+    const styles = getComputedStyle(headerDomElem);
+    const previousTopValue = parseFloat(styles.top);
 
-        if (currentTopValue < headerHeight * -1) {
-            headerDomElem.style.top = `-${headerHeight}px`;
-        } else {
-            headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
-        }
+    const headerHeight = parseFloat(styles.height);
+
+    if (previousTopValue < headerHeight * -1) return;
+    const currentTopValue =
+        previousTopValue - Math.abs(step) * BRAKING_COEFFICIENT;
+
+    if (currentTopValue < headerHeight * -1) {
+        headerDomElem.style.top = `-${headerHeight}px`;
+    } else {
+        headerDomElem.style.top = `${currentTopValue.toFixed(1)}px`;
     }
 };
 
@@ -74,19 +76,21 @@ export const useStickyHeader = (
         isScrollBehaviourDisabled.current = value;
     };
 
-    const [scrollY, scrollYDirection] = useVerticalScroll();
+    const [scrollY, scrollYDirection, prevScrollY] = useVerticalScroll();
 
     const handleScroll = useCallback(() => {
         if (isScrollBehaviourDisabled.current || !headerDomElem) return;
 
+        const step = scrollY - prevScrollY;
+
         if (scrollY > Number(Number(firstScreenHeight))) {
             if (scrollYDirection === VerticalScrollDirection.up) {
-                showHeader(headerDomElem);
+                showHeader(headerDomElem, step);
             } else {
-                hideHeader(headerDomElem);
+                hideHeader(headerDomElem, step);
             }
         } else {
-            hideHeader(headerDomElem);
+            hideHeader(headerDomElem, step);
         }
     }, [scrollY, scrollYDirection]);
 
@@ -98,6 +102,7 @@ export const useStickyHeader = (
         };
     }, [handleScroll]);
 
+    // fix for macOS bouncing scroll
     useEffect(() => {
         if (
             headerDomElem &&
