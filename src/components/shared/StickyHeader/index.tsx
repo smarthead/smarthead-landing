@@ -65,10 +65,11 @@ const StickyHeader: React.FC<IHeader> = ({
 
     const headerRef = useRef<HTMLElement>(null);
 
-    const { setIsScrollBehaviorDisabled } = useStickyHeader(
-        heroSectionHeight,
-        headerRef.current
-    );
+    const { setIsScrollBehaviorDisabled } = useStickyHeader({
+        firstScreenHeight: heroSectionHeight,
+        headerDomElem: headerRef.current,
+        isMenuOpened: menuOpened,
+    });
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {

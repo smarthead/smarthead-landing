@@ -8,11 +8,19 @@ import { showStickyHeader } from './showStickyHeader';
 import { hideStickyHeader } from './hideStickyHeader';
 import { useFixStickyHeaderMacOSscroll } from './useFixStickyHeaderMacOSscroll';
 
-export const useStickyHeader = (
-    firstScreenHeight: number | null,
-    headerDomElem: HTMLElement | null,
-    scrollEndTimeout?: number
-) => {
+interface UseStickyHeaderArgs {
+    firstScreenHeight: number | null;
+    headerDomElem: HTMLElement | null;
+    isMenuOpened: boolean;
+    scrollEndTimeout?: number;
+}
+
+export const useStickyHeader = ({
+    firstScreenHeight,
+    headerDomElem,
+    isMenuOpened,
+    scrollEndTimeout,
+}: UseStickyHeaderArgs) => {
     const isScrollBehaviourDisabled = useRef(false);
     const setIsScrollBehaviorDisabled = (value: boolean) => {
         isScrollBehaviourDisabled.current = value;
@@ -44,7 +52,11 @@ export const useStickyHeader = (
         };
     }, [handleScroll]);
 
-    useFixStickyHeaderMacOSscroll(headerDomElem, scrollY);
+    useFixStickyHeaderMacOSscroll({
+        headerDomElem,
+        scrollTop: scrollY,
+        isMenuOpened,
+    });
 
     useWindowScrollEnd(() => {
         if (isScrollBehaviourDisabled.current) {

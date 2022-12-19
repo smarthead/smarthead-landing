@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+
 import { hideStickyHeader } from './hideStickyHeader';
+import { checkIsMobileView } from '../../../../utils/checkIsMobileVIew';
 import { ScrollTop } from '../../../../utils/hooks/useVerticalScroll';
 
 const getPageHeight = () =>
@@ -15,16 +17,29 @@ const getPageHeight = () =>
 const getPageBottomScrollHeight = () =>
     getPageHeight() - document.documentElement.clientHeight;
 
+const isMenuClosedOnDesktop = (isMenuOpened: boolean) =>
+    !isMenuOpened && !checkIsMobileView();
+
+const isScrolledMoreThanNormal = (scrollTop: number) =>
+    scrollTop <= 0 || scrollTop > getPageBottomScrollHeight();
+
+interface UseFixStickyHeaderMacOSscrollArgs {
+    headerDomElem: HTMLElement | null;
+    scrollTop: ScrollTop;
+    isMenuOpened: boolean;
+}
+
 // fix for macOS bouncing scroll
-export const useFixStickyHeaderMacOSscroll = (
-    headerDomElem: HTMLElement | null,
-    scrollY: ScrollTop
-) => {
+export const useFixStickyHeaderMacOSscroll = ({
+    headerDomElem,
+    scrollTop,
+    isMenuOpened,
+}: UseFixStickyHeaderMacOSscrollArgs) => {
     useEffect(() => {
         if (
             headerDomElem &&
-            (scrollY.current <= 0 ||
-                scrollY.current > getPageBottomScrollHeight())
+            isScrolledMoreThanNormal(scrollTop.current) &&
+            isMenuClosedOnDesktop(isMenuOpened)
         ) {
             hideStickyHeader(
                 headerDomElem,

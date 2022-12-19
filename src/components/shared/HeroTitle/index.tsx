@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
+import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
 
-import { isBrowser } from '../../../utils/isBrowser';
 import { ColorSet } from './useSlidesColors';
 import { TitleItem } from '../../pageSections/HeroRu';
 
@@ -20,9 +20,6 @@ interface SlidingHeroTitleProps {
     className?: string;
 }
 
-const calcIsMobile = () =>
-    isBrowser() && window.matchMedia(`(max-width: 992px)`).matches;
-
 const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     title,
     swiperCommonProps,
@@ -32,11 +29,11 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     slidesColors,
     className,
 }) => {
-    const [isMobileView, setIsMobileView] = useState(calcIsMobile());
+    const [isMobileView, setIsMobileView] = useState(checkIsMobileView());
 
     const handleResize = useCallback(() => {
-        setIsMobileView(calcIsMobile());
-    }, [calcIsMobile]);
+        setIsMobileView(checkIsMobileView());
+    }, [checkIsMobileView]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
