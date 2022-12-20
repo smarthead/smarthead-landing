@@ -1,20 +1,16 @@
-import { SCROLL_STEP, SLOWING_COEFFICIENT } from '../constants';
+const INVISIBLE_HEADER_PART = 5;
 
-export const showStickyHeader = (
-    headerDomElem: HTMLElement,
-    step: number = SCROLL_STEP
-) => {
+export const showStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (!headerDomElem) return;
 
     const styles = getComputedStyle(headerDomElem);
     const previousTopValue = parseFloat(styles.top);
 
-    if (previousTopValue > 0) return;
-    const currentTopValue =
-        previousTopValue + Math.abs(step) * SLOWING_COEFFICIENT;
+    if (previousTopValue > -INVISIBLE_HEADER_PART) return;
+    const currentTopValue = previousTopValue + Math.abs(step);
 
-    if (currentTopValue > 0) {
-        headerDomElem.style.top = `0px`;
+    if (currentTopValue > -INVISIBLE_HEADER_PART) {
+        headerDomElem.style.top = `-${INVISIBLE_HEADER_PART}px`;
     } else {
         headerDomElem.style.top = `${currentTopValue}px`;
     }

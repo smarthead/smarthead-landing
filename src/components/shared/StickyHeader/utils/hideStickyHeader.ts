@@ -1,9 +1,4 @@
-import { SCROLL_STEP, SLOWING_COEFFICIENT } from '../constants';
-
-export const hideStickyHeader = (
-    headerDomElem: HTMLElement,
-    step: number = SCROLL_STEP
-) => {
+export const hideStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (!headerDomElem) return;
 
     const styles = getComputedStyle(headerDomElem);
@@ -12,8 +7,7 @@ export const hideStickyHeader = (
     const headerHeight = parseFloat(styles.height);
 
     if (previousTopValue < headerHeight * -1) return;
-    const currentTopValue =
-        previousTopValue - Math.abs(step) * SLOWING_COEFFICIENT;
+    const currentTopValue = previousTopValue - Math.abs(step);
 
     if (currentTopValue < headerHeight * -1) {
         headerDomElem.style.top = `-${headerHeight}px`;
