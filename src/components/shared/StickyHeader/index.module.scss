@@ -5,13 +5,13 @@
     top: -4.25vw;
     z-index: 9999;
     width: 100vw;
+    padding-top: 5px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 4.25vw;
     background: $black;
-    padding-top: 5px;
 
     @media (max-width: $screen2Xl) {
         height: 68px;
@@ -67,12 +67,12 @@
 
 .menu-button {
     height: 2vw;
-    font-size: 0.625vw;
+    font-size: 0.75vw;
     margin-right: 3.125vw;
 
     @media (max-width: $screen2Xl) {
         height: 32px;
-        font-size: 10px;
+        font-size: 12px;
         margin-right: 50px;
     }
 
@@ -95,7 +95,7 @@
 .menu-link {
     color: white;
     font-family: $inter-400;
-    font-size: 1.0625vw;
+    font-size: 1.25vw;
     transition: color 0.15s ease;
     cursor: pointer;
 
@@ -108,7 +108,7 @@
     }
 
     @media (max-width: $screen2Xl) {
-        font-size: 17px;
+        font-size: 20px;
 
         &:not(:last-child) {
             margin-right: 32px;

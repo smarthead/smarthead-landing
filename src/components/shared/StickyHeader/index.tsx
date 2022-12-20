@@ -63,14 +63,6 @@ const StickyHeader: React.FC<IHeader> = ({
         scrollToSection(`#${navigation.contacts}`);
     };
 
-    const headerRef = useRef<HTMLElement>(null);
-
-    const { setIsScrollBehaviorDisabled } = useStickyHeader({
-        firstScreenHeight: heroSectionHeight,
-        headerDomElem: headerRef.current,
-        isMenuOpened: menuOpened,
-    });
-
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
             hamburgerClickHandler();
@@ -82,6 +74,14 @@ const StickyHeader: React.FC<IHeader> = ({
         return () => {
             window.removeEventListener('resize', resizeHandler);
         };
+    });
+
+    const headerRef = useRef<HTMLElement>(null);
+
+    const { setIsScrollBehaviorDisabled } = useStickyHeader({
+        firstScreenHeight: heroSectionHeight,
+        headerDomElem: headerRef.current,
+        isMenuOpened: menuOpened,
     });
 
     const handleLogoClick = () => {

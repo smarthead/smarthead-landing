@@ -24,19 +24,21 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
 
     const mobileMenuClickHandler = (e: React.MouseEvent) => {
         e.preventDefault();
+
         const target = e.target as HTMLElement;
         const isMenuLink = target.className.includes(styles.mobileMenuLink);
         if (isMenuLink) {
             hamburgerClickHandler();
             setMenuOpened(!menuOpened);
             const targetSectionId = target.getAttribute('href');
+
             scrollToSection(targetSectionId);
         }
     };
 
-    const handleDesktopMenuItemClick = (linkId:string) => {
+    const handleDesktopMenuItemClick = (linkId: string) => {
         scrollToSection(`#${linkId}`);
-    }
+    };
 
     const resizeHandler = () => {
         if (window.innerWidth > 768 && menuOpened) {
@@ -65,7 +67,9 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
                             <a
                                 key={link.id}
                                 className={styles.menuLink}
-                                onClick={() => handleDesktopMenuItemClick(link.id)}
+                                onClick={() =>
+                                    handleDesktopMenuItemClick(link.id)
+                                }
                             >
                                 {link.name}
                             </a>
