@@ -46,5 +46,5 @@ export const useFixStickyHeaderMacOSscroll = ({
                 parseFloat(getComputedStyle(headerDomElem).height)
             );
         }
-    }, [scrollY, headerDomElem, hideStickyHeader]);
+    }, [scrollTop, headerDomElem, hideStickyHeader]);
 };
