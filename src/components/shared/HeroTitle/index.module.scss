@@ -20,15 +20,15 @@
     }
 
     &-en {
-        font-size: 5.6vw;
+        font-size: 7.9375vw; // 127px
         line-height: 0.9em;
 
         @media (max-width: $screenXl) {
-            font-size: 6.1vw;
+            font-size: 8.28125vw; // 106px
         }
 
         @media (max-width: $screenLg) {
-            font-size: 9.8vw;
+            font-size: 8.85vw; // 68px
         }
     }
 
@@ -67,14 +67,14 @@
     }
 
     &-en {
-        height: 7.3vw;
+        height: 8.9vw;
 
         @media (max-width: $screenXl) {
-            height: 7vw;
+            height: 9.2vw;
         }
 
         @media (max-width: $screenLg) {
-            height: 11.5vw;
+            height: 9.85vw;
         }
     }
 }
@@ -98,9 +98,9 @@
 
     &-en {
         @media (max-width: $screenLg) {
-            font-size: 9.8vw;
+            font-size: 8.85vw;
             line-height: 1.1;
-            height: 23vw;
+            height: 19.7vw;
             align-items: flex-start;
         }
     }
