@@ -36,19 +36,12 @@ const StickyHeader: React.FC<IHeader> = ({
         setMenuOpened(!menuOpened);
     };
 
-    const mobileMenuClickHandler = (e: React.MouseEvent) => {
-        e.preventDefault();
+    const handleMobileMenuClick = (linkId: string) => {
         setIsScrollBehaviorDisabled(true);
 
-        const target = e.target as HTMLElement;
-        const isMenuLink = target.className.includes(styles.mobileMenuLink);
-        if (isMenuLink) {
-            hamburgerClickHandler();
-            setMenuOpened(!menuOpened);
-            const targetSectionId = target.getAttribute('href');
-
-            scrollToSection(targetSectionId);
-        }
+        hamburgerClickHandler();
+        setMenuOpened(!menuOpened);
+        scrollToSection(`#${linkId}`);
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
@@ -103,7 +96,7 @@ const StickyHeader: React.FC<IHeader> = ({
             menuLinks={menuLinks}
             onLogoClick={handleLogoClick}
             onDesktopMenuItemClick={handleDesktopMenuItemClick}
-            onMobileMenuClick={mobileMenuClickHandler}
+            onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={hamburgerClickHandler}
             isMenuOpened={menuOpened}
             Slot={

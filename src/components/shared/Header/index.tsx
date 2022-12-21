@@ -10,7 +10,7 @@ interface HeaderProps {
     Slot?: React.ReactElement;
     onLogoClick?: () => void;
     onDesktopMenuItemClick: (linkId: string) => void;
-    onMobileMenuClick: (e: React.MouseEvent) => void;
+    onMobileMenuClick: (linkId: string) => void;
     onHamburgerClick: () => void;
     isMenuOpened: boolean;
     className?: string;
@@ -58,13 +58,12 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                         className={`${styles.mobileMenu} ${
                             isMenuOpened ? styles.mobileMenuOpened : ''
                         }`}
-                        onClick={onMobileMenuClick}
                     >
                         {menuLinks.map((link) => (
                             <a
                                 key={link.id}
-                                href={`#${link.id}`}
                                 className={styles.mobileMenuLink}
+                                onClick={() => onMobileMenuClick(link.id)}
                             >
                                 {link.name}
                             </a>
