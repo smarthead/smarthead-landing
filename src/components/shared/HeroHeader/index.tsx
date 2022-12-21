@@ -5,11 +5,11 @@ import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
 
-interface IHeader {
+interface HeroHeaderProps {
     menuLinks: { [key: string]: string }[];
 }
 
-const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
+const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
     const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
     const handleHamburgerClick = () => {

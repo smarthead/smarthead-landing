@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
 import cn from 'classnames';
 
+import Header from '../Header';
 import ButtonLink from '../ButtonLink';
+
 import { scrollToSection, scrollToTop } from '../../../utils/scroll';
 import { useStickyHeader } from './utils';
 import { navigation } from '../navigation';
@@ -9,15 +11,13 @@ import { hideStickyHeader } from './utils';
 
 import * as styles from './index.module.scss';
 
-import Header from '../Header';
-
-interface IHeader {
+interface StickyHeaderProps {
     menuLinks: { [key: string]: string }[];
     buttonText: string;
     heroSectionHeight: number | null;
 }
 
-const StickyHeader: React.FC<IHeader> = ({
+const StickyHeader: React.FC<StickyHeaderProps> = ({
     menuLinks,
     buttonText,
     heroSectionHeight,
