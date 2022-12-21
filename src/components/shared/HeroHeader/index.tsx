@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Header from '../Header';
 import { scrollToSection } from '../../../utils/scroll';
@@ -30,18 +30,6 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
     const handleDesktopMenuItemClick = (linkId: string) => {
         scrollToSection(`#${linkId}`);
     };
-
-    const resizeHandler = () => {
-        if (window.innerWidth > 768 && isMobileMenuOpened) {
-            handleHamburgerClick();
-        }
-    };
-    useEffect(() => {
-        window.addEventListener('resize', resizeHandler);
-        return () => {
-            window.removeEventListener('resize', resizeHandler);
-        };
-    });
 
     return (
         <Header

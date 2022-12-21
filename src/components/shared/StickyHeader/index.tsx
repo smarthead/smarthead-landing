@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import cn from 'classnames';
 
 import ButtonLink from '../ButtonLink';
@@ -55,19 +55,6 @@ const StickyHeader: React.FC<IHeader> = ({
 
         scrollToSection(`#${navigation.contacts}`);
     };
-
-    const resizeHandler = () => {
-        if (window.innerWidth > 768 && isMobileMenuOpened) {
-            handleHamburgerClick();
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('resize', resizeHandler);
-        return () => {
-            window.removeEventListener('resize', resizeHandler);
-        };
-    });
 
     const headerRef = useRef<HTMLElement>(null);
 

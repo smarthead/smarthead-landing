@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction } from 'react';
+import React, { ForwardRefRenderFunction, useEffect } from 'react';
 import cn from 'classnames';
 
 import * as styles from './index.module.scss';
@@ -29,6 +29,19 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     },
     ref
 ) => {
+    const resizeHandler = () => {
+        if (window.innerWidth > 768 && isMenuOpened) {
+            onHamburgerClick();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', resizeHandler);
+        return () => {
+            window.removeEventListener('resize', resizeHandler);
+        };
+    });
+
     return (
         <header className={cn(styles.header, className)} ref={ref}>
             <nav className={cn(styles.navbar)}>
