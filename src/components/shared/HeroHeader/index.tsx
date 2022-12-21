@@ -10,20 +10,20 @@ interface IHeader {
 }
 
 const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
-    const [menuOpened, setMenuOpened] = useState(false);
+    const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
-    const hamburgerClickHandler = () => {
-        if (menuOpened) {
+    const handleHamburgerClick = () => {
+        if (isMobileMenuOpened) {
             document.body.style.position = 'static';
         } else {
             document.body.style.position = 'fixed';
         }
-        setMenuOpened(!menuOpened);
+        setIsMobileMenuOpened(!isMobileMenuOpened);
     };
 
     const handleMobileMenuClick = (linkId: string) => {
-        hamburgerClickHandler();
-        setMenuOpened(!menuOpened);
+        handleHamburgerClick();
+        setIsMobileMenuOpened(!isMobileMenuOpened);
         scrollToSection(`#${linkId}`);
     };
 
@@ -32,8 +32,8 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
     };
 
     const resizeHandler = () => {
-        if (window.innerWidth > 768 && menuOpened) {
-            hamburgerClickHandler();
+        if (window.innerWidth > 768 && isMobileMenuOpened) {
+            handleHamburgerClick();
         }
     };
     useEffect(() => {
@@ -48,8 +48,8 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
             menuLinks={menuLinks}
             onDesktopMenuItemClick={handleDesktopMenuItemClick}
             onMobileMenuClick={handleMobileMenuClick}
-            onHamburgerClick={hamburgerClickHandler}
-            isMenuOpened={menuOpened}
+            onHamburgerClick={handleHamburgerClick}
+            isMenuOpened={isMobileMenuOpened}
             className={styles.header}
         />
     );

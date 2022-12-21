@@ -22,25 +22,25 @@ const StickyHeader: React.FC<IHeader> = ({
     buttonText,
     heroSectionHeight,
 }) => {
-    const [menuOpened, setMenuOpened] = useState(false);
+    const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
     const savedScrollYRef = useRef<number>(0);
 
-    const hamburgerClickHandler = () => {
-        if (menuOpened) {
+    const handleHamburgerClick = () => {
+        if (isMobileMenuOpened) {
             document.body.style.position = 'static';
             scrollTo(0, savedScrollYRef.current);
         } else {
             savedScrollYRef.current = window.scrollY;
             document.body.style.position = 'fixed';
         }
-        setMenuOpened(!menuOpened);
+        setIsMobileMenuOpened(!isMobileMenuOpened);
     };
 
     const handleMobileMenuClick = (linkId: string) => {
         setIsScrollBehaviorDisabled(true);
 
-        hamburgerClickHandler();
-        setMenuOpened(!menuOpened);
+        handleHamburgerClick();
+        setIsMobileMenuOpened(!isMobileMenuOpened);
         scrollToSection(`#${linkId}`);
     };
 
@@ -57,8 +57,8 @@ const StickyHeader: React.FC<IHeader> = ({
     };
 
     const resizeHandler = () => {
-        if (window.innerWidth > 768 && menuOpened) {
-            hamburgerClickHandler();
+        if (window.innerWidth > 768 && isMobileMenuOpened) {
+            handleHamburgerClick();
         }
     };
 
@@ -74,7 +74,7 @@ const StickyHeader: React.FC<IHeader> = ({
     const { setIsScrollBehaviorDisabled } = useStickyHeader({
         firstScreenHeight: heroSectionHeight,
         headerDomElem: headerRef.current,
-        isMenuOpened: menuOpened,
+        isMenuOpened: isMobileMenuOpened,
     });
 
     const handleLogoClick = () => {
@@ -97,8 +97,8 @@ const StickyHeader: React.FC<IHeader> = ({
             onLogoClick={handleLogoClick}
             onDesktopMenuItemClick={handleDesktopMenuItemClick}
             onMobileMenuClick={handleMobileMenuClick}
-            onHamburgerClick={hamburgerClickHandler}
-            isMenuOpened={menuOpened}
+            onHamburgerClick={handleHamburgerClick}
+            isMenuOpened={isMobileMenuOpened}
             Slot={
                 <ButtonLink
                     className={styles.menuButton}
