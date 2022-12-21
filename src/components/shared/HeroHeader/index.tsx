@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import Header from '../Header';
 import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
-
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 
 interface IHeader {
     menuLinks: { [key: string]: string }[];
@@ -53,59 +52,14 @@ const HeroHeader: React.FC<IHeader> = ({ menuLinks }) => {
     });
 
     return (
-        <header className={styles.header}>
-            <nav className={styles.navbar}>
-                <img
-                    src={shLogo}
-                    alt="SmartHead Logo"
-                    className={styles.logo}
-                />
-
-                <div className={styles.menuContainer}>
-                    <div className={styles.menu}>
-                        {menuLinks.map((link) => (
-                            <a
-                                key={link.id}
-                                className={styles.menuLink}
-                                onClick={() =>
-                                    handleDesktopMenuItemClick(link.id)
-                                }
-                            >
-                                {link.name}
-                            </a>
-                        ))}
-                    </div>
-
-                    <div
-                        className={`${styles.mobileMenu} ${
-                            menuOpened ? styles.mobileMenuOpened : ''
-                        }`}
-                        onClick={mobileMenuClickHandler}
-                    >
-                        {menuLinks.map((link) => (
-                            <a
-                                key={link.id}
-                                href={`#${link.id}`}
-                                className={styles.mobileMenuLink}
-                            >
-                                {link.name}
-                            </a>
-                        ))}
-                    </div>
-
-                    <div
-                        className={`${styles.hamburger} ${
-                            menuOpened ? styles.hamburgerClose : ''
-                        }`}
-                        onClick={hamburgerClickHandler}
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <Header
+            menuLinks={menuLinks}
+            onDesktopMenuItemClick={handleDesktopMenuItemClick}
+            onMobileMenuClick={mobileMenuClickHandler}
+            onHamburgerClick={hamburgerClickHandler}
+            isMenuOpened={menuOpened}
+            className={styles.header}
+        />
     );
 };
 
