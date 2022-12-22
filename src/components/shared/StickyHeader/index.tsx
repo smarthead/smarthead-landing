@@ -61,7 +61,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     const { setIsScrollBehaviorDisabled } = useStickyHeader({
         firstScreenHeight: heroSectionHeight,
         headerDomElem: headerRef.current,
-        isMenuOpened: isMobileMenuOpened,
+        isMobileMenuOpened,
     });
 
     const handleLogoClick = () => {

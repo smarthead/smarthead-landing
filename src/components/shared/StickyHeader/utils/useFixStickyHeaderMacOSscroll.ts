@@ -26,20 +26,20 @@ const isScrolledMoreThanNormal = (scrollTop: number) =>
 interface UseFixStickyHeaderMacOSscrollArgs {
     headerDomElem: HTMLElement | null;
     scrollTop: ScrollTop;
-    isMenuOpened: boolean;
+    isMobileMenuOpened: boolean;
 }
 
 // fix for macOS bouncing scroll
 export const useFixStickyHeaderMacOSscroll = ({
     headerDomElem,
     scrollTop,
-    isMenuOpened,
+    isMobileMenuOpened,
 }: UseFixStickyHeaderMacOSscrollArgs) => {
     useEffect(() => {
         if (
             headerDomElem &&
             isScrolledMoreThanNormal(scrollTop.current) &&
-            isMenuClosedOnDesktop(isMenuOpened)
+            isMenuClosedOnDesktop(isMobileMenuOpened)
         ) {
             hideStickyHeader(
                 headerDomElem,

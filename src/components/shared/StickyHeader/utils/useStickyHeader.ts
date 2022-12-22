@@ -11,15 +11,15 @@ import { useFixStickyHeaderMacOSscroll } from './useFixStickyHeaderMacOSscroll';
 interface UseStickyHeaderArgs {
     firstScreenHeight: number | null;
     headerDomElem: HTMLElement | null;
-    isMenuOpened: boolean;
+    isMobileMenuOpened: boolean;
     scrollEndTimeout?: number;
 }
 
 export const useStickyHeader = ({
     firstScreenHeight,
     headerDomElem,
-    isMenuOpened,
-    scrollEndTimeout,
+    isMobileMenuOpened,
+    scrollEndTimeout = 200,
 }: UseStickyHeaderArgs) => {
     const isScrollBehaviourDisabled = useRef(false);
     const setIsScrollBehaviorDisabled = (value: boolean) => {
@@ -29,7 +29,13 @@ export const useStickyHeader = ({
     const [scrollY, scrollYDirection] = useVerticalScroll();
 
     const handleScroll = useCallback(() => {
-        if (isScrollBehaviourDisabled.current || !headerDomElem) return;
+        if (
+            isMobileMenuOpened ||
+            isScrollBehaviourDisabled.current ||
+            !headerDomElem
+        ) {
+            return;
+        }
 
         const step = scrollY.current - scrollY.previous;
 
@@ -55,14 +61,14 @@ export const useStickyHeader = ({
     useFixStickyHeaderMacOSscroll({
         headerDomElem,
         scrollTop: scrollY,
-        isMenuOpened,
+        isMobileMenuOpened,
     });
 
     useWindowScrollEnd(() => {
         if (isScrollBehaviourDisabled.current) {
             setIsScrollBehaviorDisabled(false);
         }
-    }, scrollEndTimeout || 200);
+    }, scrollEndTimeout);
 
     return {
         isScrollBehaviourDisabled,
