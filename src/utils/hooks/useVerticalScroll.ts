@@ -10,39 +10,33 @@ export enum VerticalScrollDirection {
 export interface ScrollTop {
     current: number;
     previous: number;
+    direction: VerticalScrollDirection;
 }
 
-export function useVerticalScroll(): [ScrollTop, VerticalScrollDirection] {
+export function useVerticalScroll(): ScrollTop {
     const initialScrollY = isBrowser() ? window.scrollY : 0;
 
     const [scrollTop, setScrollTop] = useState<ScrollTop>({
         current: initialScrollY,
         previous: initialScrollY,
+        direction: VerticalScrollDirection.initial,
     });
 
-    const [verticalScrollDirection, setVerticalScrollDirection] = useState(
-        VerticalScrollDirection.initial
-    );
-
     const handleScroll = useCallback(() => {
-        if (
-            window.scrollY > scrollTop.current &&
-            verticalScrollDirection !== VerticalScrollDirection.down
-        ) {
-            setVerticalScrollDirection(VerticalScrollDirection.down);
-        } else if (
-            window.scrollY < scrollTop.current &&
-            verticalScrollDirection !== VerticalScrollDirection.up
-        ) {
-            setVerticalScrollDirection(VerticalScrollDirection.up);
-        }
-        if (scrollTop.current !== window.scrollY) {
+        if (window.scrollY > scrollTop.current) {
             setScrollTop({
                 current: window.scrollY,
                 previous: scrollTop.current,
+                direction: VerticalScrollDirection.down,
+            });
+        } else if (window.scrollY < scrollTop.current) {
+            setScrollTop({
+                current: window.scrollY,
+                previous: scrollTop.current,
+                direction: VerticalScrollDirection.up,
             });
         }
-    }, [scrollTop, verticalScrollDirection]);
+    }, [scrollTop]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -52,5 +46,5 @@ export function useVerticalScroll(): [ScrollTop, VerticalScrollDirection] {
         };
     }, [handleScroll]);
 
-    return [scrollTop, verticalScrollDirection];
+    return scrollTop;
 }

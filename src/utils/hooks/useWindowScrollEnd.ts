@@ -2,7 +2,10 @@ import { useCallback, useEffect } from 'react';
 
 let alarmClock: NodeJS.Timeout;
 
-export const useWindowScrollEnd = (callback: () => void, timeout: number) => {
+export const useWindowScrollEnd = (
+    callback: () => void,
+    timeout: number = 200
+) => {
     const handleScroll = useCallback(() => {
         clearTimeout(alarmClock);
 
@@ -10,8 +13,8 @@ export const useWindowScrollEnd = (callback: () => void, timeout: number) => {
     }, [callback, timeout]);
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 };

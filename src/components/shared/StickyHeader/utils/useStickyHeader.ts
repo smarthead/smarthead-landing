@@ -2,7 +2,7 @@ import {
     useVerticalScroll,
     VerticalScrollDirection,
 } from '../../../../utils/hooks/useVerticalScroll';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useWindowScrollEnd } from '../../../../utils/hooks/useWindowScrollEnd';
 import { showStickyHeader } from './showStickyHeader';
 import { hideStickyHeader } from './hideStickyHeader';
@@ -26,9 +26,9 @@ export const useStickyHeader = ({
         isScrollBehaviourDisabled.current = value;
     };
 
-    const [scrollY, scrollYDirection] = useVerticalScroll();
+    const scrollY = useVerticalScroll();
 
-    const handleScroll = useCallback(() => {
+    useEffect(() => {
         if (
             isMobileMenuOpened ||
             isScrollBehaviourDisabled.current ||
@@ -40,23 +40,15 @@ export const useStickyHeader = ({
         const step = scrollY.current - scrollY.previous;
 
         if (scrollY.current > Number(firstScreenHeight)) {
-            if (scrollYDirection === VerticalScrollDirection.up) {
+            if (scrollY.direction === VerticalScrollDirection.up) {
                 showStickyHeader(headerDomElem, step);
-            } else {
+            } else if (scrollY.direction === VerticalScrollDirection.down) {
                 hideStickyHeader(headerDomElem, step);
             }
         } else {
             hideStickyHeader(headerDomElem, step);
         }
-    }, [scrollY, scrollYDirection]);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [handleScroll]);
+    }, [isMobileMenuOpened, headerDomElem, firstScreenHeight, scrollY]);
 
     useFixStickyHeaderMacOSscroll({
         headerDomElem,
