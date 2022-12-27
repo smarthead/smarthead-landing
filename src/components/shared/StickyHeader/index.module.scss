@@ -19,22 +19,34 @@
 .menu-button {
     height: 2vw;
     font-size: 0.6875vw;
-    margin-right: 3.125vw;
+    margin-left: 2.5vw;
+
+    border: 1px solid $yellow;
+    background-color: transparent;
+    color: $yellow;
+
+    &:hover {
+        color: $yellowLight;
+        border: 1px solid $yellowLight;
+        background-color: transparent;
+    }
 
     @media (max-width: $screen2Xl) {
         height: 32px;
         font-size: 11px;
-        margin-right: 50px;
+        margin-left: 40px;
     }
 
-    @media (max-width: $screenMd) {
+    @media (max-width: $screenLg) {
         font-size: 10px;
-        margin-right: 30px;
+        margin-right: 20px;
+        margin-left: 0;
     }
 
     @media (max-width: $screenSm) {
         height: 26px;
         margin-right: 14px;
+        margin-left: 0;
         padding-top: 0;
         padding-bottom: 0;
 

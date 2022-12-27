@@ -24,6 +24,14 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 
+const removeLastFromArray = (arr: any[]) => {
+    const newArr = [...arr];
+    newArr.pop();
+    return newArr;
+};
+
+const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
+
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
@@ -76,7 +84,7 @@ const RuLayout = () => {
             </Helmet>
 
             <StickyHeader
-                menuLinks={heroData.header.menu}
+                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
                 buttonText={heroData.button}
                 heroSectionHeight={heroSectionHeight}
             />

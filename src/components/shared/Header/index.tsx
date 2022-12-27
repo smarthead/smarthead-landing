@@ -53,8 +53,6 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                 />
 
                 <div className={styles.menuContainer}>
-                    {Slot && Slot}
-
                     <div className={styles.menu}>
                         {menuLinks.map((link) => (
                             <a
@@ -66,6 +64,8 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                             </a>
                         ))}
                     </div>
+
+                    {Slot && Slot}
 
                     <div
                         className={`${styles.mobileMenu} ${
