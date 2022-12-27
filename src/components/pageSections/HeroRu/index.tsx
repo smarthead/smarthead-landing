@@ -181,12 +181,12 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
                 <div className={styles.block}>
                     <ButtonLink
                         className={styles.heroButton}
-                        type="yellow"
                         text={data.button}
                         link={`#${navigation.contacts}`}
                         clickHandler={() => {
                             scrollToSection(`#${navigation.contacts}`);
                         }}
+                        withIcon
                     />
 
                     <p className={styles.subtext}>

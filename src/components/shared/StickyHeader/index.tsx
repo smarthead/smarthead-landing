@@ -89,7 +89,6 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
             Slot={
                 <ButtonLink
                     className={styles.menuButton}
-                    type="yellow"
                     text={buttonText}
                     link={`#${navigation.contacts}`}
                     clickHandler={handleButtonClick}

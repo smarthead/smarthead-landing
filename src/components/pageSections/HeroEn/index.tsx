@@ -155,9 +155,9 @@ const HeroEn: React.FC<IHero> = ({ data, isEnglish }) => {
                 >
                     <ButtonLink
                         className={styles.heroButton}
-                        type="yellow"
                         text={data.button}
                         link={`#${navigation.contacts}`}
+                        withIcon
                         clickHandler={() => {
                             scrollToSection(`#${navigation.contacts}`);
                         }}
