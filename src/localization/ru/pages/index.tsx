@@ -85,7 +85,7 @@ const RuLayout = () => {
 
             <StickyHeader
                 menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                buttonText={heroData.button}
+                buttonText={'НАПИШИТЕ НАМ'}
                 heroSectionHeight={heroSectionHeight}
             />
 
