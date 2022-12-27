@@ -28,7 +28,11 @@
         }
 
         @media (max-width: $screenLg) {
-            font-size: 8.85vw; // 68px
+            font-size: 9.76vw; // 75px
+        }
+
+        @media (max-width: $screen2Xs) {
+            font-size: 11.1vw; // 40px
         }
     }
 
@@ -74,7 +78,11 @@
         }
 
         @media (max-width: $screenLg) {
-            height: 9.85vw;
+            height: 10.76vw;
+        }
+
+        @media (max-width: $screen2Xs) {
+            height: 12.5vw;
         }
     }
 }
@@ -90,7 +98,6 @@
 
 .third-line {
     @media (max-width: $screenLg) {
-        font-size: 9.2vw;
         line-height: 1.1;
         height: 20vw;
         align-items: flex-start;
@@ -98,10 +105,13 @@
 
     &-en {
         @media (max-width: $screenLg) {
-            font-size: 8.85vw;
             line-height: 1.1;
-            height: 19.7vw;
+            height: 21vw;
             align-items: flex-start;
+        }
+
+        @media (max-width: $screen2Xs) {
+            height: 25vw;
         }
     }
 }
