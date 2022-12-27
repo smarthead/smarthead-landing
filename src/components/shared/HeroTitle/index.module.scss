@@ -138,6 +138,10 @@
     justify-content: center;
 }
 
+.right {
+    justify-content: flex-end;
+}
+
 .small-offset-right {
     justify-content: flex-end;
     margin-right: 8vw;
@@ -164,6 +168,16 @@
 .big-offset-left {
     align-self: flex-start;
     margin-left: 21vw;
+}
+
+.huge-offset-right {
+    justify-content: flex-end;
+    margin-right: 19vw;
+}
+
+.huge-offset-right2 {
+    justify-content: flex-end;
+    margin-right: 18vw;
 }
 
 .white {

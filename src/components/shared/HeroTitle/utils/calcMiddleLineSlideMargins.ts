@@ -9,11 +9,11 @@ const middleLineSlidesDictionary = {
         styles.bigOffsetRight,
     ],
     en: [
-        styles.center,
-        styles.center,
-        styles.bigOffsetLeft,
-        styles.center,
-        styles.center,
+        styles.right,
+        styles.hugeOffsetRight,
+        styles.hugeOffsetRight2,
+        styles.hugeOffsetRight,
+        styles.right,
     ],
 };
 
