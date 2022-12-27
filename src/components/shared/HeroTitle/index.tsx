@@ -15,6 +15,8 @@ import {
 import 'swiper/css';
 import * as styles from './index.module.scss';
 
+const addWeWordToStartOfString = (str: string) => `We ${str}`;
+
 interface UpperSwiperProps extends SwiperProps {
     wrapClassName?: string;
 }
@@ -54,6 +56,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     }, [handleResize]);
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
+    const isSlideWithWeWord = isEnglish && isMobileView;
 
     return (
         <h1
@@ -73,7 +76,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                     upperSwiperProps.wrapClassName
                 )}
             >
-                {isEnglish && <span>We&nbsp;</span>}
+                {isEnglish && !isMobileView && <span>We&nbsp;</span>}
                 <Swiper
                     {...swiperCommonProps}
                     {...upperSwiperProps}
@@ -87,7 +90,9 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                             className={cn(styles.slide, slidesColors.upper)}
                             key={name}
                         >
-                            {name}
+                            {isSlideWithWeWord
+                                ? addWeWordToStartOfString(name)
+                                : name}
                         </SwiperSlide>
                     ))}
                 </Swiper>
