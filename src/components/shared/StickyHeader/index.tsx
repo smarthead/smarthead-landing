@@ -23,15 +23,12 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     heroSectionHeight,
 }) => {
     const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
-    const savedScrollYRef = useRef<number>(0);
 
     const handleHamburgerClick = () => {
         if (isMobileMenuOpened) {
-            document.body.style.position = 'static';
-            scrollTo(0, savedScrollYRef.current);
+            document.body.style.overflow = 'auto';
         } else {
-            savedScrollYRef.current = window.scrollY;
-            document.body.style.position = 'fixed';
+            document.body.style.overflow = 'hidden';
         }
         setIsMobileMenuOpened(!isMobileMenuOpened);
     };

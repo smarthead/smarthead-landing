@@ -14,9 +14,9 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
 
     const handleHamburgerClick = () => {
         if (isMobileMenuOpened) {
-            document.body.style.position = 'static';
+            document.body.style.overflow = 'auto';
         } else {
-            document.body.style.position = 'fixed';
+            document.body.style.overflow = 'hidden';
         }
         setIsMobileMenuOpened(!isMobileMenuOpened);
     };
