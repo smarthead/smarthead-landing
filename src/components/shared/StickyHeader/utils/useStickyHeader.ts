@@ -53,7 +53,6 @@ export const useStickyHeader = ({
     useFixStickyHeaderMacOSscroll({
         headerDomElem,
         scrollTop: scrollY,
-        isMobileMenuOpened,
     });
 
     useWindowScrollEnd(() => {
