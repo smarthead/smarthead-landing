@@ -7,6 +7,7 @@ import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
+    mobileMenuLinks?: { [key: string]: string }[];
     Slot?: React.ReactElement;
     onLogoClick?: () => void;
     onDesktopMenuItemClick: (linkId: string) => void;
@@ -19,6 +20,7 @@ interface HeaderProps {
 const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     {
         menuLinks,
+        mobileMenuLinks,
         Slot,
         onLogoClick,
         onDesktopMenuItemClick,
@@ -41,6 +43,8 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
             window.removeEventListener('resize', resizeHandler);
         };
     });
+
+    const mobileLinks = mobileMenuLinks ? mobileMenuLinks : menuLinks;
 
     return (
         <header className={cn(styles.header, className)} ref={ref}>
@@ -72,7 +76,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                             isMenuOpened ? styles.mobileMenuOpened : ''
                         }`}
                     >
-                        {menuLinks.map((link) => (
+                        {mobileLinks.map((link) => (
                             <a
                                 key={link.id}
                                 className={styles.mobileMenuLink}

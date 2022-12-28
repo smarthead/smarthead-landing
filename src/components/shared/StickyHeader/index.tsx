@@ -13,12 +13,14 @@ import * as styles from './index.module.scss';
 
 interface StickyHeaderProps {
     menuLinks: { [key: string]: string }[];
+    mobileMenuLinks?: { [key: string]: string }[];
     buttonText: string;
     heroSectionHeight: number | null;
 }
 
 const StickyHeader: React.FC<StickyHeaderProps> = ({
     menuLinks,
+    mobileMenuLinks,
     buttonText,
     heroSectionHeight,
 }) => {
@@ -78,6 +80,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
         <Header
             ref={headerRef}
             menuLinks={menuLinks}
+            mobileMenuLinks={mobileMenuLinks}
             onLogoClick={handleLogoClick}
             onDesktopMenuItemClick={handleDesktopMenuItemClick}
             onMobileMenuClick={handleMobileMenuClick}
