@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     height: 4.25vw;
-    background: $black;
+    background-color: $black;
 
     @media (max-width: $screen2Xl) {
         height: 68px;
