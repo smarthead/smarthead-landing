@@ -4,6 +4,8 @@ import cn from 'classnames';
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
 import { isBrowser } from '../../../utils/isBrowser';
+import { splitToSeveralLines } from './utils/splitToSeveralLines';
+
 import { ColorSet } from './useSlidesColors';
 import { TitleItem } from '../../pageSections/HeroRu';
 
@@ -106,10 +108,14 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
             >
                 {title.line3.map((name) => (
                     <SwiperSlide
-                        className={cn(styles.slide, slidesColors.lower)}
+                        className={cn(
+                            styles.slide,
+                            slidesColors.lower,
+                            styles.flexColumn
+                        )}
                         key={name}
                     >
-                        {name}
+                        {isMobileView ? splitToSeveralLines(name) : name}
                     </SwiperSlide>
                 ))}
             </Swiper>
