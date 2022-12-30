@@ -6,7 +6,6 @@
     z-index: 9999;
     width: 100vw;
     padding-top: 5px;
-    background-position: -5px;
 
     @media (max-width: $screen2Xl) {
         top: -68px;
@@ -18,13 +17,14 @@
 }
 
 .menu-button {
-    height: 2vw;
-    font-size: 0.6875vw;
-    margin-left: 2.5vw;
-
+    height: 2.1875vw;
+    padding: 0.625vw 1.0625vw;
     border: 1px solid $yellow;
+    border-radius: 0.625vw;
     background-color: transparent;
     color: $yellow;
+    font-size: 0.75vw;
+    margin-left: 2.5vw;
 
     &:hover {
         color: $yellowLight;
@@ -33,26 +33,25 @@
     }
 
     @media (max-width: $screen2Xl) {
-        height: 32px;
-        font-size: 11px;
+        height: 35px;
+        font-size: 12px;
+        border-radius: 10px;
+        padding: 10px 17px;
         margin-left: 40px;
     }
 
     @media (max-width: $screenLg) {
-        font-size: 10px;
         margin-right: 20px;
         margin-left: 0;
     }
 
     @media (max-width: $screenSm) {
         height: 26px;
-        margin-right: 14px;
-        margin-left: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+        font-size: 8px;
+        border-radius: 9px;
+        padding: 8px 12px;
 
-        & img {
-            display: none;
-        }
+        margin-right: 15px;
+        margin-left: 0;
     }
 }
