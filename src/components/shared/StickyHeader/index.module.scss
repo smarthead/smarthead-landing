@@ -2,17 +2,17 @@
 
 .header {
     position: fixed;
-    top: -4.25vw;
+    transform: translateY(-4.25vw);
     z-index: 9999;
     width: 100vw;
     padding-top: 5px;
 
     @media (max-width: $screen2Xl) {
-        top: -68px;
+        transform: translateY(-68px);
     }
 
     @media (max-width: $screenSm) {
-        top: -54px;
+        transform: translateY(-54px);
     }
 }
 

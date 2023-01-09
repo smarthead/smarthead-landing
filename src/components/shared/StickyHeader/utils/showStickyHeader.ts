@@ -1,17 +1,19 @@
+import { getTranslateValues } from '../../../../utils/getTranslateValues';
+
 const INVISIBLE_HEADER_PART = 5;
 
 export const showStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (!headerDomElem) return;
 
-    const styles = getComputedStyle(headerDomElem);
-    const previousTopValue = parseFloat(styles.top);
+    const previousTranslateYValue =
+        getTranslateValues(headerDomElem).translateY;
 
-    if (previousTopValue > -INVISIBLE_HEADER_PART) return;
-    const currentTopValue = previousTopValue + Math.abs(step);
+    if (previousTranslateYValue > -INVISIBLE_HEADER_PART) return;
+    const currentTranslateYValue = previousTranslateYValue + Math.abs(step);
 
-    if (currentTopValue > -INVISIBLE_HEADER_PART) {
-        headerDomElem.style.top = `-${INVISIBLE_HEADER_PART}px`;
+    if (currentTranslateYValue > -INVISIBLE_HEADER_PART) {
+        headerDomElem.style.transform = `translateY(-${INVISIBLE_HEADER_PART}px)`;
     } else {
-        headerDomElem.style.top = `${currentTopValue}px`;
+        headerDomElem.style.transform = `translateY(${currentTranslateYValue}px)`;
     }
 };
