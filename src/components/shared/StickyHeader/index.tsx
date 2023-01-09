@@ -4,7 +4,9 @@ import cn from 'classnames';
 import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
-import { scrollToSection, scrollToTop } from '../../../utils/scroll';
+import { scrollToTop } from '../../../utils/scroll';
+import { scrollToSectionFromStickyHeaderMenu } from './utils/scrollToSectionFromStickyHeaderMenu';
+
 import { useStickyHeader } from './utils';
 import { navigation } from '../navigation';
 import { hideStickyHeader } from './utils';
@@ -40,19 +42,22 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
 
         handleHamburgerClick();
         setIsMobileMenuOpened(!isMobileMenuOpened);
-        scrollToSection(`#${linkId}`);
+        scrollToSectionFromStickyHeaderMenu(`#${linkId}`, headerRef.current);
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
         setIsScrollBehaviorDisabled(true);
 
-        scrollToSection(`#${linkId}`);
+        scrollToSectionFromStickyHeaderMenu(`#${linkId}`, headerRef.current);
     };
 
     const handleButtonClick = () => {
         setIsScrollBehaviorDisabled(true);
 
-        scrollToSection(`#${navigation.contacts}`);
+        scrollToSectionFromStickyHeaderMenu(
+            `#${navigation.contacts}`,
+            headerRef.current
+        );
     };
 
     const headerRef = useRef<HTMLElement>(null);
