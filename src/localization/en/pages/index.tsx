@@ -37,6 +37,13 @@ const RuLayout = () => {
         }
     }, []);
 
+    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
+        null
+    );
+    const handleHeroScreenHeight = (height: number) => {
+        setHeroScreenHeight(height);
+    };
+
     return (
         <div className="main">
             <Helmet>
@@ -66,7 +73,11 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <Hero data={heroData} isEnglish={true} />
+            <Hero
+                data={heroData}
+                isEnglish={true}
+                handleHeroScreenHeight={handleHeroScreenHeight}
+            />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
