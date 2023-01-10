@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
+import StickyHeader from '../../../components/shared/StickyHeader';
 import HeroRu from '../../../components/pageSections/HeroRu';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
@@ -23,6 +24,14 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 
+const removeLastFromArray = (arr: any[]) => {
+    const newArr = [...arr];
+    newArr.pop();
+    return newArr;
+};
+
+const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
+
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
@@ -37,6 +46,13 @@ const RuLayout = () => {
             setCookiesAccepted(false);
         }
     }, []);
+
+    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
+        null
+    );
+    const handleHeroScreenHeight = (height: number) => {
+        setHeroScreenHeight(height);
+    };
 
     return (
         <div className="main">
@@ -67,7 +83,17 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <HeroRu data={heroData} />
+            <StickyHeader
+                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                mobileMenuLinks={heroData.header.menu}
+                buttonText={'НАПИШИТЕ НАМ'}
+                heroSectionHeight={heroSectionHeight}
+            />
+
+            <HeroRu
+                data={heroData}
+                handleHeroScreenHeight={handleHeroScreenHeight}
+            />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />

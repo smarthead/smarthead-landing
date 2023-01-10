@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
@@ -8,7 +8,7 @@ import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
-import Header from '../../shared/Header';
+import HeroHeader from '../../shared/HeroHeader';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
 import { useSlidesColors } from '../../shared/HeroTitle/useSlidesColors';
@@ -39,6 +39,7 @@ export interface HeroData {
 
 export interface IHero {
     data: HeroData;
+    handleHeroScreenHeight: (height: number) => void;
 }
 
 const h1Line1Class = '.hero-h1-line1';
@@ -46,7 +47,7 @@ const h1Line2Class = '.hero-h1-line2';
 const h1Line3Class = '.hero-h1-line3';
 const h1Line4Class = '.hero-h1-line4';
 
-const HeroRu: React.FC<IHero> = ({ data }) => {
+const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -88,6 +89,10 @@ const HeroRu: React.FC<IHero> = ({ data }) => {
 
     const handleResize = () => {
         invalidate(createTimeline, revealTimeline);
+
+        if (heroSection.current?.offsetHeight) {
+            handleHeroScreenHeight(heroSection.current?.offsetHeight);
+        }
     };
 
     const [upperSwiper, setUpperSwiper] = useState<SwiperInstanceRef>(null);
@@ -134,11 +139,11 @@ const HeroRu: React.FC<IHero> = ({ data }) => {
 
     const { slidesColors, changeSlidesColors } = useSlidesColors();
 
+    const heroSection = useRef<HTMLElement>(null);
+
     return (
-        <section className={cn(styles.hero, 'container')}>
-            <div className={styles.header}>
-                <Header menuLinks={data.header.menu} />
-            </div>
+        <section className={cn(styles.hero, 'container')} ref={heroSection}>
+            <HeroHeader menuLinks={data.header.menu} />
 
             <div className={styles.content}>
                 <HeroTitle
@@ -176,12 +181,12 @@ const HeroRu: React.FC<IHero> = ({ data }) => {
                 <div className={styles.block}>
                     <ButtonLink
                         className={styles.heroButton}
-                        type="yellow"
                         text={data.button}
                         link={`#${navigation.contacts}`}
                         clickHandler={() => {
                             scrollToSection(`#${navigation.contacts}`);
                         }}
+                        withIcon
                     />
 
                     <p className={styles.subtext}>

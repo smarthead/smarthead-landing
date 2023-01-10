@@ -28,7 +28,12 @@ const Card: React.FC<ICardProps> = ({
             </div>
             <div className={styles.description}>
                 <p className={styles.descriptionText}>{description}</p>
-                <ButtonLink text={buttonText} link={link} type="black" />
+                <ButtonLink
+                    text={buttonText}
+                    link={link}
+                    color="black"
+                    withIcon
+                />
             </div>
         </div>
     );
