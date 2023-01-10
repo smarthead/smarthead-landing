@@ -13,7 +13,7 @@ export const scrollToSection = (
         duration: duration === undefined ? 0.7 : duration,
         scrollTo: {
             y: section,
-            offsetY: offset,
+            offsetY: offset ? -2 + offset : -2, // scroll to section doesn't work properly on iOS, need more space to avoid gaps
         },
         ease: 'power1.inOut',
         overwrite: true,
