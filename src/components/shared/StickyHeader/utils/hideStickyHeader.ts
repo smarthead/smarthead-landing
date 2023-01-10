@@ -14,6 +14,7 @@ export const hideStickyHeader = (headerDomElem: HTMLElement, step: number) => {
 
     if (currentTranslateYValue < headerHeight * -1) {
         headerDomElem.style.transform = `translateY(-${headerHeight}px)`;
+        headerDomElem.style.opacity = '0';
     } else {
         headerDomElem.style.transform = `translateY(${currentTranslateYValue}px)`;
     }

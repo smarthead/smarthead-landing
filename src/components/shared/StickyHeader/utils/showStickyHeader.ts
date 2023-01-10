@@ -13,6 +13,7 @@ export const showStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (currentTranslateYValue > -INVISIBLE_HEADER_PART) {
         headerDomElem.style.transform = `translateY(-${INVISIBLE_HEADER_PART}px)`;
     } else {
+        headerDomElem.style.opacity = '1';
         headerDomElem.style.transform = `translateY(${currentTranslateYValue}px)`;
     }
 };
