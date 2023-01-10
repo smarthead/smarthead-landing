@@ -7,9 +7,9 @@ import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
-import Header from '../../shared/Header';
 import ButtonLink from '../../shared/ButtonLink';
 import * as styles from './index.module.scss';
+import HeroHeader from '../../shared/HeroHeader';
 
 interface Item {
     [key: string]: string;
@@ -117,9 +117,8 @@ const HeroEn: React.FC<IHero> = ({ data, isEnglish }) => {
 
     return (
         <section className={`${styles.hero} container`}>
-            <div className={styles.header}>
-                <Header menuLinks={data.header.menu} />
-            </div>
+            <HeroHeader menuLinks={data.header.menu} />
+
             <div
                 className={`${styles.content} ${isEnglish && styles.contentEn}`}
             >
@@ -156,9 +155,9 @@ const HeroEn: React.FC<IHero> = ({ data, isEnglish }) => {
                 >
                     <ButtonLink
                         className={styles.heroButton}
-                        type="yellow"
                         text={data.button}
                         link={`#${navigation.contacts}`}
+                        withIcon
                         clickHandler={() => {
                             scrollToSection(`#${navigation.contacts}`);
                         }}

@@ -13,7 +13,8 @@ const Tagline: React.FC = () => (
                     clickHandler={() => {
                         scrollToSection(`#${navigation.contacts}`);
                     }}
-                    type="black"
+                    withIcon
+                    color="black"
                     text="ДА!"
                     link={`#${navigation.contacts}`}
                 />

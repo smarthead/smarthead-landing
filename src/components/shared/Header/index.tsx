@@ -1,49 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { scrollToSection } from '../../../utils/scroll';
+import React, { ForwardRefRenderFunction, useEffect } from 'react';
+import cn from 'classnames';
 
 import * as styles from './index.module.scss';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
-import { links } from '../links';
 
-interface IHeader {
+interface HeaderProps {
     menuLinks: { [key: string]: string }[];
+    mobileMenuLinks?: { [key: string]: string }[];
+    Slot?: React.ReactElement;
+    onLogoClick?: () => void;
+    onDesktopMenuItemClick: (linkId: string) => void;
+    onMobileMenuClick: (linkId: string) => void;
+    onHamburgerClick: () => void;
+    isMenuOpened: boolean;
+    className?: string;
 }
 
-const Header: React.FC<IHeader> = ({ menuLinks }) => {
-    const [menuOpened, setMenuOpened] = useState(false);
-
-    const hamburgerClickHandler = () => {
-        if (menuOpened) {
-            document.body.style.position = 'static';
-        } else {
-            document.body.style.position = 'fixed';
-        }
-        setMenuOpened(!menuOpened);
-    };
-
-    const mobileMenuClickHandler = (e: React.MouseEvent) => {
-        e.preventDefault();
-        const target = e.target as HTMLElement;
-        const isMenuLink = target.className.includes(styles.mobileMenuLink);
-        if (isMenuLink) {
-            hamburgerClickHandler();
-            setMenuOpened(!menuOpened);
-            const targetSectionId = target.getAttribute('href');
-            scrollToSection(targetSectionId);
-        }
-    };
-    const desktopMenuClickHandler = (e: React.MouseEvent) => {
-        e.preventDefault();
-        const targetSectionId = (e.target as HTMLElement).getAttribute('href');
-        scrollToSection(targetSectionId);
-    };
-
+const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
+    {
+        menuLinks,
+        mobileMenuLinks,
+        Slot,
+        onLogoClick,
+        onDesktopMenuItemClick,
+        onMobileMenuClick,
+        onHamburgerClick,
+        isMenuOpened,
+        className,
+    },
+    ref
+) => {
     const resizeHandler = () => {
-        if (window.innerWidth > 768 && menuOpened) {
-            hamburgerClickHandler();
+        if (window.innerWidth > 768 && isMenuOpened) {
+            onHamburgerClick();
         }
     };
+
     useEffect(() => {
         window.addEventListener('resize', resizeHandler);
         return () => {
@@ -51,56 +44,65 @@ const Header: React.FC<IHeader> = ({ menuLinks }) => {
         };
     });
 
+    const mobileLinks = mobileMenuLinks ? mobileMenuLinks : menuLinks;
+
     return (
-        <header>
-            <nav className={styles.navbar}>
+        <header className={cn(styles.header, className)} ref={ref}>
+            <nav className={cn(styles.navbar)}>
                 <img
                     src={shLogo}
                     alt="SmartHead Logo"
                     className={styles.logo}
+                    onClick={onLogoClick && onLogoClick}
                 />
 
-                <div className={styles.menu} onClick={desktopMenuClickHandler}>
-                    {menuLinks.map((link) => (
-                        <a
-                            key={link.id}
-                            href={`#${link.id}`}
-                            className={styles.menuLink}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-                <div
-                    className={`${styles.mobileMenu} ${
-                        menuOpened ? styles.mobileMenuOpened : ''
-                    }`}
-                    onClick={mobileMenuClickHandler}
-                >
-                    {menuLinks.map((link) => (
-                        <a
-                            key={link.id}
-                            href={`#${link.id}`}
-                            className={styles.mobileMenuLink}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
+                <div className={styles.menuContainer}>
+                    <div className={styles.menu}>
+                        {menuLinks.map((link) => (
+                            <a
+                                key={link.id}
+                                className={styles.menuLink}
+                                onClick={() => onDesktopMenuItemClick(link.id)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
 
-                <div
-                    className={`${styles.hamburger} ${
-                        menuOpened ? styles.hamburgerClose : ''
-                    }`}
-                    onClick={hamburgerClickHandler}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    {Slot && Slot}
+
+                    <div
+                        className={`${styles.mobileMenu} ${
+                            isMenuOpened ? styles.mobileMenuOpened : ''
+                        }`}
+                    >
+                        {mobileLinks.map((link) => (
+                            <a
+                                key={link.id}
+                                className={styles.mobileMenuLink}
+                                onClick={() => onMobileMenuClick(link.id)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+
+                    <div
+                        className={`${styles.hamburger} ${
+                            isMenuOpened ? styles.hamburgerClose : ''
+                        }`}
+                        onClick={onHamburgerClick}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
     );
 };
+
+const Header = React.forwardRef(HeaderComponent);
 
 export default Header;
