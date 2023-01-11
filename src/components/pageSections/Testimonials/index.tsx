@@ -14,7 +14,7 @@ interface ReviewsProps {
     id: string;
 }
 
-const Reviews: React.FC<ReviewsProps> = ({ id }) => {
+const Testimonials: React.FC<ReviewsProps> = ({ id }) => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     const [swiper, setSwiper] = useState<any>(null);
@@ -147,4 +147,4 @@ const Reviews: React.FC<ReviewsProps> = ({ id }) => {
     );
 };
 
-export default Reviews;
+export default Testimonials;

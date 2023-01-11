@@ -13,9 +13,10 @@ import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
 import Footer from '../../../components/pageSections/Footer';
 import Tagline from '../../../components/pageSections/Tagline';
-import { navigation } from '../../../components/shared/navigation';
-import { scrollToSection } from '../../../utils/scroll';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
+
+import { removeLastFromArray } from '../../../utils/removeLastFromArray';
+import { scrollToSection } from '../../../utils/scroll';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -23,12 +24,7 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
-
-const removeLastFromArray = (arr: any[]) => {
-    const newArr = [...arr];
-    newArr.pop();
-    return newArr;
-};
+import { navigation } from '../../../components/shared/navigation';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 

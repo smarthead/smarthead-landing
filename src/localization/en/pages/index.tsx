@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
+import StickyHeader from '../../../components/shared/StickyHeader';
 import Hero from '../../../components/pageSections/Hero';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
@@ -10,10 +11,11 @@ import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
 import FooterEn from '../../../components/pageSections/FooterEn';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
-import Reviews from '../../../components/pageSections/Reviews';
+import Testimonials from '../../../components/pageSections/Testimonials';
 
 import { navigation } from '../../../components/shared/navigation';
 import { scrollToSection } from '../../../utils/scroll';
+import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -22,7 +24,9 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 
-const RuLayout = () => {
+const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
+
+const EnLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
@@ -73,6 +77,13 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
+            <StickyHeader
+                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                mobileMenuLinks={heroData.header.menu}
+                buttonText={'CONTACT US'}
+                heroSectionHeight={heroSectionHeight}
+            />
+
             <Hero
                 data={heroData}
                 isEnglish={true}
@@ -82,7 +93,7 @@ const RuLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Reviews id={navigation.reviews} />
+            <Testimonials id={navigation.testimonials} />
             <FooterEn id={navigation.contacts} />
 
             {!cookiesAccepted && (
@@ -98,4 +109,4 @@ const RuLayout = () => {
     );
 };
 
-export default RuLayout;
+export default EnLayout;

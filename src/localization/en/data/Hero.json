@@ -41,6 +41,11 @@
                 "name": "Success Stories"
             },
             {
+                "id": "testimonials",
+                "anchor": "testimonials",
+                "name": "Testimonials"
+            },
+            {
                 "id": "contacts",
                 "anchor": "contacts",
                 "name": "Contact us"
