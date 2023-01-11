@@ -37,10 +37,13 @@
 
     @media (max-width: $screenLg) {
         padding: 10% 0 11%;
+        margin-top: 13vw;
+        margin-bottom: auto;
     }
 
     @media (max-width: $screenXs) {
         padding: 10% 0 8%;
+        margin: auto 0;
     }
 
     &-en {
