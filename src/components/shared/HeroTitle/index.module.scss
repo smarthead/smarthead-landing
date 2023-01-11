@@ -76,11 +76,11 @@
         }
 
         @media (max-width: $screenLg) {
-            height: 10.8vw;
+            height: 12vw;
         }
 
         @media (max-width: $screenSm) {
-            height: 12.5vw;
+            height: 14vw;
         }
     }
 }
@@ -103,13 +103,12 @@
 
     &-en {
         @media (max-width: $screenLg) {
-            line-height: 1.1;
-            height: 21.6vw;
+            height: 24vw;
             align-items: flex-start;
         }
 
         @media (max-width: $screenSm) {
-            height: 25vw;
+            height: 28vw;
         }
     }
 }
@@ -129,7 +128,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start !important;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .center {
