@@ -73,6 +73,14 @@
 
     &-en {
         margin-bottom: 4.5vw;
+
+        @media (max-width: $screenLg) {
+            margin-bottom: 5.35vw;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-bottom: 4vw;
+        }
     }
 }
 
@@ -124,7 +132,7 @@
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 30px;
+        margin-bottom: 35px;
         font-size: 3.8888vw;
     }
 }
