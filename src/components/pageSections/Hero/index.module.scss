@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .header {
-    margin: 5vw 0 0;
+    margin: 3.846vw 0 0;
 
     @media (max-width: $screen2Xl) {
         margin: 50px 0 0;
@@ -37,10 +37,13 @@
 
     @media (max-width: $screenLg) {
         padding: 10% 0 11%;
+        margin-top: 13vw;
+        margin-bottom: auto;
     }
 
     @media (max-width: $screenXs) {
         padding: 10% 0 8%;
+        margin: auto 0;
     }
 
     &-en {
@@ -66,6 +69,18 @@
 
     @media (max-width: $screenXs) {
         margin-bottom: 4.5vw;
+    }
+
+    &-en {
+        margin-bottom: 4.5vw;
+
+        @media (max-width: $screenLg) {
+            margin-bottom: 5.35vw;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-bottom: 4vw;
+        }
     }
 }
 
@@ -117,7 +132,7 @@
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 30px;
+        margin-bottom: 35px;
         font-size: 3.8888vw;
     }
 }

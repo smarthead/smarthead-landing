@@ -1,9 +1,27 @@
 {
     "title": {
-        "line1": "We develop",
-        "line2": "sophisticated",
-        "line3": "digital",
-        "line4": "products"
+        "line1": [
+            "design",
+            "maintain",
+            "develop",
+            "scale",
+            "launch"
+        ],
+        "line2": [
+            "sophisticated",
+            "scalable",
+            "highload",
+            "high-tech",
+            "sought-after"
+        ],
+        "line3": [
+            "digital products",
+            "information systems",
+            "integration solutions",
+            "mobile applications",
+            "web-services",
+            "automation tools"
+        ]
     },
     "subtitle": [
         "We’re a truly product-oriented team,",
@@ -25,7 +43,7 @@
             {
                 "id": "contacts",
                 "anchor": "contacts",
-                "name": "Сontact us"
+                "name": "Contact us"
             }
         ]
     }

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import '../../../styles/index.scss';
 
 import StickyHeader from '../../../components/shared/StickyHeader';
-import HeroRu from '../../../components/pageSections/HeroRu';
+import Hero from '../../../components/pageSections/Hero';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Acquaintance from '../../../components/pageSections/Acquaintance';
@@ -90,7 +90,7 @@ const RuLayout = () => {
                 heroSectionHeight={heroSectionHeight}
             />
 
-            <HeroRu
+            <Hero
                 data={heroData}
                 handleHeroScreenHeight={handleHeroScreenHeight}
             />
@@ -102,6 +102,7 @@ const RuLayout = () => {
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
+
             {!cookiesAccepted && (
                 <CookiesNotification
                     data={cookiesNotificationData}

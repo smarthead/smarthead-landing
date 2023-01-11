@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as styles from './index.module.scss';
+import * as styles from '../index.module.scss';
 
 export interface ColorSet {
     upper: string;

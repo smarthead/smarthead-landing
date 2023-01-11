@@ -3,13 +3,14 @@ import { Helmet } from 'react-helmet';
 
 import '../../../styles/index.scss';
 
-import HeroEn from '../../../components/pageSections/HeroEn';
+import Hero from '../../../components/pageSections/Hero';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
 import FooterEn from '../../../components/pageSections/FooterEn';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
+import Reviews from '../../../components/pageSections/Reviews';
 
 import { navigation } from '../../../components/shared/navigation';
 import { scrollToSection } from '../../../utils/scroll';
@@ -20,7 +21,6 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
-import Reviews from '../../../components/pageSections/Reviews';
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
@@ -36,6 +36,13 @@ const RuLayout = () => {
             setCookiesAccepted(false);
         }
     }, []);
+
+    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
+        null
+    );
+    const handleHeroScreenHeight = (height: number) => {
+        setHeroScreenHeight(height);
+    };
 
     return (
         <div className="main">
@@ -66,7 +73,11 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <HeroEn data={heroData} isEnglish={true} />
+            <Hero
+                data={heroData}
+                isEnglish={true}
+                handleHeroScreenHeight={handleHeroScreenHeight}
+            />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />

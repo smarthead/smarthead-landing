@@ -7,6 +7,33 @@
     color: $white;
     font-family: $gilroy-700;
     letter-spacing: 0.02em;
+    font-size: 5.6vw;
+    line-height: 0.9em;
+
+    @media (max-width: $screenXl) {
+        font-size: 5.8vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 9.2vw;
+        letter-spacing: 0;
+    }
+
+    &-en {
+        font-size: 7.9375vw; // 127px
+
+        @media (max-width: $screenXl) {
+            font-size: 8.28125vw; // 106px
+        }
+
+        @media (max-width: $screenLg) {
+            font-size: 9.76vw; // 75px
+        }
+
+        @media (max-width: $screenSm) {
+            font-size: 11.1vw; // 40px
+        }
+    }
 
     &-l1,
     &-l2,
@@ -14,27 +41,47 @@
     &-l4 {
         visibility: hidden;
     }
+}
 
-    @media (max-width: $screenLg) {
-        letter-spacing: 0;
+.first-line-wrap {
+    display: flex;
+    align-items: center;
+
+    & span {
+        user-select: none;
     }
+}
+
+.zero-opacity {
+    opacity: 0;
 }
 
 .slider {
     width: 100%;
     height: 6.3vw;
-    font-size: 5.6vw;
-    line-height: 0.9em;
-    opacity: 0;
 
     @media (max-width: $screenXl) {
-        font-size: 5.8vw;
         height: 6.5vw;
     }
 
     @media (max-width: $screenLg) {
-        font-size: 9.2vw;
         height: 10vw;
+    }
+
+    &-en {
+        height: 8.75vw;
+
+        @media (max-width: $screenXl) {
+            height: 9.2vw;
+        }
+
+        @media (max-width: $screenLg) {
+            height: 12vw;
+        }
+
+        @media (max-width: $screenSm) {
+            height: 14vw;
+        }
     }
 }
 
@@ -49,10 +96,20 @@
 
 .third-line {
     @media (max-width: $screenLg) {
-        font-size: 9.2vw;
         line-height: 1.1;
         height: 20vw;
         align-items: flex-start;
+    }
+
+    &-en {
+        @media (max-width: $screenLg) {
+            height: 24vw;
+            align-items: flex-start;
+        }
+
+        @media (max-width: $screenSm) {
+            height: 28vw;
+        }
     }
 }
 
@@ -71,11 +128,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start !important;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .center {
     justify-content: center;
+}
+
+.right {
+    justify-content: flex-end;
 }
 
 .small-offset-right {
@@ -99,6 +160,21 @@
 .big-offset-right {
     justify-content: flex-end;
     margin-right: 11vw;
+}
+
+.big-offset-left {
+    align-self: flex-start;
+    margin-left: 21vw;
+}
+
+.huge-offset-right {
+    justify-content: flex-end;
+    margin-right: 19vw;
+}
+
+.huge-offset-right2 {
+    justify-content: flex-end;
+    margin-right: 18vw;
 }
 
 .white {

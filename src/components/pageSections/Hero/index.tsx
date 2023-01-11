@@ -11,7 +11,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 import HeroHeader from '../../shared/HeroHeader';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
-import { useSlidesColors } from '../../shared/HeroTitle/useSlidesColors';
+import { useSlidesColors } from '../../shared/HeroTitle/utils';
 
 import { Swiper as SwiperType } from 'swiper/types';
 
@@ -39,15 +39,15 @@ export interface HeroData {
 
 export interface IHero {
     data: HeroData;
+    isEnglish?: boolean;
     handleHeroScreenHeight: (height: number) => void;
 }
 
 const h1Line1Class = '.hero-h1-line1';
 const h1Line2Class = '.hero-h1-line2';
 const h1Line3Class = '.hero-h1-line3';
-const h1Line4Class = '.hero-h1-line4';
 
-const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
+const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     let revealTimeline = gsap.timeline({ paused: true });
@@ -55,8 +55,8 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
     const createTimeline = () => {
         const headline =
             window.innerWidth > 480
-                ? [h1Line1Class, h1Line2Class, [h1Line3Class, h1Line4Class]]
-                : [h1Line1Class, h1Line2Class, h1Line3Class, h1Line4Class];
+                ? [h1Line1Class, h1Line2Class, h1Line3Class]
+                : [h1Line1Class, h1Line2Class, h1Line3Class];
 
         revealTimeline.fromTo(
             headline,
@@ -148,6 +148,7 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
             <div className={styles.content}>
                 <HeroTitle
                     title={data.title}
+                    isEnglish={isEnglish}
                     swiperCommonProps={{
                         speed: 500,
                         loop: true,
@@ -158,7 +159,7 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
                             setUpperSwiper(instance);
                         },
                         onSlideChange: () => handleSlideChange(middleSwiper),
-                        className: h1Line1Class.slice(1),
+                        wrapClassName: h1Line1Class.slice(1),
                     }}
                     middleSwiperProps={{
                         onSwiper: (instance) => {
@@ -175,7 +176,9 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
                         className: h1Line3Class.slice(1),
                     }}
                     slidesColors={slidesColors}
-                    className={styles.title}
+                    className={cn(styles.title, {
+                        [styles.titleEn]: isEnglish,
+                    })}
                 />
 
                 <div className={styles.block}>
@@ -198,4 +201,4 @@ const HeroRu: React.FC<IHero> = ({ data, handleHeroScreenHeight }) => {
     );
 };
 
-export default HeroRu;
+export default Hero;
