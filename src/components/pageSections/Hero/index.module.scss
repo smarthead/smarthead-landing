@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .header {
-    margin: 5vw 0 0;
+    margin: 3.846vw 0 0;
 
     @media (max-width: $screen2Xl) {
         margin: 50px 0 0;
@@ -65,6 +65,10 @@
     }
 
     @media (max-width: $screenXs) {
+        margin-bottom: 4.5vw;
+    }
+
+    &-en {
         margin-bottom: 4.5vw;
     }
 }

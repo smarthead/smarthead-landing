@@ -7,11 +7,7 @@ import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
 import { ColorSet } from './utils/useSlidesColors';
 import { TitleItem } from '../../pageSections/Hero';
 
-import {
-    calcMiddleLineSlideMargins,
-    calcIsMobile,
-    splitToSeveralLines,
-} from './utils';
+import { calcMiddleLineSlideMargins, splitToSeveralLines } from './utils';
 
 import 'swiper/css';
 import * as styles from './index.module.scss';
@@ -57,6 +53,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
     }, [handleResize]);
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
+    const spaceBetweenSlides = slidersDirection === 'vertical' ? 25 : undefined;
     const isSlideWithWeWord = isEnglish && isMobileView;
 
     return (
@@ -85,6 +82,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                     className={cn(styles.slider, upperSwiperProps.className, {
                         [styles.sliderEn]: isEnglish,
                     })}
+                    spaceBetween={spaceBetweenSlides}
                 >
                     {title.line1.map((name) => (
                         <SwiperSlide
@@ -111,6 +109,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                         [styles.sliderEn]: isEnglish,
                     }
                 )}
+                spaceBetween={spaceBetweenSlides}
             >
                 {title.line2.map((name, i) => (
                     <SwiperSlide
@@ -145,6 +144,7 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
                         [styles.thirdLineEn]: isEnglish,
                     }
                 )}
+                spaceBetween={spaceBetweenSlides}
             >
                 {title.line3.map((name) => (
                     <SwiperSlide

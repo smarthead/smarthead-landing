@@ -176,7 +176,9 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
                         className: h1Line3Class.slice(1),
                     }}
                     slidesColors={slidesColors}
-                    className={styles.title}
+                    className={cn(styles.title, {
+                        [styles.titleEn]: isEnglish,
+                    })}
                 />
 
                 <div className={styles.block}>
