@@ -12,7 +12,6 @@ import JoinUs from '../../../components/pageSections/JoinUs';
 import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
 import Footer from '../../../components/pageSections/Footer';
-import Tagline from '../../../components/pageSections/Tagline';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
@@ -94,7 +93,6 @@ const RuLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Tagline />
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
