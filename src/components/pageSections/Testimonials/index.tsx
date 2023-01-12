@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-
-import * as styles from './index.module.scss';
-import { reviewsList } from './reviewsList';
 import ReviewItem from '../../shared/ReviewItem';
+
+import 'swiper/css';
+import * as styles from './index.module.scss';
 
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 
+interface TestimonialsContentItem {
+    photo: any;
+    name: string;
+    position: string;
+    text: string[];
+}
+
+interface TestimonialsData {
+    title: string;
+    content: TestimonialsContentItem[];
+}
+
 interface ReviewsProps {
+    data: TestimonialsData;
     id: string;
 }
 
-const Testimonials: React.FC<ReviewsProps> = ({ id }) => {
+const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     const [swiper, setSwiper] = useState<any>(null);
 
     const slideTo = (index: number) => swiper.slideTo(index);
-    const reviewsAmount = reviewsList.length;
+    const reviewsAmount = data.content.length;
 
     const forwardHandle = () => {
         if (activeSlide > reviewsAmount - 1) return;
@@ -35,11 +47,11 @@ const Testimonials: React.FC<ReviewsProps> = ({ id }) => {
         <section className={styles.root} id={id}>
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>Our clients about us</h1>
+                    <h1 className={styles.title}>{data.title}</h1>
                     <div
                         className={`${styles.bullets} ${styles.bulletsMobile}`}
                     >
-                        {reviewsList.map((_, index) => (
+                        {data.content.map((_, index) => (
                             <button
                                 key={`bullet-mobile-${index}`}
                                 onClick={() => {
@@ -100,7 +112,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ id }) => {
                             setActiveSlide(swiper.activeIndex);
                         }}
                     >
-                        {reviewsList.map((review, index) => (
+                        {data.content.map((review, index) => (
                             <SwiperSlide
                                 key={`review-${index}`}
                                 className={styles.swiperSlide}
@@ -128,7 +140,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ id }) => {
                     ></div>
                 </section>
                 <div className={styles.bullets}>
-                    {reviewsList.map((_, index) => (
+                    {data.content.map((_, index) => (
                         <button
                             key={`bullet-${index}`}
                             onClick={() => {
