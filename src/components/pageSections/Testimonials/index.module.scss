@@ -27,7 +27,7 @@
 
 .title {
     margin-top: 6.25vw;
-    margin-bottom: 7vw;
+    margin-bottom: 3.125vw;
     margin-left: 9.375%;
     color: $black;
     font-family: $gilroy-600;
@@ -68,12 +68,12 @@
     flex-shrink: 0;
     overflow: hidden;
     width: 100%;
-    height: 23.5vw;
-    margin-bottom: 6.625vw;
+    height: 30vw;
+    margin-bottom: 2vw;
 
     @media (max-width: $screenXl) {
-        height: 31vw;
-        margin-bottom: 3.828vw;
+        height: 35vw;
+        margin-bottom: 2vw;
     }
 
     @media (max-width: $screenLg) {
@@ -250,7 +250,7 @@
     margin-right: 2.8125vw;
 
     @media (max-width: $screenXl) {
-        margin-top: 8vw;
+        margin-top: 6.25vw;
         margin-right: 4.6875vw;
     }
 

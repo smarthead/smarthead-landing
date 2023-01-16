@@ -47,6 +47,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
         <section className={styles.root} id={id}>
             <div className={styles.content}>
                 <div className={styles.header}>
+                    {/*TODO: make separate component with Slot*/}
                     <h1 className={styles.title}>{data.title}</h1>
                     <div
                         className={`${styles.bullets} ${styles.bulletsMobile}`}
@@ -104,7 +105,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
                             setSwiper(swiper);
                             setActiveSlide(swiper.activeIndex);
                         }}
-                        spaceBetween={0}
+                        spaceBetween={120}
                         simulateTouch={false}
                         slidesPerView={'auto'}
                         className={styles.swiper}
