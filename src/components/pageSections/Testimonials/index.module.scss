@@ -73,18 +73,17 @@
 
     @media (max-width: $screenXl) {
         height: 35vw;
-        margin-bottom: 2vw;
     }
 
     @media (max-width: $screenLg) {
-        height: 42vw;
-        margin-bottom: 2vw;
+        height: 50vw;
+        margin-bottom: 3.5vw;
     }
 
-    @include for-phone-only {
-        height: 42vw;
-        margin-bottom: 4vw;
-    }
+    //@include for-phone-only {
+    //    height: 42vw;
+    //    margin-bottom: 4vw;
+    //}
 
     @media (max-width: $screenXs) {
         height: 118.88vw;
