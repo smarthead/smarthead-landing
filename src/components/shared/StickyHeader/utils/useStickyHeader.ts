@@ -2,8 +2,7 @@ import {
     useVerticalScroll,
     VerticalScrollDirection,
 } from '../../../../utils/hooks/useVerticalScroll';
-import { useEffect, useRef } from 'react';
-import { useWindowScrollEnd } from '../../../../utils/hooks/useWindowScrollEnd';
+import { useEffect } from 'react';
 import { showStickyHeader } from './showStickyHeader';
 import { hideStickyHeader } from './hideStickyHeader';
 import { useFixStickyHeaderMacOSscroll } from './useFixStickyHeaderMacOSscroll';
@@ -19,21 +18,11 @@ export const useStickyHeader = ({
     firstScreenHeight,
     headerDomElem,
     isMobileMenuOpened,
-    scrollEndTimeout = 200,
 }: UseStickyHeaderArgs) => {
-    const isScrollBehaviourDisabled = useRef(false);
-    const setIsScrollBehaviorDisabled = (value: boolean) => {
-        isScrollBehaviourDisabled.current = value;
-    };
-
     const scrollY = useVerticalScroll();
 
     useEffect(() => {
-        if (
-            isMobileMenuOpened ||
-            isScrollBehaviourDisabled.current ||
-            !headerDomElem
-        ) {
+        if (isMobileMenuOpened || !headerDomElem) {
             return;
         }
 
@@ -54,15 +43,4 @@ export const useStickyHeader = ({
         headerDomElem,
         scrollTop: scrollY,
     });
-
-    useWindowScrollEnd(() => {
-        if (isScrollBehaviourDisabled.current) {
-            setIsScrollBehaviorDisabled(false);
-        }
-    }, scrollEndTimeout);
-
-    return {
-        isScrollBehaviourDisabled,
-        setIsScrollBehaviorDisabled,
-    };
 };
