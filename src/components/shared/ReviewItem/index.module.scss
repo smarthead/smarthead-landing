@@ -23,12 +23,11 @@
         height: 45vw;
     }
 
-    @include for-phone-only {
-        width: 84.375vw;
+    @media (max-width: $screenSm) {
+        justify-content: flex-start;
     }
 
     // 320_428
-
     @media (max-width: $screenXs) {
         width: 84.375vw;
         height: 120vw;
@@ -57,12 +56,8 @@
         height: 26.6%;
     }
 
-    @include for-phone-only {
-        height: 7%;
-    }
-
-    @media (max-width: $screenXs) {
-        height: 18%;
+    @media (max-width: $screenSm) {
+        height: auto;
     }
 
     &-text {
@@ -70,14 +65,6 @@
 
         @media (max-width: $screenLg) {
             width: 75%;
-        }
-
-        @include for-phone-only {
-            width: 90%;
-        }
-
-        @media (max-width: $screenXs) {
-            width: 62%;
         }
     }
 }
@@ -108,17 +95,10 @@
         margin-bottom: 0;
     }
 
-    @include for-phone-only {
-        width: 6.406vw;
-        height: 6.406vw;
-        margin-right: 2.65vw;
-        margin-bottom: 0;
-    }
-
     @media (max-width: $screenXs) {
-        width: 21.388vw;
-        height: 21.388vw;
-        margin-right: 7.222vw;
+        width: 8.33vw;
+        height: 8.33vw;
+        margin-right: 3.05vw;
     }
 }
 
@@ -174,12 +154,8 @@
         line-height: 1.357em;
     }
 
-    @include for-phone-only {
-        font-size: 1.875vw;
-    }
-
     @media (max-width: $screenXs) {
-        width: 90%;
+        //width: 90%;
         font-size: 3.33vw;
         line-height: 1.333em;
     }
@@ -201,20 +177,19 @@
 
     @media (max-width: $screenLg) {
         width: 100%;
-        //height: 69.11%;
         font-size: 1.823vw;
         padding-left: 0;
         padding-top: 2vw;
     }
 
-    //@include for-phone-only {
-    //    height: 79%;
-    //    font-size: 2.1875vw;
-    //}
-
     @media (max-width: $screenXs) {
-        height: 77.35%;
-        font-size: 3.888vw;
+        font-size: 13px;
+        height: auto;
+    }
+
+    @media (max-width: $screen3Xs) {
+        font-size: 12px;
+        height: auto;
     }
 
     & > p {

@@ -80,14 +80,16 @@
         margin-bottom: 3.5vw;
     }
 
-    //@include for-phone-only {
-    //    height: 42vw;
-    //    margin-bottom: 4vw;
-    //}
-
     @media (max-width: $screenXs) {
-        height: 118.88vw;
-        margin-bottom: 11vw;
+        height: 140vw;
+    }
+
+    @media (max-width: $screen2Xs) {
+        height: 170vw;
+    }
+
+    @media (max-width: $screen3Xs) {
+        height: 182vw;
     }
 }
 

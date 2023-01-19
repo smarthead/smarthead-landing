@@ -8,6 +8,7 @@ import * as styles from './index.module.scss';
 
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
+import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
 
 interface TestimonialsContentItem {
     photo: any;
@@ -42,6 +43,8 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
         if (activeSlide < 1) return;
         slideTo(activeSlide - 1);
     };
+
+    const gapBetweenSlides = checkIsMobileView() ? 50 : 120;
 
     return (
         <section className={styles.root} id={id}>
@@ -105,7 +108,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
                             setSwiper(swiper);
                             setActiveSlide(swiper.activeIndex);
                         }}
-                        spaceBetween={120}
+                        spaceBetween={gapBetweenSlides}
                         simulateTouch={false}
                         slidesPerView={'auto'}
                         className={styles.swiper}
