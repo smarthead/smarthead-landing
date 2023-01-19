@@ -6,6 +6,7 @@
     z-index: 9999;
     width: 100vw;
     padding-top: 5px;
+    opacity: 0;
 
     @media (max-width: $screen2Xl) {
         transform: translateY(-68px);

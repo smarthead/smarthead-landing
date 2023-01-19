@@ -4,12 +4,10 @@ import cn from 'classnames';
 import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
-import { scrollToTop } from '../../../utils/scroll';
-import { scrollToSectionFromStickyHeaderMenu } from './utils/scrollToSectionFromStickyHeaderMenu';
+import { scrollToSection, scrollToTop } from '../../../utils/scroll';
 
 import { useStickyHeader } from './utils';
 import { navigation } from '../navigation';
-import { hideStickyHeader } from './utils';
 
 import * as styles from './index.module.scss';
 
@@ -38,46 +36,27 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     };
 
     const handleMobileMenuClick = (linkId: string) => {
-        setIsScrollBehaviorDisabled(true);
-
         handleHamburgerClick();
-        setIsMobileMenuOpened(!isMobileMenuOpened);
-        scrollToSectionFromStickyHeaderMenu(`#${linkId}`, headerRef.current);
+        scrollToSection(`#${linkId}`);
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
-        setIsScrollBehaviorDisabled(true);
-
-        scrollToSectionFromStickyHeaderMenu(`#${linkId}`, headerRef.current);
+        scrollToSection(`#${linkId}`);
     };
 
     const handleButtonClick = () => {
-        setIsScrollBehaviorDisabled(true);
-
-        scrollToSectionFromStickyHeaderMenu(
-            `#${navigation.contacts}`,
-            headerRef.current
-        );
+        scrollToSection(`#${navigation.contacts}`);
     };
 
     const headerRef = useRef<HTMLElement>(null);
 
-    const { setIsScrollBehaviorDisabled } = useStickyHeader({
+    useStickyHeader({
         firstScreenHeight: heroSectionHeight,
         headerDomElem: headerRef.current,
         isMobileMenuOpened,
     });
 
     const handleLogoClick = () => {
-        const headerDomElem = headerRef.current;
-        if (headerDomElem) {
-            const headerHeight = parseFloat(
-                getComputedStyle(headerDomElem).height
-            );
-            hideStickyHeader(headerDomElem, headerHeight);
-            setIsScrollBehaviorDisabled(true);
-        }
-
         scrollToTop();
     };
 

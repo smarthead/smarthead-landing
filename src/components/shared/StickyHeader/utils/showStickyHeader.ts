@@ -10,10 +10,10 @@ export const showStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (previousTranslateYValue > -INVISIBLE_HEADER_PART) return;
     const currentTranslateYValue = previousTranslateYValue + Math.abs(step);
 
-    if (currentTranslateYValue > -INVISIBLE_HEADER_PART) {
+    headerDomElem.style.opacity = '1';
+    if (currentTranslateYValue > INVISIBLE_HEADER_PART * -1) {
         headerDomElem.style.transform = `translateY(-${INVISIBLE_HEADER_PART}px)`;
     } else {
-        headerDomElem.style.opacity = '1';
         headerDomElem.style.transform = `translateY(${currentTranslateYValue}px)`;
     }
 };
