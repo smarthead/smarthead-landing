@@ -17,7 +17,7 @@ export const scrollToSection = (
         ease: 'power1.inOut',
         overwrite: true,
         onStart: () => {
-            window.history.replaceState(null, '', section);
+            window.history.pushState(null, '', section);
         },
     });
 };
