@@ -149,6 +149,11 @@
     font-size: 28.4px; //16px
     text-align: center;
 
+    &:hover {
+        color: $yellow;
+        cursor: pointer;
+    }
+
     @media (max-width: $screenSm) {
         font-size: 4.44vw;
     }
