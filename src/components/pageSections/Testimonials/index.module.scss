@@ -91,6 +91,20 @@
     @media (max-width: $screen3Xs) {
         height: 182vw;
     }
+
+    &-en {
+        @media (max-width: $screenXs) {
+            height: 100vw;
+        }
+
+        @media (max-width: $screen2Xs) {
+            height: 120vw;
+        }
+
+        @media (max-width: $screen3Xs) {
+            height: 132vw;
+        }
+    }
 }
 
 .swiper {

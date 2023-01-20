@@ -9,6 +9,7 @@ import * as styles from './index.module.scss';
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
+import cn from 'classnames';
 
 interface TestimonialsContentItem {
     photo: any;
@@ -25,9 +26,10 @@ interface TestimonialsData {
 interface ReviewsProps {
     data: TestimonialsData;
     id: string;
+    isEnglish?: boolean;
 }
 
-const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
+const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
     const [activeSlide, setActiveSlide] = useState(0);
 
     const [swiper, setSwiper] = useState<any>(null);
@@ -102,7 +104,11 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id }) => {
                     </div>
                 </div>
 
-                <section className={styles.reviewsContainer}>
+                <section
+                    className={cn(styles.reviewsContainer, {
+                        [styles.reviewsContainerEn]: isEnglish,
+                    })}
+                >
                     <Swiper
                         onSwiper={(swiper) => {
                             setSwiper(swiper);

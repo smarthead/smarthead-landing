@@ -97,6 +97,7 @@ const EnLayout = () => {
             <Testimonials
                 id={navigation.testimonials}
                 data={testimonialsData}
+                isEnglish
             />
             <FooterEn id={navigation.contacts} />
 
