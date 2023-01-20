@@ -8,7 +8,7 @@ import sergeyKornilov from '../../../assets/images/reviews/Sergey_Kornilov.png';
 import victoriaChernishkina from '../../../assets/images/reviews/Victoria_Chernishkina.png';
 
 export const testimonialsData = {
-    title: 'Наши клиенты о\u00a0нас',
+    title: 'Отзывы',
     content: [
         {
             photo: yuryFrolov,
