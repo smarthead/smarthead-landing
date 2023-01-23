@@ -53,7 +53,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         <section className={styles.root} id={id}>
             <div className={styles.content}>
                 <div className={styles.header}>
-                    {/*TODO: make separate component with Slot*/}
+                    {/*TODO: add Slot to SectionTitle */}
                     <SectionTitle className={styles.title} color={'black'}>
                         {data.title}
                     </SectionTitle>
