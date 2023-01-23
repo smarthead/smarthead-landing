@@ -135,13 +135,13 @@
 
 .position {
     margin: 0;
+    margin-right: 1.5vw;
     color: $grayBlack;
     font-family: $inter-600;
     font-size: 0.875vw;
     line-height: 1.142em;
     letter-spacing: 0.05em;
     white-space: pre-wrap;
-    margin-right: 1.5vw;
 
     @media (max-width: $screenXl) {
         font-size: 1.0938vw;
@@ -150,14 +150,15 @@
 
     @media (max-width: $screenLg) {
         margin: 0;
-        font-size: 1.823vw;
+        font-size: 14px;
         line-height: 1.357em;
     }
 
     @media (max-width: $screenXs) {
-        //width: 90%;
-        font-size: 3.33vw;
-        line-height: 1.333em;
+        font-family: $inter-400;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
     }
 }
 
