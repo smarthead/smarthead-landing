@@ -6,7 +6,8 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 6.25vw 0;
+    padding-top: 6.25vw;
+    padding-bottom: 12.9375vw;
     background-color: $black;
 
     @media (max-width: $screenXl) {
@@ -47,6 +48,63 @@
 
     @media (max-width: $screenSm) {
         font-size: 6.666vw;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 4.375vw;
+    margin-left: 28vw;
+
+    color: $white;
+    font-family: $inter-400;
+    font-size: 2vw;
+    line-height: 1.2em;
+    letter-spacing: 0.02em;
+
+    &:first-child {
+        margin-bottom: 10px;
+    }
+}
+
+.mail {
+    display: inline-flex;
+    color: $white;
+    font-family: $inter-600;
+    font-size: 2.0625vw;
+    line-height: 1em;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease-out;
+
+    &-first {
+        margin-bottom: 3.125vw;
+    }
+
+    &:hover {
+        color: $yellow;
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 2.1875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 2.1vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 16.15px;
+    }
+
+    @media (max-width: $screenSm) {
+        align-self: flex-start;
+    }
+
+    @media (max-width: $screen2Xs) {
+        font-size: 4.4861vw;
     }
 }
 
