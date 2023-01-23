@@ -35,38 +35,19 @@
 
 .title {
     visibility: hidden;
-    width: 68%;
     margin: 0 0 1.1vw;
-    color: $white;
-    font-family: $gilroy-600;
-    font-size: 4vw;
-    line-height: 1.2em;
     white-space: nowrap;
 
-    @media (max-width: $screenXl) {
-        font-size: 3.6719vw;
-    }
-
     @media (max-width: $screenLg) {
-        width: 55%;
         margin: 0 0 1.7vw;
-        font-size: 3.125vw;
-    }
-
-    @media (max-width: $screenMd) {
-        width: 340px;
-        font-size: 24px;
     }
 
     @media (max-width: $screenSm) {
         margin: 0 0 53px;
-        font-size: 23px;
     }
 
     @media (max-width: $screen2Xs) {
-        width: 94.444vw;
         margin: 0 0 14.72vw;
-        font-size: 6.388vw;
     }
 }
 
@@ -161,7 +142,7 @@
     }
 }
 
-.adress {
+.address {
     margin-right: auto;
     color: $white50;
 
