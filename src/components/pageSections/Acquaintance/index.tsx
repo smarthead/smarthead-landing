@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import FontFaceObserver from 'fontfaceobserver';
 
-import * as styles from './index.module.scss';
 import Card from '../../shared/Card';
+import { SectionTitle } from '../../shared/SectionTitle';
 import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
 import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
 import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
@@ -14,6 +14,7 @@ import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.
 import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.jpg';
 
 import { links } from '../../shared/links';
+import * as styles from './index.module.scss';
 
 const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -93,9 +94,10 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     return (
         <section id={id} className={styles.root}>
             <div className="container">
-                <h2 className={styles.headline}>
+                <SectionTitle className={styles.headline}>
                     Познакомьтесь с нами поближе
-                </h2>
+                </SectionTitle>
+
                 <div className={styles.cards}>
                     <Card
                         image={isMobile ? podcastCoverMobile : podcastCover}

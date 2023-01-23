@@ -29,34 +29,26 @@
     margin-top: 6.25vw;
     margin-bottom: 3.125vw;
     margin-left: 9.375%;
-    color: $black;
-    font-family: $gilroy-600;
-    font-size: 4vw;
-    letter-spacing: 0.05em;
 
     @media (max-width: $screenXl) {
         margin-bottom: 3.67vw;
         margin-left: 7.8125vw;
-        font-size: 3.672vw;
     }
 
     @media (max-width: $screenLg) {
         margin-top: 8vw;
         margin-bottom: 3.9063vw;
         margin-left: 7.8125vw;
-        font-size: 3.125vw;
     }
 
     @include for-phone-only {
         margin-top: 5vw;
         margin-bottom: 3.6vw;
-        font-size: 3.75vw;
     }
 
     @media (max-width: $screenXs) {
         margin-bottom: 6vw;
         margin-left: 7.8125vw;
-        font-size: 6.666vw;
     }
 }
 

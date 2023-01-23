@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ReviewItem from '../../shared/ReviewItem';
-
-import 'swiper/css';
-import * as styles from './index.module.scss';
+import { SectionTitle } from '../../shared/SectionTitle';
 
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
-import cn from 'classnames';
+
+import 'swiper/css';
+import * as styles from './index.module.scss';
 
 interface TestimonialsContentItem {
     photo: any;
@@ -53,7 +54,9 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
             <div className={styles.content}>
                 <div className={styles.header}>
                     {/*TODO: make separate component with Slot*/}
-                    <h1 className={styles.title}>{data.title}</h1>
+                    <SectionTitle className={styles.title} color={'black'}>
+                        {data.title}
+                    </SectionTitle>
                     <div
                         className={`${styles.bullets} ${styles.bulletsMobile}`}
                     >

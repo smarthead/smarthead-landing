@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { SectionTitle } from '../../shared/SectionTitle';
 
-import { scrollToTop } from '../../../utils/scroll';
-import * as styles from './index.module.scss';
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import { links } from '../../shared/links';
+import * as styles from './index.module.scss';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -35,7 +34,10 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
     return (
         <section id={id} className={styles.root}>
             <div className="container">
-                <h2 className={styles.title}>Давайте поработаем вместе?</h2>
+                <SectionTitle className={styles.title}>
+                    Давайте поработаем вместе?
+                </SectionTitle>
+
                 <div className={styles.contacts}>
                     <div className={styles.contactsItem}>
                         <a
