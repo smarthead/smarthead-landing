@@ -1,0 +1,91 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 3.125vw 0;
+    background-color: $darkBlue;
+
+    @media (max-width: $screenXl) {
+        padding: 3.125vw 0;
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1vw;
+    margin-bottom: 2.5vw;
+}
+
+.content-item {
+}
+
+.logo {
+    height: 1.91vw;
+
+    @media (max-width: $screen2Xl) {
+        height: 30.5px;
+    }
+
+    @media (max-width: $screenMd) {
+        justify-self: flex-end;
+        order: 1;
+        height: 2.35vw;
+    }
+
+    @media (max-width: $screenXs) {
+        height: 9.2vw;
+    }
+
+    @media (max-width: $screen2Xs) {
+        height: 12.2vw;
+    }
+}
+
+.contacts {
+    font-family: $inter-400;
+    font-size: 0.875vw;
+    line-height: 1.5em;
+    font-weight: 400;
+    color: $white;
+
+    & > a {
+        display: block;
+    }
+
+    & a {
+        margin-top: 0;
+        margin-bottom: 0.625vw;
+        color: $white;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: end;
+    column-gap: 2.6875vw;
+}
+
+.bottomContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.125vw;
+
+    &-first-block {
+        display: flex;
+
+        & > a {
+            margin-right: 1.3125vw;
+            margin-bottom: 0;
+        }
+    }
+}
