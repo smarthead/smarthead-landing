@@ -19,9 +19,16 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1vw;
     margin-bottom: 2.5vw;
-}
 
-.content-item {
+    @media (max-width: $screen2Xl) {
+        margin-bottom: 40px;
+    }
+
+    @media (max-width: $screenMd) {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        column-gap: 2vw;
+        margin-bottom: 3.91vw;
+    }
 }
 
 .logo {
@@ -53,6 +60,14 @@
     font-weight: 400;
     color: $white;
 
+    @media (max-width: $screen2Xl) {
+        font-size: 14px;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 12px;
+    }
+
     & > a {
         display: block;
     }
@@ -61,6 +76,10 @@
         margin-top: 0;
         margin-bottom: 0.625vw;
         color: $white;
+
+        @media (max-width: $screen2Xl) {
+            margin-bottom: 10px;
+        }
 
         &:hover {
             color: $yellow;
@@ -73,12 +92,25 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: end;
     column-gap: 2.6875vw;
+
+    @media (max-width: $screenXl) {
+        column-gap: 2.34vw;
+    }
+
+    @media (max-width: $screenMd) {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 4.036vw;
+    }
 }
 
 .bottomContainer {
     display: flex;
     justify-content: space-between;
-    margin-top: 3.125vw;
+    margin-top: 0.625vw;
+
+    @media (max-width: $screen2Xl) {
+        margin-top: 10px;
+    }
 
     &-first-block {
         display: flex;
@@ -86,6 +118,10 @@
         & > a {
             margin-right: 1.3125vw;
             margin-bottom: 0;
+
+            @media (max-width: $screen2Xl) {
+                margin-right: 21px;
+            }
         }
     }
 }
