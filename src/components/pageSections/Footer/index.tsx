@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 // import { scrollToTop } from '../../../utils/scroll';
 import * as styles from './index.module.scss';
+import cn from 'classnames';
 // import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 // import { links } from '../../shared/links';
 // import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
@@ -15,8 +16,8 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         gsap.fromTo(
             [
                 `.${styles.title}`,
-                `.${styles.mailFirst}`,
-                `.mailSecond`,
+                `.firstRowAnimation`,
+                `.secondRowAnimation`,
                 // `.${styles.contactsItem}`,
                 // `.${styles.border}`,
             ],
@@ -44,24 +45,38 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                 <h2 className={styles.title}>Давайте поработаем вместе?</h2>
 
                 <div className={styles.content}>
-                    <div className={styles.mailFirst}>
+                    <div
+                        className={cn(
+                            styles.contentRow,
+                            styles.contentRowFirst,
+                            'firstRowAnimation'
+                        )}
+                    >
                         <a
                             className={styles.mail}
                             href="mailto:hello@smarthead.ru"
                         >
-                            hello@smarthead.ru
+                            <span className={styles.yellow}>hello</span>
+                            @smarthead.ru
                         </a>
-                        &nbsp;&mdash; обсудить проект
+                        <span className={styles.description}>
+                            обсудить проект
+                        </span>
                     </div>
 
-                    <div className={'mailSecond'}>
+                    <div
+                        className={cn(styles.contentRow, 'secondRowAnimation')}
+                    >
                         <a
                             className={styles.mail}
                             href="mailto:hr@smarthead.ru"
                         >
-                            hr@smarthead.ru
+                            <span className={styles.yellow}>hr</span>
+                            @smarthead.ru
                         </a>
-                        &nbsp;&mdash; присоединится к команде
+                        <span className={styles.description}>
+                            присоединиться к команде
+                        </span>
                     </div>
                 </div>
 

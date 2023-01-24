@@ -14,8 +14,8 @@
         font-size: 3.6718vw;
     }
 
-    @media (max-width: $screenLg) {
-        padding: 6.5vw 0;
+    @media (max-width: $screenMd) {
+        padding-bottom: 9.765vw;
     }
 
     @media (max-width: $screenSm) {
@@ -57,15 +57,52 @@
     height: 100%;
     margin-top: 4.375vw;
     margin-left: 28vw;
-
     color: $white;
-    font-family: $inter-400;
-    font-size: 2vw;
-    line-height: 1.2em;
-    letter-spacing: 0.02em;
 
-    &:first-child {
-        margin-bottom: 10px;
+    @media (max-width: $screenXl) {
+        margin-top: 4.6875vw;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-top: 5.85vw;
+        margin-left: 29vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-top: 6.25vw;
+        margin-left: 0;
+    }
+
+    @media (max-width: $screen2Xs) {
+        margin-top: 8.33vw;
+        margin-left: 0;
+    }
+}
+
+.content-row {
+    @media (max-width: $screenXs) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-first {
+        margin-bottom: 3.125vw;
+
+        @media (max-width: $screenXl) {
+            margin-bottom: 1.5625vw;
+        }
+
+        @media (max-width: $screenMd) {
+            margin-bottom: 2.22vw;
+        }
+
+        @media (max-width: $screenXs) {
+            margin-bottom: 5.42vw;
+        }
+
+        @media (max-width: $screen2Xs) {
+            margin-bottom: 7.23vw;
+        }
     }
 }
 
@@ -73,39 +110,72 @@
     display: inline-flex;
     color: $white;
     font-family: $inter-600;
-    font-size: 2.0625vw;
-    line-height: 1em;
+    font-size: 2.5vw;
+    line-height: 1.2em;
     white-space: nowrap;
     letter-spacing: 0.02em;
     transition: color 0.15s ease-out;
-
-    &-first {
-        margin-bottom: 3.125vw;
-    }
 
     &:hover {
         color: $yellow;
     }
 
     @media (max-width: $screenXl) {
-        font-size: 2.1875vw;
-    }
-
-    @media (max-width: $screenLg) {
-        font-size: 2.1vw;
+        font-size: 2.5vw;
+        line-height: 1.35em;
     }
 
     @media (max-width: $screenMd) {
-        font-size: 16.15px;
+        font-size: 2.1vw;
+        line-height: 1.1875em;
     }
 
-    @media (max-width: $screenSm) {
-        align-self: flex-start;
+    @media (max-width: $screenXs) {
+        font-size: 3.75vw;
+        line-height: 1.22em;
+        margin-bottom: 4px;
     }
 
     @media (max-width: $screen2Xs) {
-        font-size: 4.4861vw;
+        font-size: 5vw;
     }
+}
+
+.description {
+    font-family: $inter-400;
+    font-size: 2vw;
+    line-height: 1.2em;
+    letter-spacing: 0.02em;
+    white-space: pre-wrap;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 1.823vw;
+    }
+
+    @media (max-width: $screenXs) {
+        font-size: 2.92vw;
+        line-height: 1.5em;
+    }
+
+    @media (max-width: $screen2Xs) {
+        font-size: 3.89vw;
+    }
+
+    &:before {
+        content: "\A0\2014\A0";
+
+        @media (max-width: $screenXs) {
+            content: "";
+        }
+    }
+}
+
+.yellow {
+    color: $yellow;
 }
 
 .contacts {
