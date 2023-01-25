@@ -45,18 +45,21 @@
     @media (max-width: $screenMd) {
         font-size: 24px;
     }
+}
 
-    @media (max-width: $screenSm) {
-        font-size: 6.666vw;
-    }
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 0.75vw;
 }
 
 .content {
+    grid-column: 2/3;
     display: flex;
     flex-direction: column;
     height: 100%;
     margin-top: 4.375vw;
-    margin-left: 28vw;
+    //margin-left: 28vw;
     color: $white;
 
     @media (max-width: $screenXl) {
@@ -65,17 +68,15 @@
 
     @media (max-width: $screenMd) {
         margin-top: 5.85vw;
-        margin-left: 29vw;
     }
 
-    @media (max-width: $screenXs) {
+    @media (max-width: $screenSm) {
+        grid-column: 1/3;
         margin-top: 6.25vw;
-        margin-left: 0;
     }
 
     @media (max-width: $screen2Xs) {
         margin-top: 8.33vw;
-        margin-left: 0;
     }
 }
 
@@ -87,6 +88,10 @@
 
     &-first {
         margin-bottom: 3.125vw;
+
+        @media (max-width: $screenXl) {
+            margin-bottom: 1.5625vw;
+        }
 
         @media (max-width: $screenXl) {
             margin-bottom: 1.5625vw;
@@ -130,6 +135,11 @@
         line-height: 1.1875em;
     }
 
+    @media (max-width: $screenSm) {
+        font-size: 2.5vw;
+        line-height: 1.1875em;
+    }
+
     @media (max-width: $screenXs) {
         font-size: 3.75vw;
         line-height: 1.22em;
@@ -156,6 +166,10 @@
         font-size: 1.823vw;
     }
 
+    @media (max-width: $screenSm) {
+        font-size: 2.1875vw;
+    }
+
     @media (max-width: $screenXs) {
         font-size: 2.92vw;
         line-height: 1.5em;
@@ -176,175 +190,4 @@
 
 .yellow {
     color: $yellow;
-}
-
-.contacts {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 6.25vw;
-    padding-bottom: 3.125vw;
-    color: $white;
-    font-family: $inter-400;
-    font-size: 1.5vw;
-    column-gap: 2.1875vw;
-
-    @media (max-width: $screen2Xl) {
-        padding-bottom: 50px;
-        font-size: 24px;
-    }
-
-    @media (max-width: $screenXl) {
-        padding-bottom: 3.9063vw;
-        font-size: 1.875vw;
-    }
-
-    @media (max-width: $screenSm) {
-        grid-template-columns: 1fr;
-        row-gap: 5.555vw;
-        font-size: 3.333vw;
-    }
-}
-
-.border {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    visibility: hidden;
-    width: 100%;
-    height: 2px;
-    background-color: $white50;
-
-    @media (max-width: $screenLg) {
-        height: 1px;
-    }
-}
-
-.contact-link,
-.contact-link:visited {
-    color: $white;
-    white-space: nowrap;
-    text-decoration: none;
-    transition: color 0.15s ease-out;
-
-    &:hover {
-        color: $yellow;
-    }
-}
-
-.contacts-item {
-    display: grid;
-    visibility: hidden;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: max-content;
-    grid-auto-flow: column;
-    max-height: 13vw;
-    padding-top: 3.125vw;
-    border-top: 2px $white50 solid;
-    row-gap: 2.1875vw;
-    column-gap: 3vw;
-
-    @media (max-width: $screen2Xl) {
-        max-height: 208px;
-        row-gap: 35px;
-    }
-
-    @media (max-width: $screenXl) {
-        max-height: 16.25vw;
-        row-gap: 2.7344vw;
-    }
-
-    @media (max-width: $screenLg) {
-        border-top: 1px $white50 solid;
-
-        &:last-child {
-            & > :nth-last-child(-n + 3) {
-                text-align: right;
-            }
-        }
-    }
-
-    @media (max-width: $screenSm) {
-        grid-template-columns: 2fr 1fr;
-        max-height: 26vw;
-    }
-}
-
-.social-links {
-    display: flex;
-    flex-direction: row;
-}
-
-.social-network-desktop {
-    @media (max-width: $screenSm) {
-        display: none;
-    }
-}
-
-.social-network-mobile {
-    display: none;
-
-    @media (max-width: $screenSm) {
-        display: flex;
-        width: 31%;
-    }
-}
-
-.legal-block {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.7vw;
-    color: $white50;
-    font-family: $inter-400;
-    font-size: 0.875vw;
-    line-height: 1em;
-
-    p {
-        margin: 0;
-    }
-
-    @media (max-width: $screen2Xl) {
-        margin-top: 27px;
-        font-size: 14px;
-    }
-
-    @media (max-width: $screenLg) {
-        font-size: 12px;
-    }
-
-    @media (max-width: $screenMd) {
-        font-size: 1.5625vw;
-    }
-
-    @media (max-width: $screenSm) {
-        flex-direction: column;
-        margin-top: 1.2em;
-        font-size: 3.3333vw;
-        row-gap: 110px;
-    }
-}
-
-.delimeter {
-    display: inline;
-
-    @media (max-width: $screenSm) {
-        display: none;
-    }
-}
-
-.legal-link,
-.legal-link:visited {
-    color: $white50;
-    white-space: nowrap;
-    text-decoration: none;
-    transition: color 0.15s ease-out;
-
-    &:hover {
-        color: $white;
-    }
-
-    @media (max-width: $screenSm) {
-        margin-bottom: 2.777vw;
-        line-height: 2.4em;
-    }
 }

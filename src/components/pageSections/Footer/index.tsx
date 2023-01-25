@@ -44,186 +44,46 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
             <div className="container">
                 <h2 className={styles.title}>Давайте поработаем вместе?</h2>
 
-                <div className={styles.content}>
-                    <div
-                        className={cn(
-                            styles.contentRow,
-                            styles.contentRowFirst,
-                            'firstRowAnimation'
-                        )}
-                    >
-                        <a
-                            className={styles.mail}
-                            href="mailto:hello@smarthead.ru"
+                <div className={styles.grid}>
+                    <div className={styles.content}>
+                        <div
+                            className={cn(
+                                styles.contentRow,
+                                styles.contentRowFirst,
+                                'firstRowAnimation'
+                            )}
                         >
-                            <span className={styles.yellow}>hello</span>
-                            @smarthead.ru
-                        </a>
-                        <span className={styles.description}>
-                            обсудить проект
-                        </span>
-                    </div>
+                            <a
+                                className={styles.mail}
+                                href="mailto:hello@smarthead.ru"
+                            >
+                                <span className={styles.yellow}>hello</span>
+                                @smarthead.ru
+                            </a>
+                            <span className={styles.description}>
+                                обсудить проект
+                            </span>
+                        </div>
 
-                    <div
-                        className={cn(styles.contentRow, 'secondRowAnimation')}
-                    >
-                        <a
-                            className={styles.mail}
-                            href="mailto:hr@smarthead.ru"
+                        <div
+                            className={cn(
+                                styles.contentRow,
+                                'secondRowAnimation'
+                            )}
                         >
-                            <span className={styles.yellow}>hr</span>
-                            @smarthead.ru
-                        </a>
-                        <span className={styles.description}>
-                            присоединиться к команде
-                        </span>
+                            <a
+                                className={styles.mail}
+                                href="mailto:hr@smarthead.ru"
+                            >
+                                <span className={styles.yellow}>hr</span>
+                                @smarthead.ru
+                            </a>
+                            <span className={styles.description}>
+                                присоединиться к команде
+                            </span>
+                        </div>
                     </div>
                 </div>
-
-                {/*<div className={styles.contacts}>*/}
-                {/*    <div className={styles.contactsItem}>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            href={`mailto:${links.email.contact}`}*/}
-                {/*        >*/}
-                {/*            {links.email.contact}*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            href={`mailto:${links.email.hr}`}*/}
-                {/*        >*/}
-                {/*            {links.email.hr}*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            href={links.presentation}*/}
-                {/*            target="_blank"*/}
-                {/*        >*/}
-                {/*            Презентация компании*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.telegram}*/}
-                {/*        >*/}
-                {/*            Telegram*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.youtube}*/}
-                {/*        >*/}
-                {/*            YouTube*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.linkedIn}*/}
-                {/*        >*/}
-                {/*            LinkedIn*/}
-                {/*        </a>*/}
-                {/*    </div>*/}
-                {/*    <div className={styles.contactsItem}>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            href="tel:+78432060726"*/}
-                {/*        >*/}
-                {/*            +7 843 206 07 26*/}
-                {/*        </a>*/}
-                {/*        <span>Казань, Петербургская, 50</span>*/}
-                {/*        <span>&nbsp;</span>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.facebook}*/}
-                {/*        >*/}
-                {/*            Facebook*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.instagram}*/}
-                {/*        >*/}
-                {/*            Instagram*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.habrCareer}*/}
-                {/*        >*/}
-                {/*            Хабр Карьера*/}
-                {/*        </a>*/}
-                {/*    </div>*/}
-                {/*    <div*/}
-                {/*        className={`${styles.contactsItem} ${styles.socialNetworkDesktop}`}*/}
-                {/*    >*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.telegram}*/}
-                {/*        >*/}
-                {/*            Telegram*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.youtube}*/}
-                {/*        >*/}
-                {/*            YouTube*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.linkedIn}*/}
-                {/*        >*/}
-                {/*            LinkedIn*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.facebook}*/}
-                {/*        >*/}
-                {/*            Facebook*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.instagram}*/}
-                {/*        >*/}
-                {/*            Instagram*/}
-                {/*        </a>*/}
-                {/*        <a*/}
-                {/*            className={styles.contactLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.habrCareer}*/}
-                {/*        >*/}
-                {/*            Хабр Карьера*/}
-                {/*        </a>*/}
-                {/*    </div>*/}
-                {/*    <div className={styles.border}></div>*/}
-                {/*</div>*/}
-                {/*<div className={styles.legalBlock}>*/}
-                {/*    <p>*/}
-                {/*        <a*/}
-                {/*            className={styles.legalLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.privacyPolicy}*/}
-                {/*        >*/}
-                {/*            Политика Конфиденциальности*/}
-                {/*        </a>{' '}*/}
-                {/*        <span className={styles.delimeter}>*/}
-                {/*            &nbsp;/&nbsp;&nbsp;*/}
-                {/*        </span>*/}
-                {/*        <a*/}
-                {/*            className={styles.legalLink}*/}
-                {/*            target="_blank"*/}
-                {/*            href={links.userAgreement}*/}
-                {/*        >*/}
-                {/*            Пользовательское Соглашение*/}
-                {/*        </a>*/}
-                {/*    </p>*/}
-                {/*    <p>©SmartHead. Все права защищены.</p>*/}
-                {/*</div>*/}
             </div>
         </section>
     );

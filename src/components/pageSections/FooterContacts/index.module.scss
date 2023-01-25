@@ -118,6 +118,10 @@
     @media (max-width: $screenSm) {
         order: 2;
         grid-column: 1/3;
+        column-gap: 21vw;
+    }
+
+    @media (max-width: $screenXs) {
         column-gap: 13.75vw;
     }
 }
@@ -156,7 +160,11 @@
     }
 
     & a {
-        color: $white50;
+        color: $white;
+
+        @media (max-width: $screenSm) {
+            color: $white50;
+        }
 
         &:hover {
             color: $yellow;
@@ -171,9 +179,8 @@
         }
     }
 
-    &-item {
+    &-fist-item {
         margin-right: 1.3125vw;
-        margin-bottom: 0;
 
         @media (max-width: $screen2Xl) {
             margin-right: 21px;
@@ -181,6 +188,11 @@
 
         @media (max-width: $screenSm) {
             margin-right: 0;
+        }
+    }
+
+    &-item {
+        @media (max-width: $screenSm) {
             margin-bottom: 10px;
         }
     }

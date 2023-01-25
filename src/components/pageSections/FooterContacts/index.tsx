@@ -110,7 +110,12 @@ export const FooterContacts: React.FC = () => (
 
             <div className={cn(styles.contacts, styles.bottomContainer)}>
                 <div className={styles.bottomContainerFirstBlock}>
-                    <div className={styles.bottomContainerItem}>
+                    <div
+                        className={cn(
+                            styles.bottomContainerItem,
+                            styles.bottomContainerFistItem
+                        )}
+                    >
                         <a
                             href={links.documents.privacyPolicy.link}
                             target="_blank"
