@@ -80,44 +80,65 @@ export const FooterContacts: React.FC = () => (
                 />
 
                 <div className={styles.contacts}>
-                    <a href="tel:+78432060726" target="_blank">
-                        +7 843 206 07 26
-                    </a>
+                    <div className={styles.contactsItem}>
+                        <a href="tel:+78432060726" target="_blank">
+                            +7 843 206 07 26
+                        </a>
+                    </div>
                     Петербургская, 50, Казань, 420000
                 </div>
 
                 <div className={cn(styles.contacts, styles.links)}>
-                    {links.socialMedia.map(({ name, link, id }) => (
-                        <a href={link} target="_blank" key={id}>
-                            {name}
-                        </a>
+                    {links.socialMedia.map(({ name, link, id }, i) => (
+                        <div key={id} className={styles.contactsItem}>
+                            <a
+                                href={link}
+                                target="_blank"
+                                className={cn({
+                                    [styles.penultimate]: id === 4,
+                                    [styles.last]:
+                                        i === links.socialMedia.length - 1,
+                                })}
+                            >
+                                {name}
+                            </a>
+                        </div>
                     ))}
                 </div>
             </div>
 
-            <hr />
+            <hr className={styles.line} />
 
-            <div className={cn(styles.bottomContainer, styles.contacts)}>
+            <div className={cn(styles.contacts, styles.bottomContainer)}>
                 <div className={styles.bottomContainerFirstBlock}>
-                    <a
-                        href={links.documents.privacyPolicy.link}
-                        target="_blank"
-                    >
-                        {links.documents.privacyPolicy.name}
-                    </a>
+                    <div className={styles.bottomContainerItem}>
+                        <a
+                            href={links.documents.privacyPolicy.link}
+                            target="_blank"
+                        >
+                            {links.documents.privacyPolicy.name}
+                        </a>
+                    </div>
 
-                    <a
-                        href={links.documents.userAgreement.link}
-                        target="_blank"
-                    >
-                        {links.documents.userAgreement.name}
-                    </a>
+                    <div className={styles.bottomContainerItem}>
+                        <a
+                            href={links.documents.userAgreement.link}
+                            target="_blank"
+                        >
+                            {links.documents.userAgreement.name}
+                        </a>
+                    </div>
                 </div>
 
                 <div>
-                    <a href={links.documents.presentation.link} target="_blank">
-                        {links.documents.presentation.name}
-                    </a>
+                    <div className={styles.bottomContainerItem}>
+                        <a
+                            href={links.documents.presentation.link}
+                            target="_blank"
+                        >
+                            {links.documents.presentation.name}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

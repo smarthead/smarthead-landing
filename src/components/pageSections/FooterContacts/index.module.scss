@@ -9,15 +9,23 @@
     padding: 3.125vw 0;
     background-color: $darkBlue;
 
-    @media (max-width: $screenXl) {
-        padding: 3.125vw 0;
+    @media (max-width: $screen2Xl) {
+        padding: 50px 0;
+    }
+
+    @media (max-width: $screenLg) {
+        padding: 30px 0;
+    }
+
+    @media (max-width: $screenXs) {
+        padding: 70px 0;
     }
 }
 
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1vw;
+    column-gap: 1.5vw;
     margin-bottom: 2.5vw;
 
     @media (max-width: $screen2Xl) {
@@ -26,8 +34,15 @@
 
     @media (max-width: $screenMd) {
         grid-template-columns: 1.4fr 1fr 1fr;
-        column-gap: 2vw;
+        column-gap: 3vw;
         margin-bottom: 3.91vw;
+    }
+
+    @media (max-width: $screenSm) {
+        grid-template-columns: 3fr 1fr;
+        column-gap: 2vw;
+        row-gap: 10.42vw;
+        margin-bottom: 40px;
     }
 }
 
@@ -35,21 +50,21 @@
     height: 1.91vw;
 
     @media (max-width: $screen2Xl) {
-        height: 30.5px;
+        height: 31px;
     }
 
     @media (max-width: $screenMd) {
         justify-self: flex-end;
         order: 1;
-        height: 2.35vw;
+        height: 2.47vw;
     }
 
     @media (max-width: $screenXs) {
-        height: 9.2vw;
+        height: 3.056vw;
     }
 
     @media (max-width: $screen2Xs) {
-        height: 12.2vw;
+        height: 14px;
     }
 }
 
@@ -68,21 +83,20 @@
         font-size: 12px;
     }
 
-    & > a {
-        display: block;
-    }
-
-    & a {
+    &-item {
         margin-top: 0;
         margin-bottom: 0.625vw;
-        color: $white;
 
         @media (max-width: $screen2Xl) {
             margin-bottom: 10px;
         }
 
-        &:hover {
-            color: $yellow;
+        & a {
+            color: $white;
+
+            &:hover {
+                color: $yellow;
+            }
         }
     }
 }
@@ -90,7 +104,6 @@
 .links {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: end;
     column-gap: 2.6875vw;
 
     @media (max-width: $screenXl) {
@@ -101,9 +114,34 @@
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 4.036vw;
     }
+
+    @media (max-width: $screenSm) {
+        order: 2;
+        grid-column: 1/3;
+        column-gap: 13.75vw;
+    }
 }
 
-.bottomContainer {
+.penultimate {
+    @media (max-width: $screenMd) {
+        order: 1;
+    }
+}
+
+.last {
+    @media (max-width: $screenMd) {
+        order: 2;
+    }
+}
+
+.line {
+    height: 1px;
+    border: none;
+    margin: 0;
+    background-color: $white;
+}
+
+.bottom-container {
     display: flex;
     justify-content: space-between;
     margin-top: 0.625vw;
@@ -112,16 +150,38 @@
         margin-top: 10px;
     }
 
+    @media (max-width: $screenSm) {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    & a {
+        color: $white50;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
     &-first-block {
         display: flex;
 
-        & > a {
-            margin-right: 1.3125vw;
-            margin-bottom: 0;
+        @media (max-width: $screenSm) {
+            flex-direction: column;
+        }
+    }
 
-            @media (max-width: $screen2Xl) {
-                margin-right: 21px;
-            }
+    &-item {
+        margin-right: 1.3125vw;
+        margin-bottom: 0;
+
+        @media (max-width: $screen2Xl) {
+            margin-right: 21px;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-right: 0;
+            margin-bottom: 10px;
         }
     }
 }
