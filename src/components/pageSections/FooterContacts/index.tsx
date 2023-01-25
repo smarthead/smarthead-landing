@@ -90,16 +90,15 @@ export const FooterContacts: React.FC = () => (
 
                 <div className={cn(styles.contacts, styles.links)}>
                     {links.socialMedia.map(({ name, link, id }, i) => (
-                        <div key={id} className={styles.contactsItem}>
-                            <a
-                                href={link}
-                                target="_blank"
-                                className={cn({
-                                    [styles.penultimate]: id === 4,
-                                    [styles.last]:
-                                        i === links.socialMedia.length - 1,
-                                })}
-                            >
+                        <div
+                            key={id}
+                            className={cn(styles.contactsItem, {
+                                [styles.penultimate]: id === 4,
+                                [styles.last]:
+                                    i === links.socialMedia.length - 1,
+                            })}
+                        >
+                            <a href={link} target="_blank">
                                 {name}
                             </a>
                         </div>
