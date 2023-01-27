@@ -27,6 +27,7 @@ import heinekenLogoSVG from '../../../assets/images/logos/heineken_logo.svg';
 import marsLogoSVG from '../../../assets/images/logos/mars_logo.svg';
 import kelloggsLogoSVG from '../../../assets/images/logos/kelloggs_logo.svg';
 import panasonicLogoSVG from '../../../assets/images/logos/panasonic_logo.svg';
+import diageoLogoSVG from '../../../assets/images/logos/diageo_logo.svg';
 
 const imagesRu = [
     sberSolutionsLogoSVG,
@@ -58,6 +59,7 @@ const imagesRu = [
     marsLogoSVG,
     kelloggsLogoSVG,
     panasonicLogoSVG,
+    diageoLogoSVG,
 ];
 
 export const partnersData = {
