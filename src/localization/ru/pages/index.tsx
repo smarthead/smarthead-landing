@@ -14,6 +14,7 @@ import Cases from '../../../components/pageSections/Cases';
 import Footer from '../../../components/pageSections/Footer';
 import Tagline from '../../../components/pageSections/Tagline';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
+import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 import { scrollToSection } from '../../../utils/scroll';
@@ -98,6 +99,7 @@ const RuLayout = () => {
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
             <Footer id={navigation.contacts} />
+            <FooterContacts />
 
             {!cookiesAccepted && (
                 <CookiesNotification
