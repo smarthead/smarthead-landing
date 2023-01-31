@@ -1,73 +1,52 @@
 import React from 'react';
 import cn from 'classnames';
+import { links } from '../../shared/links';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 
-const footerSocialMediaLinks = [
+const socialMediaLinks = [
     {
         name: 'Facebook',
-        link: 'https://www.facebook.com/smarthead.digital',
+        link: links.facebook,
         id: 1,
     },
     {
         name: 'LinkedIn',
-        link: 'https://www.linkedin.com/company/smarthead',
+        link: links.linkedIn,
         id: 2,
     },
     {
         name: 'Хабр\u00a0Карьера',
-        link: 'https://career.habr.com/companies/smarthead',
+        link: links.habrCareer,
         id: 3,
     },
     {
         name: 'Telegram',
-        link: 'https://t.me/smarthead',
+        link: links.telegram,
         id: 4,
     },
     {
         name: 'Instagram',
-        link: 'https://www.instagram.com/smarthead_official/',
+        link: links.instagram,
         id: 5,
     },
     {
         name: 'YouTube',
-        link: 'https://www.youtube.com/c/SmartheadRus',
+        link: links.youtube,
         id: 6,
     },
     {
         name: 'ВКонтакте',
-        link: 'https://vk.com/smarthead_ru',
+        link: links.vk,
         id: 7,
     },
     {
         name: 'GitHub',
-        link: 'https://github.com/smarthead',
+        link: links.github,
         id: 5,
     },
 ];
-
-const links = {
-    socialMedia: footerSocialMediaLinks,
-    documents: {
-        privacyPolicy: {
-            name: 'Политика конфиденциальности',
-            link: '/files/privacy-policy.pdf',
-        },
-        userAgreement: {
-            name: 'Пользовательское соглашение',
-            link: '/files/user-agreement.pdf',
-        },
-        presentation: {
-            name: 'Открыть презентацию',
-            link: 'https://smrthd.com/about',
-        },
-    },
-    email: {
-        contact: 'hello@smarthead.ru',
-        hr: 'hr@smarthead.ru',
-    },
-};
 
 export const FooterContacts: React.FC = () => (
     <footer className={styles.root}>
@@ -89,13 +68,13 @@ export const FooterContacts: React.FC = () => (
                 </div>
 
                 <div className={cn(styles.contacts, styles.links)}>
-                    {links.socialMedia.map(({ name, link, id }, i) => (
+                    {socialMediaLinks.map(({ name, link, id }, i) => (
                         <div
                             key={id}
                             className={cn(styles.contactsItem, {
                                 [styles.penultimate]: id === 4,
                                 [styles.last]:
-                                    i === links.socialMedia.length - 1,
+                                    i === socialMediaLinks.length - 1,
                             })}
                         >
                             <a href={link} target="_blank">
@@ -116,31 +95,22 @@ export const FooterContacts: React.FC = () => (
                             styles.bottomContainerFistItem
                         )}
                     >
-                        <a
-                            href={links.documents.privacyPolicy.link}
-                            target="_blank"
-                        >
-                            {links.documents.privacyPolicy.name}
+                        <a href={links.privacyPolicy} target="_blank">
+                            Политика конфиденциальности
                         </a>
                     </div>
 
                     <div className={styles.bottomContainerItem}>
-                        <a
-                            href={links.documents.userAgreement.link}
-                            target="_blank"
-                        >
-                            {links.documents.userAgreement.name}
+                        <a href={links.userAgreement} target="_blank">
+                            Пользовательское соглашение
                         </a>
                     </div>
                 </div>
 
                 <div>
                     <div className={styles.bottomContainerItem}>
-                        <a
-                            href={links.documents.presentation.link}
-                            target="_blank"
-                        >
-                            {links.documents.presentation.name}
+                        <a href={links.presentation} target="_blank">
+                            Открыть презентацию
                         </a>
                     </div>
                 </div>
