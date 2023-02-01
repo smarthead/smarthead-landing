@@ -20,7 +20,8 @@
     margin-top: auto;
     margin-bottom: 25px;
     padding: 15px 30px;
-    background-color: #232837;
+    background-color: $white;
+    box-shadow: 0 2px 16px 0 rgb(0 0 0 / 20%);
     pointer-events: auto;
 
     @media (max-width: $screenSm) {
@@ -28,7 +29,6 @@
         align-items: flex-start;
         max-width: 95%;
         margin-bottom: 14px;
-        // padding: 4.166vw 2.777vw;
         padding: 20px 14px;
     }
 
@@ -41,7 +41,7 @@
 
 .text {
     margin-right: 15px;
-    color: $white;
+    color: $black;
     font-family: $inter-400;
     font-size: 14px;
     line-height: 1.48em;
@@ -73,10 +73,10 @@
 
 .button {
     padding: 8.5px 30px;
-    color: $black;
+    color: $white;
     font-family: $gilroy-600;
     font-size: 14px;
-    background-color: $white;
+    background-color: $black;
     border: none;
     border-radius: 0.7857em;
     transition: background-color 0.15s ease-out;
@@ -92,6 +92,6 @@
     }
 
     &:hover {
-        background-color: $grayLight;
+        background-color: $gray;
     }
 }
