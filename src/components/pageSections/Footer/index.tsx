@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import cn from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import { SectionTitle } from '../../shared/SectionTitle';
 
 import { links } from '../../shared/links';
@@ -13,10 +15,15 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         gsap.fromTo(
             [
                 `.${styles.title}`,
-                `.${styles.contactsItem}`,
-                `.${styles.border}`,
+                `.firstRowAnimation`,
+                `.secondRowAnimation`,
+                // `.${styles.contactsItem}`,
+                // `.${styles.border}`,
             ],
-            { yPercent: gsap.utils.wrap([60, 20, 20, 20, 200]), autoAlpha: 0 },
+            {
+                yPercent: gsap.utils.wrap([60, 100, 100, 20, 200]),
+                autoAlpha: 0,
+            },
             {
                 scrollTrigger: {
                     trigger: `.${styles.title}`,
@@ -38,150 +45,45 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                     Давайте поработаем вместе?
                 </SectionTitle>
 
-                <div className={styles.contacts}>
-                    <div className={styles.contactsItem}>
-                        <a
-                            className={styles.contactLink}
-                            href={`mailto:${links.email.contact}`}
+                <div className={styles.grid}>
+                    <div className={styles.content}>
+                        <div
+                            className={cn(
+                                styles.contentRow,
+                                styles.contentRowFirst,
+                                'firstRowAnimation'
+                            )}
                         >
-                            {links.email.contact}
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            href={`mailto:${links.email.hr}`}
-                        >
-                            {links.email.hr}
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            href={links.presentation}
-                            target="_blank"
-                        >
-                            Презентация компании
-                        </a>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.telegram}
-                        >
-                            Telegram
-                        </a>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.youtube}
-                        >
-                            YouTube
-                        </a>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
-                    </div>
-                    <div className={styles.contactsItem}>
-                        <a
-                            className={styles.contactLink}
-                            href="tel:+78432060726"
-                        >
-                            +7 843 206 07 26
-                        </a>
-                        <span>Казань, Петербургская, 50</span>
-                        <span>&nbsp;</span>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.facebook}
-                        >
-                            Facebook
-                        </a>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.instagram}
-                        >
-                            Instagram
-                        </a>
-                        <a
-                            className={`${styles.contactLink} ${styles.socialNetworkMobile}`}
-                            target="_blank"
-                            href={links.habrCareer}
-                        >
-                            Хабр Карьера
-                        </a>
-                    </div>
-                    <div
-                        className={`${styles.contactsItem} ${styles.socialNetworkDesktop}`}
-                    >
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.telegram}
-                        >
-                            Telegram
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.youtube}
-                        >
-                            YouTube
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.facebook}
-                        >
-                            Facebook
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.instagram}
-                        >
-                            Instagram
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.habrCareer}
-                        >
-                            Хабр Карьера
-                        </a>
-                    </div>
-                    <div className={styles.border}></div>
-                </div>
+                            <a
+                                className={styles.mail}
+                                href="mailto:hello@smarthead.ru"
+                            >
+                                <span className={styles.yellow}>hello</span>
+                                @smarthead.ru
+                            </a>
+                            <span className={styles.description}>
+                                обсудить проект
+                            </span>
+                        </div>
 
-                <div className={styles.legalBlock}>
-                    <p>
-                        <a
-                            className={styles.legalLink}
-                            target="_blank"
-                            href={links.privacyPolicy}
+                        <div
+                            className={cn(
+                                styles.contentRow,
+                                'secondRowAnimation'
+                            )}
                         >
-                            Политика Конфиденциальности
-                        </a>{' '}
-                        <span className={styles.delimeter}>
-                            &nbsp;/&nbsp;&nbsp;
-                        </span>
-                        <a
-                            className={styles.legalLink}
-                            target="_blank"
-                            href={links.userAgreement}
-                        >
-                            Пользовательское Соглашение
-                        </a>
-                    </p>
-                    <p>©SmartHead. Все права защищены.</p>
+                            <a
+                                className={styles.mail}
+                                href="mailto:hr@smarthead.ru"
+                            >
+                                <span className={styles.yellow}>hr</span>
+                                @smarthead.ru
+                            </a>
+                            <span className={styles.description}>
+                                присоединиться к команде
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
