@@ -3,8 +3,9 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import FontFaceObserver from 'fontfaceobserver';
 
-import * as styles from './index.module.scss';
 import Card from '../../shared/Card';
+import { Section } from '../../shared/Section';
+
 import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
 import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
 import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
@@ -14,6 +15,7 @@ import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.
 import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.jpg';
 
 import { links } from '../../shared/links';
+import * as styles from './index.module.scss';
 
 const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -91,40 +93,36 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
 
     return (
-        <section id={id} className={styles.root}>
-            <div className="container">
-                <h2 className={styles.headline}>
-                    Познакомьтесь с нами поближе
-                </h2>
-                <div className={styles.cards}>
-                    <Card
-                        image={isMobile ? podcastCoverMobile : podcastCover}
-                        description="Подкаст о технологиях, менеджменте и саморазвитии"
-                        buttonText="ПОСЛУШАТЬ"
-                        link={links.podcast}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                    <Card
-                        image={isMobile ? instagramCoverMobile : instagramCover}
-                        description="Инстаграм о нашей жизни в офисе и за его пределами"
-                        buttonText="ПОСМОТРЕТЬ"
-                        link={links.instagram}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                    <Card
-                        image={isMobile ? telegramCoverMobile : telegramCover}
-                        description="Телеграм-канал, где собраны
+        <Section theme={'dark'} id={id}>
+            <h2 className={styles.headline}>Познакомьтесь с нами поближе</h2>
+            <div className={styles.cards}>
+                <Card
+                    image={isMobile ? podcastCoverMobile : podcastCover}
+                    description="Подкаст о технологиях, менеджменте и саморазвитии"
+                    buttonText="ПОСЛУШАТЬ"
+                    link={links.podcast}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
+                <Card
+                    image={isMobile ? instagramCoverMobile : instagramCover}
+                    description="Инстаграм о нашей жизни в офисе и за его пределами"
+                    buttonText="ПОСМОТРЕТЬ"
+                    link={links.instagram}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
+                <Card
+                    image={isMobile ? telegramCoverMobile : telegramCover}
+                    description="Телеграм-канал, где собраны
                     наши лучшие практики"
-                        buttonText="ПОЧИТАТЬ"
-                        link={links.telegram}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                </div>
+                    buttonText="ПОЧИТАТЬ"
+                    link={links.telegram}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
             </div>
-        </section>
+        </Section>
     );
 };
 

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { Section } from '../../shared/Section';
+
 import * as styles from './index.module.scss';
 
 interface IPartners {
@@ -53,33 +55,31 @@ const Partners: React.FC<IPartners> = ({ data }) => {
         );
     }, []);
     return (
-        <div className={styles.carousel}>
-            <div className="container">
-                <div className={styles.content}>
-                    <div
-                        className={`${styles.headline} partners-headline
+        <Section theme={'dark'}>
+            <div className={styles.content}>
+                <div
+                    className={`${styles.headline} partners-headline
                         ${data.language === 'en' && styles.headlineEn}`}
-                    >
-                        {data.title}
-                    </div>
+                >
+                    {data.title}
+                </div>
 
-                    <div
-                        className={`${styles.logos} ${
-                            data.language === 'en' && styles.logosEn
-                        }`}
-                    >
-                        {data.images.map((logo, index) => (
-                            <img
-                                src={logo}
-                                key={index}
-                                alt=""
-                                className={`${styles.logo} partners-logo-item`}
-                            />
-                        ))}
-                    </div>
+                <div
+                    className={`${styles.logos} ${
+                        data.language === 'en' && styles.logosEn
+                    }`}
+                >
+                    {data.images.map((logo, index) => (
+                        <img
+                            src={logo}
+                            key={index}
+                            alt=""
+                            className={`${styles.logo} partners-logo-item`}
+                        />
+                    ))}
                 </div>
             </div>
-        </div>
+        </Section>
     );
 };
 

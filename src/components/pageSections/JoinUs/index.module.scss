@@ -1,22 +1,26 @@
 @import "../../../styles/variables";
 
 .root {
-    position: relative;
-    display: flex;
-    // align-items: center;
-    overflow: hidden;
-    width: 100%;
-    min-height: max(600px, 100vh);
-    padding: 6.25vw 0;
-    background-color: $white;
+    padding-bottom: 11.5625vw;
+
+    @media (max-width: $screen2Xl) {
+        padding-bottom: 222px;
+    }
+
+    @media (max-width: $screenXl) {
+        padding-bottom: 144px;
+    }
 
     @media (max-width: $screenLg) {
-        min-height: auto;
-        padding: 6.5vw 0;
+        padding-bottom: 157px;
     }
 
     @media (max-width: $screenSm) {
-        padding: 19.5vw 0;
+        padding-bottom: 200px;
+    }
+
+    @media (max-width: $screenXs) {
+        padding-bottom: 252px;
     }
 }
 
