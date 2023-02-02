@@ -51,28 +51,6 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
                         hello@smarthead.digital
                     </a>
                 </div>
-
-                <div className={styles.contacts}>
-                    <span className={styles.address}>
-                        SmartHead LLC, San Francisco, USA
-                    </span>
-                    <div>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.privacyPolicy}
-                        >
-                            Privacy Policy
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
     );

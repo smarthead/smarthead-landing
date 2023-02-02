@@ -1,36 +1,28 @@
 @import "../../../styles/variables";
 
-.root {
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    min-height: max(600px, 100vh);
-    padding: 6.25vw 0;
-    background-color: $black;
-
-    @media (max-width: $screenLg) {
-        min-height: auto;
-        padding: 6.5vw 0 9vw;
-    }
-
-    @media (max-width: $screenSm) {
-        min-height: auto;
-        padding: 19.5vw 0;
-    }
-}
-
 .headline {
     margin-top: 0;
     margin-bottom: 3vw;
+    color: $white;
+    font-family: $gilroy-600;
+    font-size: 4vw;
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 48px;
+        font-size: 3.6719vw;
+    }
 
     @media (max-width: $screenLg) {
-        margin-bottom: 3.7vw;
+        font-size: 3.125vw;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-bottom: 30px;
+        font-size: 24px;
     }
 
     @media (max-width: $screenSm) {
-        margin-bottom: 7vw;
+        margin-bottom: 24px;
     }
 }
 

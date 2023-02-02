@@ -1,25 +1,9 @@
 @import "../../../styles/variables";
 
-.carousel {
-    display: flex;
-    min-height: 100vh;
-    background-color: $black;
-
-    @media (max-width: $screenLg) {
-        min-height: auto;
-    }
-}
-
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    padding: 6.25vw 0;
-
-    @media (max-width: $screenLg) {
-        padding: 7.8125vw 0;
-    }
 
     @media (max-width: $screenSm) {
         font-size: 24px;
@@ -34,8 +18,18 @@
         margin-bottom: 4.8vw;
     }
 
-    @media (max-width: $screenXs) {
-        margin-bottom: 10vw;
+    @media (max-width: $screenXl) {
+        margin-bottom: 48px;
+        font-size: 3.6719vw;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-bottom: 24px;
     }
 }
 

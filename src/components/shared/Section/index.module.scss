@@ -1,0 +1,35 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    width: 100vw;
+    min-height: max(600px, 100vh);
+    padding: 5.2084vw 0;
+    overflow: hidden;
+
+    @media (max-width: $screen2Xl) {
+        padding: 100px 0;
+    }
+
+    @media (max-width: $screenXl) {
+        min-height: auto;
+    }
+
+    @media (max-width: $screenLg) {
+        padding: 50px 0;
+    }
+
+    @media (max-width: $screenSm) {
+        padding: 32px 0;
+    }
+}
+
+.light {
+    background-color: $white;
+    color: $black;
+}
+
+.dark {
+    background-color: $black;
+    color: $white;
+}

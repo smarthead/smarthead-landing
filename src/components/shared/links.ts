@@ -6,6 +6,8 @@ export const links = {
     linkedIn: 'https://www.linkedin.com/company/smarthead',
     facebook: 'https://www.facebook.com/smarthead.digital',
     habrCareer: 'https://career.habr.com/companies/smarthead',
+    vk: 'https://vk.com/smarthead_ru',
+    github: 'https://github.com/smarthead',
     email: {
         contact: 'hello@smarthead.ru',
         hr: 'hr@smarthead.ru',

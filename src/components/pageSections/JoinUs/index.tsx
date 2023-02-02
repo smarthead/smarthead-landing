@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { Section } from '../../shared/Section';
+import { SectionTitle } from '../../shared/SectionTitle';
+
 import FontFaceObserver from 'fontfaceobserver';
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
-import { SectionTitle } from '../../shared/SectionTitle';
 
 import * as styles from './index.module.scss';
 
@@ -94,67 +96,62 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
 
     return (
-        <section id={id} className={styles.root}>
-            <div className="container">
-                <div className={styles.content}>
-                    <SectionTitle className={styles.headline} color={'black'}>
-                        Присоединяйтесь к нашей команде
-                    </SectionTitle>
-
-                    <p className={styles.subtext}>
-                        Мы сильны инженерной культурой, качеством реализации
-                        проектов, теплой атмосферой и бережным отношением к
-                        сотрудникам
-                    </p>
-                    <div className={styles.contact}>
-                        <ul className={styles.vacancies} ref={vacancyList}>
-                            {fontIsLoaded &&
-                                vacancies.map((vacancy, index) => (
-                                    <li
-                                        key={index}
-                                        className={styles.vacanciesItem}
+        <Section id={id} className={styles.root}>
+            <div className={styles.content}>
+                <SectionTitle className={styles.headline} color={'black'}>
+                    Присоединяйтесь к нашей команде
+                </SectionTitle>
+                <p className={styles.subtext}>
+                    Мы сильны инженерной культурой, качеством реализации
+                    проектов, теплой атмосферой и бережным отношением к
+                    сотрудникам
+                </p>
+                <div className={styles.contact}>
+                    <ul className={styles.vacancies} ref={vacancyList}>
+                        {fontIsLoaded &&
+                            vacancies.map((vacancy, index) => (
+                                <li
+                                    key={index}
+                                    className={styles.vacanciesItem}
+                                >
+                                    <a
+                                        href={vacancy.link}
+                                        target="_blank"
+                                        className={styles.vacanciesLink}
                                     >
-                                        <a
-                                            href={vacancy.link}
-                                            target="_blank"
-                                            className={styles.vacanciesLink}
+                                        <span
+                                            className={
+                                                styles.vacanciesTextContainer
+                                            }
                                         >
                                             <span
-                                                className={
-                                                    styles.vacanciesTextContainer
-                                                }
+                                                className={styles.vacanciesText}
                                             >
-                                                <span
-                                                    className={
-                                                        styles.vacanciesText
-                                                    }
-                                                >
-                                                    {vacancy.text}
-                                                </span>
-                                                <img
-                                                    src={ArrowRightYellow}
-                                                    alt=""
-                                                    className={styles.arrow}
-                                                />
+                                                {vacancy.text}
                                             </span>
-                                        </a>
-                                    </li>
-                                ))}
-                        </ul>
-                        <p className={styles.contactHr}>
-                            Если вы не нашли вакансию, которая вам подходит,
-                            можете смело написать нам на{' '}
-                            <a
-                                className={styles.email}
-                                href="mailto:hr@smarthead.ru"
-                            >
-                                hr@smarthead.ru
-                            </a>
-                        </p>
-                    </div>
+                                            <img
+                                                src={ArrowRightYellow}
+                                                alt=""
+                                                className={styles.arrow}
+                                            />
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
+                    </ul>
+                    <p className={styles.contactHr}>
+                        Если вы не нашли вакансию, которая вам подходит, можете
+                        смело написать нам на{' '}
+                        <a
+                            className={styles.email}
+                            href="mailto:hr@smarthead.ru"
+                        >
+                            hr@smarthead.ru
+                        </a>
+                    </p>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 };
 

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { Section } from '../../shared/Section';
+
 import * as styles from './index.module.scss';
 
 interface IWhatWeDo {
@@ -32,22 +34,17 @@ const WhatWeDo: React.FC<IWhatWeDo> = ({ id, data }) => {
     }, []);
 
     return (
-        <section className={styles.root} id={id}>
-            <div className="container">
-                <ul className={styles.task}>
-                    {data.tasks.map((task, index) => (
-                        <li key={index} className={styles.taskItem}>
-                            {task.text}
-                            <br />
-                            <span className={styles.thinText}>
-                                {' '}
-                                {task.subtext}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+        <Section id={id} theme={'dark'} className={styles.root}>
+            <ul className={styles.task}>
+                {data.tasks.map((task, index) => (
+                    <li key={index} className={styles.taskItem}>
+                        {task.text}
+                        <br />
+                        <span className={styles.thinText}> {task.subtext}</span>
+                    </li>
+                ))}
+            </ul>
+        </Section>
     );
 };
 

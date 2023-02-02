@@ -5,6 +5,8 @@ import FontFaceObserver from 'fontfaceobserver';
 
 import Card from '../../shared/Card';
 import { SectionTitle } from '../../shared/SectionTitle';
+import { Section } from '../../shared/Section';
+
 import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
 import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
 import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
@@ -92,41 +94,39 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
 
     return (
-        <section id={id} className={styles.root}>
-            <div className="container">
-                <SectionTitle className={styles.headline}>
-                    Познакомьтесь с нами поближе
-                </SectionTitle>
+        <Section theme={'dark'} id={id}>
+            <SectionTitle className={styles.headline}>
+                Познакомьтесь с нами поближе
+            </SectionTitle>
 
-                <div className={styles.cards}>
-                    <Card
-                        image={isMobile ? podcastCoverMobile : podcastCover}
-                        description="Подкаст о технологиях, менеджменте и саморазвитии"
-                        buttonText="ПОСЛУШАТЬ"
-                        link={links.podcast}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                    <Card
-                        image={isMobile ? instagramCoverMobile : instagramCover}
-                        description="Инстаграм о нашей жизни в офисе и за его пределами"
-                        buttonText="ПОСМОТРЕТЬ"
-                        link={links.instagram}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                    <Card
-                        image={isMobile ? telegramCoverMobile : telegramCover}
-                        description="Телеграм-канал, где собраны
+            <div className={styles.cards}>
+                <Card
+                    image={isMobile ? podcastCoverMobile : podcastCover}
+                    description="Подкаст о технологиях, менеджменте и саморазвитии"
+                    buttonText="ПОСЛУШАТЬ"
+                    link={links.podcast}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
+                <Card
+                    image={isMobile ? instagramCoverMobile : instagramCover}
+                    description="Инстаграм о нашей жизни в офисе и за его пределами"
+                    buttonText="ПОСМОТРЕТЬ"
+                    link={links.instagram}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
+                <Card
+                    image={isMobile ? telegramCoverMobile : telegramCover}
+                    description="Телеграм-канал, где собраны
                     наши лучшие практики"
-                        buttonText="ПОЧИТАТЬ"
-                        link={links.telegram}
-                        curtainClassName="card-image-curtain"
-                        triggerClassName="card-trigger"
-                    />
-                </div>
+                    buttonText="ПОЧИТАТЬ"
+                    link={links.telegram}
+                    curtainClassName="card-image-curtain"
+                    triggerClassName="card-trigger"
+                />
             </div>
-        </section>
+        </Section>
     );
 };
 
