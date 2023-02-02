@@ -1,25 +1,13 @@
 @import "../../../styles/variables";
 
 .root {
-    position: relative;
     display: flex;
     align-items: center;
-    overflow: hidden;
-    width: 100vw;
-    min-height: max(600px, 100vh);
-    background-color: $black;
-
-    @media (max-width: $screenLg) {
-        min-height: auto;
-        padding: 8.46vw 0;
-    }
-
-    @media (max-width: $screenSm) {
-        padding: 70px 0;
-    }
 }
 
 .task {
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: 34.2%;
     padding: 0;
     color: $white;
