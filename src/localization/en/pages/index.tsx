@@ -9,9 +9,10 @@ import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
-import FooterEn from '../../../components/pageSections/FooterEn';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 import Testimonials from '../../../components/pageSections/Testimonials';
+import FooterEn from '../../../components/pageSections/FooterEn';
+import { FooterContactsEn } from '../../../components/pageSections/FooterContactsEn';
 
 import { navigation } from '../../../components/shared/navigation';
 import { scrollToSection } from '../../../utils/scroll';
@@ -95,6 +96,7 @@ const EnLayout = () => {
             <Partners data={partnersData} />
             <Testimonials id={navigation.testimonials} />
             <FooterEn id={navigation.contacts} />
+            <FooterContactsEn />
 
             {!cookiesAccepted && (
                 <CookiesNotification

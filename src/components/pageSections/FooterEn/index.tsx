@@ -4,7 +4,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import * as styles from './index.module.scss';
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
-import { links } from '../../shared/links';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -47,28 +46,6 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
                         />
                         hello@smarthead.digital
                     </a>
-                </div>
-
-                <div className={styles.contacts}>
-                    <span className={styles.adress}>
-                        SmartHead LLC, San Francisco, USA
-                    </span>
-                    <div>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.linkedIn}
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            className={styles.contactLink}
-                            target="_blank"
-                            href={links.privacyPolicy}
-                        >
-                            Privacy Policy
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
