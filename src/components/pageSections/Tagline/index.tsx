@@ -4,6 +4,7 @@ import { navigation } from '../../shared/navigation';
 import * as styles from './index.module.scss';
 import ButtonLink from '../../shared/ButtonLink';
 
+// todo: delete if it is useless
 const Tagline: React.FC = () => (
     <section className={styles.root}>
         <div className="container">

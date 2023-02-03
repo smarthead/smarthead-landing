@@ -1,0 +1,104 @@
+@import "../../../styles/variables";
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: $inter-400;
+    font-size: 1.5vw;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+    }
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+    }
+
+    @media (max-width: $screenLg) {
+        font-size: 1.823vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+    }
+
+    @media (max-width: $screenSm) {
+        flex-direction: column;
+    }
+}
+
+.contentItem {
+    display: flex;
+    align-items: center;
+}
+
+.companyInfo {
+    @media (max-width: $screenSm) {
+        margin-bottom: 4.58vw;
+    }
+
+    @media (max-width: $screenXs) {
+        margin-bottom: 4.58vw;
+    }
+
+    @media (max-width: $screen2Xs) {
+        margin-bottom: 22px;
+    }
+}
+
+.logo {
+    height: 1.91vw;
+    margin-right: 4.72vw;
+
+    @media (max-width: $screen2Xl) {
+        height: 31px;
+        margin-right: 2.5vw;
+    }
+
+    @media (max-width: $screenMd) {
+        height: 15px;
+        margin-right: 2.3vw;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-right: 30px;
+    }
+}
+
+.address {
+    color: $white50;
+}
+
+.contact-link {
+    justify-self: flex-end;
+    color: $white;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.15s ease-out;
+
+    &:not(:last-child) {
+        margin-right: 3vw;
+
+        @media (max-width: $screenLg) {
+            margin-right: 3.255vw;
+        }
+
+        @media (max-width: $screenMd) {
+            margin-right: 25px;
+        }
+
+        @media (max-width: $screenSm) {
+            margin-right: 22px;
+        }
+    }
+
+    &:visited {
+        color: $white;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: $yellow;
+    }
+}

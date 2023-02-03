@@ -5,61 +5,32 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 53.375vw;
-    height: 23.5vw;
+    width: 60vw;
     height: auto;
-    // margin-right: 9.375vw;
     color: $black;
     background-color: $white;
 
-    // &:last-child {
-    //     margin-right: 37.25vw;
-
-    //     @media (max-width: $screenXl) {
-    //         margin-right: 39.2875vw;
-    //     }
-
-    //     @media (max-width: $screenLg) {
-    //         margin-right: 22.3875vw;
-    //     }
-
-    //     @include for-phone-only {
-    //         margin-right: 7.8125vw;
-    //     }
-
-    //     @media (max-width: $screenXs) {
-    //         margin-right: 7.8125vw;
-    //     }
-    // }
     // 677_395
     @media (max-width: $screenXl) {
-        width: 52.9vw;
+        width: 66vw;
         height: 30.8593vw;
-        // margin-right: 11.718vw;
     }
 
     // 536_327
     @media (max-width: $screenLg) {
         flex-direction: column;
-        width: 69.8vw;
-        height: 42.578vw;
-        // margin-right: 7.68vw;
+        width: 75vw;
+        height: 45vw;
     }
 
-    @include for-phone-only {
-        width: 84.375vw;
-        // margin-right: 15.625vw;
+    @media (max-width: $screenSm) {
+        justify-content: flex-start;
     }
 
     // 320_428
-
     @media (max-width: $screenXs) {
-        // width: 88.89vw;
         width: 84.375vw;
-        // height: 118.89vw;
         height: 120vw;
-        // margin-right: 11.11vw;
-        // margin-right: 15.625vw;
     }
 }
 
@@ -79,39 +50,21 @@
     width: 27.28%;
     height: 100%;
 
-    @media (max-width: $screenXl) {
-        width: 27.62%;
-        width: 30%;
-    }
-
     @media (max-width: $screenLg) {
         flex-direction: row;
         width: 100%;
         height: 26.6%;
-        margin-bottom: 2.3vw;
     }
 
-    @include for-phone-only {
-        height: 7%;
-    }
-
-    @media (max-width: $screenXs) {
-        height: 18%;
+    @media (max-width: $screenSm) {
+        height: auto;
     }
 
     &-text {
         flex-direction: column;
 
         @media (max-width: $screenLg) {
-            width: 47.76%;
-        }
-
-        @include for-phone-only {
-            width: 90%;
-        }
-
-        @media (max-width: $screenXs) {
-            width: 62%;
+            width: 75%;
         }
     }
 }
@@ -142,17 +95,10 @@
         margin-bottom: 0;
     }
 
-    @include for-phone-only {
-        width: 6.406vw;
-        height: 6.406vw;
-        margin-right: 2.65vw;
-        margin-bottom: 0;
-    }
-
     @media (max-width: $screenXs) {
-        width: 21.388vw;
-        height: 21.388vw;
-        margin-right: 7.222vw;
+        width: 8.33vw;
+        height: 8.33vw;
+        margin-right: 3.05vw;
     }
 }
 
@@ -188,43 +134,64 @@
 }
 
 .position {
-    width: 96%;
     margin: 0;
+    margin-right: 1.5vw;
     color: $grayBlack;
     font-family: $inter-600;
     font-size: 0.875vw;
     line-height: 1.142em;
     letter-spacing: 0.05em;
+    white-space: pre-wrap;
 
     @media (max-width: $screenXl) {
-        width: 100%;
         font-size: 1.0938vw;
+        margin-right: 0.5vw;
     }
 
     @media (max-width: $screenLg) {
         margin: 0;
-        font-size: 1.823vw;
+        font-size: 14px;
         line-height: 1.357em;
     }
 
-    @include for-phone-only {
-        font-size: 1.875vw;
-    }
-
     @media (max-width: $screenXs) {
-        width: 90%;
-        font-size: 3.33vw;
-        line-height: 1.333em;
+        font-family: $inter-400;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
     }
 }
 
 .text {
-    width: 68.618%;
+    width: 85%;
+    padding-left: 1.5vw;
+
     height: 100%;
     color: $black;
     font-family: $inter-400;
     font-size: 1.25vw;
     line-height: 1.4em;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.4063vw;
+    }
+
+    @media (max-width: $screenLg) {
+        width: 100%;
+        font-size: 1.823vw;
+        padding-left: 0;
+        padding-top: 2vw;
+    }
+
+    @media (max-width: $screenXs) {
+        font-size: 13px;
+        height: auto;
+    }
+
+    @media (max-width: $screen3Xs) {
+        font-size: 12px;
+        height: auto;
+    }
 
     & > p {
         margin-top: 0;
@@ -241,26 +208,5 @@
         @media (max-width: $screenXs) {
             margin-bottom: 2.25vw;
         }
-    }
-
-    @media (max-width: $screenXl) {
-        width: 65.58%;
-        font-size: 1.4063vw;
-    }
-
-    @media (max-width: $screenLg) {
-        width: 100%;
-        height: 69.11%;
-        font-size: 1.823vw;
-    }
-
-    @include for-phone-only {
-        height: 79%;
-        font-size: 2.1875vw;
-    }
-
-    @media (max-width: $screenXs) {
-        height: 77.35%;
-        font-size: 3.888vw;
     }
 }

@@ -9,9 +9,10 @@ import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
-import FooterEn from '../../../components/pageSections/FooterEn';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 import Testimonials from '../../../components/pageSections/Testimonials';
+import FooterEn from '../../../components/pageSections/FooterEn';
+import { FooterContactsEn } from '../../../components/pageSections/FooterContactsEn';
 
 import { navigation } from '../../../components/shared/navigation';
 import { scrollToSection } from '../../../utils/scroll';
@@ -23,6 +24,7 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
+import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -93,8 +95,13 @@ const EnLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Testimonials id={navigation.testimonials} />
+            <Testimonials
+                id={navigation.testimonials}
+                data={testimonialsData}
+                isEnglish
+            />
             <FooterEn id={navigation.contacts} />
+            <FooterContactsEn />
 
             {!cookiesAccepted && (
                 <CookiesNotification

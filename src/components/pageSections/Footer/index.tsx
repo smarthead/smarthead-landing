@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
+import cn from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-// import { scrollToTop } from '../../../utils/scroll';
+import { SectionTitle } from '../../shared/SectionTitle';
+import { Section } from '../../shared/Section';
+
+import { links } from '../../shared/links';
 import * as styles from './index.module.scss';
-import cn from 'classnames';
-// import shLogo from '../../../assets/images/SmartHead-Logo.svg';
-// import { links } from '../../shared/links';
-// import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -40,52 +40,49 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         );
     }, []);
     return (
-        <section id={id} className={styles.root}>
-            <div className="container">
-                <h2 className={styles.title}>Давайте поработаем вместе?</h2>
+        <Section id={id} theme={'dark'} className={styles.root}>
+            <SectionTitle className={styles.title}>
+                Давайте поработаем вместе?
+            </SectionTitle>
 
-                <div className={styles.grid}>
-                    <div className={styles.content}>
-                        <div
-                            className={cn(
-                                styles.contentRow,
-                                styles.contentRowFirst,
-                                'firstRowAnimation'
-                            )}
+            <div className={styles.grid}>
+                <div className={styles.content}>
+                    <div
+                        className={cn(
+                            styles.contentRow,
+                            styles.contentRowFirst,
+                            'firstRowAnimation'
+                        )}
+                    >
+                        <a
+                            className={styles.mail}
+                            href="mailto:hello@smarthead.ru"
                         >
-                            <a
-                                className={styles.mail}
-                                href="mailto:hello@smarthead.ru"
-                            >
-                                <span className={styles.yellow}>hello</span>
-                                @smarthead.ru
-                            </a>
-                            <span className={styles.description}>
-                                обсудить проект
-                            </span>
-                        </div>
+                            <span className={styles.yellow}>hello</span>
+                            @smarthead.ru
+                        </a>
+                        <span className={styles.description}>
+                            обсудить проект
+                        </span>
+                    </div>
 
-                        <div
-                            className={cn(
-                                styles.contentRow,
-                                'secondRowAnimation'
-                            )}
+                    <div
+                        className={cn(styles.contentRow, 'secondRowAnimation')}
+                    >
+                        <a
+                            className={styles.mail}
+                            href="mailto:hr@smarthead.ru"
                         >
-                            <a
-                                className={styles.mail}
-                                href="mailto:hr@smarthead.ru"
-                            >
-                                <span className={styles.yellow}>hr</span>
-                                @smarthead.ru
-                            </a>
-                            <span className={styles.description}>
-                                присоединиться к команде
-                            </span>
-                        </div>
+                            <span className={styles.yellow}>hr</span>
+                            @smarthead.ru
+                        </a>
+                        <span className={styles.description}>
+                            присоединиться к команде
+                        </span>
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 };
 

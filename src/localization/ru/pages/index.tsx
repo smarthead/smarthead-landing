@@ -11,8 +11,9 @@ import Acquaintance from '../../../components/pageSections/Acquaintance';
 import JoinUs from '../../../components/pageSections/JoinUs';
 import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
-import Footer from '../../../components/pageSections/Footer';
 import Tagline from '../../../components/pageSections/Tagline';
+// import Testimonials from '../../../components/pageSections/Testimonials';
+import Footer from '../../../components/pageSections/Footer';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
@@ -26,6 +27,7 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import { navigation } from '../../../components/shared/navigation';
+// import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -95,6 +97,10 @@ const RuLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
+            {/*<Testimonials*/}
+            {/*    id={navigation.testimonials}*/}
+            {/*    data={testimonialsData}*/}
+            {/*/>*/}
             <Tagline />
             <Acquaintance id={navigation.aboutUs} />
             <JoinUs id={navigation.vacancies} />
