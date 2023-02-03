@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { links } from '../../shared/links';
 import { SectionTitle } from '../../shared/SectionTitle';
 
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
@@ -13,13 +12,11 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
 
     useEffect(() => {
         gsap.fromTo(
-            [`.${styles.title}`, `.${styles.mail}`, `.${styles.contacts}`],
+            [`.${styles.title}`, `.${styles.mail}`],
             { yPercent: gsap.utils.wrap([60, 100, 80]), autoAlpha: 0 },
             {
                 scrollTrigger: {
                     trigger: `.${styles.title}`,
-                    // start: () =>
-                    //     window.innerWidth < 641 ? '0% 80%' : 'top 70%',
                 },
                 duration: 0.5,
                 yPercent: 0,
