@@ -1,53 +1,33 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
 
-.root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    width: 100vw;
-    min-height: 100vh;
-
-    @media (max-width: $screenLg) {
-        height: auto;
-        min-height: auto;
-    }
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
 .header {
     display: flex;
     justify-content: space-between;
 }
 
 .title {
-    margin-top: 6.25vw;
-    margin-bottom: 3.125vw;
+    margin-bottom: 3vw;
     margin-left: 9.375%;
 
     @media (max-width: $screenXl) {
-        margin-bottom: 3.67vw;
+        margin-bottom: 30px;
         margin-left: 7.8125vw;
     }
 
     @media (max-width: $screenLg) {
-        margin-top: 8vw;
-        margin-bottom: 3.9063vw;
         margin-left: 7.8125vw;
     }
 
-    @include for-phone-only {
-        margin-top: 5vw;
-        margin-bottom: 3.6vw;
+    @media (max-width: $screenMd) {
+        margin-left: 7.8125vw;
+    }
+
+    @media (max-width: $screenSm) {
+        margin-bottom: 15px;
     }
 
     @media (max-width: $screenXs) {
-        margin-bottom: 6vw;
         margin-left: 7.8125vw;
     }
 }
@@ -164,8 +144,8 @@
     }
 
     @media (max-width: $screenXs) {
-        margin-right: auto;
-        margin-left: auto;
+        margin: 0;
+        justify-content: center;
     }
 
     @include for-phone-only {
@@ -186,7 +166,6 @@
 .button-bullet {
     width: 0.75vw;
     height: 0.75vw;
-    margin-bottom: 6.25vw;
     padding: 0;
     background: #c3c3c3;
     border: none;
@@ -196,10 +175,6 @@
     @media (max-width: $screen2Xl) {
         width: 12px;
         height: 12px;
-    }
-
-    @media (max-width: $screenLg) {
-        margin-bottom: 5.2vw;
     }
 
     @media (max-width: $screenMd) {
@@ -215,7 +190,6 @@
     @media (max-width: $screenXs) {
         width: 1.67vw;
         height: 1.67vw;
-        margin-bottom: 10vw;
     }
 
     @media (max-width: $screen2Xs) {
@@ -253,16 +227,13 @@
 }
 
 .navigation {
-    margin-top: 6.9375vw;
     margin-right: 2.8125vw;
 
     @media (max-width: $screenXl) {
-        margin-top: 6.25vw;
         margin-right: 4.6875vw;
     }
 
     @media (max-width: $screenLg) {
-        margin-top: 7.16vw;
         margin-right: 7.812vw;
     }
 
