@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import FontFaceObserver from 'fontfaceobserver';
 
 import Card from '../../shared/Card';
+import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
 
 import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
@@ -94,7 +95,10 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
 
     return (
         <Section theme={'dark'} id={id}>
-            <h2 className={styles.headline}>Познакомьтесь с нами поближе</h2>
+            <SectionTitle className={styles.headline}>
+                Познакомьтесь с нами поближе
+            </SectionTitle>
+
             <div className={styles.cards}>
                 <Card
                     image={isMobile ? podcastCoverMobile : podcastCover}

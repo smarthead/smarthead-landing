@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import cn from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
 
 import * as styles from './index.module.scss';
@@ -57,12 +59,13 @@ const Partners: React.FC<IPartners> = ({ data }) => {
     return (
         <Section theme={'dark'}>
             <div className={styles.content}>
-                <div
-                    className={`${styles.headline} partners-headline
-                        ${data.language === 'en' && styles.headlineEn}`}
+                <SectionTitle
+                    className={cn(styles.headline, 'partners-headline', {
+                        [styles.headlineEn]: data.language === 'en',
+                    })}
                 >
                     {data.title}
-                </div>
+                </SectionTitle>
 
                 <div
                     className={`${styles.logos} ${

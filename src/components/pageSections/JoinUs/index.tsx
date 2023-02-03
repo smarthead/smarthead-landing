@@ -3,10 +3,12 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { Section } from '../../shared/Section';
+import { SectionTitle } from '../../shared/SectionTitle';
 
 import FontFaceObserver from 'fontfaceobserver';
-import * as styles from './index.module.scss';
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
+
+import * as styles from './index.module.scss';
 
 const vacancies = [
     {
@@ -96,9 +98,9 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
     return (
         <Section id={id} className={styles.root}>
             <div className={styles.content}>
-                <h2 className={styles.headline}>
+                <SectionTitle className={styles.headline} color={'black'}>
                     Присоединяйтесь к нашей команде
-                </h2>
+                </SectionTitle>
                 <p className={styles.subtext}>
                     Мы сильны инженерной культурой, качеством реализации
                     проектов, теплой атмосферой и бережным отношением к

@@ -24,6 +24,7 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
+import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -94,7 +95,11 @@ const EnLayout = () => {
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
             <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
-            <Testimonials id={navigation.testimonials} />
+            <Testimonials
+                id={navigation.testimonials}
+                data={testimonialsData}
+                isEnglish
+            />
             <FooterEn id={navigation.contacts} />
             <FooterContactsEn />
 

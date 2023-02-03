@@ -22,7 +22,7 @@ export const FooterContactsEn: React.FC = () => (
                 </span>
             </div>
 
-            <div className={cn(styles.contentItem, styles.socialMedia)}>
+            <div className={styles.contentItem}>
                 <a
                     className={styles.contactLink}
                     target="_blank"
