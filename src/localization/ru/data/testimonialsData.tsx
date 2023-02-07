@@ -12,8 +12,9 @@ export const testimonialsData = {
     content: [
         {
             photo: yuryFrolov,
-            name: 'Юрий Фролов',
-            position: 'Дизайн-директор\nAncestry',
+            name: 'Yury Frolov',
+            position:
+                'UX\u00a0Design Director,\nAncestry Design System and DNA Product',
             text: [
                 'I\u00a0worked with SmartHead’s front-end development team on\u00a0multiple occasions for various clients like Illumina, Invitae, and most recently Ancestry where they helped to\u00a0develop Ancestry’s new design system.',
                 'SmartHead developers are rock-stars that were able to\u00a0rapidly code and test front-end libraries based on\u00a0our designs and specs. This allowed\u00a0us to\u00a0evaluate our designs in\u00a0live code and make necessary adjustments to\u00a0evolve our design system much further in\u00a0no\u00a0time.',
