@@ -197,9 +197,6 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
                                     sectionTitle={data.title}
                                     title={caseObj.title}
                                     description={caseObj.description}
-                                    onSkip={() => {
-                                        jumpTo(null);
-                                    }}
                                 />
                             </div>
                         </div>
