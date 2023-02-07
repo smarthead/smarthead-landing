@@ -40,6 +40,11 @@
                 "name": "Кейсы"
             },
             {
+                "id": "testimonials",
+                "anchor": "testimonials",
+                "name": "Отзывы"
+            },
+            {
                 "id": "about-us",
                 "anchor": "about-us",
                 "name": "О нас"

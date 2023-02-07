@@ -4,7 +4,7 @@ import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.png';
 import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.jpg';
 
 export const testimonialsData = {
-    title: 'Our clients about us',
+    title: 'Testimonials',
     content: [
         {
             photo: yuryFrolov,
