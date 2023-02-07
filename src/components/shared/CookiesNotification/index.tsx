@@ -1,7 +1,7 @@
 import React from 'react';
 import { arrayToString } from '../../../utils/arrayToString';
 
-import { links } from '../../shared/links';
+import { links } from '../links';
 import * as styles from './index.module.scss';
 
 interface ICookiesNotification {
