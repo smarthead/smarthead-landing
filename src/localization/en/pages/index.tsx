@@ -31,10 +31,6 @@ const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 const EnLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
-        const hash = window.location.hash;
-        if (hash.length > 0) {
-            scrollToSection(hash, 0);
-        }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
 
