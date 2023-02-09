@@ -19,3 +19,8 @@ body {
     overflow-x: hidden;
     width: 100vw;
 }
+
+html,
+body {
+    scroll-behavior: smooth;
+}
