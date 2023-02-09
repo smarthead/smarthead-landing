@@ -89,7 +89,7 @@ const RuLayout = () => {
             />
             <HowWeWork data={howWeWorkData} />
             <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            {/*<Cases id={navigation.cases} data={casesData} />*/}
+            <Cases id={navigation.cases} data={casesData} />
             <Partners data={partnersData} />
             <Testimonials
                 id={navigation.testimonials}

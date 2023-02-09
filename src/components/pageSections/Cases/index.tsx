@@ -1,11 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import * as styles from './index.module.scss';
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
+import { useExecuteOnce } from '../../../utils/hooks/useExecuteOnce';
+
+import * as styles from './index.module.scss';
 
 interface ICases {
     id: string;
@@ -84,7 +86,7 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         }
     };
 
-    useEffect(() => {
+    useExecuteOnce(() => {
         const container = casesContainer.current;
         if (container !== null && casesContainer.current !== null) {
             const casesInfoItems = gsap.utils.toArray(
@@ -137,7 +139,7 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
                                 xPercent: gsap.utils.wrap(transformArrayStart),
                                 x: gsap.utils.wrap(
                                     [...transformArrayStart].map(
-                                        (x, index) => -index * 1
+                                        (x, index) => -index
                                     )
                                 ),
                             },
@@ -167,13 +169,13 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
                 },
             });
         }
-    }, []);
+    });
 
-    const handleResize = () => {
+    const handleResize = useCallback(() => {
         const width = window.innerWidth;
         setIsTablet(width > 640 && width <= 992);
         setIsMobile(width <= 640);
-    };
+    }, []);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -181,7 +183,7 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [handleResize]);
 
     return (
         <section id={id} className={`cases-sections ${styles.root}`}>
