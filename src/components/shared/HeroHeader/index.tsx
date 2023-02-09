@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import Header from '../Header';
-import { scrollToSection } from '../../../utils/scroll';
 
 import * as styles from './index.module.scss';
 
@@ -21,20 +20,14 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
         setIsMobileMenuOpened(!isMobileMenuOpened);
     };
 
-    const handleMobileMenuClick = (linkId: string) => {
+    const handleMobileMenuClick = () => {
         handleHamburgerClick();
         setIsMobileMenuOpened(!isMobileMenuOpened);
-        scrollToSection(`#${linkId}`);
-    };
-
-    const handleDesktopMenuItemClick = (linkId: string) => {
-        scrollToSection(`#${linkId}`);
     };
 
     return (
         <Header
             menuLinks={menuLinks}
-            onDesktopMenuItemClick={handleDesktopMenuItemClick}
             onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={handleHamburgerClick}
             isMenuOpened={isMobileMenuOpened}

@@ -1,4 +1,5 @@
 import React, { ForwardRefRenderFunction, useEffect } from 'react';
+import { Link } from 'gatsby';
 import cn from 'classnames';
 
 import * as styles from './index.module.scss';
@@ -10,8 +11,8 @@ interface HeaderProps {
     mobileMenuLinks?: { [key: string]: string }[];
     Slot?: React.ReactElement;
     onLogoClick?: () => void;
-    onDesktopMenuItemClick: (linkId: string) => void;
-    onMobileMenuClick: (linkId: string) => void;
+    onDesktopMenuItemClick?: () => void;
+    onMobileMenuClick?: () => void;
     onHamburgerClick: () => void;
     isMenuOpened: boolean;
     className?: string;
@@ -59,13 +60,14 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                 <div className={styles.menuContainer}>
                     <div className={styles.menu}>
                         {menuLinks.map((link) => (
-                            <a
+                            <Link
+                                to={`#${link.id}`}
                                 key={link.id}
                                 className={styles.menuLink}
-                                onClick={() => onDesktopMenuItemClick(link.id)}
+                                onClick={onDesktopMenuItemClick}
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -77,13 +79,14 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                         }`}
                     >
                         {mobileLinks.map((link) => (
-                            <a
+                            <Link
+                                to={`#${link.anchor}`}
                                 key={link.id}
                                 className={styles.mobileMenuLink}
-                                onClick={() => onMobileMenuClick(link.id)}
+                                onClick={onMobileMenuClick}
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 

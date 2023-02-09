@@ -33,6 +33,7 @@ const Card: React.FC<ICardProps> = ({
                     link={link}
                     color="black"
                     withIcon
+                    external
                 />
             </div>
         </div>
