@@ -27,34 +27,38 @@
         "lint:css:fix": "stylelint --quiet --cache --allow-empty-input --fix --config .stylelintrc-extended \"src/**/*.{css,scss}\""
     },
     "dependencies": {
-        "@types/fontfaceobserver": "^2.1.0",
         "classnames": "^2.3.2",
         "fontfaceobserver": "^2.3.0",
-        "gatsby": "^4.15.0",
-        "gatsby-plugin-google-tagmanager": "^4.19.0",
-        "gatsby-plugin-manifest": "^4.15.0",
-        "gatsby-plugin-react-helmet": "^5.18.0",
-        "gatsby-plugin-sass": "^5.15.0",
+        "gatsby": "^5.6.0",
+        "gatsby-plugin-google-tagmanager": "^5.6.0",
+        "gatsby-plugin-manifest": "^5.6.0",
+        "gatsby-plugin-react-helmet": "^6.6.0",
+        "gatsby-plugin-sass": "^6.6.0",
         "gatsby-plugin-static-folders": "^1.0.1",
         "gsap": "^3.10.4",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
-        "sass": "^1.52.1",
-        "swiper": "^8.3.2"
+        "sass": "^1.58.0",
+        "swiper": "^8.3.2",
+        "typescript": "^4.9.5"
     },
     "devDependencies": {
-        "@types/node": "^17.0.35",
-        "@types/react": "^17.0.45",
-        "@types/react-dom": "^17.0.17",
-        "classnames": "^2.3.2",
-        "@types/react-helmet": "^6.1.5",
-        "prettier": "^2.7.1",
-        "stylelint": "^14.8.5",
-        "stylelint-config-recommended-scss": "^6.0.0",
-        "stylelint-config-standard": "^25.0.0",
-        "stylelint-order": "^5.0.0",
-        "stylelint-scss": "^4.2.0",
-        "typescript": "^4.6.4"
+        "@types/fontfaceobserver": "^2.1.0",
+        "@types/node": "^18.13.0",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "@types/react-helmet": "^6.1.6",
+        "prettier": "^2.8.4",
+        "stylelint": "^14.16.1",
+        "stylelint-config-recommended-scss": "^8.0.0",
+        "stylelint-config-standard": "^29.0.0",
+        "stylelint-order": "^6.0.1",
+        "stylelint-scss": "^4.3.0"
+    },
+    "overrides": {
+        "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
+            "react": "^18.2.0"
+        }
     }
 }
