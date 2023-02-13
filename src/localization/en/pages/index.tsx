@@ -15,7 +15,6 @@ import FooterEn from '../../../components/pageSections/FooterEn';
 import { FooterContactsEn } from '../../../components/pageSections/FooterContactsEn';
 
 import { navigation } from '../../../components/shared/navigation';
-import { scrollToSection } from '../../../utils/scroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 
 import heroData from '../data/Hero.json';
@@ -31,10 +30,6 @@ const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 const EnLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
-        const hash = window.location.hash;
-        if (hash.length > 0) {
-            scrollToSection(hash, 0);
-        }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
 

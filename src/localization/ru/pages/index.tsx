@@ -17,7 +17,6 @@ import CookiesNotification from '../../../components/shared/CookiesNotification'
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { scrollToSection } from '../../../utils/scroll';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -33,10 +32,6 @@ const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
-        const hash = window.location.hash;
-        if (hash.length > 0) {
-            scrollToSection(hash, 0);
-        }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
 
