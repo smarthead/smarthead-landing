@@ -40,9 +40,8 @@ export function useCasesPinnedScroll(
                     (sectionProgress -
                         casesTimeline.current.scrollTrigger.progress) +
                 (index === null ? container.offsetHeight : 0);
-            const duration = Math.min(0.6, Math.abs(distance / 3000));
             gsap.to(window, {
-                duration: duration,
+                duration: 0,
                 scrollTo: {
                     y: container,
                     offsetY: -distance,
