@@ -24,6 +24,8 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -44,6 +46,8 @@ const EnLayout = () => {
     const handleHeroScreenHeight = (height: number) => {
         setHeroScreenHeight(height);
     };
+
+    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
 
     return (
         <div className="main">
@@ -74,21 +78,24 @@ const EnLayout = () => {
                 ></meta>
             </Helmet>
 
-            <StickyHeader
-                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                mobileMenuLinks={heroData.header.menu}
-                buttonText={'CONTACT US'}
-                heroSectionHeight={heroSectionHeight}
-            />
+            <CasesScrollContext.Provider value={casesScrollContext}>
+                <StickyHeader
+                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                    mobileMenuLinks={heroData.header.menu}
+                    buttonText={'CONTACT US'}
+                    heroSectionHeight={heroSectionHeight}
+                />
 
-            <Hero
-                data={heroData}
-                isEnglish={true}
-                handleHeroScreenHeight={handleHeroScreenHeight}
-            />
-            <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} data={casesData} />
+                <Hero
+                    data={heroData}
+                    isEnglish={true}
+                    handleHeroScreenHeight={handleHeroScreenHeight}
+                />
+                <HowWeWork data={howWeWorkData} />
+                <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                <Cases id={navigation.cases} data={casesData} />
+            </CasesScrollContext.Provider>
+
             <Partners data={partnersData} />
             <Testimonials
                 id={navigation.testimonials}
@@ -97,7 +104,6 @@ const EnLayout = () => {
             />
             <FooterEn id={navigation.contacts} />
             <FooterContactsEn />
-
             {!cookiesAccepted && (
                 <CookiesNotification
                     data={cookiesNotificationData}

@@ -16,6 +16,8 @@ import Footer from '../../../components/pageSections/Footer';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 
 import heroData from '../data/Hero.json';
@@ -47,6 +49,8 @@ const RuLayout = () => {
         setHeroScreenHeight(height);
     };
 
+    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
+
     return (
         <div className="main">
             <Helmet>
@@ -76,20 +80,23 @@ const RuLayout = () => {
                 ></meta>
             </Helmet>
 
-            <StickyHeader
-                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                mobileMenuLinks={heroData.header.menu}
-                buttonText={'НАПИШИТЕ НАМ'}
-                heroSectionHeight={heroSectionHeight}
-            />
+            <CasesScrollContext.Provider value={casesScrollContext}>
+                <StickyHeader
+                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                    mobileMenuLinks={heroData.header.menu}
+                    buttonText={'НАПИШИТЕ НАМ'}
+                    heroSectionHeight={heroSectionHeight}
+                />
 
-            <Hero
-                data={heroData}
-                handleHeroScreenHeight={handleHeroScreenHeight}
-            />
-            <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} data={casesData} />
+                <Hero
+                    data={heroData}
+                    handleHeroScreenHeight={handleHeroScreenHeight}
+                />
+                <HowWeWork data={howWeWorkData} />
+                <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                <Cases id={navigation.cases} data={casesData} />
+            </CasesScrollContext.Provider>
+
             <Partners data={partnersData} />
             <Testimonials
                 id={navigation.testimonials}
