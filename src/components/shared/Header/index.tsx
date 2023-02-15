@@ -1,6 +1,6 @@
 import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
@@ -40,11 +40,12 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         }
     };
 
-    const onDesktopCasesItemClick = (
+    const onDesktopCasesItemClick = async (
         e: React.MouseEvent<HTMLAnchorElement>
     ) => {
         e.preventDefault();
-        casesContext?.jumpToCase(0);
+        void navigate('/#cases');
+        setTimeout(() => casesContext?.jumpToCase(0), 100);
     };
 
     useEffect(() => {
