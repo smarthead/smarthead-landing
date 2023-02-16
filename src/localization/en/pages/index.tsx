@@ -14,8 +14,10 @@ import Testimonials from '../../../components/pageSections/Testimonials';
 import FooterEn from '../../../components/pageSections/FooterEn';
 import { FooterContactsEn } from '../../../components/pageSections/FooterContactsEn';
 
-import { navigation } from '../../../components/shared/navigation';
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
+import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -24,8 +26,7 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
-import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
-import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
+import { navigation } from '../../../components/shared/navigation';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -48,6 +49,7 @@ const EnLayout = () => {
     };
 
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
+    useCustomHistoryPopstate(casesScrollContext);
 
     return (
         <div className="main">

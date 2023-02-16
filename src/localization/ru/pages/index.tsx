@@ -19,6 +19,7 @@ import { FooterContacts } from '../../../components/pageSections/FooterContacts'
 import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
 import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
+import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -50,6 +51,7 @@ const RuLayout = () => {
     };
 
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
+    useCustomHistoryPopstate(casesScrollContext);
 
     return (
         <div className="main">
