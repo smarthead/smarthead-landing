@@ -3,18 +3,21 @@ import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty.jp
 import roboticsImage from '../../../assets/images/cases/case_robotics.jpg';
 import stringAppImage from '../../../assets/images/cases/case_StringApp.jpg';
 import visaPromoImage from '../../../assets/images/cases/case_VisaPromo.jpg';
+import lifeairImage from '../../../assets/images/cases/case_lifeair.jpg';
 
 import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
 import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet.jpg';
 import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet.jpg';
 import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet.jpg';
 import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet.jpg';
+import lifeairImageTablet from '../../../assets/images/cases/cases_lifeair_tablet.jpg';
 
 import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop.jpg';
 import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop.jpg';
 import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop.jpg';
 import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop.jpg';
 import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop.jpg';
+import lifeairImageDesktop from '../../../assets/images/cases/case_lifeair_desktop.jpg';
 
 const title = 'КЕЙСЫ';
 const casesList = [
@@ -104,6 +107,24 @@ const casesList = [
             desktop: {
                 src: visaPromoImageDesktop,
                 origin: '0% 50%',
+            },
+        },
+    },
+
+    {
+        title: 'LifeAir',
+        description:
+            'В&nbsp;разгар пандемии COVID-19 разработали веб-приложение для регистрации авиапассажиров на&nbsp;ПЦР-тесты. Оно автоматизировало ручной труд по&nbsp;регистрации и&nbsp;идентификации пассажиров, а&nbsp;также оплате тестирования в&nbsp;аэропортах. Исследование опыта потребителей непосредственно в&nbsp;аэропортах, релиз первой версии за&nbsp;три недели и&nbsp;месяцы улучшений на&nbsp;основе обратной связи пользователей привели к&nbsp;желаемым результатам&nbsp;— сокращению очередей с&nbsp;90&nbsp;до&nbsp;15&nbsp;минут, уменьшению риска заражения, повышению удовлетворенности пассажиров в&nbsp;трех крупнейших аэропортах страны.',
+        image: {
+            original: {
+                src: lifeairImage,
+            },
+            tablet: {
+                src: lifeairImageTablet,
+            },
+            desktop: {
+                src: lifeairImageDesktop,
+                origin: '0% 0%',
             },
         },
     },
