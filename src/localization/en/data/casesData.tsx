@@ -3,18 +3,21 @@ import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty_en
 import roboticsImage from '../../../assets/images/cases/case_robotics_en.jpg';
 import stringAppImage from '../../../assets/images/cases/case_StringApp_en.jpg';
 import visaPromoImage from '../../../assets/images/cases/case_VisaPromo_en.jpg';
+import lifeairImage from '../../../assets/images/cases/case_lifeair.jpg';
 
 import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.jpg';
 import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet_en.jpg';
 import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet_en.jpg';
 import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet_en.jpg';
 import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet_en.jpg';
+import lifeairImageTablet from '../../../assets/images/cases/cases_lifeair_tablet.jpg';
 
 import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop_en.jpg';
 import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop_en.jpg';
 import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop_en.jpg';
 import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop_en.jpg';
 import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop_en.jpg';
+import lifeairImageDesktop from '../../../assets/images/cases/case_lifeair_desktop.jpg';
 
 const title = 'OUR SUCCESS STORIES';
 const casesList = [
@@ -102,6 +105,24 @@ const casesList = [
             desktop: {
                 src: complianceImageDesktop,
                 origin: '50% 0%',
+            },
+        },
+    },
+
+    {
+        title: 'LifeAir',
+        description:
+            'During the height of the COVID-19 pandemic, we developed a web application that replaced the manual processes and streamlined passenger check-in, payment, and identification processes for PCR testing at airports. Comprehensive Customer Experience research, the first production release in three weeks, and months of refining based on user feedback resulted in average waiting times dropping from 90 to 15 minutes in three major airports. It reduced the risk of infection and increased passenger satisfaction.',
+        image: {
+            original: {
+                src: lifeairImage,
+            },
+            tablet: {
+                src: lifeairImageTablet,
+            },
+            desktop: {
+                src: lifeairImageDesktop,
+                origin: '0% 0%',
             },
         },
     },
