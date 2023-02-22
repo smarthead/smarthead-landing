@@ -111,8 +111,10 @@ const casesList = [
 
     {
         title: 'LifeAir',
-        description:
-            'During the height of the COVID-19 pandemic, we developed a web application that replaced the manual processes and streamlined passenger check-in, payment, and identification processes for PCR testing at airports. Comprehensive Customer Experience research, the first production release in three weeks, and months of refining based on user feedback resulted in average waiting times dropping from 90 to 15 minutes in three major airports. It reduced the risk of infection and increased passenger satisfaction.',
+        description: [
+            'During the height of the COVID-19 pandemic, we developed a web application that replaced the manual processes and streamlined passenger check-in, payment, and identification processes for PCR testing at airports.',
+            'Comprehensive Customer Experience research, the first production release in three weeks, and months of refining based on user feedback resulted in average waiting times dropping from 90 to 15 minutes in three major airports. It reduced the risk of infection and increased passenger satisfaction.',
+        ],
         image: {
             original: {
                 src: lifeairImage,
