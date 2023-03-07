@@ -23,6 +23,12 @@
         padding: 7.8125vw 7.8125vw 7.8125vw 13.125vw;
     }
 
+    // for non standard screen resolutions
+    @media (max-height: 850px) {
+        padding: 16vh 6vw 16vh 15.125vw;
+    }
+    //
+
     @media (max-width: $screenLg) {
         width: 100%;
         height: auto;
@@ -95,12 +101,22 @@
     }
 
     @media (max-width: $screen2Xl) {
-        font-size: 24px;
+        font-size: 23px;
     }
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
     }
+
+    // for non standard screen resolutions
+    @media (max-height: 800px) {
+        font-size: 2.86vh;
+    }
+
+    @media (max-height: $screenXs) {
+        font-size: 12px;
+    }
+    //
 
     @media (max-width: $screenLg) {
         font-size: 1.823vw;
