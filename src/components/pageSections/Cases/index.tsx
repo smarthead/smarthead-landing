@@ -55,7 +55,10 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
                                 className={`${styles.casesInfoItem} cases-info-item`}
                             >
                                 <CaseItemInfo
-                                    isFirst={index === 0}
+                                    isFirst={
+                                        casesScrollContext?.isTitleShown ||
+                                        index === 0
+                                    }
                                     sectionTitle={data.title}
                                     title={caseObj.title}
                                     description={caseObj.description}

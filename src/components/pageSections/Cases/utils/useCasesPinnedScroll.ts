@@ -9,6 +9,7 @@ export interface UseCasesPinnedScrollReturnValue {
     casesContainerRef: React.MutableRefObject<HTMLElement | null>;
     jumpToCase: (index: number | null) => void;
     handlePinnedScrollEffect: () => void;
+    isTitleShown: boolean;
 }
 
 export function useCasesPinnedScroll(
@@ -18,6 +19,7 @@ export function useCasesPinnedScroll(
     gsap.registerPlugin(ScrollToPlugin);
 
     const [activeSlide, setActiveSlide] = useState<number>(0);
+    const [isTitleShown, setIsTitleShown] = useState(false);
 
     const casesContainerRef = useRef(null as HTMLElement | null);
     const casesTimeline = useRef<gsap.core.Timeline>();
@@ -87,6 +89,7 @@ export function useCasesPinnedScroll(
 
             ScrollTrigger.matchMedia({
                 '(min-width: 993px)': function () {
+                    setIsTitleShown(true);
                     casesTimeline.current = gsap
                         .timeline({
                             scrollTrigger: {
@@ -132,6 +135,7 @@ export function useCasesPinnedScroll(
                         );
                 },
                 '(max-width: 992px)': function () {
+                    setIsTitleShown(false);
                     casesTimeline.current = gsap
                         .timeline()
                         .fromTo(
@@ -156,5 +160,6 @@ export function useCasesPinnedScroll(
         casesContainerRef,
         jumpToCase,
         handlePinnedScrollEffect,
+        isTitleShown,
     };
 }
