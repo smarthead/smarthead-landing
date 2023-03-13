@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { navigate } from 'gatsby';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import { CasesScrollContext } from './utils/context';
@@ -44,11 +43,11 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
     }, []);
 
     // fix navigation on the first enter to app (when cases initialize fix navigation)
-    useEffect(() => {
-        setTimeout(() => {
-            void navigate(`/${location.hash}`);
-        }, 500);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         void navigate(`/${location.hash}`);
+    //     }, 500);
+    // }, []);
 
     return (
         <section id={id} className={`cases-sections ${styles.root}`}>
