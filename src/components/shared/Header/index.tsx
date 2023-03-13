@@ -1,10 +1,10 @@
-import React, { ForwardRefRenderFunction, useEffect } from 'react';
+import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
-
-import * as styles from './index.module.scss';
+import { Link, navigate } from 'gatsby';
+import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
-import { Link } from 'gatsby';
+import * as styles from './index.module.scss';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
@@ -32,10 +32,20 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     },
     ref
 ) => {
+    const casesContext = useContext(CasesScrollContext);
+
     const resizeHandler = () => {
         if (window.innerWidth > 768 && isMenuOpened) {
             onHamburgerClick();
         }
+    };
+
+    const onDesktopCasesItemClick = async (
+        e: React.MouseEvent<HTMLAnchorElement>
+    ) => {
+        e.preventDefault();
+        void navigate('/#cases');
+        setTimeout(() => casesContext?.jumpToCase(0), 100);
     };
 
     useEffect(() => {
@@ -64,7 +74,11 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                                 key={link.id}
                                 to={`#${link.id}`}
                                 className={styles.menuLink}
-                                onClick={onDesktopMenuItemClick}
+                                onClick={
+                                    link.id === 'cases'
+                                        ? onDesktopCasesItemClick
+                                        : undefined
+                                }
                             >
                                 {link.name}
                             </Link>
