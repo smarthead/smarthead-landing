@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
-
+import { navigate } from 'gatsby';
 import { gsap } from 'gsap';
+
+import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 import * as styles from './index.module.scss';
-import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 
 interface ICases {
     id: string;
@@ -181,6 +182,13 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    }, []);
+
+    // fix navigation on the first enter to app (when cases initialize fix navigation)
+    useEffect(() => {
+        setTimeout(() => {
+            void navigate(`/${location.hash}`);
+        }, 500);
     }, []);
 
     return (
