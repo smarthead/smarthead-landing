@@ -8,6 +8,7 @@ import React, {
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import { CasesScrollContext } from './utils/context';
+import { isBrowser } from '../../../utils/isBrowser';
 
 import * as styles from './index.module.scss';
 
@@ -49,17 +50,13 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
 
     const casesSectionRef = useRef<HTMLElement>(null);
 
-    const neededHeight =
-        document.documentElement.clientHeight * data.casesList.length;
-    if (casesSectionRef.current) {
-        casesSectionRef.current.style.height = `${neededHeight}px`;
-    }
-
     useLayoutEffect(() => {
-        const neededHeight =
-            document.documentElement.clientHeight * data.casesList.length;
-        if (casesSectionRef.current) {
-            casesSectionRef.current.style.height = `${neededHeight}px`;
+        if (isBrowser()) {
+            const neededHeight =
+                document.documentElement.clientHeight * data.casesList.length;
+            if (casesSectionRef.current) {
+                casesSectionRef.current.style.height = `${neededHeight}px`;
+            }
         }
 
         const timeout = setTimeout(
