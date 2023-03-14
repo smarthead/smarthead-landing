@@ -1,14 +1,7 @@
-import React, {
-    useContext,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import { CasesScrollContext } from './utils/context';
-import { isBrowser } from '../../../utils/isBrowser';
 
 import * as styles from './index.module.scss';
 
@@ -48,17 +41,16 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         };
     }, []);
 
-    const casesSectionRef = useRef<HTMLElement>(null);
+    const sectionStyle = useMemo(
+        () => ({
+            height: `${
+                document.documentElement.clientHeight * data.casesList.length
+            }px`,
+        }),
+        [document.documentElement.clientHeight, data.casesList.length]
+    );
 
-    useLayoutEffect(() => {
-        if (isBrowser()) {
-            const neededHeight =
-                document.documentElement.clientHeight * data.casesList.length;
-            if (casesSectionRef.current) {
-                casesSectionRef.current.style.height = `${neededHeight}px`;
-            }
-        }
-
+    useEffect(() => {
         const timeout = setTimeout(
             () => casesScrollContext?.handlePinnedScrollEffect(),
             1000
@@ -69,7 +61,7 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
     });
 
     return (
-        <section id={id} ref={casesSectionRef}>
+        <section id={id} style={sectionStyle}>
             <div className={`cases-sections ${styles.root}`}>
                 <section
                     className={styles.casesContainer}
