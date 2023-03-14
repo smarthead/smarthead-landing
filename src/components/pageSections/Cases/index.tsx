@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+    useContext,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import { CasesScrollContext } from './utils/context';
@@ -41,16 +47,14 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         };
     }, []);
 
-    const sectionStyle = useMemo(
-        () => ({
-            height: `${
-                document.documentElement.clientHeight * data.casesList.length
-            }px`,
-        }),
-        [document.documentElement.clientHeight, data.casesList.length]
-    );
+    const casesSectionRef = useRef<HTMLElement>(null);
+    useLayoutEffect(() => {
+        const neededHeight =
+            document.documentElement.clientHeight * data.casesList.length;
+        if (casesSectionRef.current) {
+            casesSectionRef.current.style.height = `${neededHeight}px`;
+        }
 
-    useEffect(() => {
         const timeout = setTimeout(
             () => casesScrollContext?.handlePinnedScrollEffect(),
             1000
@@ -58,10 +62,29 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         return () => {
             clearTimeout(timeout);
         };
-    });
+    }, []);
+
+    // useEffect(() => {
+    //     const timeout = setTimeout(
+    //         () => casesScrollContext?.handlePinnedScrollEffect(),
+    //         500
+    //     );
+    //     return () => {
+    //         clearTimeout(timeout);
+    //     };
+    // }, []);
+    //
+    // const sectionStyle = useMemo(
+    //     () => ({
+    //         height: `${
+    //             document.documentElement.clientHeight * data.casesList.length
+    //         }px`,
+    //     }),
+    //     [document.documentElement.clientHeight, data.casesList.length]
+    // );
 
     return (
-        <section id={id} style={sectionStyle}>
+        <section id={id} ref={casesSectionRef}>
             <div className={`cases-sections ${styles.root}`}>
                 <section
                     className={styles.casesContainer}
