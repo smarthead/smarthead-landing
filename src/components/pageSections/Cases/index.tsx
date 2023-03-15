@@ -39,11 +39,22 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         setIsMobile(width <= 640);
     };
 
+    const fixCasesContainerHeight = () => {
+        if (casesSectionRef.current) {
+            casesSectionRef.current.style.height = 'auto';
+            window.removeEventListener('resize', fixCasesContainerHeight);
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         handleResize();
+
+        window.addEventListener('resize', fixCasesContainerHeight);
+
         return () => {
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', fixCasesContainerHeight);
         };
     }, []);
 
@@ -63,25 +74,6 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
             clearTimeout(timeout);
         };
     }, []);
-
-    // useEffect(() => {
-    //     const timeout = setTimeout(
-    //         () => casesScrollContext?.handlePinnedScrollEffect(),
-    //         500
-    //     );
-    //     return () => {
-    //         clearTimeout(timeout);
-    //     };
-    // }, []);
-    //
-    // const sectionStyle = useMemo(
-    //     () => ({
-    //         height: `${
-    //             document.documentElement.clientHeight * data.casesList.length
-    //         }px`,
-    //     }),
-    //     [document.documentElement.clientHeight, data.casesList.length]
-    // );
 
     return (
         <section id={id} ref={casesSectionRef}>
