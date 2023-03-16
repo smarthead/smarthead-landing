@@ -31,7 +31,7 @@ export const scrollToTop = () => {
         ease: 'power1.inOut',
         overwrite: true,
         onStart: () => {
-            history.replaceState(null, '', ' ');
+            history.pushState(null, '', '/');
         },
     });
 };
