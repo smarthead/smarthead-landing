@@ -1,0 +1,40 @@
+﻿/* TEAM */
+
+
+CEO: Igor Zilberg
+LinkedIn: https://www.linkedin.com/in/igorzilberg/
+Location: Modi’in, Israel.
+
+
+CTO: Ramil Aminov
+Site: https://ramil.aminov.dev
+LinkedIn: https://www.linkedin.com/in/ramilaminov
+
+
+Designer/illustrator: Madina
+LinkedIn: https://www.linkedin.com/in/imadination
+
+
+Front-end dev: Biarslan Farikov
+LinkedIn: https://www.linkedin.com/in/biarslan
+
+
+UI/UX designer: Adelina
+Site: https://www.behance.net/adelinaaa
+
+
+Front-end dev: Nikita Negodov
+LinkedIn: https://www.linkedin.com/in/nikita-negodov
+
+Front-end dev: Nikita Tikhonov
+LinkedIn: https://www.linkedin.com/in/nikita-tikhonov-5389a37a
+
+
+Project manager: Svetlana Zubova
+Telegram: https://t.me/pm_notebook
+Location: Kazan, Russia
+
+
+Chief Commercial Officer: Max Busarev
+LinkedIn: https://www.linkedin.com/in/maxbusarev/
+E-mail: hello@smarthead.digital
