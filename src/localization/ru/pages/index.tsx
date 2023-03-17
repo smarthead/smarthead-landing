@@ -17,7 +17,7 @@ import CookiesNotification from '../../../components/shared/CookiesNotification'
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { scrollToSection } from '../../../utils/scroll';
+import { scrollTo, scrollToSection } from '../../../utils/scroll';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -29,6 +29,38 @@ import { navigation } from '../../../components/shared/navigation';
 import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
+
+export function useCustomHistoryHandler() {
+    const calcHashPart = (url: string) => {
+        return url.includes('#') ? url.split('#')[1] : '';
+    };
+
+    useEffect(() => {
+        const handleHashChange = (e: HashChangeEvent) => {
+            const oldHash = calcHashPart(e.oldURL);
+            const newHash = calcHashPart(e.newURL);
+
+            if (oldHash === '') {
+                localStorage.setItem(
+                    'currentScrollPosition',
+                    String(window.scrollY)
+                );
+            }
+
+            if (newHash === '') {
+                const currentPosition =
+                    Number(localStorage.getItem('currentScrollPosition')) || 0;
+
+                scrollTo(currentPosition);
+            }
+        };
+
+        window.addEventListener('hashchange', handleHashChange);
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+        };
+    });
+}
 
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
@@ -51,6 +83,8 @@ const RuLayout = () => {
     const handleHeroScreenHeight = (height: number) => {
         setHeroScreenHeight(height);
     };
+
+    useCustomHistoryHandler();
 
     return (
         <div className="main">

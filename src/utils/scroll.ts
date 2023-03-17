@@ -8,6 +8,11 @@ export const scrollToSection = (
 ) => {
     if (section === null || document.querySelector(section) === null) return;
 
+    const oldHash = window.location.hash;
+    if (oldHash === '') {
+        localStorage.setItem('currentScrollPosition', String(window.scrollY));
+    }
+
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
         duration: duration === undefined ? 0.7 : duration,
@@ -33,5 +38,16 @@ export const scrollToTop = () => {
         onStart: () => {
             history.pushState(null, '', '/');
         },
+    });
+};
+
+export const scrollTo = (value: number) => {
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.to(window, {
+        scrollTo: {
+            y: value,
+        },
+        ease: 'power1.inOut',
+        overwrite: true,
     });
 };
