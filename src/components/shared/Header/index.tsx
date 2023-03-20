@@ -1,8 +1,10 @@
-import React, { ForwardRefRenderFunction, useEffect } from 'react';
+import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import * as styles from './index.module.scss';
+import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
+import { scrollToSection } from '../../../utils/scroll';
 
+import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 
 interface HeaderProps {
@@ -31,6 +33,14 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     },
     ref
 ) => {
+    const casesContext = useContext(CasesScrollContext);
+
+    const onDesktopCasesItemClick = () => {
+        scrollToSection('#cases', () => {
+            casesContext?.jumpToCase(0);
+        });
+    };
+
     const resizeHandler = () => {
         if (window.innerWidth > 768 && isMenuOpened) {
             onHamburgerClick();
@@ -62,7 +72,11 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                             <a
                                 key={link.id}
                                 className={styles.menuLink}
-                                onClick={() => onDesktopMenuItemClick(link.id)}
+                                onClick={
+                                    link.id === 'cases'
+                                        ? onDesktopCasesItemClick
+                                        : () => onDesktopMenuItemClick(link.id)
+                                }
                             >
                                 {link.name}
                             </a>

@@ -3,7 +3,8 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 export const scrollToSection = (
     section: string | null,
-    offset?: number,
+    //offset?: number,
+    onComplete?: () => void,
     duration?: number
 ) => {
     if (section === null || document.querySelector(section) === null) return;
@@ -24,6 +25,7 @@ export const scrollToSection = (
         onStart: () => {
             window.history.pushState(null, '', section);
         },
+        onComplete: onComplete,
     });
 };
 
