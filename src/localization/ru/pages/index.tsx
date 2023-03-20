@@ -18,6 +18,8 @@ import { FooterContacts } from '../../../components/pageSections/FooterContacts'
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 import { scrollTo, scrollToSection } from '../../../utils/scroll';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -84,6 +86,7 @@ const RuLayout = () => {
         setHeroScreenHeight(height);
     };
 
+    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
     useCustomHistoryHandler();
 
     return (
@@ -120,29 +123,31 @@ const RuLayout = () => {
                 />
             </Helmet>
 
-            <StickyHeader
-                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                mobileMenuLinks={heroData.header.menu}
-                buttonText={'НАПИШИТЕ НАМ'}
-                heroSectionHeight={heroSectionHeight}
-            />
+            <CasesScrollContext.Provider value={casesScrollContext}>
+                <StickyHeader
+                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                    mobileMenuLinks={heroData.header.menu}
+                    buttonText={'НАПИШИТЕ НАМ'}
+                    heroSectionHeight={heroSectionHeight}
+                />
 
-            <Hero
-                data={heroData}
-                handleHeroScreenHeight={handleHeroScreenHeight}
-            />
-            <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} data={casesData} />
-            <Partners data={partnersData} />
-            <Testimonials
-                id={navigation.testimonials}
-                data={testimonialsData}
-            />
-            <Acquaintance id={navigation.aboutUs} />
-            <JoinUs id={navigation.vacancies} />
-            <Footer id={navigation.contacts} />
-            <FooterContacts />
+                <Hero
+                    data={heroData}
+                    handleHeroScreenHeight={handleHeroScreenHeight}
+                />
+                <HowWeWork data={howWeWorkData} />
+                <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                <Cases id={navigation.cases} data={casesData} />
+                <Partners data={partnersData} />
+                <Testimonials
+                    id={navigation.testimonials}
+                    data={testimonialsData}
+                />
+                <Acquaintance id={navigation.aboutUs} />
+                <JoinUs id={navigation.vacancies} />
+                <Footer id={navigation.contacts} />
+                <FooterContacts />
+            </CasesScrollContext.Provider>
 
             {!cookiesAccepted && (
                 <CookiesNotification

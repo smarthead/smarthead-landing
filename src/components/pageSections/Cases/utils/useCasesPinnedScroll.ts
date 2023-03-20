@@ -12,7 +12,7 @@ export interface UseCasesPinnedScrollReturnValue {
     isTitleShown: boolean;
 }
 
-export function useCasesPinnedScrollWith(
+export function useCasesPinnedScroll(
     casesAmount: number
 ): UseCasesPinnedScrollReturnValue {
     gsap.registerPlugin(ScrollTrigger);
