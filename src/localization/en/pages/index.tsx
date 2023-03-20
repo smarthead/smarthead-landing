@@ -77,6 +77,11 @@ const EnLayout = () => {
                     name="facebook-domain-verification"
                     content="ypjtjqnhfbwzzlc83uqjihzeaogz26"
                 ></meta>
+                <link
+                    type="text/plain"
+                    rel="author"
+                    href="https://smarthead.digital/humans.txt"
+                />
             </Helmet>
 
             <StickyHeader

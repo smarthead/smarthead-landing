@@ -12,8 +12,8 @@ import * as styles from './index.module.scss';
 
 const vacancies = [
     {
-        text: 'Middle .NET-разработчик',
-        link: 'https://smartheadhiring.notion.site/Middle-NET-2a8a8434fba34d1ba335fbf4f1fa01b9',
+        text: 'HR-менеджер',
+        link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
     },
 ];
 
