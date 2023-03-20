@@ -26,6 +26,7 @@ Site: https://www.behance.net/adelinaaa
 Front-end dev: Nikita Negodov
 LinkedIn: https://www.linkedin.com/in/nikita-negodov
 
+
 Front-end dev: Nikita Tikhonov
 LinkedIn: https://www.linkedin.com/in/nikita-tikhonov-5389a37a
 
