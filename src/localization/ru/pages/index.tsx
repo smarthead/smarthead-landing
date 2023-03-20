@@ -17,8 +17,9 @@ import CookiesNotification from '../../../components/shared/CookiesNotification'
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { scrollTo, scrollToSection } from '../../../utils/scroll';
+import { scrollToSection } from '../../../utils/scroll';
 import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
+import { useCustomHashChangeHandler } from '../../../utils/hooks/useCustomHashChangeHandler';
 import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
 
 import heroData from '../data/Hero.json';
@@ -32,44 +33,12 @@ import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
-export function useCustomHistoryHandler() {
-    const calcHashPart = (url: string) => {
-        return url.includes('#') ? url.split('#')[1] : '';
-    };
-
-    useEffect(() => {
-        const handleHashChange = (e: HashChangeEvent) => {
-            const oldHash = calcHashPart(e.oldURL);
-            const newHash = calcHashPart(e.newURL);
-
-            if (oldHash === '') {
-                localStorage.setItem(
-                    'currentScrollPosition',
-                    String(window.scrollY)
-                );
-            }
-
-            if (newHash === '') {
-                const currentPosition =
-                    Number(localStorage.getItem('currentScrollPosition')) || 0;
-
-                scrollTo(currentPosition);
-            }
-        };
-
-        window.addEventListener('hashchange', handleHashChange);
-        return () => {
-            window.removeEventListener('hashchange', handleHashChange);
-        };
-    });
-}
-
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
-            scrollToSection(hash, 0);
+            scrollToSection(hash);
         }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
@@ -87,7 +56,7 @@ const RuLayout = () => {
     };
 
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
-    useCustomHistoryHandler();
+    useCustomHashChangeHandler(casesScrollContext);
 
     return (
         <div className="main">
