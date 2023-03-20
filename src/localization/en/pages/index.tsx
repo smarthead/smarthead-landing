@@ -36,7 +36,7 @@ const EnLayout = () => {
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
-            scrollToSection(hash, 0);
+            scrollToSection(hash);
         }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
