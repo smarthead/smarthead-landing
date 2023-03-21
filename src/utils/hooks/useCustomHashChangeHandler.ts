@@ -1,38 +1,58 @@
 import { UseCasesPinnedScrollReturnValue } from '../../components/pageSections/Cases/utils/useCasesPinnedScroll';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { scrollTo, scrollToSection } from '../scroll';
 
-export function useCustomHashChangeHandler(
-    casesContext: UseCasesPinnedScrollReturnValue
-) {
-    const calcHashPart = (url: string) => {
-        return url.includes('#') ? url.split('#')[1] : '';
+export interface UseSavedScrollPositionReturnedValue {
+    getScrollPosition: () => number;
+    setScrollPosition: (scrollPosition: number) => void;
+}
+
+export const useSavedScrollPosition =
+    (): UseSavedScrollPositionReturnedValue => {
+        const scrollPositionRef = useRef(0);
+
+        const getScrollPosition = () => scrollPositionRef.current;
+
+        const setScrollPosition = (scrollPosition: number) => {
+            scrollPositionRef.current = scrollPosition;
+        };
+
+        return {
+            getScrollPosition,
+            setScrollPosition,
+        };
     };
 
+const calcHashPart = (url: string) => {
+    return url.includes('#') ? url.split('#')[1] : '';
+};
+
+export function useCustomHashChangeHandler(
+    casesScrollContext: UseCasesPinnedScrollReturnValue,
+    scrollPositionContext: UseSavedScrollPositionReturnedValue
+) {
     useEffect(() => {
         const handleHashChange = (e: HashChangeEvent) => {
             const oldHash = calcHashPart(e.oldURL);
             const newHash = calcHashPart(e.newURL);
 
             if (oldHash === '') {
-                localStorage.setItem(
-                    'currentScrollPosition',
-                    String(window.scrollY)
-                );
+                scrollPositionContext?.setScrollPosition(window.scrollY);
             }
-
             if (newHash === '') {
                 const currentPosition =
-                    Number(localStorage.getItem('currentScrollPosition')) || 0;
-
+                    scrollPositionContext?.getScrollPosition();
+                console.log('getPosition', currentPosition);
                 scrollTo(currentPosition);
             }
 
             if (newHash === 'cases') {
-                history.replaceState('', '', '/#cases');
-                scrollToSection('#cases', () => {
-                    casesContext?.jumpToCase(0);
+                scrollToSection('#cases', null, () => {
+                    casesScrollContext?.jumpToCase(0);
                 });
+                history.replaceState('', '', '/#cases');
+            } else {
+                return;
             }
         };
 

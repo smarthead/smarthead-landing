@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import cn from 'classnames';
 
 import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
 import { scrollToSection, scrollToTop } from '../../../utils/scroll';
+import { ScrollPositionContext } from '../scrollPositionContext';
 
 import { useStickyHeader } from './utils';
 import { navigation } from '../navigation';
@@ -25,6 +26,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     heroSectionHeight,
 }) => {
     const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+    const savedScrollContext = useContext(ScrollPositionContext);
 
     const handleHamburgerClick = () => {
         if (isMobileMenuOpened) {
@@ -37,15 +39,15 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
 
     const handleMobileMenuClick = (linkId: string) => {
         handleHamburgerClick();
-        scrollToSection(`#${linkId}`);
+        scrollToSection(`#${linkId}`, savedScrollContext);
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
-        scrollToSection(`#${linkId}`);
+        scrollToSection(`#${linkId}`, savedScrollContext);
     };
 
     const handleButtonClick = () => {
-        scrollToSection(`#${navigation.contacts}`);
+        scrollToSection(`#${navigation.contacts}`, savedScrollContext);
     };
 
     const headerRef = useRef<HTMLElement>(null);

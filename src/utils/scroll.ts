@@ -1,15 +1,21 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { UseSavedScrollPositionReturnedValue } from './hooks/useCustomHashChangeHandler';
 
 export const scrollToSection = (
     section: string | null,
-    //offset?: number,
+    scrollContext?: UseSavedScrollPositionReturnedValue | null,
     onComplete?: () => void,
     duration?: number
 ) => {
     if (section === null || document.querySelector(section) === null) return;
 
     const oldHash = window.location.hash;
+    if (oldHash === '') {
+        console.log('setPosition', window.scrollY);
+        scrollContext?.setScrollPosition(window.scrollY);
+    }
+
     if (oldHash === '') {
         localStorage.setItem('currentScrollPosition', String(window.scrollY));
     }

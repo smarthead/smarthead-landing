@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
@@ -11,7 +11,9 @@ import { arrayToString } from '../../../utils/arrayToString';
 import HeroHeader from '../../shared/HeroHeader';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
+
 import { useSlidesColors } from '../../shared/HeroTitle/utils';
+import { ScrollPositionContext } from '../../shared/scrollPositionContext';
 
 import { Swiper as SwiperType } from 'swiper/types';
 
@@ -140,6 +142,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
     const { slidesColors, changeSlidesColors } = useSlidesColors();
 
     const heroSection = useRef<HTMLElement>(null);
+    const savedScrollContext = useContext(ScrollPositionContext);
 
     return (
         <section className={cn(styles.hero, 'container')} ref={heroSection}>
@@ -187,7 +190,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
                         text={data.button}
                         link={`#${navigation.contacts}`}
                         clickHandler={() => {
-                            scrollToSection(`#${navigation.contacts}`);
+                            scrollToSection(
+                                `#${navigation.contacts}`,
+                                savedScrollContext
+                            );
                         }}
                         withIcon
                     />

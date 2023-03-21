@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Header from '../Header';
+
 import { scrollToSection } from '../../../utils/scroll';
+import { ScrollPositionContext } from '../scrollPositionContext';
 
 import * as styles from './index.module.scss';
 
@@ -10,6 +12,7 @@ interface HeroHeaderProps {
 }
 
 const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
+    const savedScrollContext = useContext(ScrollPositionContext);
     const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
     const handleHamburgerClick = () => {
@@ -24,11 +27,11 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
     const handleMobileMenuClick = (linkId: string) => {
         handleHamburgerClick();
         setIsMobileMenuOpened(!isMobileMenuOpened);
-        scrollToSection(`#${linkId}`);
+        scrollToSection(`#${linkId}`, savedScrollContext);
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
-        scrollToSection(`#${linkId}`);
+        scrollToSection(`#${linkId}`, savedScrollContext);
     };
 
     return (

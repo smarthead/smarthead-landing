@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
 import { scrollToSection } from '../../../utils/scroll';
+import { ScrollPositionContext } from '../scrollPositionContext';
 
 import * as styles from './index.module.scss';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
@@ -34,9 +35,10 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     ref
 ) => {
     const casesContext = useContext(CasesScrollContext);
+    const savedScrollContext = useContext(ScrollPositionContext);
 
     const onDesktopCasesItemClick = () => {
-        scrollToSection('#cases', () => {
+        scrollToSection('#cases', savedScrollContext, () => {
             casesContext?.jumpToCase(0);
         });
     };

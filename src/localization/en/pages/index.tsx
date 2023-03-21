@@ -19,7 +19,10 @@ import { scrollToSection } from '../../../utils/scroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
-import { useCustomHashChangeHandler } from '../../../utils/hooks/useCustomHashChangeHandler';
+import {
+    useCustomHashChangeHandler,
+    useSavedScrollPosition,
+} from '../../../utils/hooks/useCustomHashChangeHandler';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -28,6 +31,7 @@ import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
+import { ScrollPositionContext } from '../../../components/shared/scrollPositionContext';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
@@ -53,8 +57,10 @@ const EnLayout = () => {
         setHeroScreenHeight(height);
     };
 
+    const scrollPosition = useSavedScrollPosition();
+
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
-    useCustomHashChangeHandler(casesScrollContext);
+    useCustomHashChangeHandler(casesScrollContext, scrollPosition);
 
     return (
         <div className="main">
@@ -91,29 +97,31 @@ const EnLayout = () => {
             </Helmet>
 
             <CasesScrollContext.Provider value={casesScrollContext}>
-                <StickyHeader
-                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                    mobileMenuLinks={heroData.header.menu}
-                    buttonText={'CONTACT US'}
-                    heroSectionHeight={heroSectionHeight}
-                />
+                <ScrollPositionContext.Provider value={scrollPosition}>
+                    <StickyHeader
+                        menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                        mobileMenuLinks={heroData.header.menu}
+                        buttonText={'CONTACT US'}
+                        heroSectionHeight={heroSectionHeight}
+                    />
 
-                <Hero
-                    data={heroData}
-                    isEnglish={true}
-                    handleHeroScreenHeight={handleHeroScreenHeight}
-                />
-                <HowWeWork data={howWeWorkData} />
-                <WhatWeDo id={navigation.services} data={whatWeDoData} />
-                <Cases id={navigation.cases} data={casesData} />
-                <Partners data={partnersData} />
-                <Testimonials
-                    id={navigation.testimonials}
-                    data={testimonialsData}
-                    isEnglish
-                />
-                <FooterEn id={navigation.contacts} />
-                <FooterContactsEn />
+                    <Hero
+                        data={heroData}
+                        isEnglish={true}
+                        handleHeroScreenHeight={handleHeroScreenHeight}
+                    />
+                    <HowWeWork data={howWeWorkData} />
+                    <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                    <Cases id={navigation.cases} data={casesData} />
+                    <Partners data={partnersData} />
+                    <Testimonials
+                        id={navigation.testimonials}
+                        data={testimonialsData}
+                        isEnglish
+                    />
+                    <FooterEn id={navigation.contacts} />
+                    <FooterContactsEn />
+                </ScrollPositionContext.Provider>
             </CasesScrollContext.Provider>
 
             {!cookiesAccepted && (

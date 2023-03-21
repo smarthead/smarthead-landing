@@ -17,10 +17,14 @@ import CookiesNotification from '../../../components/shared/CookiesNotification'
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { scrollToSection } from '../../../utils/scroll';
 import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
-import { useCustomHashChangeHandler } from '../../../utils/hooks/useCustomHashChangeHandler';
+import {
+    useCustomHashChangeHandler,
+    useSavedScrollPosition,
+} from '../../../utils/hooks/useCustomHashChangeHandler';
 import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
+import { scrollToSection } from '../../../utils/scroll';
+import { ScrollPositionContext } from '../../../components/shared/scrollPositionContext';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -55,8 +59,10 @@ const RuLayout = () => {
         setHeroScreenHeight(height);
     };
 
+    const scrollPosition = useSavedScrollPosition();
+
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
-    useCustomHashChangeHandler(casesScrollContext);
+    useCustomHashChangeHandler(casesScrollContext, scrollPosition);
 
     return (
         <div className="main">
@@ -93,29 +99,31 @@ const RuLayout = () => {
             </Helmet>
 
             <CasesScrollContext.Provider value={casesScrollContext}>
-                <StickyHeader
-                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                    mobileMenuLinks={heroData.header.menu}
-                    buttonText={'НАПИШИТЕ НАМ'}
-                    heroSectionHeight={heroSectionHeight}
-                />
+                <ScrollPositionContext.Provider value={scrollPosition}>
+                    <StickyHeader
+                        menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                        mobileMenuLinks={heroData.header.menu}
+                        buttonText={'НАПИШИТЕ НАМ'}
+                        heroSectionHeight={heroSectionHeight}
+                    />
 
-                <Hero
-                    data={heroData}
-                    handleHeroScreenHeight={handleHeroScreenHeight}
-                />
-                <HowWeWork data={howWeWorkData} />
-                <WhatWeDo id={navigation.services} data={whatWeDoData} />
-                <Cases id={navigation.cases} data={casesData} />
-                <Partners data={partnersData} />
-                <Testimonials
-                    id={navigation.testimonials}
-                    data={testimonialsData}
-                />
-                <Acquaintance id={navigation.aboutUs} />
-                <JoinUs id={navigation.vacancies} />
-                <Footer id={navigation.contacts} />
-                <FooterContacts />
+                    <Hero
+                        data={heroData}
+                        handleHeroScreenHeight={handleHeroScreenHeight}
+                    />
+                    <HowWeWork data={howWeWorkData} />
+                    <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                    <Cases id={navigation.cases} data={casesData} />
+                    <Partners data={partnersData} />
+                    <Testimonials
+                        id={navigation.testimonials}
+                        data={testimonialsData}
+                    />
+                    <Acquaintance id={navigation.aboutUs} />
+                    <JoinUs id={navigation.vacancies} />
+                    <Footer id={navigation.contacts} />
+                    <FooterContacts />
+                </ScrollPositionContext.Provider>
             </CasesScrollContext.Provider>
 
             {!cookiesAccepted && (
