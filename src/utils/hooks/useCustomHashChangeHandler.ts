@@ -1,20 +1,37 @@
 import { UseCasesPinnedScrollReturnValue } from '../../components/pageSections/Cases/utils/useCasesPinnedScroll';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { scrollTo } from '../scroll';
 
+export function useStack<ElemType>() {
+    const scrollPositionRef = useRef<ElemType[]>([]);
+
+    const push = useCallback((newElem: ElemType) => {
+        scrollPositionRef.current.push(newElem);
+    }, []);
+
+    const pop = useCallback(() => {
+        return scrollPositionRef.current.pop();
+    }, []);
+
+    return {
+        push,
+        pop,
+        length: scrollPositionRef.current.length,
+    };
+}
+
 export interface UseSavedScrollPositionReturnedValue {
-    getScrollPosition: () => number;
+    getScrollPosition: () => number | undefined;
     setScrollPosition: (scrollPosition: number) => void;
 }
 
 export const useSavedScrollPosition =
     (): UseSavedScrollPositionReturnedValue => {
-        const scrollPositionRef = useRef(0);
+        const { push, pop } = useStack<number>();
 
-        const getScrollPosition = () => scrollPositionRef.current;
-
+        const getScrollPosition = () => pop();
         const setScrollPosition = (scrollPosition: number) => {
-            scrollPositionRef.current = scrollPosition;
+            push(scrollPosition);
         };
 
         return {
@@ -33,15 +50,16 @@ export function useCustomHashChangeHandler(
 ) {
     useEffect(() => {
         const handleHashChange = (e: HashChangeEvent) => {
-            const oldHash = calcHashPart(e.oldURL);
+            //const oldHash = calcHashPart(e.oldURL);
             const newHash = calcHashPart(e.newURL);
 
-            if (oldHash === '') {
-                scrollPositionContext?.setScrollPosition(window.scrollY);
-            }
+            // if (oldHash === '') {
+            //     console.log('alarm');
+            //     scrollPositionContext?.setScrollPosition(window.scrollY);
+            // }
             if (newHash === '') {
                 const currentPosition =
-                    scrollPositionContext?.getScrollPosition() | 0;
+                    scrollPositionContext?.getScrollPosition() || 0;
                 scrollTo(currentPosition);
             }
 
