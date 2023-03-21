@@ -39,15 +39,24 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
 
     const handleMobileMenuClick = (linkId: string) => {
         handleHamburgerClick();
-        scrollToSection(`#${linkId}`, savedScrollContext);
+        scrollToSection({
+            section: `#${linkId}`,
+            scrollContext: savedScrollContext,
+        });
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
-        scrollToSection(`#${linkId}`, savedScrollContext);
+        scrollToSection({
+            section: `#${linkId}`,
+            scrollContext: savedScrollContext,
+        });
     };
 
     const handleButtonClick = () => {
-        scrollToSection(`#${navigation.contacts}`, savedScrollContext);
+        scrollToSection({
+            section: `#${navigation.contacts}`,
+            scrollContext: savedScrollContext,
+        });
     };
 
     const headerRef = useRef<HTMLElement>(null);

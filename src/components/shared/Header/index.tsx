@@ -2,7 +2,6 @@ import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
-import { scrollToSection } from '../../../utils/scroll';
 import { ScrollPositionContext } from '../scrollPositionContext';
 
 import * as styles from './index.module.scss';
@@ -38,9 +37,14 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     const savedScrollContext = useContext(ScrollPositionContext);
 
     const onDesktopCasesItemClick = () => {
-        scrollToSection('#cases', savedScrollContext, () => {
-            casesContext?.jumpToCase(0);
-        });
+        if (savedScrollContext) {
+            const oldHash = window.location.hash;
+            if (oldHash === '') {
+                savedScrollContext.setScrollPosition(window.scrollY);
+            }
+        }
+        window.history.pushState(null, '', '#cases');
+        casesContext?.jumpToCase(0);
     };
 
     const resizeHandler = () => {

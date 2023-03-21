@@ -190,10 +190,10 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
                         text={data.button}
                         link={`#${navigation.contacts}`}
                         clickHandler={() => {
-                            scrollToSection(
-                                `#${navigation.contacts}`,
-                                savedScrollContext
-                            );
+                            scrollToSection({
+                                section: `#${navigation.contacts}`,
+                                scrollContext: savedScrollContext,
+                            });
                         }}
                         withIcon
                     />

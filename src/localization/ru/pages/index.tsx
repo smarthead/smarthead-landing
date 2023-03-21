@@ -42,7 +42,7 @@ const RuLayout = () => {
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
-            scrollToSection(hash);
+            scrollToSection({ section: hash });
         }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');

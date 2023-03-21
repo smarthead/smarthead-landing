@@ -2,40 +2,52 @@ import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import { UseSavedScrollPositionReturnedValue } from './hooks/useCustomHashChangeHandler';
 
-export const scrollToSection = (
-    section: string | null,
-    scrollContext?: UseSavedScrollPositionReturnedValue | null,
-    onComplete?: () => void,
-    duration?: number
-) => {
+interface ScrollToSectionArgs {
+    section: string | null;
+    scrollContext?: UseSavedScrollPositionReturnedValue | null;
+    onStart?: () => void;
+    onComplete?: () => void;
+    duration?: number;
+}
+
+export const scrollToSection = ({
+    section,
+    scrollContext,
+    onStart,
+    onComplete,
+    duration,
+}: ScrollToSectionArgs) => {
     if (section === null || document.querySelector(section) === null) return;
 
-    const oldHash = window.location.hash;
-    if (oldHash === '') {
-        console.log('setPosition', window.scrollY);
-        scrollContext?.setScrollPosition(window.scrollY);
-    }
-
-    if (oldHash === '') {
-        localStorage.setItem('currentScrollPosition', String(window.scrollY));
+    if (scrollContext) {
+        const oldHash = window.location.hash;
+        if (oldHash === '') {
+            scrollContext.setScrollPosition(window.scrollY);
+        }
     }
 
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: duration === undefined ? 0.7 : duration,
+        duration: duration ? duration : 0.7,
         scrollTo: {
             y: section,
         },
         ease: 'power1.inOut',
         overwrite: true,
-        onStart: () => {
-            window.history.pushState(null, '', section);
-        },
+        onStart: onStart
+            ? onStart
+            : () => {
+                  window.history.pushState(null, '', section);
+              },
         onComplete: onComplete,
     });
 };
 
-export const scrollToTop = () => {
+interface ScrollToTopArgs {
+    onStart?: () => void;
+}
+
+export const scrollToTop = (args?: ScrollToTopArgs) => {
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
         scrollTo: {
@@ -43,9 +55,11 @@ export const scrollToTop = () => {
         },
         ease: 'power1.inOut',
         overwrite: true,
-        onStart: () => {
-            history.pushState(null, '', '/');
-        },
+        onStart: args?.onStart
+            ? args?.onStart
+            : () => {
+                  history.pushState(null, '', '/');
+              },
     });
 };
 

@@ -1,6 +1,6 @@
 import { UseCasesPinnedScrollReturnValue } from '../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { useEffect, useRef } from 'react';
-import { scrollTo, scrollToSection } from '../scroll';
+import { scrollTo } from '../scroll';
 
 export interface UseSavedScrollPositionReturnedValue {
     getScrollPosition: () => number;
@@ -41,18 +41,13 @@ export function useCustomHashChangeHandler(
             }
             if (newHash === '') {
                 const currentPosition =
-                    scrollPositionContext?.getScrollPosition();
-                console.log('getPosition', currentPosition);
+                    scrollPositionContext?.getScrollPosition() | 0;
                 scrollTo(currentPosition);
             }
 
             if (newHash === 'cases') {
-                scrollToSection('#cases', null, () => {
-                    casesScrollContext?.jumpToCase(0);
-                });
                 history.replaceState('', '', '/#cases');
-            } else {
-                return;
+                casesScrollContext?.jumpToCase(0);
             }
         };
 

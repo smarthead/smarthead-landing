@@ -27,11 +27,17 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
     const handleMobileMenuClick = (linkId: string) => {
         handleHamburgerClick();
         setIsMobileMenuOpened(!isMobileMenuOpened);
-        scrollToSection(`#${linkId}`, savedScrollContext);
+        scrollToSection({
+            section: `#${linkId}`,
+            scrollContext: savedScrollContext,
+        });
     };
 
     const handleDesktopMenuItemClick = (linkId: string) => {
-        scrollToSection(`#${linkId}`, savedScrollContext);
+        scrollToSection({
+            section: `#${linkId}`,
+            scrollContext: savedScrollContext,
+        });
     };
 
     return (

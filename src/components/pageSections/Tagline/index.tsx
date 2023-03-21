@@ -12,7 +12,7 @@ const Tagline: React.FC = () => (
                 <h3 className={styles.title}>Сделаем мир лучше вместе?</h3>
                 <ButtonLink
                     clickHandler={() => {
-                        scrollToSection(`#${navigation.contacts}`);
+                        scrollToSection({ section: `#${navigation.contacts}` });
                     }}
                     withIcon
                     color="black"
