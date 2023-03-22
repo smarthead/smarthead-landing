@@ -8,16 +8,17 @@ export function useFirstScrollFix() {
             scrollToSection({
                 section: hash,
                 duration: 0,
-                // onComplete: () => {
-                //     window.document.body.style.scrollBehavior = 'smooth';
-                //     document.getElementsByTagName(
-                //         'html'
-                //     )[0].style.scrollBehavior = 'smooth';
-                // },
+                onComplete: () => {
+                    window.document.body.style.scrollBehavior = 'smooth';
+                    document.getElementsByTagName(
+                        'html'
+                    )[0].style.scrollBehavior = 'smooth';
+                },
             });
+        } else {
+            window.document.body.style.scrollBehavior = 'smooth';
+            document.getElementsByTagName('html')[0].style.scrollBehavior =
+                'smooth';
         }
-        // window.document.body.style.scrollBehavior = 'smooth';
-        // document.getElementsByTagName('html')[0].style.scrollBehavior =
-        //     'smooth';
     }, []);
 }
