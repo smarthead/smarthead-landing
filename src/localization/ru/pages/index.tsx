@@ -83,6 +83,11 @@ const RuLayout = () => {
                     name="facebook-domain-verification"
                     content="ypjtjqnhfbwzzlc83uqjihzeaogz26"
                 ></meta>
+                <link
+                    type="text/plain"
+                    rel="author"
+                    href="https://smarthead.ru/humans.txt"
+                />
             </Helmet>
 
             <CasesScrollContext.Provider value={casesScrollContext}>
