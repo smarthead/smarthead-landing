@@ -14,4 +14,9 @@
     @media (max-width: $screenSm) {
         margin-top: 16px;
     }
+
+    & img {
+        cursor: auto;
+    }
+
 }
