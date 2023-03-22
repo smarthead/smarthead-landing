@@ -6,6 +6,12 @@ function setScrollBehaviourSmooth() {
     document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth';
 }
 
+function fixBodyStyles() {
+    window.document.body.style.maxHeight = 'auto';
+    window.document.body.style.overflowX = 'hidden';
+    window.document.body.style.overflowY = 'auto';
+}
+
 export function useFirstScrollFix() {
     useEffect(() => {
         const hash = window.location.hash;
@@ -13,11 +19,15 @@ export function useFirstScrollFix() {
             scrollToSection({
                 section: hash,
                 duration: 0,
+                onStart: () => {
+                    fixBodyStyles();
+                },
                 onComplete: () => {
                     setScrollBehaviourSmooth();
                 },
             });
         } else {
+            fixBodyStyles();
             setScrollBehaviourSmooth();
         }
     }, []);
