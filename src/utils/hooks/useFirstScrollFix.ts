@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { scrollToSection } from '../scroll';
 
 export function useFirstScrollFix() {
-    useEffect(() => {
+    useLayoutEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
             scrollToSection({
