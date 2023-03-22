@@ -1,10 +1,4 @@
-import React, {
-    useContext,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
 import { CasesScrollContext } from './utils/context';
@@ -29,6 +23,9 @@ interface ICases {
 
 const Cases: React.FC<ICases> = ({ id, data }) => {
     const casesScrollContext = useContext(CasesScrollContext);
+    useEffect(() => {
+        casesScrollContext?.handlePinnedScrollEffect();
+    }, []);
 
     const [isTablet, setIsTablet] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -39,103 +36,74 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
         setIsMobile(width <= 640);
     };
 
-    const fixCasesContainerHeight = () => {
-        if (casesSectionRef.current) {
-            casesSectionRef.current.style.height = 'auto';
-            window.removeEventListener('resize', fixCasesContainerHeight);
-        }
-    };
-
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         handleResize();
 
-        window.addEventListener('resize', fixCasesContainerHeight);
-
         return () => {
             window.removeEventListener('resize', handleResize);
-            window.removeEventListener('resize', fixCasesContainerHeight);
-        };
-    }, []);
-
-    const casesSectionRef = useRef<HTMLElement>(null);
-    useLayoutEffect(() => {
-        const neededHeight =
-            document.documentElement.clientHeight * data.casesList.length;
-        if (casesSectionRef.current) {
-            casesSectionRef.current.style.height = `${neededHeight}px`;
-        }
-
-        const timeout = setTimeout(
-            () => casesScrollContext?.handlePinnedScrollEffect(),
-            1000
-        );
-        return () => {
-            clearTimeout(timeout);
         };
     }, []);
 
     return (
-        <section id={id} ref={casesSectionRef}>
-            <div className={`cases-sections ${styles.root}`}>
-                <section
-                    className={styles.casesContainer}
-                    ref={casesScrollContext?.casesContainerRef}
-                >
-                    {data.casesList.map((caseObj, index) => (
-                        <div className={styles.cases} key={index}>
-                            <div className={styles.casesInfo}>
-                                <div
-                                    className={`${styles.casesInfoItem} cases-info-item`}
-                                >
-                                    <CaseItemInfo
-                                        isFirst={
-                                            casesScrollContext?.isTitleShown ||
-                                            index === 0
-                                        }
-                                        sectionTitle={data.title}
-                                        title={caseObj.title}
-                                        description={caseObj.description}
-                                    />
-                                </div>
-                            </div>
-                            <div className={styles.casesImage}>
-                                <div className="cases-image-item">
-                                    <CaseItemImage
-                                        image={
-                                            isTablet
-                                                ? caseObj.image.tablet.src
-                                                : isMobile
-                                                ? caseObj.image.original.src
-                                                : caseObj.image.desktop.src
-                                        }
-                                        origin={
-                                            !isTablet && !isMobile
-                                                ? caseObj.image.desktop.origin
-                                                : '50% 50%'
-                                        }
-                                    />
-                                </div>
+        <section id={id} className={`cases-sections ${styles.root}`}>
+            <section
+                className={styles.casesContainer}
+                ref={casesScrollContext?.casesContainerRef}
+            >
+                {data.casesList.map((caseObj, index) => (
+                    <div className={styles.cases} key={index}>
+                        <div className={styles.casesInfo}>
+                            <div
+                                className={`${styles.casesInfoItem} cases-info-item`}
+                            >
+                                <CaseItemInfo
+                                    isFirst={
+                                        casesScrollContext?.isTitleShown ||
+                                        index === 0
+                                    }
+                                    sectionTitle={data.title}
+                                    title={caseObj.title}
+                                    description={caseObj.description}
+                                />
                             </div>
                         </div>
-                    ))}
-                </section>
+                        <div className={styles.casesImage}>
+                            <div className="cases-image-item">
+                                <CaseItemImage
+                                    image={
+                                        isTablet
+                                            ? caseObj.image.tablet.src
+                                            : isMobile
+                                            ? caseObj.image.original.src
+                                            : caseObj.image.desktop.src
+                                    }
+                                    origin={
+                                        !isTablet && !isMobile
+                                            ? caseObj.image.desktop.origin
+                                            : '50% 50%'
+                                    }
+                                />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </section>
 
-                <div className={styles.bullets}>
-                    {data.casesList.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                casesScrollContext?.jumpToCase(index);
-                            }}
-                            className={`${styles.buttonBullet} ${
-                                index === casesScrollContext?.activeSlide
-                                    ? styles.buttonBulletActive
-                                    : ''
-                            }`}
-                        ></button>
-                    ))}
-                </div>
+            <div className={styles.bullets}>
+                {data.casesList.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => {
+                            casesScrollContext?.jumpToCase(index);
+                        }}
+                        className={`${styles.buttonBullet} ${
+                            index === casesScrollContext?.activeSlide
+                                ? styles.buttonBulletActive
+                                : ''
+                        }`}
+                    ></button>
+                ))}
             </div>
         </section>
     );
