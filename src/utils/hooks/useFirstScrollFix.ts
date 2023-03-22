@@ -1,23 +1,23 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { scrollToSection } from '../scroll';
 
 export function useFirstScrollFix() {
-    useLayoutEffect(() => {
+    useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
             scrollToSection({
                 section: hash,
-                onComplete: () => {
-                    window.document.body.style.scrollBehavior = 'smooth';
-                    document.getElementsByTagName(
-                        'html'
-                    )[0].style.scrollBehavior = 'smooth';
-                },
+                duration: 0,
+                // onComplete: () => {
+                //     window.document.body.style.scrollBehavior = 'smooth';
+                //     document.getElementsByTagName(
+                //         'html'
+                //     )[0].style.scrollBehavior = 'smooth';
+                // },
             });
-        } else {
-            window.document.body.style.scrollBehavior = 'smooth';
-            document.getElementsByTagName('html')[0].style.scrollBehavior =
-                'smooth';
         }
+        // window.document.body.style.scrollBehavior = 'smooth';
+        // document.getElementsByTagName('html')[0].style.scrollBehavior =
+        //     'smooth';
     }, []);
 }

@@ -22,7 +22,7 @@ export const scrollToSection = ({
         scrollTo: {
             y: section,
         },
-        ease: 'power1.inOut',
+        //ease: 'power1.inOut',
         overwrite: true,
         onStart: onStart
             ? onStart
