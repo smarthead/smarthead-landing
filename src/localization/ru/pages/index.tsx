@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { navigation } from '../../../components/shared/navigation';
 
 import '../../../styles/index.scss';
 
@@ -20,6 +21,7 @@ import { CasesScrollContext } from '../../../components/pageSections/Cases/utils
 import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
+import { useFirstScrollFix } from '../../../utils/hooks/useFirstScrollFix';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -27,7 +29,6 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
-import { navigation } from '../../../components/shared/navigation';
 import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
@@ -42,6 +43,8 @@ const RuLayout = () => {
             setCookiesAccepted(false);
         }
     }, []);
+
+    useFirstScrollFix();
 
     const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
         null
