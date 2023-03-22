@@ -16,12 +16,10 @@ export function useFirstScrollFix() {
     useEffect(() => {
         const hash = window.location.hash;
         if (hash.length > 0) {
+            fixBodyStyles();
             scrollToSection({
                 section: hash,
                 duration: 0,
-                onStart: () => {
-                    fixBodyStyles();
-                },
                 onComplete: () => {
                     setScrollBehaviourSmooth();
                 },
