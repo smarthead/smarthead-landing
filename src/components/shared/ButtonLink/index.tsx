@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import cn from 'classnames';
 
 import * as styles from './index.module.scss';
@@ -11,9 +12,10 @@ interface IButtonLinkProps {
     className?: string;
     text: string;
     link: string;
-    clickHandler?: () => void;
+    onClick?: () => void;
     color?: ButtonColor;
     withIcon?: boolean;
+    external?: boolean;
 }
 type ButtonColorPreset = {
     [name: string]: { style: string; arrowSrc: string };
@@ -35,35 +37,47 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({
     color,
     link,
     className,
-    clickHandler,
+    onClick,
     withIcon,
+    external,
 }) => {
     const buttonColor =
         (color && buttonColorPresets[color]) || buttonColorPresets.yellow;
 
     const handleButtonLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (clickHandler !== undefined) {
+        if (onClick !== undefined) {
             e.preventDefault();
-            clickHandler();
+            onClick();
         }
     };
 
-    return (
+    const img = withIcon && (
+        <img
+            src={buttonColor.arrowSrc}
+            alt="Arrow right icon"
+            className={styles.arrow}
+        />
+    );
+
+    return external ? (
         <a
             href={link}
             target="_blank"
+            className={cn(styles.button, buttonColor.style, className)}
+            onClick={handleButtonLinkClick}
+        >
+            {img}
+            {text}
+        </a>
+    ) : (
+        <Link
+            to={link}
             onClick={handleButtonLinkClick}
             className={cn(styles.button, buttonColor.style, className)}
         >
-            {withIcon && (
-                <img
-                    src={buttonColor.arrowSrc}
-                    alt="Arrow right icon"
-                    className={styles.arrow}
-                />
-            )}
+            {img}
             {text}
-        </a>
+        </Link>
     );
 };
 

@@ -1,37 +1,34 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-export const scrollToSection = (
-    section: string | null,
-    offset?: number,
-    duration?: number
-) => {
+interface ScrollToSectionArgs {
+    section: string | null;
+    duration?: number;
+    onStart?: () => void;
+    onComplete?: () => void;
+}
+
+export const scrollToSection = ({
+    section,
+    duration,
+    onStart,
+    onComplete,
+}: ScrollToSectionArgs) => {
     if (section === null || document.querySelector(section) === null) return;
 
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: duration === undefined ? 0.7 : duration,
+        duration: duration ? duration : 0.7,
         scrollTo: {
             y: section,
         },
-        ease: 'power1.inOut',
+        //ease: 'power1.inOut',
         overwrite: true,
-        onStart: () => {
-            window.history.pushState(null, '', section);
-        },
-    });
-};
-
-export const scrollToTop = () => {
-    gsap.registerPlugin(ScrollToPlugin);
-    gsap.to(window, {
-        scrollTo: {
-            y: 0,
-        },
-        ease: 'power1.inOut',
-        overwrite: true,
-        onStart: () => {
-            history.replaceState(null, '', ' ');
-        },
+        onStart: onStart
+            ? onStart
+            : () => {
+                  window.history.pushState(null, '', section);
+              },
+        onComplete: onComplete,
     });
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { navigation } from '../../../components/shared/navigation';
 
 import '../../../styles/index.scss';
 
@@ -16,8 +17,11 @@ import Footer from '../../../components/pageSections/Footer';
 import CookiesNotification from '../../../components/shared/CookiesNotification';
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { scrollToSection } from '../../../utils/scroll';
+import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
+import { useFirstScrollFix } from '../../../utils/hooks/useFirstScrollFix';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -25,7 +29,6 @@ import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
-import { navigation } from '../../../components/shared/navigation';
 import { testimonialsData } from '../data/testimonialsData';
 
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
@@ -33,10 +36,6 @@ const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 const RuLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
-        const hash = window.location.hash;
-        if (hash.length > 0) {
-            scrollToSection(hash, 0);
-        }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
 
@@ -45,12 +44,17 @@ const RuLayout = () => {
         }
     }, []);
 
+    useFirstScrollFix();
+
     const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
         null
     );
     const handleHeroScreenHeight = (height: number) => {
         setHeroScreenHeight(height);
     };
+
+    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
+    useCustomHistoryPopstate(casesScrollContext);
 
     return (
         <div className="main">
@@ -86,20 +90,23 @@ const RuLayout = () => {
                 />
             </Helmet>
 
-            <StickyHeader
-                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                mobileMenuLinks={heroData.header.menu}
-                buttonText={'НАПИШИТЕ НАМ'}
-                heroSectionHeight={heroSectionHeight}
-            />
+            <CasesScrollContext.Provider value={casesScrollContext}>
+                <StickyHeader
+                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                    mobileMenuLinks={heroData.header.menu}
+                    buttonText={'НАПИШИТЕ НАМ'}
+                    heroSectionHeight={heroSectionHeight}
+                />
 
-            <Hero
-                data={heroData}
-                handleHeroScreenHeight={handleHeroScreenHeight}
-            />
-            <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} data={casesData} />
+                <Hero
+                    data={heroData}
+                    handleHeroScreenHeight={handleHeroScreenHeight}
+                />
+                <HowWeWork data={howWeWorkData} />
+                <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                <Cases id={navigation.cases} data={casesData} />
+            </CasesScrollContext.Provider>
+
             <Partners data={partnersData} />
             <Testimonials
                 id={navigation.testimonials}

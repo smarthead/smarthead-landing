@@ -1,17 +1,18 @@
-import React, { ForwardRefRenderFunction, useEffect } from 'react';
+import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
-
-import * as styles from './index.module.scss';
+import { Link, navigate } from 'gatsby';
+import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import * as styles from './index.module.scss';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
     mobileMenuLinks?: { [key: string]: string }[];
     Slot?: React.ReactElement;
     onLogoClick?: () => void;
-    onDesktopMenuItemClick: (linkId: string) => void;
-    onMobileMenuClick: (linkId: string) => void;
+    onDesktopMenuItemClick?: () => void;
+    onMobileMenuClick?: () => void;
     onHamburgerClick: () => void;
     isMenuOpened: boolean;
     className?: string;
@@ -31,10 +32,20 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     },
     ref
 ) => {
+    const casesContext = useContext(CasesScrollContext);
+
     const resizeHandler = () => {
         if (window.innerWidth > 768 && isMenuOpened) {
             onHamburgerClick();
         }
+    };
+
+    const onDesktopCasesItemClick = async (
+        e: React.MouseEvent<HTMLAnchorElement>
+    ) => {
+        e.preventDefault();
+        void navigate('/#cases');
+        setTimeout(() => casesContext?.jumpToCase(0), 100);
     };
 
     useEffect(() => {
@@ -59,13 +70,18 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                 <div className={styles.menuContainer}>
                     <div className={styles.menu}>
                         {menuLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.id}
+                                to={`#${link.id}`}
                                 className={styles.menuLink}
-                                onClick={() => onDesktopMenuItemClick(link.id)}
+                                onClick={
+                                    link.id === 'cases'
+                                        ? onDesktopCasesItemClick
+                                        : undefined
+                                }
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -77,13 +93,14 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                         }`}
                     >
                         {mobileLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.id}
+                                to={`#${link.id}`}
                                 className={styles.mobileMenuLink}
-                                onClick={() => onMobileMenuClick(link.id)}
+                                onClick={onMobileMenuClick}
                             >
                                 {link.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 

@@ -4,7 +4,6 @@ import FontFaceObserver from 'fontfaceobserver';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { invalidate } from '../../../utils/animation';
-import { scrollToSection } from '../../../utils/scroll';
 import { navigation } from '../../shared/navigation';
 import { arrayToString } from '../../../utils/arrayToString';
 
@@ -186,9 +185,6 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
                         className={styles.heroButton}
                         text={data.button}
                         link={`#${navigation.contacts}`}
-                        clickHandler={() => {
-                            scrollToSection(`#${navigation.contacts}`);
-                        }}
                         withIcon
                     />
 

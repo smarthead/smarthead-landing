@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { navigation } from '../../../components/shared/navigation';
 
 import '../../../styles/index.scss';
 
@@ -14,9 +15,11 @@ import Testimonials from '../../../components/pageSections/Testimonials';
 import FooterEn from '../../../components/pageSections/FooterEn';
 import { FooterContactsEn } from '../../../components/pageSections/FooterContactsEn';
 
-import { navigation } from '../../../components/shared/navigation';
-import { scrollToSection } from '../../../utils/scroll';
+import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
 import { removeLastFromArray } from '../../../utils/removeLastFromArray';
+import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
+import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
+import { useFirstScrollFix } from '../../../utils/hooks/useFirstScrollFix';
 
 import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
@@ -31,10 +34,6 @@ const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 const EnLayout = () => {
     const [cookiesAccepted, setCookiesAccepted] = useState(true);
     useEffect(() => {
-        const hash = window.location.hash;
-        if (hash.length > 0) {
-            scrollToSection(hash, 0);
-        }
         const localStorageCookiesAccepted =
             localStorage.getItem('cookiesAccepted');
 
@@ -43,12 +42,17 @@ const EnLayout = () => {
         }
     }, []);
 
+    useFirstScrollFix();
+
     const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
         null
     );
     const handleHeroScreenHeight = (height: number) => {
         setHeroScreenHeight(height);
     };
+
+    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
+    useCustomHistoryPopstate(casesScrollContext);
 
     return (
         <div className="main">
@@ -84,21 +88,24 @@ const EnLayout = () => {
                 />
             </Helmet>
 
-            <StickyHeader
-                menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                mobileMenuLinks={heroData.header.menu}
-                buttonText={'CONTACT US'}
-                heroSectionHeight={heroSectionHeight}
-            />
+            <CasesScrollContext.Provider value={casesScrollContext}>
+                <StickyHeader
+                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
+                    mobileMenuLinks={heroData.header.menu}
+                    buttonText={'CONTACT US'}
+                    heroSectionHeight={heroSectionHeight}
+                />
 
-            <Hero
-                data={heroData}
-                isEnglish={true}
-                handleHeroScreenHeight={handleHeroScreenHeight}
-            />
-            <HowWeWork data={howWeWorkData} />
-            <WhatWeDo id={navigation.services} data={whatWeDoData} />
-            <Cases id={navigation.cases} data={casesData} />
+                <Hero
+                    data={heroData}
+                    isEnglish={true}
+                    handleHeroScreenHeight={handleHeroScreenHeight}
+                />
+                <HowWeWork data={howWeWorkData} />
+                <WhatWeDo id={navigation.services} data={whatWeDoData} />
+                <Cases id={navigation.cases} data={casesData} />
+            </CasesScrollContext.Provider>
+
             <Partners data={partnersData} />
             <Testimonials
                 id={navigation.testimonials}
@@ -107,7 +114,6 @@ const EnLayout = () => {
             />
             <FooterEn id={navigation.contacts} />
             <FooterContactsEn />
-
             {!cookiesAccepted && (
                 <CookiesNotification
                     data={cookiesNotificationData}
