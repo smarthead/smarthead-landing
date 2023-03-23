@@ -42,7 +42,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         }
     };
 
-    const onDesktopItemClick = (
+    const handleDesktopItemClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
         target: string
     ) => {
@@ -56,7 +56,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         }
     };
 
-    const onDesktopCasesItemClick = (
+    const handleDesktopCasesItemClick = (
         e: React.MouseEvent<HTMLAnchorElement>
     ) => {
         e.preventDefault();
@@ -96,9 +96,9 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                                 className={styles.menuLink}
                                 onClick={
                                     link.id === 'cases'
-                                        ? onDesktopCasesItemClick
+                                        ? handleDesktopCasesItemClick
                                         : (e) =>
-                                              onDesktopItemClick(
+                                              handleDesktopItemClick(
                                                   e,
                                                   `#${link.id}`
                                               )
