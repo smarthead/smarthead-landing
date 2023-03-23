@@ -6,6 +6,8 @@ import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
 import { useStickyHeader } from './utils';
+import { scrollToSection } from '../../../utils/scrollToSection';
+
 import { navigation } from '../navigation';
 
 import * as styles from './index.module.scss';
@@ -50,6 +52,16 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
         void navigate('/');
     };
 
+    const handleButtonClick = (target: string) => {
+        if (window.location.hash === target) {
+            scrollToSection({
+                section: target,
+            });
+        } else {
+            void navigate(target);
+        }
+    };
+
     return (
         <Header
             ref={headerRef}
@@ -64,6 +76,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
                     className={styles.menuButton}
                     text={buttonText}
                     link={`#${navigation.contacts}`}
+                    onClick={() => handleButtonClick(`#${navigation.contacts}`)}
                 />
             }
             className={cn(styles.header, 'container')}
