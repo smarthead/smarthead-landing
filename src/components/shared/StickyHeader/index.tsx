@@ -49,20 +49,20 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     });
 
     const handleLogoClick = () => {
-        if (window.location.pathname === '/') {
+        if (window.location.hash === '') {
             scrollToTop();
         } else {
             void navigate('/');
         }
     };
 
-    const handleButtonClick = (target: string) => {
-        if (window.location.hash === target) {
+    const handleButtonClick = (targetSection: string) => {
+        if (window.location.hash === targetSection) {
             scrollToSection({
-                section: target,
+                section: targetSection,
             });
         } else {
-            void navigate(target);
+            void navigate(targetSection);
         }
     };
 
@@ -71,7 +71,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
             ref={headerRef}
             menuLinks={menuLinks}
             mobileMenuLinks={mobileMenuLinks}
-            onLogoClick={() => handleLogoClick}
+            onLogoClick={handleLogoClick}
             onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={handleHamburgerClick}
             isMenuOpened={isMobileMenuOpened}
