@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { navigation } from '../../../components/shared/navigation';
 
@@ -32,16 +32,6 @@ import { testimonialsData } from '../data/testimonialsData';
 const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
 
 const EnLayout = () => {
-    const [cookiesAccepted, setCookiesAccepted] = useState(true);
-    useEffect(() => {
-        const localStorageCookiesAccepted =
-            localStorage.getItem('cookiesAccepted');
-
-        if (localStorageCookiesAccepted !== 'true') {
-            setCookiesAccepted(false);
-        }
-    }, []);
-
     useFirstScrollFix();
 
     const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
@@ -114,15 +104,8 @@ const EnLayout = () => {
             />
             <FooterEn id={navigation.contacts} />
             <FooterContactsEn />
-            {!cookiesAccepted && (
-                <CookiesNotification
-                    data={cookiesNotificationData}
-                    clickHandler={() => {
-                        setCookiesAccepted(true);
-                        localStorage.setItem('cookiesAccepted', 'true');
-                    }}
-                />
-            )}
+
+            <CookiesNotification data={cookiesNotificationData} />
         </div>
     );
 };
