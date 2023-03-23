@@ -1,7 +1,9 @@
 import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
 import cn from 'classnames';
 import { Link, navigate } from 'gatsby';
+
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
+import { scrollToSection } from '../../../utils/scrollToSection';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
@@ -40,12 +42,30 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         }
     };
 
-    const onDesktopCasesItemClick = async (
+    const onDesktopItemClick = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        target: string
+    ) => {
+        e.preventDefault();
+        if (window.location.hash === target) {
+            scrollToSection({
+                section: target,
+            });
+        } else {
+            void navigate(target);
+        }
+    };
+
+    const onDesktopCasesItemClick = (
         e: React.MouseEvent<HTMLAnchorElement>
     ) => {
         e.preventDefault();
-        void navigate('/#cases');
-        setTimeout(() => casesContext?.jumpToCase(0), 100);
+        if (window.location.hash === '#cases') {
+            casesContext?.jumpToCase(0);
+        } else {
+            void navigate('/#cases');
+            setTimeout(() => casesContext?.jumpToCase(0), 100);
+        }
     };
 
     useEffect(() => {
@@ -77,7 +97,11 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                                 onClick={
                                     link.id === 'cases'
                                         ? onDesktopCasesItemClick
-                                        : undefined
+                                        : (e) =>
+                                              onDesktopItemClick(
+                                                  e,
+                                                  `#${link.id}`
+                                              )
                                 }
                             >
                                 {link.name}
