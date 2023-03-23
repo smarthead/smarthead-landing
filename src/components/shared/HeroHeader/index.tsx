@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header';
+
 import * as styles from './index.module.scss';
 
 interface HeroHeaderProps {
@@ -18,15 +19,9 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ menuLinks }) => {
         setIsMobileMenuOpened(!isMobileMenuOpened);
     };
 
-    const handleMobileMenuClick = () => {
-        handleHamburgerClick();
-        setIsMobileMenuOpened(!isMobileMenuOpened);
-    };
-
     return (
         <Header
             menuLinks={menuLinks}
-            onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={handleHamburgerClick}
             isMenuOpened={isMobileMenuOpened}
             className={styles.header}

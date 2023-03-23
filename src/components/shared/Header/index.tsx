@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Link, navigate } from 'gatsby';
 
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
-import { scrollToSection } from '../../../utils/scrollUtils';
+import { goTo } from '../../../utils/goTo';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
@@ -13,8 +13,6 @@ interface HeaderProps {
     mobileMenuLinks?: { [key: string]: string }[];
     Slot?: React.ReactElement;
     onLogoClick?: () => void;
-    onDesktopMenuItemClick?: () => void;
-    onMobileMenuClick?: () => void;
     onHamburgerClick: () => void;
     isMenuOpened: boolean;
     className?: string;
@@ -26,8 +24,6 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         mobileMenuLinks,
         Slot,
         onLogoClick,
-        onDesktopMenuItemClick,
-        onMobileMenuClick,
         onHamburgerClick,
         isMenuOpened,
         className,
@@ -44,16 +40,10 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
 
     const handleDesktopItemClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
-        target: string
+        section: string
     ) => {
         e.preventDefault();
-        if (window.location.hash === target) {
-            scrollToSection({
-                section: target,
-            });
-        } else {
-            void navigate(target);
-        }
+        goTo(section);
     };
 
     const handleDesktopCasesItemClick = (
@@ -66,6 +56,15 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
             void navigate('/#cases');
             setTimeout(() => casesContext?.jumpToCase(0), 100);
         }
+    };
+
+    const handleMobileMenuClick = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        section: string
+    ) => {
+        e.preventDefault();
+        onHamburgerClick();
+        goTo(section);
     };
 
     useEffect(() => {
@@ -121,7 +120,9 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                                 key={link.id}
                                 to={`#${link.id}`}
                                 className={styles.mobileMenuLink}
-                                onClick={onMobileMenuClick}
+                                onClick={(e) =>
+                                    handleMobileMenuClick(e, `#${link.id}`)
+                                }
                             >
                                 {link.name}
                             </Link>
