@@ -18,17 +18,13 @@ export const scrollToSection = ({
 
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: duration ? duration : 0.7,
+        duration: duration ? duration : 0,
         scrollTo: {
             y: section,
         },
-        //ease: 'power1.inOut',
+        ease: 'power1.inOut',
         overwrite: true,
-        onStart: onStart
-            ? onStart
-            : () => {
-                  window.history.pushState(null, '', section);
-              },
+        onStart: onStart,
         onComplete: onComplete,
     });
 };
