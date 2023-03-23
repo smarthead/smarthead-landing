@@ -28,3 +28,15 @@ export const scrollToSection = ({
         onComplete: onComplete,
     });
 };
+
+export const scrollToTop = () => {
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.to(window, {
+        duration: 0,
+        scrollTo: {
+            y: 0,
+        },
+        ease: 'power1.inOut',
+        overwrite: true,
+    });
+};

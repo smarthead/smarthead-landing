@@ -6,7 +6,7 @@ import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
 import { useStickyHeader } from './utils';
-import { scrollToSection } from '../../../utils/scrollToSection';
+import { scrollToSection, scrollToTop } from '../../../utils/scrollUtils';
 
 import { navigation } from '../navigation';
 
@@ -49,7 +49,11 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     });
 
     const handleLogoClick = () => {
-        void navigate('/');
+        if (window.location.pathname === '/') {
+            scrollToTop();
+        } else {
+            void navigate('/');
+        }
     };
 
     const handleButtonClick = (target: string) => {
@@ -67,7 +71,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
             ref={headerRef}
             menuLinks={menuLinks}
             mobileMenuLinks={mobileMenuLinks}
-            onLogoClick={handleLogoClick}
+            onLogoClick={() => handleLogoClick}
             onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={handleHamburgerClick}
             isMenuOpened={isMobileMenuOpened}

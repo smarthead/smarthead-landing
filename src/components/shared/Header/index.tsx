@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Link, navigate } from 'gatsby';
 
 import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
-import { scrollToSection } from '../../../utils/scrollToSection';
+import { scrollToSection } from '../../../utils/scrollUtils';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';

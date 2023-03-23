@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { scrollToSection } from '../scrollToSection';
+import { scrollToSection } from '../scrollUtils';
 
 function setScrollBehaviourSmooth() {
     window.document.body.style.scrollBehavior = 'smooth';
