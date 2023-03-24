@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { scrollToSection } from '../scroll';
+import { scrollToSection } from '../scrollUtils';
 
 function setScrollBehaviourSmooth() {
     window.document.body.style.scrollBehavior = 'smooth';
@@ -12,7 +12,9 @@ export function useFirstScrollFix() {
         if (hash.length > 0) {
             scrollToSection({
                 section: hash,
-                duration: 0,
+                onStart: () => {
+                    window.history.pushState(null, '', hash);
+                },
                 onComplete: () => {
                     setScrollBehaviourSmooth();
                 },

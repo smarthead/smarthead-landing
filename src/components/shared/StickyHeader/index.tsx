@@ -6,6 +6,9 @@ import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
 import { useStickyHeader } from './utils';
+import { scrollToTop } from '../../../utils/scrollUtils';
+import { goTo } from '../../../utils/goTo';
+
 import { navigation } from '../navigation';
 
 import * as styles from './index.module.scss';
@@ -34,10 +37,6 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
         setIsMobileMenuOpened(!isMobileMenuOpened);
     };
 
-    const handleMobileMenuClick = () => {
-        handleHamburgerClick();
-    };
-
     const headerRef = useRef<HTMLElement>(null);
 
     useStickyHeader({
@@ -47,7 +46,15 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     });
 
     const handleLogoClick = () => {
-        void navigate('/');
+        if (window.location.hash === '') {
+            scrollToTop();
+        } else {
+            void navigate('/');
+        }
+    };
+
+    const handleButtonClick = (targetSection: string) => {
+        goTo(targetSection);
     };
 
     return (
@@ -56,7 +63,6 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
             menuLinks={menuLinks}
             mobileMenuLinks={mobileMenuLinks}
             onLogoClick={handleLogoClick}
-            onMobileMenuClick={handleMobileMenuClick}
             onHamburgerClick={handleHamburgerClick}
             isMenuOpened={isMobileMenuOpened}
             Slot={
@@ -64,6 +70,7 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
                     className={styles.menuButton}
                     text={buttonText}
                     link={`#${navigation.contacts}`}
+                    onClick={() => handleButtonClick(`#${navigation.contacts}`)}
                 />
             }
             className={cn(styles.header, 'container')}
