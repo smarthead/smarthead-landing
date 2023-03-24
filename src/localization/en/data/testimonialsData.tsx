@@ -1,7 +1,7 @@
-import yuryFrolov from '../../../assets/images/reviews/Yury_Frolov.jpg';
-import nataliaRomanova from '../../../assets/images/reviews/Natalia_Romanova.jpg';
-import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.png';
-import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.jpg';
+import yuryFrolov from '../../../assets/images/reviews/Yury_Frolov.webp';
+import nataliaRomanova from '../../../assets/images/reviews/Natalia_Romanova.webp';
+import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.webp';
+import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.webp';
 
 export const testimonialsData = {
     title: 'Testimonials',

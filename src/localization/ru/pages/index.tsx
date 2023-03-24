@@ -64,7 +64,7 @@ const RuLayout = () => {
                 <meta property="og:url" content="https://smarthead.ru/" />
                 <meta
                     property="og:image"
-                    content="https://smarthead.ru/SmartHead-Logo.png"
+                    content="https://smarthead.ru/SmartHead-Logo.webp"
                 />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
