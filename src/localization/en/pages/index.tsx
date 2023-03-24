@@ -62,7 +62,7 @@ const EnLayout = () => {
                 <meta property="og:url" content="https://smarthead.digital/" />
                 <meta
                     property="og:image"
-                    content="https://smarthead.digital/SmartHead-Logo.webp"
+                    content="https://smarthead.digital/SmartHead-Logo.png"
                 />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
