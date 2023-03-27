@@ -4,7 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { arrayToString } from '../../../utils/arrayToString';
 
 import * as styles from './index.module.scss';
-import teamPhoto from '../../../assets/images/Team-Photo.jpg';
+import teamPhoto from '../../../assets/images/Team-Photo.webp';
 
 interface IHowWeWork {
     data: {

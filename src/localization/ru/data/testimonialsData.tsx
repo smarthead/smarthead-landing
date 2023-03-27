@@ -1,12 +1,12 @@
-import yuryFrolov from '../../../assets/images/reviews/Yury_Frolov.jpg';
-import nataliaRomanova from '../../../assets/images/reviews/Natalia_Romanova.jpg';
-import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.png';
-import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.jpg';
-import andreyHrikin from '../../../assets/images/reviews/Andrey_Hrikin.png';
-import antonVasserman from '../../../assets/images/reviews/Anton_Vasserman.png';
-import sergeyKornilov from '../../../assets/images/reviews/Sergey_Kornilov.png';
-import victoriaChernishkina from '../../../assets/images/reviews/Victoria_Chernishkina.png';
-import daryaVolodkina from '../../../assets/images/reviews/Darya_Volodkina.jpg';
+import yuryFrolov from '../../../assets/images/reviews/Yury_Frolov.webp';
+import nataliaRomanova from '../../../assets/images/reviews/Natalia_Romanova.webp';
+import dimaIvanov from '../../../assets/images/reviews/Dima_Ivanov.webp';
+import annaChaplygina from '../../../assets/images/reviews/Anna_Chaplygina.webp';
+import andreyHrikin from '../../../assets/images/reviews/Andrey_Hrikin.webp';
+import antonVasserman from '../../../assets/images/reviews/Anton_Vasserman.webp';
+import sergeyKornilov from '../../../assets/images/reviews/Sergey_Kornilov.webp';
+import victoriaChernishkina from '../../../assets/images/reviews/Victoria_Chernishkina.webp';
+import daryaVolodkina from '../../../assets/images/reviews/Darya_Volodkina.webp';
 
 export const testimonialsData = {
     title: 'Отзывы',

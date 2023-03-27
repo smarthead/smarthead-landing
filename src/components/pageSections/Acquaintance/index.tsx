@@ -7,13 +7,13 @@ import Card from '../../shared/Card';
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
 
-import podcastCover from '../../../assets/images/Podcast-Cover.jpg';
-import instagramCover from '../../../assets/images/Instagram-Cover.jpg';
-import telegramCover from '../../../assets/images/Telegram-Cover.jpg';
+import podcastCover from '../../../assets/images/Podcast-Cover.webp';
+import instagramCover from '../../../assets/images/Instagram-Cover.webp';
+import telegramCover from '../../../assets/images/Telegram-Cover.webp';
 
-import podcastCoverMobile from '../../../assets/images/Podcast-Cover-Mobile.jpg';
-import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.jpg';
-import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.jpg';
+import podcastCoverMobile from '../../../assets/images/Podcast-Cover-Mobile.webp';
+import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.webp';
+import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.webp';
 
 import { links } from '../../shared/links';
 import * as styles from './index.module.scss';
