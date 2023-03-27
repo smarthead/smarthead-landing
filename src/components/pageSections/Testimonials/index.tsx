@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel } from 'swiper';
+import { FreeMode, Mousewheel } from 'swiper';
 
 import ReviewItem from '../../shared/ReviewItem';
 import { SectionTitle } from '../../shared/SectionTitle';
@@ -122,10 +122,13 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                     simulateTouch={false}
                     slidesPerView={'auto'}
                     className={styles.swiper}
-                    modules={[Mousewheel]}
+                    modules={[Mousewheel, FreeMode]}
+                    freeMode={{
+                        enabled: true,
+                        sticky: true,
+                    }}
                     mousewheel={{
                         forceToAxis: true,
-                        invert: true,
                     }}
                     onActiveIndexChange={(swiper) => {
                         setActiveSlide(swiper.activeIndex);
