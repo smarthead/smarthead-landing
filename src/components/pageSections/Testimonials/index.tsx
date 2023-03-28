@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Mousewheel } from 'swiper';
@@ -12,6 +12,8 @@ import arrowForward from '../../../assets/images/Arrow-Forward.svg';
 import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
 
 import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/mousewheel';
 import * as styles from './index.module.scss';
 
 interface TestimonialsContentItem {
@@ -48,6 +50,36 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         if (activeSlide < 1) return;
         slideTo(activeSlide - 1);
     };
+
+    const [wheelDeltaX, setWheelDeltaX] = useState(0);
+    const handleWheel = (e: WheelEvent) => {
+        setWheelDeltaX(e.deltaX);
+        e.preventDefault();
+    };
+
+    const handleSwiperScroll = () => {
+        if (
+            (activeSlide === 0 && wheelDeltaX < 0) ||
+            (activeSlide === data.content.length - 1 && wheelDeltaX > 0)
+        ) {
+            setIsScrolling(false);
+        } else {
+            setIsScrolling(true);
+        }
+    };
+
+    const [isScrolling, setIsScrolling] = useState(false);
+    useEffect(() => {
+        if (isScrolling) {
+            document.addEventListener('wheel', handleWheel, {
+                passive: false,
+            });
+        }
+
+        return () => {
+            document.removeEventListener('wheel', handleWheel);
+        };
+    }, [isScrolling]);
 
     const gapBetweenSlides = checkIsMobileView() ? 50 : 120;
 
@@ -133,6 +165,10 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                     onActiveIndexChange={(swiper) => {
                         setActiveSlide(swiper.activeIndex);
                     }}
+                    onTransitionEnd={() => {
+                        setIsScrolling(false);
+                    }}
+                    onScroll={handleSwiperScroll}
                 >
                     {data.content.map((review, index) => (
                         <SwiperSlide
