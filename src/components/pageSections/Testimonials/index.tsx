@@ -51,12 +51,6 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         slideTo(activeSlide - 1);
     };
 
-    const [wheelDeltaX, setWheelDeltaX] = useState(0);
-    const handleWheel = (e: WheelEvent) => {
-        setWheelDeltaX(e.deltaX);
-        e.preventDefault();
-    };
-
     const handleSwiperScroll = () => {
         if (
             (activeSlide === 0 && wheelDeltaX < 0) ||
@@ -69,17 +63,24 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
     };
 
     const [isScrolling, setIsScrolling] = useState(false);
-    useEffect(() => {
+
+    const [wheelDeltaX, setWheelDeltaX] = useState(0);
+    const handleWheel = (e: WheelEvent) => {
         if (isScrolling) {
-            document.addEventListener('wheel', handleWheel, {
-                passive: false,
-            });
+            e.preventDefault();
         }
+        setWheelDeltaX(e.deltaX);
+    };
+
+    useEffect(() => {
+        document.addEventListener('wheel', handleWheel, {
+            passive: false,
+        });
 
         return () => {
             document.removeEventListener('wheel', handleWheel);
         };
-    }, [isScrolling]);
+    });
 
     const gapBetweenSlides = checkIsMobileView() ? 50 : 120;
 
