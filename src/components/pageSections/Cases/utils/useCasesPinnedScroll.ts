@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -11,6 +11,19 @@ export interface UseCasesPinnedScrollReturnValue {
     handlePinnedScrollEffect: () => void;
     isTitleShown: boolean;
 }
+
+const getNearestSlide = (
+    progress: number,
+    slideProgress: number[]
+): { progress: number; index: number } => {
+    return slideProgress.reduce(
+        (prev, curr, index) =>
+            Math.abs(curr - progress) < Math.abs(prev.progress - progress)
+                ? { progress: curr, index: index }
+                : prev,
+        { progress: 0, index: 0 }
+    );
+};
 
 export function useCasesPinnedScroll(
     casesAmount: number
@@ -25,49 +38,42 @@ export function useCasesPinnedScroll(
     const casesTimeline = useRef<gsap.core.Timeline>();
 
     const slideSize = 1 / (casesAmount - 1);
-    const slideProgress = [...Array(casesAmount)].map(
-        (_, index) => index * slideSize
+    const slideProgress = useMemo(
+        () => [...Array(casesAmount)].map((_, index) => index * slideSize),
+        [slideSize, casesAmount]
     );
 
-    const jumpToCase = (index: number | null) => {
-        if (
-            casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
-            casesContainerRef.current
-        ) {
-            const container = casesContainerRef.current;
-            const sectionProgress = index === null ? 1 : slideProgress[index];
-            const distance =
-                container.offsetHeight *
-                    (casesAmount - 1) *
-                    (sectionProgress -
-                        casesTimeline.current.scrollTrigger.progress) +
-                (index === null ? container.offsetHeight : 0);
-            gsap.to(window, {
-                duration: 0,
-                scrollTo: {
-                    y: container,
-                    offsetY: -distance,
-                },
-                ease: 'power1.inOut',
-                overwrite: true,
-            });
-        }
-    };
-
-    const getNearestSlide = (
-        progress: number
-    ): { progress: number; index: number } => {
-        return slideProgress.reduce(
-            (prev, curr, index) =>
-                Math.abs(curr - progress) < Math.abs(prev.progress - progress)
-                    ? { progress: curr, index: index }
-                    : prev,
-            { progress: 0, index: 0 }
-        );
-    };
+    const jumpToCase = useCallback(
+        (index: number | null) => {
+            if (
+                casesTimeline?.current?.scrollTrigger?.progress !== undefined &&
+                casesContainerRef.current
+            ) {
+                const container = casesContainerRef.current;
+                const sectionProgress =
+                    index === null ? 1 : slideProgress[index];
+                const distance =
+                    container.offsetHeight *
+                        (casesAmount - 1) *
+                        (sectionProgress -
+                            casesTimeline.current.scrollTrigger.progress) +
+                    (index === null ? container.offsetHeight : 0);
+                gsap.to(window, {
+                    duration: 0,
+                    scrollTo: {
+                        y: container,
+                        offsetY: -distance,
+                    },
+                    ease: 'power1.inOut',
+                    overwrite: true,
+                });
+            }
+        },
+        [slideProgress, casesAmount]
+    );
 
     const handleScrollUpdate = (progress: number) => {
-        setActiveSlide(getNearestSlide(progress).index);
+        setActiveSlide(getNearestSlide(progress, slideProgress).index);
     };
 
     const handlePinnedScrollEffect = () => {
