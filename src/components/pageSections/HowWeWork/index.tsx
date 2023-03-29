@@ -49,7 +49,7 @@ const HowWeWork: React.FC<IHowWeWork> = ({ data }) => {
                 stagger: 0.1,
             }
         );
-    });
+    }, []);
 
     return (
         <section className={styles.root}>
