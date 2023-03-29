@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Mousewheel } from 'swiper';
@@ -51,7 +51,10 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         slideTo(activeSlide - 1);
     };
 
-    const handleSwiperScroll = () => {
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [wheelDeltaX, setWheelDeltaX] = useState(0);
+
+    const handleScroll = () => {
         if (
             (activeSlide === 0 && wheelDeltaX < 0) ||
             (activeSlide === data.content.length - 1 && wheelDeltaX > 0)
@@ -62,9 +65,10 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         }
     };
 
-    const [isScrolling, setIsScrolling] = useState(false);
+    const handleTransitionEnd = () => {
+        setIsScrolling(false);
+    };
 
-    const [wheelDeltaX, setWheelDeltaX] = useState(0);
     const handleWheel = (e: WheelEvent) => {
         if (isScrolling) {
             e.preventDefault();
@@ -72,7 +76,13 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         setWheelDeltaX(e.deltaX);
     };
 
+    const handleWheelRef = useRef(handleWheel);
     useEffect(() => {
+        handleWheelRef.current = handleWheel;
+    });
+
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => handleWheelRef.current(e);
         document.addEventListener('wheel', handleWheel, {
             passive: false,
         });
@@ -80,9 +90,11 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         return () => {
             document.removeEventListener('wheel', handleWheel);
         };
-    });
+    }, []);
 
-    const gapBetweenSlides = checkIsMobileView() ? 50 : 120;
+    const isMobile = checkIsMobileView();
+    const gapBetweenSlides = isMobile ? 50 : 120;
+    const isDesktop = !isMobile;
 
     return (
         <Section id={id} withoutContainer>
@@ -157,19 +169,19 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                     className={styles.swiper}
                     modules={[Mousewheel, FreeMode]}
                     freeMode={{
-                        enabled: true,
+                        enabled: !isMobile,
                         sticky: true,
                     }}
                     mousewheel={{
-                        forceToAxis: true,
+                        forceToAxis: isDesktop,
                     }}
                     onActiveIndexChange={(swiper) => {
                         setActiveSlide(swiper.activeIndex);
                     }}
-                    onTransitionEnd={() => {
-                        setIsScrolling(false);
-                    }}
-                    onScroll={handleSwiperScroll}
+                    onTransitionEnd={
+                        isDesktop ? handleTransitionEnd : undefined
+                    }
+                    onScroll={isDesktop ? handleScroll : undefined}
                 >
                     {data.content.map((review, index) => (
                         <SwiperSlide
