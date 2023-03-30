@@ -93,6 +93,10 @@
     @media (max-width: $screenXs) {
         padding-left: 7.8125vw;
     }
+
+    & div {
+        scroll-snap-type: x mandatory;
+    }
 }
 
 .swiper-slide {
@@ -294,5 +298,13 @@
 
     @media (max-width: $screenXl) {
         width: 7.8125vw;
+    }
+}
+
+.snapType {
+    background: red;
+    &.swiper-wrapper {
+        background: red;
+        scroll-snap-type: x mandatory;
     }
 }
