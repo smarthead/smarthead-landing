@@ -75,7 +75,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
     const handleResizeRef = useRef(handleResize);
     useEffect(() => {
         handleResizeRef.current = handleResize;
-    });
+    }, [handleResize]);
 
     useEffect(() => {
         const handleResize = () => handleResizeRef.current();
