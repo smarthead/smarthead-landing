@@ -10,19 +10,17 @@ import { useFixStickyHeaderMacOSscroll } from './useFixStickyHeaderMacOSscroll';
 interface UseStickyHeaderArgs {
     firstScreenHeight: number | null;
     headerDomElem: HTMLElement | null;
-    isMobileMenuOpened: boolean;
     scrollEndTimeout?: number;
 }
 
 export const useStickyHeader = ({
     firstScreenHeight,
     headerDomElem,
-    isMobileMenuOpened,
 }: UseStickyHeaderArgs) => {
     const scrollY = useVerticalScroll();
 
     useEffect(() => {
-        if (isMobileMenuOpened || !headerDomElem) {
+        if (!headerDomElem) {
             return;
         }
 
@@ -37,7 +35,7 @@ export const useStickyHeader = ({
         } else {
             hideStickyHeader(headerDomElem, step);
         }
-    }, [isMobileMenuOpened, headerDomElem, firstScreenHeight, scrollY]);
+    }, [headerDomElem, firstScreenHeight, scrollY]);
 
     useFixStickyHeaderMacOSscroll({
         headerDomElem,

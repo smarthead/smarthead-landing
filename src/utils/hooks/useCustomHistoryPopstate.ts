@@ -19,5 +19,5 @@ export function useCustomHistoryPopstate(
         return () => {
             window.removeEventListener('popstate', handlePopstate);
         };
-    });
+    }, [casesContext.jumpToCase]);
 }

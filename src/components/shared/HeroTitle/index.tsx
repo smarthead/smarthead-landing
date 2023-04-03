@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
@@ -41,16 +41,16 @@ const HeroTitle: React.FC<SlidingHeroTitleProps> = ({
 }) => {
     const [isMobileView, setIsMobileView] = useState(checkIsMobileView());
 
-    const handleResize = useCallback(() => {
-        setIsMobileView(checkIsMobileView());
-    }, [checkIsMobileView]);
-
     useEffect(() => {
+        const handleResize = () => {
+            setIsMobileView(checkIsMobileView());
+        };
+
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [handleResize]);
+    }, [checkIsMobileView]);
 
     const slidersDirection = isMobileView ? 'horizontal' : 'vertical';
     const spaceBetweenSlides = slidersDirection === 'vertical' ? 25 : undefined;

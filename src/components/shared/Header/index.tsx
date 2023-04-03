@@ -1,4 +1,9 @@
-import React, { ForwardRefRenderFunction, useContext, useEffect } from 'react';
+import React, {
+    ForwardRefRenderFunction,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import cn from 'classnames';
 import { Link, navigate } from 'gatsby';
 
@@ -32,12 +37,6 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
 ) => {
     const casesContext = useContext(CasesScrollContext);
 
-    const resizeHandler = () => {
-        if (window.innerWidth > 768 && isMenuOpened) {
-            onHamburgerClick();
-        }
-    };
-
     const handleDesktopItemClick = (
         e: React.MouseEvent<HTMLAnchorElement>,
         section: string
@@ -67,12 +66,25 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         goTo(section);
     };
 
+    const handleResize = () => {
+        if (window.innerWidth > 768 && isMenuOpened) {
+            onHamburgerClick();
+        }
+    };
+
+    const handleResizeRef = useRef(handleResize);
     useEffect(() => {
-        window.addEventListener('resize', resizeHandler);
+        handleResizeRef.current = handleResize;
+    }, [handleResize]);
+
+    useEffect(() => {
+        const handleResize = () => handleResizeRef.current();
+
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener('resize', resizeHandler);
+            window.removeEventListener('resize', handleResize);
         };
-    });
+    }, []);
 
     const mobileLinks = mobileMenuLinks ? mobileMenuLinks : menuLinks;
 

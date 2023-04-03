@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { isBrowser } from '../isBrowser';
 
 export enum VerticalScrollDirection {
@@ -16,35 +16,43 @@ export interface ScrollTop {
 export function useVerticalScroll(): ScrollTop {
     const initialScrollY = isBrowser() ? window.scrollY : 0;
 
-    const [scrollTop, setScrollTop] = useState<ScrollTop>({
+    const scrollReducer = (state: ScrollTop): ScrollTop => {
+        const partState = {
+            current: window.scrollY,
+            previous: state.current,
+        };
+
+        if (window.scrollY > state.current) {
+            return {
+                ...partState,
+                direction: VerticalScrollDirection.down,
+            };
+        } else if (window.scrollY < state.current) {
+            return {
+                ...partState,
+                direction: VerticalScrollDirection.up,
+            };
+        } else {
+            return state;
+        }
+    };
+
+    const [scrollTop, dispatch] = useReducer(scrollReducer, {
         current: initialScrollY,
         previous: initialScrollY,
         direction: VerticalScrollDirection.initial,
     });
 
-    const handleScroll = useCallback(() => {
-        if (window.scrollY > scrollTop.current) {
-            setScrollTop({
-                current: window.scrollY,
-                previous: scrollTop.current,
-                direction: VerticalScrollDirection.down,
-            });
-        } else if (window.scrollY < scrollTop.current) {
-            setScrollTop({
-                current: window.scrollY,
-                previous: scrollTop.current,
-                direction: VerticalScrollDirection.up,
-            });
-        }
-    }, [scrollTop]);
-
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+        const handleScroll = () => {
+            dispatch();
+        };
 
+        window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [handleScroll]);
+    }, []);
 
     return scrollTop;
 }

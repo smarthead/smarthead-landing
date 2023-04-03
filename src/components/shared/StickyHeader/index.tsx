@@ -42,7 +42,6 @@ const StickyHeader: React.FC<StickyHeaderProps> = ({
     useStickyHeader({
         firstScreenHeight: heroSectionHeight,
         headerDomElem: headerRef.current,
-        isMobileMenuOpened,
     });
 
     const handleLogoClick = () => {
