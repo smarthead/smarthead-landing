@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Mousewheel } from 'swiper';
+import { Mousewheel } from 'swiper';
 
 import ReviewItem from '../../shared/ReviewItem';
 import { SectionTitle } from '../../shared/SectionTitle';
@@ -51,50 +51,8 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         slideTo(activeSlide - 1);
     };
 
-    const [isScrolling, setIsScrolling] = useState(false);
-    const [wheelDeltaX, setWheelDeltaX] = useState(0);
-
-    const handleScroll = () => {
-        if (
-            (activeSlide === 0 && wheelDeltaX < 0) ||
-            (activeSlide === data.content.length - 1 && wheelDeltaX > 0)
-        ) {
-            setIsScrolling(false);
-        } else {
-            setIsScrolling(true);
-        }
-    };
-
-    const handleTransitionEnd = () => {
-        setIsScrolling(false);
-    };
-
-    const handleWheel = (e: WheelEvent) => {
-        if (isScrolling) {
-            e.preventDefault();
-        }
-        setWheelDeltaX(e.deltaX);
-    };
-
-    const handleWheelRef = useRef(handleWheel);
-    useEffect(() => {
-        handleWheelRef.current = handleWheel;
-    });
-
-    useEffect(() => {
-        const handleWheel = (e: WheelEvent) => handleWheelRef.current(e);
-        document.addEventListener('wheel', handleWheel, {
-            passive: false,
-        });
-
-        return () => {
-            document.removeEventListener('wheel', handleWheel);
-        };
-    }, []);
-
     const isMobile = checkIsMobileView();
     const gapBetweenSlides = isMobile ? 50 : 120;
-    const isDesktop = !isMobile;
 
     return (
         <Section id={id} withoutContainer>
@@ -164,24 +122,15 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                         setActiveSlide(swiper.activeIndex);
                     }}
                     spaceBetween={gapBetweenSlides}
-                    simulateTouch={false}
+                    //simulateTouch={false}
                     slidesPerView={'auto'}
                     className={styles.swiper}
-                    modules={[Mousewheel, FreeMode]}
-                    freeMode={{
-                        enabled: !isMobile,
-                        sticky: true,
-                    }}
-                    mousewheel={{
-                        forceToAxis: isDesktop,
-                    }}
+                    modules={[Mousewheel]}
+                    cssMode={true}
+                    mousewheel={true}
                     onActiveIndexChange={(swiper) => {
                         setActiveSlide(swiper.activeIndex);
                     }}
-                    onTransitionEnd={
-                        isDesktop ? handleTransitionEnd : undefined
-                    }
-                    onScroll={isDesktop ? handleScroll : undefined}
                 >
                     {data.content.map((review, index) => (
                         <SwiperSlide
