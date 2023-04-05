@@ -5,21 +5,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 60vw;
+    width: 62.75vw;
     height: auto;
     color: $black;
     background-color: $white;
 
     // 677_395
     @media (max-width: $screenXl) {
-        width: 66vw;
+        width: 64.618vw;
         height: 30.8593vw;
     }
 
     // 536_327
     @media (max-width: $screenLg) {
         flex-direction: column;
-        width: 75vw;
+        width: 77.48vw;
         height: 45vw;
     }
 

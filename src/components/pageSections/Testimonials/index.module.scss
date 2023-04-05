@@ -79,28 +79,28 @@
     }
 }
 
-.swiper {
+.swiper-slide {
+    width: 62.75vw;
     padding-left: 9.375%;
 
     @media (max-width: $screenXl) {
         padding-left: 7.8125vw;
+        width: 64.618vw;
     }
 
     @media (max-width: $screenLg) {
         padding-left: 7.8125vw;
+        width: 77.48vw;
     }
 
     @media (max-width: $screenXs) {
         padding-left: 7.8125vw;
+        width: 100vw;
     }
 
-    & div {
-        scroll-snap-type: x mandatory;
+    @include for-phone-only {
+        width: 100vw;
     }
-}
-
-.swiper-slide {
-    width: 62.75vw;
 
     &:last-child {
         width: 90.625vw;
@@ -116,22 +116,6 @@
         @media (max-width: $screenXs) {
             width: 92.1875vw;
         }
-    }
-
-    @media (max-width: $screenXl) {
-        width: 64.618vw;
-    }
-
-    @media (max-width: $screenLg) {
-        width: 77.48vw;
-    }
-
-    @include for-phone-only {
-        width: 100vw;
-    }
-
-    @media (max-width: $screenXs) {
-        width: 100vw;
     }
 }
 
