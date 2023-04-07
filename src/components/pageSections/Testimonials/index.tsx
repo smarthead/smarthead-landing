@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel } from 'swiper';
 
 import ReviewItem from '../../shared/ReviewItem';
 import { SectionTitle } from '../../shared/SectionTitle';
@@ -8,9 +9,10 @@ import { Section } from '../../shared/Section';
 
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
-import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
 
 import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/mousewheel';
 import * as styles from './index.module.scss';
 
 interface TestimonialsContentItem {
@@ -47,8 +49,6 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
         if (activeSlide < 1) return;
         slideTo(activeSlide - 1);
     };
-
-    const gapBetweenSlides = checkIsMobileView() ? 50 : 120;
 
     return (
         <Section id={id} withoutContainer>
@@ -117,10 +117,12 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                         setSwiper(swiper);
                         setActiveSlide(swiper.activeIndex);
                     }}
-                    spaceBetween={gapBetweenSlides}
                     simulateTouch={false}
                     slidesPerView={'auto'}
                     className={styles.swiper}
+                    modules={[Mousewheel]}
+                    cssMode={true}
+                    mousewheel={true}
                     onActiveIndexChange={(swiper) => {
                         setActiveSlide(swiper.activeIndex);
                     }}
