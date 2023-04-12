@@ -107,7 +107,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                     сотрудникам
                 </p>
                 <div className={styles.contact}>
-                    <ul className={styles.vacancies} ref={vacancyList}>
+                    {/* <ul className={styles.vacancies} ref={vacancyList}>
                         {fontIsLoaded &&
                             vacancies.map((vacancy, index) => (
                                 <li
@@ -138,10 +138,21 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                                     </a>
                                 </li>
                             ))}
-                    </ul>
-                    <p className={styles.contactHr}>
+                    </ul> */}
+                    {/* <p className={styles.contactHr}>
                         Если вы не нашли вакансию, которая вам подходит, можете
                         смело написать нам на{' '}
+                        <a
+                            className={styles.email}
+                            href="mailto:hr@smarthead.ru"
+                        >
+                            hr@smarthead.ru
+                        </a>
+                    </p> */}
+                    {/* No vacancies */}
+                    <p className={styles.contactHr}>
+                        Сейчас нет открытых вакансий, но, если считаете, что
+                        вы&nbsp;нам подходите, можете смело написать на&nbsp;
                         <a
                             className={styles.email}
                             href="mailto:hr@smarthead.ru"
