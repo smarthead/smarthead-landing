@@ -1,28 +1,19 @@
 @import "../../../styles/variables";
 
 .root {
-    min-height: auto;
-    padding-bottom: 10.4vw;
-
-    @media (max-width: $screen2Xl) {
-        padding-bottom: 207px;
-    }
+    min-height: 600px;
 
     @media (max-width: $screenXl) {
-        padding-bottom: 156px;
-        font-size: 3.6718vw;
+        min-height: 480px;
     }
 
     @media (max-width: $screenLg) {
-        padding-bottom: 77px;
+        min-height: 256px;
     }
 
     @media (max-width: $screenSm) {
-        padding-bottom: 120px;
-    }
-
-    @media (max-width: $screen2Xs) {
-        padding-bottom: 175px;
+        min-height: auto;
+        padding-bottom: 100px;
     }
 }
 
@@ -43,7 +34,6 @@
     flex-direction: column;
     height: 100%;
     margin-top: 4.375vw;
-    //margin-left: 28vw;
     color: $white;
 
     @media (max-width: $screenXl) {

@@ -24,17 +24,50 @@
     }
 }
 
+.root-height-auto {
+    min-height: 600px;
+    padding-bottom: 100px;
+
+    @media (max-width: $screenXl) {
+        min-height: 480px;
+    }
+
+    @media (max-width: $screenLg) {
+        min-height: 256px;
+        padding-bottom: 50px;
+    }
+
+    @media (max-width: $screenSm) {
+        min-height: auto;
+        padding-bottom: 100px;
+    }
+}
+
 .headline {
     visibility: hidden;
     margin-top: 0;
-    margin-bottom: 1.7vw;
+    margin-bottom: 1.3vw;
+    line-height: 4.8vw;
+
+    @media (max-width: $screenXl) {
+        margin-bottom: 1.2vw;
+    }
+
+    @media (max-width: $screenMd) {
+        margin-bottom: 1.3vw;
+    }
+
+    @media (max-width: $screenSm) {
+        line-height: 29px;
+        margin-bottom: 10px;
+    }
 }
 
 .subtext {
     visibility: hidden;
     width: 90%;
-    margin-top: 1.7vw;
-    margin-bottom: 6.6vw;
+    margin-bottom: 4.4vw;
+    margin-top: 0;
     color: $black;
     font-family: $inter-400;
     font-size: 2vw;
@@ -42,6 +75,7 @@
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
+        margin-bottom: 3.9vw;
     }
 
     @media (max-width: $screenLg) {
@@ -64,7 +98,13 @@
 }
 
 .contact {
-    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 34.2%;
+
+    @media (max-width: $screenSm) {
+        padding-left: 0;
+    }
 }
 
 .arrow {
@@ -77,13 +117,11 @@
 
 .vacancies {
     margin-bottom: 3.2vw;
-    margin-left: 34.2%;
     padding-left: 0;
     list-style: none;
 
     @media (max-width: $screenSm) {
         margin-bottom: 25px;
-        margin-left: 0;
     }
 
     &-item {
@@ -148,37 +186,35 @@
 .contact-hr {
     visibility: hidden;
     width: auto;
-    margin-left: 34.2%;
-    padding-right: 15%;
     color: $black;
     font-family: $inter-400;
     font-size: 1.5vw;
     line-height: 1.55em;
+    margin-top: 0;
+    margin-bottom: 0;
 
     @media (max-width: $screen2Xl) {
-        width: 700px;
-        padding-right: 0;
         font-size: 24px;
     }
 
     @media (max-width: $screenXl) {
-        width: 54.6875vw;
         font-size: 1.875vw;
     }
 
     @media (max-width: $screenLg) {
-        width: 45vw;
         font-size: 1.5625vw;
     }
 
     @media (max-width: $screenMd) {
-        width: 345px;
         font-size: 12px;
     }
 
     @media (max-width: $screenSm) {
-        width: auto;
-        margin-left: 0;
+        width: 90%;
+
+        br {
+            display: none;
+        }
     }
 }
 

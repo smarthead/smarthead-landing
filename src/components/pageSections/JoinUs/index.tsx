@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import cn from 'classnames';
 
 import { Section } from '../../shared/Section';
 import { SectionTitle } from '../../shared/SectionTitle';
@@ -11,6 +12,10 @@ import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 import * as styles from './index.module.scss';
 
 const vacancies = [
+    {
+        text: 'HR-менеджер',
+        link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
+    },
     {
         text: 'HR-менеджер',
         link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
@@ -95,8 +100,9 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
         };
     }, []);
 
+    // styles.rootHeightAuto => if there are any vacancies
     return (
-        <Section id={id} className={styles.root}>
+        <Section id={id} className={cn(styles.root, styles.rootHeightAuto)}>
             <div className={styles.content}>
                 <SectionTitle className={styles.headline} color={'black'}>
                     Присоединяйтесь к нашей команде
@@ -107,7 +113,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                     сотрудникам
                 </p>
                 <div className={styles.contact}>
-                    <ul className={styles.vacancies} ref={vacancyList}>
+                    {/* <ul className={styles.vacancies} ref={vacancyList}>
                         {fontIsLoaded &&
                             vacancies.map((vacancy, index) => (
                                 <li
@@ -138,10 +144,21 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                                     </a>
                                 </li>
                             ))}
-                    </ul>
+                    </ul> */}
+                    {/* <p className={styles.contactHr}>
+                        Если вы не нашли вакансию, которая вам подходит,
+                        <br /> можете смело написать нам на{' '}
+                        <a
+                            className={styles.email}
+                            href="mailto:hr@smarthead.ru"
+                        >
+                            hr@smarthead.ru
+                        </a>
+                    </p> */}
+                    {/* No vacancies */}
                     <p className={styles.contactHr}>
-                        Если вы не нашли вакансию, которая вам подходит, можете
-                        смело написать нам на{' '}
+                        Сейчас нет открытых вакансий, но, если считаете, что
+                        вы&nbsp;нам подходите, можете смело написать на&nbsp;
                         <a
                             className={styles.email}
                             href="mailto:hr@smarthead.ru"
