@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import * as styles from '../index.module.scss';
 
 export interface ColorSet {
@@ -103,13 +103,15 @@ const colorChangingSequence: ColorSet[] = [
 
 export function useSlidesColors() {
     const [slidesColors, setSlideColors] = useState(colorChangingSequence[0]);
-    const changeSlidesColors = () => {
-        if (slidesColors.id >= colorChangingSequence.length) {
-            setSlideColors(colorChangingSequence[0]);
-        } else {
-            setSlideColors(colorChangingSequence[slidesColors.id]);
-        }
-    };
+    const changeSlidesColors = useCallback(() => {
+        setSlideColors((prevState) => {
+            if (prevState.id >= colorChangingSequence.length) {
+                return colorChangingSequence[0];
+            } else {
+                return colorChangingSequence[prevState.id];
+            }
+        });
+    }, []);
 
     return {
         slidesColors,
