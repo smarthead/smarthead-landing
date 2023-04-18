@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import HeadRu from '../HeadRu';
 import HeadEn from '../HeadEn';
@@ -33,9 +33,9 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
     const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
         null
     );
-    const handleHeroScreenHeight = (height: number) => {
+    const handleHeroScreenHeight = useCallback((height: number) => {
         setHeroScreenHeight(height);
-    };
+    }, []);
 
     const heroData = isEnglish ? heroEnData : heroRuData;
     const menuLinksWithoutContacts = removeLastFromArray(heroData.header.menu);
