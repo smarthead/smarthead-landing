@@ -132,7 +132,7 @@ const casesList = [
     },
 ];
 
-export const casesData = {
+export const casesRuData = {
     title,
     casesList,
 };

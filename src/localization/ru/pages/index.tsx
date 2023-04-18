@@ -15,7 +15,7 @@ import { FooterContacts } from '../../../components/pageSections/FooterContacts'
 import howWeWorkData from '../data/HowWeWork.json';
 import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
-import { casesData } from '../data/casesData';
+import { casesRuData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
 import { navigation } from '../../../components/shared/navigation';
 
@@ -59,7 +59,7 @@ const RuLayout: React.FC = () => (
     >
         <HowWeWork data={howWeWorkData} />
         <WhatWeDo id={navigation.services} data={whatWeDoData} />
-        <Cases id={navigation.cases} data={casesData} />
+        <Cases id={navigation.cases} data={casesRuData} />
         <Partners data={partnersData} />
         <Testimonials id={navigation.testimonials} data={testimonialsData} />
         <Acquaintance id={navigation.aboutUs} />
