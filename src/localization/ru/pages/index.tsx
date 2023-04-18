@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import { navigation } from '../../../components/shared/navigation';
 
-import '../../../styles/index.scss';
-
-import StickyHeader from '../../../components/shared/StickyHeader';
-import Hero from '../../../components/pageSections/Hero';
+import PageWrapper from '../../../components/shared/PageWrapper';
 import HowWeWork from '../../../components/pageSections/HowWeWork';
 import WhatWeDo from '../../../components/pageSections/WhatWeDo';
 import Acquaintance from '../../../components/pageSections/Acquaintance';
@@ -14,40 +10,20 @@ import Partners from '../../../components/pageSections/Partners';
 import Cases from '../../../components/pageSections/Cases';
 import Testimonials from '../../../components/pageSections/Testimonials';
 import Footer from '../../../components/pageSections/Footer';
-import CookiesNotification from '../../../components/shared/CookiesNotification';
 import { FooterContacts } from '../../../components/pageSections/FooterContacts';
 
-import { CasesScrollContext } from '../../../components/pageSections/Cases/utils/context';
-import { useCasesPinnedScroll } from '../../../components/pageSections/Cases/utils/useCasesPinnedScroll';
-import { removeLastFromArray } from '../../../utils/removeLastFromArray';
-import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
-import { useFirstScrollFix } from '../../../utils/hooks/useFirstScrollFix';
-
-import heroData from '../data/Hero.json';
 import howWeWorkData from '../data/HowWeWork.json';
 import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
-import cookiesNotificationData from '../data/CookiesNotification.json';
 import { casesData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
+import { navigation } from '../../../components/shared/navigation';
 
-const MENU_LINKS_WITHOUT_CONTACTS = removeLastFromArray(heroData.header.menu);
+import '../../../styles/index.scss';
 
-const RuLayout = () => {
-    useFirstScrollFix();
-
-    const [heroSectionHeight, setHeroScreenHeight] = useState<number | null>(
-        null
-    );
-    const handleHeroScreenHeight = (height: number) => {
-        setHeroScreenHeight(height);
-    };
-
-    const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
-    useCustomHistoryPopstate(casesScrollContext);
-
-    return (
-        <div className="main">
+const RuLayout: React.FC = () => (
+    <PageWrapper
+        Helmet={
             <Helmet>
                 <title>SmartHead — разработка цифровых продуктов</title>
                 <meta
@@ -79,37 +55,18 @@ const RuLayout = () => {
                     href="https://smarthead.ru/humans.txt"
                 />
             </Helmet>
-
-            <CasesScrollContext.Provider value={casesScrollContext}>
-                <StickyHeader
-                    menuLinks={MENU_LINKS_WITHOUT_CONTACTS}
-                    mobileMenuLinks={heroData.header.menu}
-                    buttonText={'НАПИШИТЕ НАМ'}
-                    heroSectionHeight={heroSectionHeight}
-                />
-
-                <Hero
-                    data={heroData}
-                    handleHeroScreenHeight={handleHeroScreenHeight}
-                />
-                <HowWeWork data={howWeWorkData} />
-                <WhatWeDo id={navigation.services} data={whatWeDoData} />
-                <Cases id={navigation.cases} data={casesData} />
-            </CasesScrollContext.Provider>
-
-            <Partners data={partnersData} />
-            <Testimonials
-                id={navigation.testimonials}
-                data={testimonialsData}
-            />
-            <Acquaintance id={navigation.aboutUs} />
-            <JoinUs id={navigation.vacancies} />
-            <Footer id={navigation.contacts} />
-            <FooterContacts />
-
-            <CookiesNotification data={cookiesNotificationData} />
-        </div>
-    );
-};
+        }
+    >
+        <HowWeWork data={howWeWorkData} />
+        <WhatWeDo id={navigation.services} data={whatWeDoData} />
+        <Cases id={navigation.cases} data={casesData} />
+        <Partners data={partnersData} />
+        <Testimonials id={navigation.testimonials} data={testimonialsData} />
+        <Acquaintance id={navigation.aboutUs} />
+        <JoinUs id={navigation.vacancies} />
+        <Footer id={navigation.contacts} />
+        <FooterContacts />
+    </PageWrapper>
+);
 
 export default RuLayout;
