@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import HeadRu from '../HeadRu';
+import HeadEn from '../HeadEn';
 import StickyHeader from '../StickyHeader';
 import Hero from '../../pageSections/Hero';
 import CookiesNotification from '../CookiesNotification';
@@ -19,12 +21,10 @@ import { removeLastFromArray } from '../../../utils/removeLastFromArray';
 
 interface PageWrapperProps {
     isEnglish?: boolean;
-    Helmet: React.ReactNode;
     children: React.ReactNode;
 }
 
 const PageWrapper: React.FC<PageWrapperProps> = ({
-    Helmet,
     children,
     isEnglish = false,
 }) => {
@@ -47,8 +47,8 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
     const casesScrollContext = useCasesPinnedScroll(casesData.casesList.length);
     useCustomHistoryPopstate(casesScrollContext);
     return (
-        <div className="main">
-            {Helmet}
+        <>
+            {isEnglish ? <HeadEn /> : <HeadRu />}
 
             <CasesScrollContext.Provider value={casesScrollContext}>
                 <StickyHeader
@@ -63,11 +63,12 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
                     data={heroData}
                     handleHeroScreenHeight={handleHeroScreenHeight}
                 />
+
                 {children}
             </CasesScrollContext.Provider>
 
             <CookiesNotification data={cookiesNotificationData} />
-        </div>
+        </>
     );
 };
 
