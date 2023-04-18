@@ -119,7 +119,6 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                     }}
                     simulateTouch={false}
                     slidesPerView={'auto'}
-                    className={styles.swiper}
                     modules={[Mousewheel]}
                     cssMode={true}
                     mousewheel={true}
