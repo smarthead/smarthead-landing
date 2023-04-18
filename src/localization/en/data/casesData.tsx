@@ -130,7 +130,7 @@ const casesList = [
     },
 ];
 
-export const casesData = {
+export const casesEnData = {
     title,
     casesList,
 };

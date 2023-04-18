@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import cn from 'classnames';
 
 import { gsap } from 'gsap';
@@ -44,7 +44,11 @@ export interface IHero {
     handleHeroScreenHeight: (height: number) => void;
 }
 
-const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
+const HeroComponent: React.FC<IHero> = ({
+    data,
+    isEnglish,
+    handleHeroScreenHeight,
+}) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const [upperSwiper, setUpperSwiper] = useState<SwiperInstanceRef>(null);
@@ -141,5 +145,7 @@ const Hero: React.FC<IHero> = ({ data, isEnglish, handleHeroScreenHeight }) => {
         </section>
     );
 };
+
+const Hero = memo(HeroComponent);
 
 export default Hero;
