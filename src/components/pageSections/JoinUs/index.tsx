@@ -13,13 +13,13 @@ import * as styles from './index.module.scss';
 
 const vacancies = [
     {
-        text: 'HR-менеджер',
-        link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
+        text: 'Middle/Senior Node.js-разработчик',
+        link: 'https://smartheadhiring.notion.site/Middle-Senior-Node-js-84b94f1dc7c14c0cb9ec49c4161cb099',
     },
-    {
-        text: 'HR-менеджер',
-        link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
-    },
+    // {
+    //     text: 'HR-менеджер',
+    //     link: 'https://smartheadhiring.notion.site/HR-69b8d63e51f544ee9534e56f9dd952c7',
+    // },
 ];
 
 // TODO: Divide elements picking from arrow positioning
@@ -113,7 +113,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                     сотрудникам
                 </p>
                 <div className={styles.contact}>
-                    {/* <ul className={styles.vacancies} ref={vacancyList}>
+                    <ul className={styles.vacancies} ref={vacancyList}>
                         {fontIsLoaded &&
                             vacancies.map((vacancy, index) => (
                                 <li
@@ -144,19 +144,19 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                                     </a>
                                 </li>
                             ))}
-                    </ul> */}
-                    {/* <p className={styles.contactHr}>
+                    </ul>
+                    <p className={styles.contactHr}>
                         Если вы не нашли вакансию, которая вам подходит,
-                        <br /> можете смело написать нам на{' '}
+                        <br /> можете смело написать на{' '}
                         <a
                             className={styles.email}
                             href="mailto:hr@smarthead.ru"
                         >
                             hr@smarthead.ru
                         </a>
-                    </p> */}
+                    </p>
                     {/* No vacancies */}
-                    <p className={styles.contactHr}>
+                    {/* <p className={styles.contactHr}>
                         Сейчас нет открытых вакансий, но, если считаете, что
                         вы&nbsp;нам подходите, можете смело написать на&nbsp;
                         <a
@@ -165,7 +165,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                         >
                             hr@smarthead.ru
                         </a>
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </Section>

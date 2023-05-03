@@ -113,6 +113,7 @@
     left: 0;
     height: 0.5625em;
     transition: transform 0.15s ease-out;
+    padding-left: 0.5em;
 }
 
 .vacancies {
@@ -165,7 +166,6 @@
     }
 
     &-text {
-        padding-right: 0.5em;
         white-space: break-spaces;
     }
 
