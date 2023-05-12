@@ -61,7 +61,7 @@ export const FooterContacts: React.FC = () => (
                         +7 843 206 07 26
                     </a>
                 </div>
-                Петербургская, 50, Казань, 420000
+                Петербургская, 50, Казань, 420107
             </div>
 
             <div className={cn(styles.contacts, styles.links)}>
