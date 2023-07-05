@@ -28,11 +28,19 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
         }
     }
 
-    function easeInOutQuad(t: number, b: number, c: number, d: number) {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
-        t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
+    function easeInOutQuad(
+        currentTime: number,
+        start: number,
+        difference: number,
+        duration: number
+    ) {
+        currentTime /= duration / 2;
+        if (currentTime < 1)
+            return (difference / 2) * currentTime * currentTime + start;
+        currentTime--;
+        return (
+            (-difference / 2) * (currentTime * (currentTime - 2) - 1) + start
+        );
     }
 
     if (navigateScrollEffect.enabled) {
