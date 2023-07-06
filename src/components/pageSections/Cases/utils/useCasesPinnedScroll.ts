@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { calcScrollAnimationDuration } from '../../../../utils/scrollUtils';
+import { easeInOutQuadGSAP } from '../../../../utils/scrollUtils';
 
 export interface UseCasesPinnedScrollReturnValue {
     activeSlide: number;
@@ -60,12 +60,12 @@ export function useCasesPinnedScroll(
                             casesTimeline.current.scrollTrigger.progress) +
                     (index === null ? container.offsetHeight : 0);
                 gsap.to(window, {
-                    duration: calcScrollAnimationDuration(distance) / 700, // usually we need to divide by 1000, but scroll needs to be slower for cases
+                    duration: 1,
                     scrollTo: {
                         y: container,
                         offsetY: -distance,
                     },
-                    ease: 'power1.inOut',
+                    ease: easeInOutQuadGSAP,
                     overwrite: true,
                 });
             }

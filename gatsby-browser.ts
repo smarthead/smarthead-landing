@@ -10,7 +10,7 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
     const startOffset = window.scrollY;
     const change = targetOffset;
 
-    const duration = scrollUtils.calcScrollAnimationDuration(targetOffset);
+    const duration = 1000;
     const startTime = performance.now();
 
     function animateScroll() {
@@ -26,19 +26,11 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
         }
     }
 
-    function easeInOutQuad(
-        currentTime: number,
-        start: number,
-        difference: number,
-        duration: number
-    ) {
-        currentTime /= duration / 2;
-        if (currentTime < 1)
-            return (difference / 2) * currentTime * currentTime + start;
-        currentTime--;
-        return (
-            (-difference / 2) * (currentTime * (currentTime - 2) - 1) + start
-        );
+    function easeInOutQuad(t: number, b: number, c: number, d: number) {
+        t /= d;
+        const slowdownFactor = 4;
+        const slowdownT = 1 - Math.pow(1 - t, slowdownFactor);
+        return c * slowdownT + b;
     }
 
     if (scrollUtils.navigateScrollEffect.enabled) {
