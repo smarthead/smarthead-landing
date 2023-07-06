@@ -2,7 +2,7 @@ import { scrollToSection } from './scrollUtils';
 import { navigate } from 'gatsby';
 
 export function goTo(section: string) {
-    // else will be pushed in history on each click
+    // else hash will be pushed in history on each click and scrolling through cases will be broken
     if (window.location.hash === section) {
         scrollToSection({
             section: section,

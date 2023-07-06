@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { checkIsMobileView } from './checkIsMobileVIew';
 
 interface ScrollToSectionArgs {
     section: string | null;
@@ -16,9 +17,16 @@ export const scrollToSection = ({
 }: ScrollToSectionArgs) => {
     if (section === null || document.querySelector(section) === null) return;
 
+    const targetOffset = section
+        ? document.querySelector(section)?.getBoundingClientRect().top
+        : document.querySelector('body')?.getBoundingClientRect().top;
+
+    if (!targetOffset) return;
+    const smartDuration = calcScrollAnimationDuration(targetOffset);
+
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: duration !== undefined ? duration : 0.7,
+        duration: duration !== undefined ? duration : smartDuration / 1000,
         scrollTo: {
             y: section,
         },
@@ -30,9 +38,15 @@ export const scrollToSection = ({
 };
 
 export const scrollToTop = () => {
+    const targetOffset = document
+        .querySelector('body')
+        ?.getBoundingClientRect().top;
+    if (!targetOffset) return;
+    const smartDuration = calcScrollAnimationDuration(targetOffset);
+
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: 0.7,
+        duration: smartDuration / 1000,
         scrollTo: {
             y: 0,
         },
@@ -40,6 +54,13 @@ export const scrollToTop = () => {
         overwrite: true,
     });
 };
+
+export function calcScrollAnimationDuration(targetOffset: number) {
+    const absTargetOffset = Math.abs(targetOffset);
+    const deviceDividerCoefficient = checkIsMobileView() ? 3 : 5;
+
+    return Math.max(absTargetOffset / deviceDividerCoefficient, 800);
+}
 
 export const navigateScrollEffect = {
     enabled: false, // it has to be initially false for the first correct scrolling to /#somehash

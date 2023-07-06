@@ -1,5 +1,4 @@
-const navigateScrollEffect =
-    require('./src/utils/scrollUtils').navigateScrollEffect;
+const scrollUtils = require('./src/utils/scrollUtils');
 
 exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
     const { location } = routerProps;
@@ -7,12 +6,11 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
 
     const targetOffset = hash
         ? document.querySelector(hash).getBoundingClientRect().top
-        : document.querySelector('body')?.getBoundingClientRect().top;
+        : getSavedScrollPosition(location)[1] - window.scrollY;
     const startOffset = window.scrollY;
     const change = targetOffset;
 
-    const duration = 1000; // Duration of the animation in milliseconds
-
+    const duration = scrollUtils.calcScrollAnimationDuration(targetOffset);
     const startTime = performance.now();
 
     function animateScroll() {
@@ -43,7 +41,7 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
         );
     }
 
-    if (navigateScrollEffect.enabled) {
+    if (scrollUtils.navigateScrollEffect.enabled) {
         requestAnimationFrame(animateScroll);
     } else {
         const savedPosition = getSavedScrollPosition(location);
