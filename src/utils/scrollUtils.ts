@@ -57,7 +57,7 @@ export const scrollToTop = () => {
 
 export function calcScrollAnimationDuration(targetOffset: number) {
     const absTargetOffset = Math.abs(targetOffset);
-    const deviceDividerCoefficient = checkIsMobileView() ? 3 : 5;
+    const deviceDividerCoefficient = checkIsMobileView() ? 4 : 6;
 
     return Math.max(absTargetOffset / deviceDividerCoefficient, 800);
 }

@@ -60,7 +60,7 @@ export function useCasesPinnedScroll(
                             casesTimeline.current.scrollTrigger.progress) +
                     (index === null ? container.offsetHeight : 0);
                 gsap.to(window, {
-                    duration: calcScrollAnimationDuration(distance) / 500, // usually we need to divide by 1000, but scroll needs to be slower for cases
+                    duration: calcScrollAnimationDuration(distance) / 700, // usually we need to divide by 1000, but scroll needs to be slower for cases
                     scrollTo: {
                         y: container,
                         offsetY: -distance,
