@@ -26,11 +26,15 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }: any) => {
         }
     }
 
-    function easeInOutQuad(t: number, b: number, c: number, d: number) {
-        t /= d;
-        const slowdownFactor = 4;
-        const slowdownT = 1 - Math.pow(1 - t, slowdownFactor);
-        return c * slowdownT + b;
+    function easeInOutQuad(
+        timeProgress: number,
+        startValue: number,
+        difference: number,
+        animationDuration: number
+    ) {
+        timeProgress /= animationDuration;
+        const slowdown = scrollUtils.customScrollEase(timeProgress);
+        return difference * slowdown + startValue;
     }
 
     if (scrollUtils.navigateScrollEffect.enabled) {

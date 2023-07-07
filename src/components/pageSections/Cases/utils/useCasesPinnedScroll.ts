@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { easeInOutQuadGSAP } from '../../../../utils/scrollUtils';
+import { customScrollEase } from '../../../../utils/scrollUtils';
 
 export interface UseCasesPinnedScrollReturnValue {
     activeSlide: number;
@@ -65,7 +65,7 @@ export function useCasesPinnedScroll(
                         y: container,
                         offsetY: -distance,
                     },
-                    ease: easeInOutQuadGSAP,
+                    ease: customScrollEase,
                     overwrite: true,
                 });
             }

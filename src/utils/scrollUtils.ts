@@ -8,11 +8,6 @@ interface ScrollToSectionArgs {
     onComplete?: () => void;
 }
 
-export function easeInOutQuadGSAP(t: number) {
-    const slowdownFactor = 4;
-    return 1 - Math.pow(1 - t, slowdownFactor);
-}
-
 export const scrollToSection = ({
     section,
     duration,
@@ -27,7 +22,7 @@ export const scrollToSection = ({
         scrollTo: {
             y: section,
         },
-        ease: easeInOutQuadGSAP,
+        ease: customScrollEase,
         overwrite: true,
         onStart: onStart,
         onComplete: onComplete,
@@ -41,7 +36,7 @@ export const scrollToTop = () => {
         scrollTo: {
             y: 0,
         },
-        ease: easeInOutQuadGSAP,
+        ease: customScrollEase,
         overwrite: true,
     });
 };
@@ -52,3 +47,8 @@ export const navigateScrollEffect = {
         this.enabled = value;
     },
 };
+
+export function customScrollEase(progress: number) {
+    const slowdownFactor = 6;
+    return 1 - Math.pow(1 - progress, slowdownFactor);
+}
