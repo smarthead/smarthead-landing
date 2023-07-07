@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import BezierEasing from 'bezier-easing';
 
 interface ScrollToSectionArgs {
     section: string | null;
@@ -18,11 +19,11 @@ export const scrollToSection = ({
 
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: duration ? duration : 0,
+        duration: duration !== undefined ? duration : 1,
         scrollTo: {
             y: section,
         },
-        ease: 'power1.inOut',
+        ease: customScrollEase,
         overwrite: true,
         onStart: onStart,
         onComplete: onComplete,
@@ -32,11 +33,20 @@ export const scrollToSection = ({
 export const scrollToTop = () => {
     gsap.registerPlugin(ScrollToPlugin);
     gsap.to(window, {
-        duration: 0,
+        duration: 1,
         scrollTo: {
             y: 0,
         },
-        ease: 'power1.inOut',
+        ease: customScrollEase,
         overwrite: true,
     });
 };
+
+export const navigateScrollEffect = {
+    enabled: false, // it has to be initially false for the first correct scrolling to /#somehash
+    toggle(value: boolean) {
+        this.enabled = value;
+    },
+};
+
+export const customScrollEase = BezierEasing(0.1, 0.93, 0, 1);

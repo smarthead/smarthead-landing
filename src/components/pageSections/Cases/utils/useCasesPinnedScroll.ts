@@ -3,6 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { customScrollEase } from '../../../../utils/scrollUtils';
 
 export interface UseCasesPinnedScrollReturnValue {
     activeSlide: number;
@@ -59,12 +60,12 @@ export function useCasesPinnedScroll(
                             casesTimeline.current.scrollTrigger.progress) +
                     (index === null ? container.offsetHeight : 0);
                 gsap.to(window, {
-                    duration: 0,
+                    duration: 1,
                     scrollTo: {
                         y: container,
                         offsetY: -distance,
                     },
-                    ease: 'power1.inOut',
+                    ease: customScrollEase,
                     overwrite: true,
                 });
             }

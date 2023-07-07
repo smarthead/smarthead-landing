@@ -12,6 +12,7 @@ import { goTo } from '../../../utils/goTo';
 
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
+import { navigateScrollEffect } from '../../../utils/scrollUtils';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
@@ -52,8 +53,10 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
         if (window.location.hash === '#cases') {
             casesContext?.jumpToCase(0);
         } else {
+            navigateScrollEffect.toggle(false);
             void navigate('/#cases');
-            setTimeout(() => casesContext?.jumpToCase(0), 100);
+            casesContext?.jumpToCase(0);
+            setTimeout(() => navigateScrollEffect.toggle(true), 100);
         }
     };
 
