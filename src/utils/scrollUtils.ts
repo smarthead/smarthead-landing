@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import BezierEasing from 'bezier-easing';
 
 interface ScrollToSectionArgs {
     section: string | null;
@@ -48,7 +49,4 @@ export const navigateScrollEffect = {
     },
 };
 
-export function customScrollEase(progress: number) {
-    const slowdownFactor = 3;
-    return 1 - Math.pow(1 - progress, slowdownFactor);
-}
+export const customScrollEase = BezierEasing(0.1, 0.93, 0, 0.99);
