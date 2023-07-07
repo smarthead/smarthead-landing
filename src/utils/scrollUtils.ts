@@ -49,6 +49,6 @@ export const navigateScrollEffect = {
 };
 
 export function customScrollEase(progress: number) {
-    const slowdownFactor = 6;
+    const slowdownFactor = 3;
     return 1 - Math.pow(1 - progress, slowdownFactor);
 }
