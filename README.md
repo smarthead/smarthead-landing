@@ -1,8 +1,8 @@
-# Smarthead. Landing
+# SmartHead website
+
+[smarthead.digital](https://smarthead.digital)
 
 Frontend: Gatsby (React), TypeScript, CSS-modules, SCSS.
-
-The temporary landing instead our current site until a new one is ready.
 
 ## Gatsby minimal TypeScript starter
 
