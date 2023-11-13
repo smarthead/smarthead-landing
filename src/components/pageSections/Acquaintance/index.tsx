@@ -102,7 +102,15 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
             <div className={styles.cards}>
                 <Card
                     image={isMobile ? podcastCoverMobile : podcastCover}
-                    description="Подкаст о технологиях, менеджменте и саморазвитии"
+                    description={
+                        <>
+                            Подкаст о&nbsp;технологиях,
+                            <br />
+                            менеджменте
+                            <br />
+                            и&nbsp;саморазвитии
+                        </>
+                    }
                     buttonText="ПОСЛУШАТЬ"
                     link={links.podcast}
                     curtainClassName="card-image-curtain"
@@ -110,7 +118,15 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                 />
                 <Card
                     image={isMobile ? instagramCoverMobile : instagramCover}
-                    description="Инстаграм о нашей жизни в офисе и за его пределами"
+                    description={
+                        <>
+                            Инстаграм о&nbsp;нашей
+                            <br />
+                            жизни в&nbsp;офисе и&nbsp;
+                            <br />
+                            за&nbsp;его пределами
+                        </>
+                    }
                     buttonText="ПОСМОТРЕТЬ"
                     link={links.instagram}
                     curtainClassName="card-image-curtain"
@@ -118,8 +134,15 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                 />
                 <Card
                     image={isMobile ? telegramCoverMobile : telegramCover}
-                    description="Телеграм-канал, где собраны
-                    наши лучшие практики"
+                    description={
+                        <>
+                            Телеграм-канал, где
+                            <br />
+                            собраны наши лучшие
+                            <br />
+                            практики
+                        </>
+                    }
                     buttonText="ПОЧИТАТЬ"
                     link={links.telegram}
                     curtainClassName="card-image-curtain"

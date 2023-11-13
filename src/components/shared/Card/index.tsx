@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ButtonLink from '../ButtonLink';
 import * as styles from './index.module.scss';
 
 interface ICardProps {
     image: string;
-    description: string;
+    description: ReactElement;
     buttonText: string;
     link: string;
     curtainClassName: string;

@@ -25,7 +25,7 @@ const vacancies = [
 // TODO: Divide elements picking from arrow positioning
 
 const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
-    const vacancyList = useRef(null as HTMLElement | null);
+    const vacancyList = useRef<HTMLUListElement | null>(null);
     const [fontIsLoaded, setFontIsLoaded] = useState(false);
     gsap.registerPlugin(ScrollTrigger);
 
