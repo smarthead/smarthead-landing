@@ -122,9 +122,9 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         <>
                             Инстаграм о&nbsp;нашей
                             <br />
-                            жизни в&nbsp;офисе и&nbsp;
+                            жизни в&nbsp;офисе
                             <br />
-                            за&nbsp;его пределами
+                            и&nbsp;за&nbsp;его пределами
                         </>
                     }
                     buttonText="ПОСМОТРЕТЬ"
