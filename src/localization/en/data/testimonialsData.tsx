@@ -23,7 +23,7 @@ export const testimonialsData = {
             position:
                 'Cirque du Soleil, Regional\u00a0Chief Executive\u00a0Officer',
             text: [
-                'Over the years, SmarHead has become not only our trusted contractor, but a\u00a0truly reliable and like-minded partner.',
+                'Over the years, SmartHead has become not only our trusted contractor, but a\u00a0truly reliable and like-minded partner.',
                 'We\u00a0highly appreciate SmartHead’s high professionalism and top-tier results they delivered when developing our new website and universal platform for Cirque du\u00a0Soleil shows.',
                 'It’s always a\u00a0pleasure to\u00a0work with a\u00a0company that is\u00a0capable to\u00a0implement upscale technical solutions, while being proactive and forward-thinking. At\u00a0SmartHead, each person is\u00a0a\u00a0true passionate professional that contributes in\u00a0your project’s success.',
             ],
