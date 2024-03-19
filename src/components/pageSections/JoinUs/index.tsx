@@ -12,10 +12,10 @@ import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 import * as styles from './index.module.scss';
 
 const vacancies = [
-    {
-        text: 'Инженер по\u00a0обеспечению качества\u00a0/\u00a0QA',
-        link: 'https://smartheadhiring.notion.site/QA-e159a8cb103f4aaca746c7ded80476fa',
-    },
+    // {
+    //     text: 'Инженер по\u00a0обеспечению качества\u00a0/\u00a0QA',
+    //     link: 'https://smartheadhiring.notion.site/QA-e159a8cb103f4aaca746c7ded80476fa',
+    // },
     {
         text: 'Node.js-разработчик',
         link: 'https://smartheadhiring.notion.site/Middle-Senior-Node-js-84b94f1dc7c14c0cb9ec49c4161cb099',
