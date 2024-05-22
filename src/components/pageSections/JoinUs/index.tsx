@@ -113,11 +113,11 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                 </SectionTitle>
                 <p className={styles.subtext}>
                     Мы сильны инженерной культурой, качеством реализации
-                    проектов, теплой атмосферой и бережным отношением к
+                    проектов, тёплой атмосферой и бережным отношением к
                     сотрудникам
                 </p>
                 <div className={styles.contact}>
-                    <ul className={styles.vacancies} ref={vacancyList}>
+                    {/* <ul className={styles.vacancies} ref={vacancyList}>
                         {fontIsLoaded &&
                             vacancies.map((vacancy, index) => (
                                 <li
@@ -158,9 +158,9 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                         >
                             hr@smarthead.ru
                         </a>
-                    </p>
+                    </p> */}
                     {/* No vacancies */}
-                    {/* <p className={styles.contactHr}>
+                    <p className={styles.contactHr}>
                         Сейчас нет открытых вакансий, но, если считаете, что
                         вы&nbsp;нам подходите, можете смело написать на&nbsp;
                         <a
@@ -169,7 +169,7 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                         >
                             hr@smarthead.ru
                         </a>
-                    </p> */}
+                    </p>
                 </div>
             </div>
         </Section>
