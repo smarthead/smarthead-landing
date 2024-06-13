@@ -86,9 +86,33 @@
         width: 65vw;
         overscroll-behavior: none;
 
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 60px;
+        }
+
+        &::before {
+            top: 0;
+            background: linear-gradient(#fff, rgba(255, 255, 255, 0));
+        }
+
+        &::after {
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+        }
+
         @media (max-width: $screenLg) {
             width: 100vw;
             height: auto;
+
+            &::before,
+            &::after {
+                content: none;
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import * as styles from './index.module.scss';
 import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
+import * as styles from './index.module.scss';
 
 interface ICaseItemInfo {
     isFirst: boolean;
