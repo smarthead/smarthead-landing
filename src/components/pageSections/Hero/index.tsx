@@ -92,9 +92,7 @@ const HeroComponent: React.FC<IHero> = ({
     const heroSectionRef = useHeroResize(handleHeroScreenHeight);
     return (
         <section className={cn(styles.hero, 'container')} ref={heroSectionRef}>
-            <ContainerInner className={styles.containerInnerHeader}>
-                <HeroHeader menuLinks={data.header.menu} />
-            </ContainerInner>
+            <HeroHeader menuLinks={data.header.menu} />
 
             <ContainerInner>
                 <div className={styles.content}>

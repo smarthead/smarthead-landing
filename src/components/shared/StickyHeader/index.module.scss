@@ -2,15 +2,11 @@
 
 .header {
     position: fixed;
-    transform: translateY(-4.25vw);
+    transform: translateY(-68px);
     z-index: 9999;
-    width: 100vw;
+    width: 100%;
     padding-top: 5px;
     opacity: 0;
-
-    @media (max-width: $screen2Xl) {
-        transform: translateY(-68px);
-    }
 
     @media (max-width: $screenSm) {
         transform: translateY(-54px);
@@ -18,27 +14,19 @@
 }
 
 .menu-button {
-    height: 2.1875vw;
-    padding: 0.625vw 1.0625vw;
+    height: 35px;
+    padding: 10px 17px;
     border: 1px solid $yellow;
-    border-radius: 0.625vw;
+    border-radius: 10px;
     background-color: transparent;
     color: $yellow;
-    font-size: 0.75vw;
-    margin-left: 2.5vw;
+    font-size: 12px;
+    margin-left: 40px;
 
     &:hover {
         color: $yellowLight;
         border: 1px solid $yellowLight;
         background-color: transparent;
-    }
-
-    @media (max-width: $screen2Xl) {
-        height: 35px;
-        font-size: 12px;
-        border-radius: 10px;
-        padding: 10px 17px;
-        margin-left: 40px;
     }
 
     @media (max-width: $screenLg) {
