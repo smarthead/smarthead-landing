@@ -6,7 +6,7 @@
     align-items: center;
     padding: 1.07em 2.14em;
     font-family: $inter-600;
-    font-size: 0.875vw;
+    font-size: 14px;
     white-space: nowrap;
     letter-spacing: 0.05em;
     border-radius: 1.14em;
@@ -14,7 +14,6 @@
 
     @media (max-width: $screen2Xl) {
         padding: 15px 30px;
-        font-size: 14px;
         border-radius: 15px;
     }
 

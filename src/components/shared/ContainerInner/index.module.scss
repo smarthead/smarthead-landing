@@ -2,5 +2,19 @@
 
 .root {
     max-width: 1600px;
+    width: 1600px;
     margin: auto;
+    padding-right: 150px;
+    padding-left: 150px;
+
+    @media (max-width: $screen2Xl) {
+        width: 100%;
+        padding-right: 9.375%;
+        padding-left: 9.375%;
+    }
+
+    @media (max-width: $screenXl) {
+        padding-right: 7.8125%;
+        padding-left: 7.8125%;
+    }
 }

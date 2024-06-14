@@ -1,11 +1,7 @@
 @import "../../../styles/variables";
 
 .header {
-    margin-top: 1.6875vw;
-
-    @media (max-width: $screen2Xl) {
-        margin-top: 27px;
-    }
+    margin-top: 27px;
 
     @media (max-width: $screenXl) {
         margin-top: 31px;
@@ -18,5 +14,4 @@
     & img {
         cursor: auto;
     }
-
 }

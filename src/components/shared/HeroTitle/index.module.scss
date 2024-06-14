@@ -7,8 +7,12 @@
     color: $white;
     font-family: $gilroy-700;
     letter-spacing: 0.02em;
-    font-size: 5.6vw;
+    font-size: 89.6px;
     line-height: 0.9em;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 5.6vw;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 5.8vw;
@@ -20,7 +24,11 @@
     }
 
     &-en {
-        font-size: 7.9375vw; // 127px
+        font-size: 127px;
+
+        @media (max-width: $screen2Xl) {
+            font-size: 7.9375vw; // 127px
+        }
 
         @media (max-width: $screenXl) {
             font-size: 8.28125vw; // 106px
@@ -58,7 +66,11 @@
 
 .slider {
     width: 100%;
-    height: 6.3vw;
+    height: 100.797px;
+
+    @media (max-width: $screen2Xl) {
+        height: 6.3vw;
+    }
 
     @media (max-width: $screenXl) {
         height: 6.5vw;
@@ -69,7 +81,11 @@
     }
 
     &-en {
-        height: 8.75vw;
+        height: 140px;
+
+        @media (max-width: $screen2Xl) {
+            height: 8.75vw;
+        }
 
         @media (max-width: $screenXl) {
             height: 9.2vw;
@@ -141,7 +157,11 @@
 
 .small-offset-right {
     justify-content: flex-end;
-    margin-right: 8vw;
+    margin-right: 128px;
+
+    @media (max-width: $screen2Xl) {
+        margin-right: 8vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-right: 12vw;
@@ -150,7 +170,11 @@
 
 .middle-offset-right {
     justify-content: flex-end;
-    margin-right: 10vw;
+    margin-right: 160px;
+
+    @media (max-width: $screen2Xl) {
+        margin-right: 10vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-right: 12vw;
@@ -159,22 +183,38 @@
 
 .big-offset-right {
     justify-content: flex-end;
-    margin-right: 11vw;
+    margin-right: 176px;
+
+    @media (max-width: $screen2Xl) {
+        margin-right: 11vw;
+    }
 }
 
 .big-offset-left {
     align-self: flex-start;
-    margin-left: 21vw;
+    margin-left: 336px;
+
+    @media (max-width: $screen2Xl) {
+        margin-left: 21vw;
+    }
 }
 
 .huge-offset-right {
     justify-content: flex-end;
-    margin-right: 19vw;
+    margin-right: 304px;
+
+    @media (max-width: $screen2Xl) {
+        margin-right: 19vw;
+    }
 }
 
 .huge-offset-right2 {
     justify-content: flex-end;
-    margin-right: 18vw;
+    margin-right: 288px;
+
+    @media (max-width: $screen2Xl) {
+        margin-right: 18vw;
+    }
 }
 
 .white {
