@@ -2,10 +2,15 @@
 
 .headline {
     margin-top: 0;
-    margin-bottom: 3vw;
+    margin-bottom: 48px;
     color: $white;
     font-family: $gilroy-600;
-    font-size: 4vw;
+    font-size: 64px;
+
+    @media (max-width: $screen2Xl) {
+        margin-bottom: 3vw;
+        font-size: 4vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-bottom: 48px;
@@ -30,8 +35,12 @@
     display: grid;
     grid-auto-flow: column;
     width: 100%;
-    column-gap: 2.7%;
+    column-gap: 35px;
     row-gap: 0;
+
+    @media (max-width: $screen2Xl) {
+        column-gap: 2.7%;
+    }
 
     @media (max-width: $screenSm) {
         grid-auto-flow: row;

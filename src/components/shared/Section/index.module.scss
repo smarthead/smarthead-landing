@@ -3,12 +3,16 @@
 .root {
     position: relative;
     width: 100vw;
-    min-height: max(600px, 100vh);
-    padding: 5.2084vw 0;
+    padding: 100px 0;
     overflow: hidden;
+    // TODO: Need to recalculate and comment
+    min-height: max(34.375vw + 400px, 600px);
+    display: grid;
+    place-content: center;
 
     @media (max-width: $screen2Xl) {
-        padding: 100px 0;
+        min-height: max(600px, 100vh);
+        display: block;
     }
 
     @media (max-width: $screenXl) {

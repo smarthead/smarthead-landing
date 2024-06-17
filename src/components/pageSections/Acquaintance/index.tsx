@@ -6,6 +6,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import Card from '../../shared/Card';
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
+import { ContainerInner } from '../../shared/ContainerInner';
 
 import podcastCover from '../../../assets/images/Podcast-Cover.webp';
 import instagramCover from '../../../assets/images/Instagram-Cover.webp';
@@ -95,60 +96,62 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
 
     return (
         <Section theme={'dark'} id={id}>
-            <SectionTitle className={styles.headline}>
-                Познакомьтесь с нами поближе
-            </SectionTitle>
+            <ContainerInner>
+                <SectionTitle className={styles.headline}>
+                    Познакомьтесь с нами поближе
+                </SectionTitle>
 
-            <div className={styles.cards}>
-                <Card
-                    image={isMobile ? podcastCoverMobile : podcastCover}
-                    description={
-                        <>
-                            Подкаст о&nbsp;технологиях,
-                            <br />
-                            менеджменте
-                            <br />
-                            и&nbsp;саморазвитии
-                        </>
-                    }
-                    buttonText="ПОСЛУШАТЬ"
-                    link={links.podcast}
-                    curtainClassName="card-image-curtain"
-                    triggerClassName="card-trigger"
-                />
-                <Card
-                    image={isMobile ? instagramCoverMobile : instagramCover}
-                    description={
-                        <>
-                            Инстаграм о&nbsp;нашей
-                            <br />
-                            жизни в&nbsp;офисе
-                            <br />
-                            и&nbsp;за&nbsp;его пределами
-                        </>
-                    }
-                    buttonText="ПОСМОТРЕТЬ"
-                    link={links.instagram}
-                    curtainClassName="card-image-curtain"
-                    triggerClassName="card-trigger"
-                />
-                <Card
-                    image={isMobile ? telegramCoverMobile : telegramCover}
-                    description={
-                        <>
-                            Телеграм-канал, где
-                            <br />
-                            собраны наши лучшие
-                            <br />
-                            практики
-                        </>
-                    }
-                    buttonText="ПОЧИТАТЬ"
-                    link={links.telegram}
-                    curtainClassName="card-image-curtain"
-                    triggerClassName="card-trigger"
-                />
-            </div>
+                <div className={styles.cards}>
+                    <Card
+                        image={isMobile ? podcastCoverMobile : podcastCover}
+                        description={
+                            <>
+                                Подкаст о&nbsp;технологиях,
+                                <br />
+                                менеджменте
+                                <br />
+                                и&nbsp;саморазвитии
+                            </>
+                        }
+                        buttonText="ПОСЛУШАТЬ"
+                        link={links.podcast}
+                        curtainClassName="card-image-curtain"
+                        triggerClassName="card-trigger"
+                    />
+                    <Card
+                        image={isMobile ? instagramCoverMobile : instagramCover}
+                        description={
+                            <>
+                                Инстаграм о&nbsp;нашей
+                                <br />
+                                жизни в&nbsp;офисе
+                                <br />
+                                и&nbsp;за&nbsp;его пределами
+                            </>
+                        }
+                        buttonText="ПОСМОТРЕТЬ"
+                        link={links.instagram}
+                        curtainClassName="card-image-curtain"
+                        triggerClassName="card-trigger"
+                    />
+                    <Card
+                        image={isMobile ? telegramCoverMobile : telegramCover}
+                        description={
+                            <>
+                                Телеграм-канал, где
+                                <br />
+                                собраны наши лучшие
+                                <br />
+                                практики
+                            </>
+                        }
+                        buttonText="ПОЧИТАТЬ"
+                        link={links.telegram}
+                        curtainClassName="card-image-curtain"
+                        triggerClassName="card-trigger"
+                    />
+                </div>
+            </ContainerInner>
         </Section>
     );
 };
