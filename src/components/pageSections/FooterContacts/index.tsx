@@ -33,11 +33,11 @@ const socialMediaLinks = [
         link: links.instagram,
         id: 5,
     },
-    {
-        name: 'YouTube',
-        link: links.youtube,
-        id: 6,
-    },
+    // {
+    //     name: 'YouTube',
+    //     link: links.youtube,
+    //     id: 6,
+    // },
     {
         name: 'ВКонтакте',
         link: links.vk,
@@ -46,7 +46,7 @@ const socialMediaLinks = [
     {
         name: 'GitHub',
         link: links.github,
-        id: 5,
+        id: 8,
     },
 ];
 
