@@ -28,26 +28,24 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
     return (
         <section id={id} className={styles.root}>
-            <div className="container">
-                <SectionTitle className={styles.title}>
-                    Ready to&nbsp;bring your product
-                    <br />
-                    ideas to&nbsp;life?
-                </SectionTitle>
+            <SectionTitle className={styles.title}>
+                Ready to&nbsp;bring your product
+                <br />
+                ideas to&nbsp;life?
+            </SectionTitle>
 
-                <div className={styles.content}>
-                    <a
-                        className={styles.mail}
-                        href="mailto:hello@smarthead.digital"
-                    >
-                        <img
-                            className={styles.mailArrow}
-                            src={ArrowRightYellow}
-                            alt=""
-                        />
-                        hello@smarthead.digital
-                    </a>
-                </div>
+            <div className={styles.content}>
+                <a
+                    className={styles.mail}
+                    href="mailto:hello@smarthead.digital"
+                >
+                    <img
+                        className={styles.mailArrow}
+                        src={ArrowRightYellow}
+                        alt=""
+                    />
+                    hello@smarthead.digital
+                </a>
             </div>
         </section>
     );

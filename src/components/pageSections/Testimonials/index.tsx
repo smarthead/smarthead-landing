@@ -51,7 +51,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
     };
 
     return (
-        <Section id={id} withoutContainer>
+        <Section id={id}>
             <div className={styles.header}>
                 {/*TODO: add Slot to SectionTitle */}
                 <SectionTitle className={styles.title} color={'black'}>

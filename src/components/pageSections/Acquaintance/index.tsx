@@ -6,7 +6,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import Card from '../../shared/Card';
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
-import { ContainerInner } from '../../shared/ContainerInner';
+import { Container } from '../../shared/Container';
 
 import podcastCover from '../../../assets/images/Podcast-Cover.webp';
 import instagramCover from '../../../assets/images/Instagram-Cover.webp';
@@ -96,7 +96,7 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
 
     return (
         <Section theme={'dark'} id={id}>
-            <ContainerInner>
+            <Container>
                 <SectionTitle className={styles.headline}>
                     Познакомьтесь с нами поближе
                 </SectionTitle>
@@ -151,7 +151,7 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         triggerClassName="card-trigger"
                     />
                 </div>
-            </ContainerInner>
+            </Container>
         </Section>
     );
 };

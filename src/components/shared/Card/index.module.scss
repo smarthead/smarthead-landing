@@ -4,9 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25.625vw;
-    height: 35.8125vw;
+    width: 410px;
+    height: 573px;
     background-color: $white;
+
+    @media (max-width: $screen2Xl) {
+        width: 25.625vw;
+        height: 35.8125vw;
+    }
 
     @media (max-width: $screenXl) {
         width: 26.6vw;
@@ -61,12 +66,8 @@
     padding: 5% 4.5%;
     color: $black;
     font-family: $gilroy-400;
-    font-size: 1.5vw;
+    font-size: 24px;
     text-align: center;
-
-    @media (max-width: $screen2Xl) {
-        font-size: 24px;
-    }
 
     @media (max-width: $screenXl) {
         height: 49.5%;
@@ -86,7 +87,7 @@
     }
 
     &-text {
-        margin: 0 0 2.6vw;
+        margin: 0 0 41px;
 
         @media (max-width: $screen2Xl) {
             margin: 0 0 2.3vw;

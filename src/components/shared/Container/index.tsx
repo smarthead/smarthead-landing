@@ -4,7 +4,7 @@ import * as styles from './index.module.scss';
 
 import cn from 'classnames';
 
-export const ContainerInner: React.FC<{
+export const Container: React.FC<{
     children: React.ReactNode;
     className?: string;
 }> = ({ children, className }) => {

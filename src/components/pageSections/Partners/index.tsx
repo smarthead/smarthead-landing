@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
-import { ContainerInner } from '../../shared/ContainerInner';
+import { Container } from '../../shared/Container';
 
 import * as styles from './index.module.scss';
 
@@ -59,7 +59,7 @@ const Partners: React.FC<IPartners> = ({ data }) => {
     }, []);
     return (
         <Section theme={'dark'}>
-            <ContainerInner>
+            <Container>
                 <div className={styles.content}>
                     <SectionTitle
                         className={cn(styles.headline, 'partners-headline', {
@@ -84,7 +84,7 @@ const Partners: React.FC<IPartners> = ({ data }) => {
                         ))}
                     </div>
                 </div>
-            </ContainerInner>
+            </Container>
         </Section>
     );
 };

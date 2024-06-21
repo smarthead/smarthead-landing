@@ -1,18 +1,27 @@
 @import "../../../styles/variables";
 
 .root {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    width: 100vw;
-    height: 100%;
-    min-height: max(600px, 100vh);
+    // position: relative;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // overflow: hidden;
+    // width: 100vw;
+    // height: 100%;
+    // min-height: max(600px, 100vh);
+    // padding: 0;
+
+    @media (max-width: $screen2Xl) {
+        //
+    }
 
     @media (max-width: $screenLg) {
         min-height: auto;
     }
+}
+
+.container {
+    padding: 0;
 }
 
 .photo {

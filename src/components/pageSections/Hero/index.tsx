@@ -10,7 +10,7 @@ import HeroHeader from '../../shared/HeroHeader';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
 import { useSlidesColors } from '../../shared/HeroTitle/utils';
-import { ContainerInner } from '../../shared/ContainerInner';
+import { Container } from '../../shared/Container';
 import { useIsHeroFontsLoaded } from './utils/useIsHeroFontsLoaded';
 import { useHeroResize } from './utils/useHeroResize';
 import { useHeroAnimation } from './utils/useHeroAnimation';
@@ -91,10 +91,9 @@ const HeroComponent: React.FC<IHero> = ({
 
     const heroSectionRef = useHeroResize(handleHeroScreenHeight);
     return (
-        <section className={cn(styles.hero, 'container')} ref={heroSectionRef}>
+        <section className={styles.hero} ref={heroSectionRef}>
             <HeroHeader menuLinks={data.header.menu} />
-
-            <ContainerInner>
+            <Container>
                 <div className={styles.content}>
                     <HeroTitle
                         title={data.title}
@@ -145,7 +144,7 @@ const HeroComponent: React.FC<IHero> = ({
                         </p>
                     </div>
                 </div>
-            </ContainerInner>
+            </Container>
         </section>
     );
 };

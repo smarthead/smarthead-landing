@@ -13,7 +13,7 @@ import { goTo } from '../../../utils/goTo';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 import { navigateScrollEffect } from '../../../utils/scrollUtils';
-import { ContainerInner } from '../ContainerInner';
+import { Container } from '../Container';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
@@ -94,7 +94,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
 
     return (
         <header className={cn(styles.header, className)} ref={ref}>
-            <ContainerInner>
+            <Container>
                 <nav className={cn(styles.navbar)}>
                     <img
                         src={shLogo}
@@ -158,7 +158,7 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
                         </div>
                     </div>
                 </nav>
-            </ContainerInner>
+            </Container>
         </header>
     );
 };
