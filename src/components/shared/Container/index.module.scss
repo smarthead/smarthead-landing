@@ -2,7 +2,6 @@
 
 .root {
     position: relative;
-    max-width: 1600px;
     width: 1600px;
     margin: auto;
     padding-right: 150px;
@@ -10,7 +9,7 @@
 
     @media (max-width: $screen2Xl) {
         position: initial;
-        width: 100%;
+        width: 100vw;
         padding-right: 9.375%;
         padding-left: 9.375%;
     }
