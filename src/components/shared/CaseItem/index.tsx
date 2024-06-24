@@ -43,9 +43,6 @@ export const CaseItemImage: React.FC<ICaseItemImage> = ({ image, origin }) => {
     }
 
     return (
-        <div
-            className={`case-item-image ${styles.image}`}
-            style={bgStyle}
-        ></div>
+        <div className={`case-item-image ${styles.image}`} style={bgStyle} />
     );
 };

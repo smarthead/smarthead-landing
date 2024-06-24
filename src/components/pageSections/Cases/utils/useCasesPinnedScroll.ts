@@ -100,7 +100,7 @@ export function useCasesPinnedScroll(
                     casesTimeline.current = gsap
                         .timeline({
                             scrollTrigger: {
-                                trigger: '.cases-sections',
+                                trigger: '.cases-root',
                                 pin: true,
                                 scrub: 0,
 
