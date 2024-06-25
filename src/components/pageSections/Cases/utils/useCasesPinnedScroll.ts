@@ -53,12 +53,16 @@ export function useCasesPinnedScroll(
                 const container = casesContainerRef.current;
                 const sectionProgress =
                     index === null ? 1 : slideProgress[index];
+                const offsetBetweenScreenAndContainer =
+                    (window.innerHeight - container.offsetHeight) / 2;
+
                 const distance =
                     container.offsetHeight *
                         (casesAmount - 1) *
                         (sectionProgress -
                             casesTimeline.current.scrollTrigger.progress) +
-                    (index === null ? container.offsetHeight : 0);
+                    (index === null ? container.offsetHeight : 0) -
+                    offsetBetweenScreenAndContainer;
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: {
