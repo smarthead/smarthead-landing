@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { SectionTitle } from '../../shared/SectionTitle';
+import { Container } from '../../shared/Container';
 
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 import * as styles from './index.module.scss';
@@ -28,25 +29,27 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
     return (
         <section id={id} className={styles.root}>
-            <SectionTitle className={styles.title}>
-                Ready to&nbsp;bring your product
-                <br />
-                ideas to&nbsp;life?
-            </SectionTitle>
+            <Container>
+                <SectionTitle className={styles.title}>
+                    Ready to&nbsp;bring your product
+                    <br />
+                    ideas to&nbsp;life?
+                </SectionTitle>
 
-            <div className={styles.content}>
-                <a
-                    className={styles.mail}
-                    href="mailto:hello@smarthead.digital"
-                >
-                    <img
-                        className={styles.mailArrow}
-                        src={ArrowRightYellow}
-                        alt=""
-                    />
-                    hello@smarthead.digital
-                </a>
-            </div>
+                <div className={styles.content}>
+                    <a
+                        className={styles.mail}
+                        href="mailto:hello@smarthead.digital"
+                    >
+                        <img
+                            className={styles.mailArrow}
+                            src={ArrowRightYellow}
+                            alt=""
+                        />
+                        hello@smarthead.digital
+                    </a>
+                </div>
+            </Container>
         </section>
     );
 };
