@@ -9,7 +9,11 @@
 }
 
 .container {
-    padding: 0;
+    padding-right: 0;
+
+    @media (max-width: $screen2Xl) {
+        padding-left: 0;
+    }
 }
 
 .header {
@@ -19,10 +23,11 @@
 
 .title {
     margin-bottom: 48px;
-    margin-left: 9.375%;
+    margin-left: 0;
 
     @media (max-width: $screen2Xl) {
         margin-bottom: 3vw;
+        margin-left: 9.375%;
     }
 
     @media (max-width: $screenXl) {
@@ -99,12 +104,33 @@
     }
 }
 
+.swiperWrapper {
+    position: relative;
+    margin-left: -150px;
+
+    @media (max-width: $screen2Xl) {
+        margin-left: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
+        width: 60px;
+        z-index: 10;
+    }
+}
+
 .swiper-slide {
     width: 1004px;
-    padding-left: 9.375%;
+    padding-left: 150px;
 
     @media (max-width: $screen2Xl) {
         width: 62.75vw;
+        padding-left: 9.375%;
     }
 
     @media (max-width: $screenXl) {
@@ -149,7 +175,7 @@
 
 .bullets {
     display: flex;
-    margin-left: 150px;
+    margin-left: 0;
 
     @media (max-width: $screen2Xl) {
         margin-left: 9.375vw;

@@ -117,6 +117,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                     })}
                 >
                     <Swiper
+                        className={styles.swiperWrapper}
                         onSwiper={(swiper) => {
                             setSwiper(swiper);
                             setActiveSlide(swiper.activeIndex);
