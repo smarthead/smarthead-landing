@@ -121,6 +121,14 @@
         background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
         width: 60px;
         z-index: 10;
+
+        @media (max-width: $screen2Xl) {
+            width: 3.75vw;
+        }
+
+        @media (max-width: $screenXs) {
+            content: none;
+        }
     }
 }
 
