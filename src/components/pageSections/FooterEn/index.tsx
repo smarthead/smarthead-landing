@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { SectionTitle } from '../../shared/SectionTitle';
+import { Container } from '../../shared/Container';
 
 import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
 import * as styles from './index.module.scss';
@@ -28,7 +29,7 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
     }, []);
     return (
         <section id={id} className={styles.root}>
-            <div className="container">
+            <Container>
                 <SectionTitle className={styles.title}>
                     Ready to&nbsp;bring your product
                     <br />
@@ -48,7 +49,7 @@ const FooterEn: React.FC<{ id?: string }> = ({ id }) => {
                         hello@smarthead.digital
                     </a>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

@@ -6,8 +6,12 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 9.375vw 0;
+    padding: 150px 0;
     background-color: $black;
+
+    @media (max-width: $screen2Xl) {
+        padding: 9.375vw 0;
+    }
 
     @media (max-width: $screenXl) {
         padding: 10.156vw 0;
@@ -35,8 +39,12 @@
 
 .title {
     visibility: hidden;
-    margin: 0 0 1.1vw;
+    margin: 0 0 18px;
     white-space: nowrap;
+
+    @media (max-width: $screen2Xl) {
+        margin: 0 0 1.1vw;
+    }
 
     @media (max-width: $screenLg) {
         margin: 0 0 1.7vw;
@@ -56,11 +64,15 @@
     align-self: flex-end;
     color: $white;
     font-family: $inter-600;
-    font-size: 2.0625vw;
+    font-size: 33px;
     line-height: 1em;
     white-space: nowrap;
     letter-spacing: 0.02em;
     transition: color 0.15s ease-out;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 2.0625vw;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 2.1875vw;

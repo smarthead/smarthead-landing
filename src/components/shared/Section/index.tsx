@@ -8,7 +8,6 @@ interface SectionProps {
     theme?: 'dark' | 'light';
     className?: string;
     id?: string;
-    withoutContainer?: boolean;
 }
 
 const themes = {
@@ -21,16 +20,11 @@ export const Section: React.FC<SectionProps> = ({
     className,
     theme = 'light',
     id,
-    withoutContainer,
 }) => (
     <section
         id={id ? id : undefined}
         className={cn(styles.root, className, themes[theme])}
     >
-        {withoutContainer ? (
-            children
-        ) : (
-            <div className="container">{children}</div>
-        )}
+        {children}
     </section>
 );

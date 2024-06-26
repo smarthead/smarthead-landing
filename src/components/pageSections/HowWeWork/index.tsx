@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import { arrayToString } from '../../../utils/arrayToString';
+
+import { Section } from '../../shared/Section';
+import { Container } from '../../shared/Container';
 
 import * as styles from './index.module.scss';
 import teamPhoto from '../../../assets/images/Team-Photo.webp';
@@ -52,33 +56,35 @@ const HowWeWork: React.FC<IHowWeWork> = ({ data }) => {
     }, []);
 
     return (
-        <section className={styles.root}>
-            <div className={styles.content}>
-                <div className={styles.perks}>
-                    {data.perks.map((perk, index) => (
-                        <p key={index} className={styles.perksItem}>
-                            {arrayToString(perk)}
-                        </p>
-                    ))}
-                </div>
+        <Section className={styles.root}>
+            <Container className={styles.container}>
+                <div className={styles.content}>
+                    <div className={styles.perks}>
+                        {data.perks.map((perk, index) => (
+                            <p key={index} className={styles.perksItem}>
+                                {arrayToString(perk)}
+                            </p>
+                        ))}
+                    </div>
 
-                <div className={styles.title}>
-                    <p className={styles.titleText}>
-                        {arrayToString(data.title)}
-                    </p>
+                    <div className={styles.title}>
+                        <p className={styles.titleText}>
+                            {arrayToString(data.title)}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div
-                className={styles.photo}
-                // style={{ backgroundImage: `url(${teamPhoto})` }}
-            >
-                <img
-                    src={teamPhoto}
-                    alt="Team Photo"
-                    className={styles.photoImage}
-                />
-            </div>
-        </section>
+                <div
+                    className={styles.photo}
+                    // style={{ backgroundImage: `url(${teamPhoto})` }}
+                >
+                    <img
+                        src={teamPhoto}
+                        alt="Team Photo"
+                        className={styles.photoImage}
+                    />
+                </div>
+            </Container>
+        </Section>
     );
 };
 

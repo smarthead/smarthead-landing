@@ -1,23 +1,17 @@
 @import "../../../styles/variables";
 
-.case-item {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    background-color: $white;
-
-    @media (max-width: $screenLg) {
-        height: auto;
-    }
-}
-
 .info {
     display: flex;
     flex-direction: column;
-    width: 65vw;
-    height: 100vh;
-    padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+    width: 1040px;
+    height: 900px;
+    padding: 150px 150px 150px 242px;
+
+    @media (max-width: $screen2Xl) {
+        width: 65vw;
+        height: 100vh;
+        padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+    }
 
     @media (max-width: $screenXl) {
         padding: 7.8125vw 7.8125vw 7.8125vw 13.125vw;
@@ -41,13 +35,9 @@
     margin-bottom: 0;
     color: $grayBlack;
     font-family: $inter-400;
-    font-size: 1.5vw;
+    font-size: 24px;
     line-height: 1.35em;
     letter-spacing: 0.05em;
-
-    @media (max-width: $screen2Xl) {
-        font-size: 24px;
-    }
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
@@ -67,13 +57,12 @@
     margin-bottom: 0.5em;
     color: $black;
     font-family: $gilroy-600;
-    font-size: 3vw;
+    font-size: 48px;
     line-height: 1.2em;
 
     @media (max-width: $screen2Xl) {
         margin-top: 3vw;
         margin-bottom: 1.5vw;
-        font-size: 48px;
     }
 
     @media (max-width: $screenXl) {
@@ -93,15 +82,11 @@
     margin-top: 0;
     color: $black;
     font-family: $inter-400;
-    font-size: 1.5vw;
+    font-size: 23px;
 
     & > p {
         margin-top: 0;
         margin-bottom: 0.5em;
-    }
-
-    @media (max-width: $screen2Xl) {
-        font-size: 23px;
     }
 
     @media (max-width: $screenXl) {
@@ -130,20 +115,14 @@
 }
 
 .skip-button {
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 56px;
+    height: 56px;
     margin-top: auto;
     padding: 0;
     background: none;
-    border: 0.125vw solid $black;
+    border: 2px solid $black;
     border-radius: 50%;
     cursor: pointer;
-
-    @media (max-width: $screen2Xl) {
-        width: 56px;
-        height: 56px;
-        border: 2px solid $black;
-    }
 
     @media (max-width: $screenLg) {
         display: none;
@@ -162,10 +141,14 @@
 }
 
 .image {
+    height: 900px;
     width: 83.333vh;
     min-width: 35vw;
-    height: 100vh;
     background-size: cover;
+
+    @media (max-width: $screen2Xl) {
+        height: 100vh;
+    }
 
     @media (max-width: $screenLg) {
         width: 100vw;

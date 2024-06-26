@@ -3,8 +3,12 @@
 .title {
     margin: 0;
     font-family: $gilroy-600;
-    font-size: 4vw;
+    font-size: 64px;
     font-weight: 600;
+
+    @media (max-width: $screen2Xl) {
+        font-size: 4vw;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 3.672vw;
