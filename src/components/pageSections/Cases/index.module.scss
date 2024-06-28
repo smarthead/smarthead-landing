@@ -13,14 +13,14 @@
 
 .container {
     position: relative;
-    width: 1600px;
-    height: 900px;
-    margin: auto;
+    // width: 1600px;
+    // height: 900px;
+    // margin: auto;
 
-    @media (max-width: $screen2Xl) {
-        width: 100%;
-        height: auto;
-    }
+    // @media (max-width: $screen2Xl) {
+    width: 100%;
+    height: auto;
+    // }
 }
 
 .cases-container {
@@ -49,6 +49,7 @@
     margin-left: 150px;
     top: 0;
     bottom: 0;
+    // right: calc(1040px + 35vw - 162px);
 
     @media (max-width: $screen2Xl) {
         margin-left: 9.375vw;
@@ -87,6 +88,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    // justify-content: flex-end;
 
     @media (max-width: $screenLg) {
         position: relative;
@@ -97,9 +99,20 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        width: 1040px;
+        // width: 1040px;
+        // height: 900px;
+        width: 65vw;
         overscroll-behavior: none;
         position: relative;
+
+        // @media (max-width: $screen2Xl) {
+        //     width: 65vw;
+        // }
+
+        @media (max-width: $screenLg) {
+            width: 100vw;
+            height: auto;
+        }
 
         &::before,
         &::after {
@@ -108,6 +121,10 @@
             left: 0;
             right: 0;
             height: 60px;
+
+            @media (max-width: $screenLg) {
+                content: none;
+            }
         }
 
         &::before {
@@ -119,33 +136,20 @@
             bottom: 0;
             background: linear-gradient(rgba(255, 255, 255, 0), #fff);
         }
-
-        @media (max-width: $screen2Xl) {
-            width: 65vw;
-        }
-
-        @media (max-width: $screenLg) {
-            width: 100vw;
-            height: auto;
-
-            &::before,
-            &::after {
-                content: none;
-            }
-        }
     }
 
     &-image {
         display: flex;
         flex-wrap: nowrap;
         overflow: hidden;
-        width: 560px;
+        // width: 560px;
+        width: 35vw;
         height: 100%;
         overscroll-behavior: none;
 
-        @media (max-width: $screen2Xl) {
-            width: 35vw;
-        }
+        // @media (max-width: $screen2Xl) {
+        //     width: 35vw;
+        // }
 
         @media (max-width: $screenLg) {
             width: 100vw;

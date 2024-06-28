@@ -3,15 +3,18 @@
 .info {
     display: flex;
     flex-direction: column;
-    width: 1040px;
-    height: 900px;
-    padding: 150px 150px 150px 242px;
+    // width: 1040px;
+    // height: 900px;
+    // padding: 150px 150px 150px 242px;
+    width: 65vw;
+    height: 100vh;
+    padding: 9.375vw 9.375vw 9.375vw 15.125vw;
 
-    @media (max-width: $screen2Xl) {
-        width: 65vw;
-        height: 100vh;
-        padding: 9.375vw 9.375vw 9.375vw 15.125vw;
-    }
+    // @media (max-width: $screen2Xl) {
+    //     width: 65vw;
+    //     height: 100vh;
+    //     padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+    // }
 
     @media (max-width: $screenXl) {
         padding: 7.8125vw 7.8125vw 7.8125vw 13.125vw;
@@ -141,14 +144,18 @@
 }
 
 .image {
-    height: 900px;
     width: 83.333vh;
     min-width: 35vw;
+    height: 100vh;
+
+    // height: 900px;
+    // width: 83.333vh;
+    // min-width: 35vw;
     background-size: cover;
 
-    @media (max-width: $screen2Xl) {
-        height: 100vh;
-    }
+    // @media (max-width: $screen2Xl) {
+    //     height: 100vh;
+    // }
 
     @media (max-width: $screenLg) {
         width: 100vw;
