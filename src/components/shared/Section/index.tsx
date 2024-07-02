@@ -21,10 +21,7 @@ export const Section: React.FC<SectionProps> = ({
     theme = 'light',
     id,
 }) => (
-    <section
-        id={id ? id : undefined}
-        className={cn(styles.root, className, themes[theme])}
-    >
+    <section id={id} className={cn(styles.root, className, themes[theme])}>
         {children}
     </section>
 );

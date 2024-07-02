@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .headline {
     display: flex;
@@ -7,10 +8,10 @@
     color: $white;
     font-family: $gilroy-700;
     letter-spacing: 0.02em;
-    font-size: 89.6px;
+    font-size: calcVwSize(5.6vw);
     line-height: 0.9em;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         font-size: 5.6vw;
     }
 
@@ -24,10 +25,10 @@
     }
 
     &-en {
-        font-size: 127px;
+        font-size: calcVwSize(7.9375vw);
 
-        @media (max-width: $screen2Xl) {
-            font-size: 7.9375vw; // 127px
+        @media (max-width: $screen3Xl) {
+            font-size: 7.9375vw;
         }
 
         @media (max-width: $screenXl) {
@@ -66,9 +67,9 @@
 
 .slider {
     width: 100%;
-    height: 100.797px;
+    height: calcVwSize(6.3vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         height: 6.3vw;
     }
 
@@ -81,9 +82,9 @@
     }
 
     &-en {
-        height: 140px;
+        height: calcVwSize(8.75vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             height: 8.75vw;
         }
 
@@ -157,9 +158,9 @@
 
 .small-offset-right {
     justify-content: flex-end;
-    margin-right: 128px;
+    margin-right: calcVwSize(8vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 8vw;
     }
 
@@ -170,9 +171,9 @@
 
 .middle-offset-right {
     justify-content: flex-end;
-    margin-right: 160px;
+    margin-right: calcVwSize(10vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 10vw;
     }
 
@@ -183,36 +184,36 @@
 
 .big-offset-right {
     justify-content: flex-end;
-    margin-right: 176px;
+    margin-right: calcVwSize(11vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 11vw;
     }
 }
 
 .big-offset-left {
     align-self: flex-start;
-    margin-left: 336px;
+    margin-left: calcVwSize(21vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-left: 21vw;
     }
 }
 
 .huge-offset-right {
     justify-content: flex-end;
-    margin-right: 304px;
+    margin-right: calcVwSize(19vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 19vw;
     }
 }
 
 .huge-offset-right2 {
     justify-content: flex-end;
-    margin-right: 288px;
+    margin-right: calcVwSize(18vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 18vw;
     }
 }

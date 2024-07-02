@@ -1,0 +1,7 @@
+@import "variables";
+
+@function calcVwSize($size) {
+    $value: calc($size / 1vw);
+
+    @return $value * calc($screen3Xl / 100);
+}

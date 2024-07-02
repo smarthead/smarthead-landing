@@ -4,10 +4,10 @@
     position: relative;
     width: 1600px;
     margin: auto;
-    padding-right: 150px;
-    padding-left: 150px;
+    padding-right: 0;
+    padding-left: 0;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         position: initial;
         width: 100vw;
         padding-right: 9.375%;

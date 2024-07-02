@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .header {
     width: 100%;
@@ -6,7 +7,15 @@
     flex-direction: column;
     justify-content: center;
     background-color: $black;
-    height: 68px;
+    height: calcVwSize(4.25vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 4.25vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        height: 68px;
+    }
 
     @media (max-width: $screenSm) {
         height: 54px;
@@ -25,7 +34,15 @@
 
 .logo {
     cursor: pointer;
-    height: 28px;
+    height: calcVwSize(1.75vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 1.75vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        height: 28px;
+    }
 
     @media (max-width: $screenMd) {
         height: 23px;
@@ -54,15 +71,31 @@
     color: white;
     font-family: $inter-400;
     transition: color 0.15s ease;
-    font-size: 20px;
+    font-size: calcVwSize(1.25vw);
     cursor: pointer;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.25vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 20px;
+    }
 
     &:hover {
         color: $yellow;
     }
 
     &:not(:last-child) {
-        margin-right: 32px;
+        margin-right: calcVwSize(2vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-right: 2vw;
+        }
+
+        @media (max-width: $screen2Xl) {
+            margin-right: 32px;
+        }
     }
 }
 

@@ -1,7 +1,8 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .root {
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         padding: 0;
     }
 
@@ -17,8 +18,13 @@
     flex-direction: column;
     justify-content: center;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
+        // width: 1600px;
         min-height: auto;
+    }
+
+    @media (max-width: $screen2Xl) {
+        width: 100vw;
     }
 }
 
