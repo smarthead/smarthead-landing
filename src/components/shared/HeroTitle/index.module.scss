@@ -8,7 +8,7 @@
     color: $white;
     font-family: $gilroy-700;
     letter-spacing: 0.02em;
-    font-size: calcVwSize(5.6vw);
+    font-size: calcVwSize3XL(5.6vw);
     line-height: 0.9em;
 
     @media (max-width: $screen3Xl) {
@@ -25,7 +25,7 @@
     }
 
     &-en {
-        font-size: calcVwSize(7.9375vw);
+        font-size: calcVwSize3XL(7.9375vw);
 
         @media (max-width: $screen3Xl) {
             font-size: 7.9375vw;
@@ -67,7 +67,7 @@
 
 .slider {
     width: 100%;
-    height: calcVwSize(6.3vw);
+    height: calcVwSize3XL(6.3vw);
 
     @media (max-width: $screen3Xl) {
         height: 6.3vw;
@@ -82,7 +82,7 @@
     }
 
     &-en {
-        height: calcVwSize(8.75vw);
+        height: calcVwSize3XL(8.75vw);
 
         @media (max-width: $screen3Xl) {
             height: 8.75vw;
@@ -158,7 +158,7 @@
 
 .small-offset-right {
     justify-content: flex-end;
-    margin-right: calcVwSize(8vw);
+    margin-right: calcVwSize3XL(8vw);
 
     @media (max-width: $screen3Xl) {
         margin-right: 8vw;
@@ -171,7 +171,7 @@
 
 .middle-offset-right {
     justify-content: flex-end;
-    margin-right: calcVwSize(10vw);
+    margin-right: calcVwSize3XL(10vw);
 
     @media (max-width: $screen3Xl) {
         margin-right: 10vw;
@@ -184,7 +184,7 @@
 
 .big-offset-right {
     justify-content: flex-end;
-    margin-right: calcVwSize(11vw);
+    margin-right: calcVwSize3XL(11vw);
 
     @media (max-width: $screen3Xl) {
         margin-right: 11vw;
@@ -193,7 +193,7 @@
 
 .big-offset-left {
     align-self: flex-start;
-    margin-left: calcVwSize(21vw);
+    margin-left: calcVwSize3XL(21vw);
 
     @media (max-width: $screen3Xl) {
         margin-left: 21vw;
@@ -202,7 +202,7 @@
 
 .huge-offset-right {
     justify-content: flex-end;
-    margin-right: calcVwSize(19vw);
+    margin-right: calcVwSize3XL(19vw);
 
     @media (max-width: $screen3Xl) {
         margin-right: 19vw;
@@ -211,7 +211,7 @@
 
 .huge-offset-right2 {
     justify-content: flex-end;
-    margin-right: calcVwSize(18vw);
+    margin-right: calcVwSize3XL(18vw);
 
     @media (max-width: $screen3Xl) {
         margin-right: 18vw;

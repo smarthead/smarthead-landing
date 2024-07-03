@@ -2,6 +2,8 @@
 @import "../../../styles/functions";
 
 .root {
+    padding: 0;
+
     @media (max-width: $screen3Xl) {
         padding: 0;
     }
@@ -13,13 +15,11 @@
 
 .container {
     display: flex;
-    padding: 0;
     min-height: 900px;
     flex-direction: column;
     justify-content: center;
 
     @media (max-width: $screen3Xl) {
-        // width: 1600px;
         min-height: auto;
     }
 
@@ -32,10 +32,11 @@
     position: absolute;
     z-index: 0;
     overflow: hidden;
-    width: 560px;
+    width: 510px;
     height: 100%;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
+        left: 0;
         width: 35vw;
     }
 
@@ -43,6 +44,8 @@
         position: relative;
         width: 100vw;
         height: 66.944vw;
+        margin-left: -7.8125vw;
+        margin-right: -7.8125vw;
     }
 
     &-image {
@@ -69,9 +72,10 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-    margin: 32px 0;
+    margin: calcVwSize2XL(2vw) 0;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
+        overflow: visible;
         margin: 2vw 0;
     }
 
@@ -87,27 +91,27 @@
 .perks {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 64px 150px 110px 595px;
+    margin: calcVwSize2XL(4vw) 0 calcVwSize2XL(6.875vw) 545px;
     row-gap: 60px;
-    column-gap: 35px;
+    column-gap: calcVwSize2XL(2.1875vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         column-gap: 2.1875vw;
-        margin: 4vw 9.375vw 6.875vw 37.1875vw;
+        margin: 4vw 0 6.875vw 27.8125vw;
     }
 
     @media (max-width: $screenXl) {
-        margin: 0 9.375vw 6.875vw 37.1875vw;
+        margin: 0 0 6.875vw 29.375vw;
     }
 
     @media (max-width: $screenLg) {
         row-gap: 3.9063vw;
-        margin: 0 6.9vw 8.2vw 37.1875vw;
+        margin: 0 0 8.2vw 29.375vw;
     }
 
     @media (max-width: $screenSm) {
         grid-template-columns: 1fr;
-        margin: 12.5vw 6.944vw;
+        margin: 12.5vw 0 12.5vw 0;
         row-gap: 8.9vw;
     }
 
@@ -116,12 +120,12 @@
         margin: 0;
         padding-bottom: 1.2em;
         font-family: $gilroy-400;
-        font-size: 25px;
+        font-size: calcVwSize2XL(1.5625vw);
         line-height: 1.2em;
         border-bottom: 2px solid $black20;
         white-space: nowrap;
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             font-size: 1.5625vw;
         }
 
@@ -144,17 +148,19 @@
 }
 
 .title {
-    width: 100%;
+    width: 100vw;
     margin-left: 280px;
-    padding: 58px 280px 58px 81px;
+    padding: calcVwSize2XL(3.625vw) calcVwSize2XL(17.5vw) calcVwSize2XL(3.625vw)
+        calcVwSize2XL(5.0625vw);
     background-color: $black;
 
-    @media (max-width: $screen2Xl) {
-        margin-left: 17.5vw;
+    @media (max-width: $screen3Xl) {
+        margin-left: 8.125vw;
         padding: 3.625vw 17.5vw 3.625vw 5.0625vw;
     }
 
     @media (max-width: $screenXl) {
+        margin-left: 9.6875vw;
         padding: 3.28vw 17.5vw 3.28vw 6.484vw;
     }
 
@@ -163,18 +169,20 @@
     }
 
     @media (max-width: $screenSm) {
-        margin-left: 0;
-        padding: 5.555vw;
+        margin-left: -7.8125vw;
+        margin-right: -7.8125vw;
+        width: auto;
+        padding: 7.8125vw;
     }
 
     &-text {
         margin: 0;
         color: $white;
         font-family: $inter-600;
-        font-size: 32px;
+        font-size: calcVwSize2XL(2vw);
         line-height: 1.3438em;
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             font-size: 2vw;
         }
 

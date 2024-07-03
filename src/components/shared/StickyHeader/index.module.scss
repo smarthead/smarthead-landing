@@ -3,7 +3,7 @@
 
 .header {
     position: fixed;
-    transform: translateY(calcVwSize(-4.25vw));
+    transform: translateY(calcVwSize3XL(-4.25vw));
     z-index: 9999;
     width: 100%;
     padding-top: 5px;
@@ -23,14 +23,14 @@
 }
 
 .menu-button {
-    height: calcVwSize(2.1875vw);
-    padding: calcVwSize(0.625vw) calcVwSize(1.0625vw);
+    height: calcVwSize3XL(2.1875vw);
+    padding: calcVwSize3XL(0.625vw) calcVwSize3XL(1.0625vw);
     border: 1px solid $yellow;
-    border-radius: calcVwSize(0.625vw);
+    border-radius: calcVwSize3XL(0.625vw);
     background-color: transparent;
     color: $yellow;
-    font-size: calcVwSize(0.75vw);
-    margin-left: calcVwSize(2.5vw);
+    font-size: calcVwSize3XL(0.75vw);
+    margin-left: calcVwSize3XL(2.5vw);
 
     &:hover {
         color: $yellowLight;

@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: $black;
-    height: calcVwSize(4.25vw);
+    height: calcVwSize3XL(4.25vw);
 
     @media (max-width: $screen3Xl) {
         height: 4.25vw;
@@ -34,7 +34,7 @@
 
 .logo {
     cursor: pointer;
-    height: calcVwSize(1.75vw);
+    height: calcVwSize3XL(1.75vw);
 
     @media (max-width: $screen3Xl) {
         height: 1.75vw;
@@ -71,7 +71,7 @@
     color: white;
     font-family: $inter-400;
     transition: color 0.15s ease;
-    font-size: calcVwSize(1.25vw);
+    font-size: calcVwSize3XL(1.25vw);
     cursor: pointer;
 
     @media (max-width: $screen3Xl) {
@@ -87,7 +87,7 @@
     }
 
     &:not(:last-child) {
-        margin-right: calcVwSize(2vw);
+        margin-right: calcVwSize3XL(2vw);
 
         @media (max-width: $screen3Xl) {
             margin-right: 2vw;

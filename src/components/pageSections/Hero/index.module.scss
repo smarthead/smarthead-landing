@@ -2,7 +2,7 @@
 @import "../../../styles/functions";
 
 .header {
-    margin: calcVwSize(3.846vw) 0 0;
+    margin: calcVwSize3XL(3.846vw) 0 0;
 
     @media (max-width: $screen3Xl) {
         margin: 3.846vw 0 0;
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     margin: auto 0;
-    padding: calcVwSize(1.5vw) 0 calcVwSize(4vw);
+    padding: calcVwSize3XL(1.5vw) 0 calcVwSize3XL(4vw);
 
     @media (max-width: $screen3Xl) {
         padding: 1.5vw 0 4vw;
@@ -56,7 +56,7 @@
     }
 
     &-en {
-        padding: calcVwSize(1.5vw) 0 calcVwSize(6vw);
+        padding: calcVwSize3XL(1.5vw) 0 calcVwSize3XL(6vw);
 
         @media (max-width: $screen3Xl) {
             padding: 1.5vw 0 6vw;
@@ -70,7 +70,7 @@
 
 .title {
     margin-top: 0;
-    margin-bottom: calcVwSize(7.8vw);
+    margin-bottom: calcVwSize3XL(7.8vw);
 
     @media (max-width: $screen3Xl) {
         margin-bottom: 7.8vw;
@@ -89,7 +89,7 @@
     }
 
     &-en {
-        margin-bottom: calcVwSize(4.5vw);
+        margin-bottom: calcVwSize3XL(4.5vw);
 
         @media (max-width: $screen3Xl) {
             margin-bottom: 4.5vw;
@@ -126,7 +126,7 @@
     margin: 0;
     color: $white;
     font-family: $inter-400;
-    font-size: calcVwSize(2vw);
+    font-size: calcVwSize3XL(2vw);
     line-height: 1.21em;
     letter-spacing: 0.02em;
 

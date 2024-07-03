@@ -10,12 +10,12 @@
     @media (max-width: $screen3Xl) {
         position: initial;
         width: 100vw;
-        padding-right: 9.375%;
-        padding-left: 9.375%;
+        padding-right: 9.375vw;
+        padding-left: 9.375vw;
     }
 
     @media (max-width: $screenXl) {
-        padding-right: 7.8125%;
-        padding-left: 7.8125%;
+        padding-right: 7.8125vw;
+        padding-left: 7.8125vw;
     }
 }
