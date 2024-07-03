@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .content {
     display: flex;
@@ -12,17 +13,17 @@
 
 .headline {
     visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: calcVwSize3XL(3.75vw);
 
     &-en {
-        margin-bottom: 76.8px;
+        margin-bottom: calcVwSize3XL(4.8vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             margin-bottom: 4.8vw;
         }
     }
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-bottom: 3.75vw;
     }
 
@@ -46,9 +47,9 @@
     grid-template-columns: repeat(5, min-content);
     justify-content: space-between;
     align-items: center;
-    row-gap: 47px;
+    row-gap: calcVwSize3XL(2.9375vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         row-gap: 2.9375vw;
     }
 
@@ -66,9 +67,9 @@
     }
 
     &-en {
-        row-gap: 52.8px;
+        row-gap: calcVwSize3XL(3.3vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             row-gap: 3.3vw;
         }
 
@@ -89,9 +90,9 @@
 .logo {
     visibility: hidden;
     justify-self: center;
-    height: 55px;
+    height: calcVwSize3XL(3.4375vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         height: 3.4375vw;
     }
 

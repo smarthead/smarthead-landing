@@ -1,14 +1,15 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 410px;
-    height: 573px;
+    width: calcVwSize3XL(25.625vw);
+    height: calcVwSize3XL(35.8125vw);
     background-color: $white;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         width: 25.625vw;
         height: 35.8125vw;
     }
@@ -66,8 +67,16 @@
     padding: 5% 4.5%;
     color: $black;
     font-family: $gilroy-400;
-    font-size: 24px;
+    font-size: calcVwSize3XL(1.5vw);
     text-align: center;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+    }
 
     @media (max-width: $screenXl) {
         height: 49.5%;
@@ -87,7 +96,11 @@
     }
 
     &-text {
-        margin: 0 0 41px;
+        margin: 0 0 calcVwSize3XL(2.6vw);
+
+        @media (max-width: $screen3Xl) {
+            margin: 0 0 2.6vw;
+        }
 
         @media (max-width: $screen2Xl) {
             margin: 0 0 2.3vw;

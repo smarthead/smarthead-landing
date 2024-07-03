@@ -1,13 +1,14 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .headline {
     margin-top: 0;
-    margin-bottom: 48px;
+    margin-bottom: calcVwSize3XL(3vw);
     color: $white;
     font-family: $gilroy-600;
-    font-size: 64px;
+    font-size: calcVwSize3XL(4vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-bottom: 3vw;
         font-size: 4vw;
     }
@@ -35,12 +36,8 @@
     display: grid;
     grid-auto-flow: column;
     width: 100%;
-    column-gap: 35px;
+    column-gap: 2.7%;
     row-gap: 0;
-
-    @media (max-width: $screen2Xl) {
-        column-gap: 2.7%;
-    }
 
     @media (max-width: $screenSm) {
         grid-auto-flow: row;
