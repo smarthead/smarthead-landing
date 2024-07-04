@@ -1,11 +1,20 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-family: $inter-400;
-    font-size: 24px;
+    font-size: calcVwSize3XL(1.5vw);
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
@@ -44,10 +53,16 @@
 }
 
 .logo {
-    height: 31px;
-    margin-right: 75px;
+    height: calcVwSize3XL(1.91vw);
+    margin-right: calcVwSize3XL(4.72vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 1.91vw;
+        margin-right: 4.72vw;
+    }
 
     @media (max-width: $screen2Xl) {
+        height: 31px;
         margin-right: 2.5vw;
     }
 
@@ -73,9 +88,9 @@
     transition: color 0.15s ease-out;
 
     &:not(:last-child) {
-        margin-right: 48px;
+        margin-right: calcVwSize3XL(3vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             margin-right: 3vw;
         }
 

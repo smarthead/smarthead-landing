@@ -1,16 +1,17 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
+@import "../../../styles/functions";
 
 .review {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 1004px;
+    width: calcVwSize3XL(62.75vw);
     height: auto;
     color: $black;
     background-color: $white;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         width: 62.75vw;
     }
 
@@ -75,12 +76,12 @@
 
 .photo {
     overflow: hidden;
-    width: 180px;
-    height: 180px;
-    margin-bottom: 32px;
+    width: calcVwSize3XL(11.25vw);
+    height: calcVwSize3XL(11.25vw);
+    margin-bottom: calcVwSize3XL(2vw);
     border-radius: 50%;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         width: 11.25vw;
         height: 11.25vw;
         margin-bottom: 2vw;
@@ -113,14 +114,14 @@
 }
 
 .name {
-    width: 176px;
-    margin: 0 0 8px;
+    width: calcVwSize3XL(11vw);
+    margin: 0 0 calcVwSize3XL(0.5vw);
     font-family: $inter-400;
-    font-size: 24px;
+    font-size: calcVwSize3XL(1.5vw);
     line-height: 1.34em;
     letter-spacing: 0.05em;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         width: 11vw;
         margin: 0 0 0.5vw;
         font-size: 1.5vw;
@@ -151,15 +152,15 @@
 
 .position {
     margin: 0;
-    margin-right: 24px;
+    margin-right: calcVwSize3XL(1.5vw);
     color: $grayBlack;
     font-family: $inter-600;
-    font-size: 14px;
+    font-size: calcVwSize3XL(0.875vw);
     line-height: 1.142em;
     letter-spacing: 0.05em;
     white-space: pre-wrap;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-right: 1.5vw;
         font-size: 0.875vw;
     }
@@ -185,14 +186,14 @@
 
 .text {
     width: 85%;
-    padding-left: 24px;
+    padding-left: calcVwSize3XL(1.5vw);
     height: 100%;
     color: $black;
     font-family: $inter-400;
-    font-size: 20px;
+    font-size: calcVwSize3XL(1.25vw);
     line-height: 1.4em;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         padding-left: 1.5vw;
         font-size: 1.25vw;
     }
@@ -220,9 +221,9 @@
 
     & > p {
         margin-top: 0;
-        margin-bottom: 16px;
+        margin-bottom: calcVwSize3XL(1vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             margin-bottom: 1vw;
         }
 

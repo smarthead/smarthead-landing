@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .root {
     position: relative;
@@ -6,10 +7,10 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    padding: 150px 0;
+    padding: calcVwSize3XL(9.375vw) 0;
     background-color: $black;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         padding: 9.375vw 0;
     }
 
@@ -39,10 +40,10 @@
 
 .title {
     visibility: hidden;
-    margin: 0 0 18px;
+    margin: 0 0 calcVwSize3XL(1.1vw);
     white-space: nowrap;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin: 0 0 1.1vw;
     }
 
@@ -64,13 +65,13 @@
     align-self: flex-end;
     color: $white;
     font-family: $inter-600;
-    font-size: 33px;
+    font-size: calcVwSize3XL(2.0625vw);
     line-height: 1em;
     white-space: nowrap;
     letter-spacing: 0.02em;
     transition: color 0.15s ease-out;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         font-size: 2.0625vw;
     }
 

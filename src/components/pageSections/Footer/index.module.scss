@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .root {
     min-height: 600px;
@@ -25,9 +26,9 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    column-gap: 12px;
+    column-gap: calcVwSize3XL(0.75vw);
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         column-gap: 0.75vw;
     }
 }
@@ -37,10 +38,10 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin-top: 70px;
+    margin-top: calcVwSize3XL(4.375vw);
     color: $white;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         margin-top: 4.375vw;
     }
 
@@ -69,9 +70,9 @@
     }
 
     &-first {
-        margin-bottom: 50px;
+        margin-bottom: calcVwSize3XL(3.125vw);
 
-        @media (max-width: $screen2Xl) {
+        @media (max-width: $screen3Xl) {
             margin-bottom: 3.125vw;
         }
 
@@ -97,7 +98,7 @@
     display: inline-flex;
     color: $white;
     font-family: $inter-600;
-    font-size: 40px;
+    font-size: calcVwSize3XL(2.5vw);
     line-height: 1.2em;
     white-space: nowrap;
     letter-spacing: 0.02em;
@@ -107,7 +108,7 @@
         color: $yellow;
     }
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         font-size: 2.5vw;
     }
 
@@ -139,12 +140,12 @@
 
 .description {
     font-family: $inter-400;
-    font-size: 32px;
+    font-size: calcVwSize3XL(2vw);
     line-height: 1.2em;
     letter-spacing: 0.02em;
     white-space: pre-wrap;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         font-size: 2vw;
     }
 
