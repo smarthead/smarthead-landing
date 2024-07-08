@@ -31,7 +31,11 @@
 
 .root-height-auto {
     min-height: 600px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
+
+    @media (max-width: $screen3Xl) {
+        padding-bottom: 100px;
+    }
 
     @media (max-width: $screenXl) {
         min-height: 480px;
