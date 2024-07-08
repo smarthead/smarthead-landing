@@ -147,7 +147,6 @@
 }
 
 .title {
-    width: 100vw;
     margin-left: 280px;
     padding: calcVwSize2XL(3.625vw) calcVwSize2XL(17.5vw) calcVwSize2XL(3.625vw)
         calcVwSize2XL(5.0625vw);
@@ -155,11 +154,13 @@
 
     @media (max-width: $screen3Xl) {
         margin-left: 8.125vw;
+        margin-right: -9.375vw;
         padding: 3.625vw 17.5vw 3.625vw 5.0625vw;
     }
 
     @media (max-width: $screenXl) {
         margin-left: 9.6875vw;
+        margin-right: -7.8125vw;
         padding: 3.28vw 17.5vw 3.28vw 6.484vw;
     }
 
