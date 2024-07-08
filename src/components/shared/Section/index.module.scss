@@ -3,7 +3,7 @@
 .root {
     position: relative;
     width: 100vw;
-    padding: 100px 0;
+    padding: 200px 0;
     overflow: hidden;
     display: grid;
     place-content: center;
@@ -19,6 +19,7 @@
     @media (max-width: $screen3Xl) {
         min-height: max(600px, 100vh);
         display: block;
+        padding: 100px 0;
     }
 
     @media (max-width: $screenXl) {

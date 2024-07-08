@@ -2,6 +2,8 @@
 @import "../../../styles/functions";
 
 .root {
+    padding: 100px 0;
+
     @media (max-width: $screen3Xl) {
         padding: 0;
     }
