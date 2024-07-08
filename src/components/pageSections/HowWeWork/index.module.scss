@@ -19,6 +19,7 @@
 
     @media (max-width: $screen3Xl) {
         min-height: auto;
+        position: static;
     }
 
     @media (max-width: $screen2Xl) {
