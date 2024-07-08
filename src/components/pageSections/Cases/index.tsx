@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
+import { Container } from '../../shared/Container';
 import { CasesScrollContext } from './utils/context';
 
 import * as styles from './index.module.scss';
@@ -47,13 +48,14 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
 
     return (
         <section id={id} className={`cases-root ${styles.root}`}>
-            <div className={styles.container}>
+            <Container className={styles.container}>
                 <section
                     className={styles.casesContainer}
                     ref={casesScrollContext?.casesContainerRef}
                 >
                     {data.casesList.map((caseObj, index) => (
                         <div className={styles.cases} key={index}>
+                            <div className={styles.casesBack}></div>
                             <div className={styles.casesInfo}>
                                 <div
                                     className={`${styles.casesInfoItem} cases-info-item`}
@@ -106,7 +108,7 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
                         ></button>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

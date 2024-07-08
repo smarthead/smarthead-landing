@@ -1,28 +1,24 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .info {
     display: flex;
     flex-direction: column;
-    // width: 1040px;
-    // height: 900px;
-    // padding: 150px 150px 150px 242px;
-    width: 65vw;
+    width: 100%;
     height: 100vh;
-    padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+    padding: 150px 150px 150px 92px;
 
-    // @media (max-width: $screen2Xl) {
-    //     width: 65vw;
-    //     height: 100vh;
-    //     padding: 9.375vw 9.375vw 9.375vw 15.125vw;
-    // }
+    @media (max-width: $screen3Xl) {
+        padding: 9.375vw 9.375vw 9.375vw 5.75vw;
+    }
 
     @media (max-width: $screenXl) {
-        padding: 7.8125vw 7.8125vw 7.8125vw 13.125vw;
+        padding: 7.8125vw 7.8125vw 7.8125vw 5.3125vw;
     }
 
     // for non standard screen resolutions
     @media (max-height: 850px) {
-        padding: 16vh 6vw 16vh 15.125vw;
+        padding: 16vh 6vw 16vh 5.75vw;
     }
     //
 
@@ -38,9 +34,17 @@
     margin-bottom: 0;
     color: $grayBlack;
     font-family: $inter-400;
-    font-size: 24px;
+    font-size: calcVwSize3XL(1.5vw);
     line-height: 1.35em;
     letter-spacing: 0.05em;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 24px;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
@@ -60,12 +64,17 @@
     margin-bottom: 0.5em;
     color: $black;
     font-family: $gilroy-600;
-    font-size: 48px;
+    font-size: calcVwSize3XL(3vw);
     line-height: 1.2em;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 3vw;
+    }
 
     @media (max-width: $screen2Xl) {
         margin-top: 3vw;
         margin-bottom: 1.5vw;
+        font-size: 48px;
     }
 
     @media (max-width: $screenXl) {
@@ -85,11 +94,19 @@
     margin-top: 0;
     color: $black;
     font-family: $inter-400;
-    font-size: 23px;
+    font-size: calcVwSize3XL(1.5vw);
 
     & > p {
         margin-top: 0;
         margin-bottom: 0.5em;
+    }
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 23px;
     }
 
     @media (max-width: $screenXl) {
@@ -118,14 +135,26 @@
 }
 
 .skip-button {
-    width: 56px;
-    height: 56px;
+    width: calcVwSize3XL(3.5vw);
+    height: calcVwSize3XL(3.5vw);
     margin-top: auto;
     padding: 0;
     background: none;
-    border: 2px solid $black;
+    border: calcVwSize3XL(0.125vw) solid $black;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (max-width: $screen3Xl) {
+        width: 3.5vw;
+        height: 3.5vw;
+        border: 0.125vw solid $black;
+    }
+
+    @media (max-width: $screen2Xl) {
+        width: 56px;
+        height: 56px;
+        border: 2px solid $black;
+    }
 
     @media (max-width: $screenLg) {
         display: none;
@@ -147,15 +176,7 @@
     width: 83.333vh;
     min-width: 35vw;
     height: 100vh;
-
-    // height: 900px;
-    // width: 83.333vh;
-    // min-width: 35vw;
     background-size: cover;
-
-    // @media (max-width: $screen2Xl) {
-    //     height: 100vh;
-    // }
 
     @media (max-width: $screenLg) {
         width: 100vw;
