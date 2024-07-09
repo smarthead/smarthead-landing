@@ -19,7 +19,7 @@ import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_d
 import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop_en.webp';
 import lifeairImageDesktop from '../../../assets/images/cases/case_lifeair_desktop.webp';
 
-const title = 'OUR SUCCESS STORIES';
+const title = 'SUCCESS STORIES';
 const casesList = [
     {
         title: 'Effectiveaty',
