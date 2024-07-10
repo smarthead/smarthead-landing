@@ -6,6 +6,7 @@ import { Mousewheel } from 'swiper';
 import ReviewItem from '../../shared/ReviewItem';
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
+import { Container } from '../../shared/Container';
 
 import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
 import arrowForward from '../../../assets/images/Arrow-Forward.svg';
@@ -51,17 +52,116 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
     };
 
     return (
-        <Section id={id} withoutContainer>
-            <div className={styles.header}>
-                {/*TODO: add Slot to SectionTitle */}
-                <SectionTitle className={styles.title} color={'black'}>
-                    {data.title}
-                </SectionTitle>
+        <Section id={id} className={styles.section}>
+            <Container className={styles.container}>
+                <div className={styles.header}>
+                    {/*TODO: add Slot to SectionTitle */}
+                    <SectionTitle className={styles.title} color={'black'}>
+                        {data.title}
+                    </SectionTitle>
 
-                <div className={`${styles.bullets} ${styles.bulletsMobile}`}>
+                    <div
+                        className={`${styles.bullets} ${styles.bulletsMobile}`}
+                    >
+                        {data.content.map((_, index) => (
+                            <button
+                                key={`bullet-mobile-${index}`}
+                                onClick={() => {
+                                    slideTo(index);
+                                }}
+                                className={`${styles.buttonBullet} ${
+                                    index === activeSlide
+                                        ? styles.buttonBulletActive
+                                        : ''
+                                }`}
+                            ></button>
+                        ))}
+                    </div>
+
+                    <div className={styles.navigation}>
+                        <button
+                            className={`${styles.backwardButton} ${
+                                activeSlide < 1 && styles.buttonHidden
+                            }`}
+                            onClick={() => {
+                                backwardHandle();
+                            }}
+                        >
+                            <img
+                                className={styles.backwardButtonImg}
+                                src={arrowBackward}
+                                alt="Backward"
+                            />
+                        </button>
+                        <button
+                            className={`${styles.forwardButton} ${
+                                activeSlide > reviewsAmount - 2 &&
+                                styles.buttonDisabled
+                            }`}
+                            onClick={() => {
+                                forwardHandle();
+                            }}
+                        >
+                            <img
+                                className={styles.forwardButtonImg}
+                                src={arrowForward}
+                                alt="Forward"
+                            />
+                        </button>
+                    </div>
+                </div>
+
+                <section
+                    className={cn(styles.reviewsContainer, {
+                        [styles.reviewsContainerEn]: isEnglish,
+                    })}
+                >
+                    <Swiper
+                        className={styles.swiperWrapper}
+                        onSwiper={(swiper) => {
+                            setSwiper(swiper);
+                            setActiveSlide(swiper.activeIndex);
+                        }}
+                        simulateTouch={false}
+                        slidesPerView={'auto'}
+                        modules={[Mousewheel]}
+                        cssMode={true}
+                        mousewheel={true}
+                        onActiveIndexChange={(swiper) => {
+                            setActiveSlide(swiper.activeIndex);
+                        }}
+                    >
+                        {data.content.map((review, index) => (
+                            <SwiperSlide
+                                key={`review-${index}`}
+                                className={styles.swiperSlide}
+                                onClick={() => {
+                                    if (activeSlide === index) return;
+                                    slideTo(index);
+                                }}
+                            >
+                                <ReviewItem
+                                    className="review-item"
+                                    isActive={index <= activeSlide}
+                                    photo={review.photo}
+                                    name={review.name}
+                                    text={review.text}
+                                    position={review.position}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div
+                        className={`${
+                            activeSlide > 0 ? styles.backwardClickArea : ''
+                        }`}
+                        onClick={backwardHandle}
+                    ></div>
+                </section>
+                <div className={styles.bullets}>
                     {data.content.map((_, index) => (
                         <button
-                            key={`bullet-mobile-${index}`}
+                            key={`bullet-${index}`}
                             onClick={() => {
                                 slideTo(index);
                             }}
@@ -73,101 +173,7 @@ const Testimonials: React.FC<ReviewsProps> = ({ data, id, isEnglish }) => {
                         ></button>
                     ))}
                 </div>
-
-                <div className={styles.navigation}>
-                    <button
-                        className={`${styles.backwardButton} ${
-                            activeSlide < 1 && styles.buttonHidden
-                        }`}
-                        onClick={() => {
-                            backwardHandle();
-                        }}
-                    >
-                        <img
-                            className={styles.backwardButtonImg}
-                            src={arrowBackward}
-                            alt="Backward"
-                        />
-                    </button>
-                    <button
-                        className={`${styles.forwardButton} ${
-                            activeSlide > reviewsAmount - 2 &&
-                            styles.buttonDisabled
-                        }`}
-                        onClick={() => {
-                            forwardHandle();
-                        }}
-                    >
-                        <img
-                            className={styles.forwardButtonImg}
-                            src={arrowForward}
-                            alt="Forward"
-                        />
-                    </button>
-                </div>
-            </div>
-
-            <section
-                className={cn(styles.reviewsContainer, {
-                    [styles.reviewsContainerEn]: isEnglish,
-                })}
-            >
-                <Swiper
-                    onSwiper={(swiper) => {
-                        setSwiper(swiper);
-                        setActiveSlide(swiper.activeIndex);
-                    }}
-                    simulateTouch={false}
-                    slidesPerView={'auto'}
-                    modules={[Mousewheel]}
-                    cssMode={true}
-                    mousewheel={true}
-                    onActiveIndexChange={(swiper) => {
-                        setActiveSlide(swiper.activeIndex);
-                    }}
-                >
-                    {data.content.map((review, index) => (
-                        <SwiperSlide
-                            key={`review-${index}`}
-                            className={styles.swiperSlide}
-                            onClick={() => {
-                                if (activeSlide === index) return;
-                                slideTo(index);
-                            }}
-                        >
-                            <ReviewItem
-                                className="review-item"
-                                isActive={index <= activeSlide}
-                                photo={review.photo}
-                                name={review.name}
-                                text={review.text}
-                                position={review.position}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                <div
-                    className={`${
-                        activeSlide > 0 ? styles.backwardClickArea : ''
-                    }`}
-                    onClick={backwardHandle}
-                ></div>
-            </section>
-            <div className={styles.bullets}>
-                {data.content.map((_, index) => (
-                    <button
-                        key={`bullet-${index}`}
-                        onClick={() => {
-                            slideTo(index);
-                        }}
-                        className={`${styles.buttonBullet} ${
-                            index === activeSlide
-                                ? styles.buttonBulletActive
-                                : ''
-                        }`}
-                    ></button>
-                ))}
-            </div>
+            </Container>
         </Section>
     );
 };

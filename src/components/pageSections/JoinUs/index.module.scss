@@ -1,7 +1,12 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .root {
-    padding-bottom: 11.5625vw;
+    padding-bottom: calcVwSize3XL(11.5625vw);
+
+    @media (max-width: $screen3Xl) {
+        padding-bottom: 11.5625vw;
+    }
 
     @media (max-width: $screen2Xl) {
         padding-bottom: 222px;
@@ -26,7 +31,11 @@
 
 .root-height-auto {
     min-height: 600px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
+
+    @media (max-width: $screen3Xl) {
+        padding-bottom: 100px;
+    }
 
     @media (max-width: $screenXl) {
         min-height: 480px;
@@ -46,8 +55,13 @@
 .headline {
     visibility: hidden;
     margin-top: 0;
-    margin-bottom: 1.3vw;
-    line-height: 4.8vw;
+    margin-bottom: calcVwSize3XL(1.3vw);
+    line-height: calcVwSize3XL(4.8vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 1.3vw;
+        line-height: 4.8vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-bottom: 1.2vw;
@@ -66,12 +80,17 @@
 .subtext {
     visibility: hidden;
     width: 90%;
-    margin-bottom: 4.4vw;
     margin-top: 0;
     color: $black;
     font-family: $inter-400;
-    font-size: 2vw;
     letter-spacing: 0.02em;
+    font-size: calcVwSize3XL(2vw);
+    margin-bottom: calcVwSize3XL(4.4vw);
+
+    @media (max-width: $screen3Xl) {
+        font-size: 2vw;
+        margin-bottom: 4.4vw;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 1.875vw;
@@ -117,9 +136,13 @@
 }
 
 .vacancies {
-    margin-bottom: 3.2vw;
+    margin-bottom: calcVwSize3XL(3.2vw);
     padding-left: 0;
     list-style: none;
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 3.2vw;
+    }
 
     @media (max-width: $screenSm) {
         margin-bottom: 25px;
@@ -128,8 +151,12 @@
     &-item {
         visibility: hidden;
         font-family: $gilroy-600;
-        font-size: 3vw;
+        font-size: calcVwSize3XL(3vw);
         white-space: nowrap;
+
+        @media (max-width: $screen3Xl) {
+            font-size: 3vw;
+        }
 
         @media (max-width: $screenXl) {
             font-size: 2.5vw;
@@ -188,10 +215,14 @@
     width: auto;
     color: $black;
     font-family: $inter-400;
-    font-size: 1.5vw;
+    font-size: calcVwSize3XL(1.5vw);
     line-height: 1.55em;
     margin-top: 0;
     margin-bottom: 0;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
 
     @media (max-width: $screen2Xl) {
         font-size: 24px;

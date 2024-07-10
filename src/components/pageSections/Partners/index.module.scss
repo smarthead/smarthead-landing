@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .content {
     display: flex;
@@ -12,10 +13,18 @@
 
 .headline {
     visibility: hidden;
-    margin-bottom: 3.75vw;
+    margin-bottom: calcVwSize3XL(3.75vw);
 
     &-en {
-        margin-bottom: 4.8vw;
+        margin-bottom: calcVwSize3XL(4.8vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-bottom: 4.8vw;
+        }
+    }
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 3.75vw;
     }
 
     @media (max-width: $screenXl) {
@@ -38,7 +47,11 @@
     grid-template-columns: repeat(5, min-content);
     justify-content: space-between;
     align-items: center;
-    row-gap: 2.9375vw;
+    row-gap: calcVwSize3XL(2.9375vw);
+
+    @media (max-width: $screen3Xl) {
+        row-gap: 2.9375vw;
+    }
 
     @media (max-width: $screenXl) {
         row-gap: 2.3438vw;
@@ -54,7 +67,11 @@
     }
 
     &-en {
-        row-gap: 3.3vw;
+        row-gap: calcVwSize3XL(3.3vw);
+
+        @media (max-width: $screen3Xl) {
+            row-gap: 3.3vw;
+        }
 
         @media (max-width: $screenXl) {
             row-gap: 3.5vw;
@@ -73,7 +90,11 @@
 .logo {
     visibility: hidden;
     justify-self: center;
-    height: 3.4375vw;
+    height: calcVwSize3XL(3.4375vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 3.4375vw;
+    }
 
     @media (max-width: $screenXs) {
         height: 7.33vw;

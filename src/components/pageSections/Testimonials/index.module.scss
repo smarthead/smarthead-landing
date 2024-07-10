@@ -1,5 +1,21 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
+@import "../../../styles/functions";
+
+.section {
+    @media (max-width: $screen3Xl) {
+        display: grid;
+        place-content: flex-start;
+    }
+}
+
+.container {
+    padding-right: 0;
+
+    @media (max-width: $screen3Xl) {
+        padding-left: 0;
+    }
+}
 
 .header {
     display: flex;
@@ -7,8 +23,13 @@
 }
 
 .title {
-    margin-bottom: 3vw;
-    margin-left: 9.375%;
+    margin-bottom: calcVwSize3XL(3vw);
+    margin-left: 0;
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 3vw;
+        margin-left: 9.375%;
+    }
 
     @media (max-width: $screenXl) {
         margin-bottom: 30px;
@@ -40,8 +61,13 @@
     flex-shrink: 0;
     overflow: hidden;
     width: 100%;
-    height: 30vw;
-    margin-bottom: 2vw;
+    height: calcVwSize3XL(30vw);
+    margin-bottom: calcVwSize3XL(2vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 30vw;
+        margin-bottom: 2vw;
+    }
 
     @media (max-width: $screenXl) {
         height: 35vw;
@@ -79,9 +105,42 @@
     }
 }
 
+.swiperWrapper {
+    position: relative;
+    margin-left: calcVwSize3XL(-9.375vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-left: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
+        width: calcVwSize3XL(3.75vw);
+        z-index: 10;
+
+        @media (max-width: $screen3Xl) {
+            width: 3.75vw;
+        }
+
+        @media (max-width: $screenXs) {
+            content: none;
+        }
+    }
+}
+
 .swiper-slide {
-    width: 62.75vw;
-    padding-left: 9.375%;
+    width: calcVwSize3XL(62.75vw);
+    padding-left: calcVwSize3XL(9.375vw);
+
+    @media (max-width: $screen3Xl) {
+        width: 62.75vw;
+        padding-left: 9.375vw;
+    }
 
     @media (max-width: $screenXl) {
         padding-left: 7.8125vw;
@@ -103,7 +162,11 @@
     }
 
     &:last-child {
-        width: 90.625vw;
+        width: calc(calcVwSize3XL(90.625vw) - calcVwSize3XL(9.375vw));
+
+        @media (max-width: $screen3Xl) {
+            width: 90.625vw;
+        }
 
         @media (max-width: $screenXl) {
             width: 92.1875vw;
@@ -121,7 +184,11 @@
 
 .bullets {
     display: flex;
-    margin-left: 9.375vw;
+    margin-left: 0;
+
+    @media (max-width: $screen3Xl) {
+        margin-left: 9.375vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-left: 7.8125vw;
@@ -152,13 +219,18 @@
 }
 
 .button-bullet {
-    width: 0.75vw;
-    height: 0.75vw;
+    width: calcVwSize3XL(0.75vw);
+    height: calcVwSize3XL(0.75vw);
     padding: 0;
     background: #c3c3c3;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (max-width: $screen3Xl) {
+        width: 0.75vw;
+        height: 0.75vw;
+    }
 
     @media (max-width: $screen2Xl) {
         width: 12px;
@@ -186,7 +258,11 @@
     }
 
     &:not(:last-child) {
-        margin-right: 2vw;
+        margin-right: calcVwSize3XL(2vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-right: 2vw;
+        }
 
         @media (max-width: $screen2Xl) {
             margin-right: 32px;
@@ -215,7 +291,11 @@
 }
 
 .navigation {
-    margin-right: 2.8125vw;
+    margin-right: calcVwSize3XL(2.8125vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-right: 2.8125vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-right: 4.6875vw;
@@ -236,26 +316,33 @@
 
 .forward-button,
 .backward-button {
-    width: 3.5vw;
-    height: 3.5vw;
-    margin-left: 0.75vw;
+    width: calcVwSize3XL(3.5vw);
+    height: calcVwSize3XL(3.5vw);
+    margin-left: calcVwSize3XL(0.75vw);
     padding: 0;
     background: none;
-    border: 0.125vw solid $black;
+    border: calcVwSize3XL(0.125vw) solid $black;
     border-radius: 50%;
     cursor: pointer;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
+    @media (max-width: $screen3Xl) {
+        margin-left: 0.75vw;
+        width: 3.5vw;
+        height: 3.5vw;
+        border-width: 0.125vw;
+    }
+
     @media (max-width: $screen2Xl) {
         width: 56px;
         height: 56px;
-        border: 2px solid $black;
+        border-width: 2px;
     }
 
     @media (max-width: $screenLg) {
         width: 5.2vw;
         height: 5.2vw;
-        border: 1px solid $black;
+        border-width: 1px;
     }
 
     &-img {

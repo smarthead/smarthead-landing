@@ -1,10 +1,16 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1.5vw;
-    margin-bottom: 2.5vw;
+    column-gap: calcVwSize3XL(1.5vw);
+    margin-bottom: calcVwSize3XL(2.5vw);
+
+    @media (max-width: $screen3Xl) {
+        column-gap: 1.5vw;
+        margin-bottom: 2.5vw;
+    }
 
     @media (max-width: $screen2Xl) {
         margin-bottom: 40px;
@@ -25,7 +31,11 @@
 }
 
 .logo {
-    height: 1.91vw;
+    height: calcVwSize3XL(1.91vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 1.91vw;
+    }
 
     @media (max-width: $screen2Xl) {
         height: 31px;
@@ -48,10 +58,14 @@
 
 .contacts {
     font-family: $inter-400;
-    font-size: 0.875vw;
+    font-size: calcVwSize3XL(0.875vw);
     line-height: 1.5em;
     font-weight: 400;
     color: $white;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 0.875vw;
+    }
 
     @media (max-width: $screen2Xl) {
         font-size: 14px;
@@ -63,11 +77,7 @@
 
     &-item {
         margin-top: 0;
-        margin-bottom: 0.625vw;
-
-        @media (max-width: $screen2Xl) {
-            margin-bottom: 10px;
-        }
+        margin-bottom: 10px;
 
         & a {
             color: $white;
@@ -82,7 +92,11 @@
 .links {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2.6875vw;
+    column-gap: calcVwSize3XL(2.6875vw);
+
+    @media (max-width: $screen3Xl) {
+        column-gap: 2.6875vw;
+    }
 
     @media (max-width: $screenXl) {
         column-gap: 2.34vw;
@@ -126,7 +140,11 @@
 .bottom-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 0.625vw;
+    margin-top: calcVwSize3XL(0.625vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-top: 0.625vw;
+    }
 
     @media (max-width: $screen2Xl) {
         margin-top: 10px;
@@ -158,7 +176,11 @@
     }
 
     &-fist-item {
-        margin-right: 1.3125vw;
+        margin-right: calcVwSize3XL(1.3125vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-right: 1.3125vw;
+        }
 
         @media (max-width: $screen2Xl) {
             margin-right: 21px;

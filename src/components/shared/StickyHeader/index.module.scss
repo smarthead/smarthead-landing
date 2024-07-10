@@ -1,12 +1,17 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .header {
     position: fixed;
-    transform: translateY(-4.25vw);
+    transform: translateY(calcVwSize3XL(-4.25vw));
     z-index: 9999;
-    width: 100vw;
+    width: 100%;
     padding-top: 5px;
     opacity: 0;
+
+    @media (max-width: $screen3Xl) {
+        transform: translateY(-4.25vw);
+    }
 
     @media (max-width: $screen2Xl) {
         transform: translateY(-68px);
@@ -18,19 +23,27 @@
 }
 
 .menu-button {
-    height: 2.1875vw;
-    padding: 0.625vw 1.0625vw;
+    height: calcVwSize3XL(2.1875vw);
+    padding: calcVwSize3XL(0.625vw) calcVwSize3XL(1.0625vw);
     border: 1px solid $yellow;
-    border-radius: 0.625vw;
+    border-radius: calcVwSize3XL(0.625vw);
     background-color: transparent;
     color: $yellow;
-    font-size: 0.75vw;
-    margin-left: 2.5vw;
+    font-size: calcVwSize3XL(0.75vw);
+    margin-left: calcVwSize3XL(2.5vw);
 
     &:hover {
         color: $yellowLight;
         border: 1px solid $yellowLight;
         background-color: transparent;
+    }
+
+    @media (max-width: $screen3Xl) {
+        height: 2.1875vw;
+        font-size: 0.75vw;
+        border-radius: 0.625vw;
+        padding: 0.625vw 1.0625vw;
+        margin-left: 2.5vw;
     }
 
     @media (max-width: $screen2Xl) {

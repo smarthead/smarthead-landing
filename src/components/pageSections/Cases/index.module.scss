@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .root {
     display: flex;
@@ -11,12 +12,27 @@
     }
 }
 
+.container {
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: $screenLg) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .cases-container {
     display: flex;
     flex-wrap: nowrap;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overscroll-behavior: none;
+
+    @media (max-width: $screen2Xl) {
+        width: 100vw;
+        height: 100vh;
+    }
 
     @media (max-width: $screenLg) {
         flex-direction: column;
@@ -28,11 +44,13 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-self: center;
-    margin-left: 9.375vw;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
 
-    @media (max-width: $screenXl) {
-        margin-left: 7.8125vw;
+    @media (max-width: $screen3Xl) {
+        z-index: initial;
     }
 
     @media (max-width: $screenLg) {
@@ -41,13 +59,18 @@
 }
 
 .button-bullet {
-    width: 0.75vw;
-    height: 0.75vw;
+    width: calcVwSize3XL(0.75vw);
+    height: calcVwSize3XL(0.75vw);
     padding: 0;
     background: #c3c3c3;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (max-width: $screen3Xl) {
+        width: 0.75vw;
+        height: 0.75vw;
+    }
 
     @media (max-width: $screen2Xl) {
         width: 12px;
@@ -55,7 +78,11 @@
     }
 
     &:not(:last-child) {
-        margin-bottom: 2vw;
+        margin-bottom: calcVwSize3XL(2vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-bottom: 2vw;
+        }
 
         @media (max-width: $screen2Xl) {
             margin-bottom: 32px;
@@ -83,22 +110,60 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        width: 65vw;
+        width: 1100px;
         overscroll-behavior: none;
+        position: relative;
+        z-index: 10;
+
+        @media (max-width: $screen3Xl) {
+            width: 55.625vw;
+            z-index: initial;
+        }
+
+        @media (max-width: $screenXl) {
+            width: 57.1875vw;
+        }
 
         @media (max-width: $screenLg) {
             width: 100vw;
             height: auto;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 60px;
+
+            @media (max-width: $screenLg) {
+                content: none;
+            }
+        }
+
+        &::before {
+            top: 0;
+            background: linear-gradient(#fff, rgba(255, 255, 255, 0));
+        }
+
+        &::after {
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0), #fff);
         }
     }
 
     &-image {
         display: flex;
         flex-wrap: nowrap;
-        overflow: hidden;
-        width: 35vw;
+        width: 500px;
         height: 100%;
         overscroll-behavior: none;
+
+        @media (max-width: $screen3Xl) {
+            overflow: hidden;
+            width: 35vw;
+        }
 
         @media (max-width: $screenLg) {
             width: 100vw;
@@ -108,6 +173,16 @@
         @media (max-width: $screenSm) {
             height: 100vw;
         }
+    }
+
+    &-back {
+        position: absolute;
+        left: calc((100vw - 1600px) / 2 * (-1));
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        width: calc((100vw - 1600px) / 2);
+        background-color: $white;
     }
 }
 

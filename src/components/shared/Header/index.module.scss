@@ -1,13 +1,17 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .header {
     width: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 4.25vw;
     background-color: $black;
+    height: calcVwSize3XL(4.25vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 4.25vw;
+    }
 
     @media (max-width: $screen2Xl) {
         height: 68px;
@@ -29,8 +33,12 @@
 }
 
 .logo {
-    height: 1.75vw;
     cursor: pointer;
+    height: calcVwSize3XL(1.75vw);
+
+    @media (max-width: $screen3Xl) {
+        height: 1.75vw;
+    }
 
     @media (max-width: $screen2Xl) {
         height: 28px;
@@ -62,22 +70,30 @@
 .menu-link {
     color: white;
     font-family: $inter-400;
-    font-size: 1.25vw;
     transition: color 0.15s ease;
+    font-size: calcVwSize3XL(1.25vw);
     cursor: pointer;
 
-    &:not(:last-child) {
-        margin-right: 2vw;
+    @media (max-width: $screen3Xl) {
+        font-size: 1.25vw;
+    }
+
+    @media (max-width: $screen2Xl) {
+        font-size: 20px;
     }
 
     &:hover {
         color: $yellow;
     }
 
-    @media (max-width: $screen2Xl) {
-        font-size: 20px;
+    &:not(:last-child) {
+        margin-right: calcVwSize3XL(2vw);
 
-        &:not(:last-child) {
+        @media (max-width: $screen3Xl) {
+            margin-right: 2vw;
+        }
+
+        @media (max-width: $screen2Xl) {
             margin-right: 32px;
         }
     }

@@ -1,10 +1,15 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .title {
     margin: 0;
     font-family: $gilroy-600;
-    font-size: 4vw;
+    font-size: calcVwSize3XL(4vw);
     font-weight: 600;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 4vw;
+    }
 
     @media (max-width: $screenXl) {
         font-size: 3.672vw;

@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+
+.root {
+    position: relative;
+    width: 1600px;
+    margin: auto;
+    padding-right: 0;
+    padding-left: 0;
+
+    @media (max-width: $screen3Xl) {
+        width: 100vw;
+        padding-right: 9.375vw;
+        padding-left: 9.375vw;
+    }
+
+    @media (max-width: $screenXl) {
+        padding-right: 7.8125vw;
+        padding-left: 7.8125vw;
+    }
+}

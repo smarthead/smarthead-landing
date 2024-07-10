@@ -1,7 +1,12 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .header {
-    margin: 3.846vw 0 0;
+    margin: calcVwSize3XL(3.846vw) 0 0;
+
+    @media (max-width: $screen3Xl) {
+        margin: 3.846vw 0 0;
+    }
 
     @media (max-width: $screen2Xl) {
         margin: 50px 0 0;
@@ -33,7 +38,11 @@
     display: flex;
     flex-direction: column;
     margin: auto 0;
-    padding: 1.5vw 0 4vw;
+    padding: calcVwSize3XL(1.5vw) 0 calcVwSize3XL(4vw);
+
+    @media (max-width: $screen3Xl) {
+        padding: 1.5vw 0 4vw;
+    }
 
     @media (max-width: $screenLg) {
         padding: 10% 0 11%;
@@ -47,7 +56,11 @@
     }
 
     &-en {
-        padding: 1.5vw 0 6vw;
+        padding: calcVwSize3XL(1.5vw) 0 calcVwSize3XL(6vw);
+
+        @media (max-width: $screen3Xl) {
+            padding: 1.5vw 0 6vw;
+        }
 
         @media (max-width: $screenXs) {
             padding: 15% 0 8%;
@@ -57,7 +70,11 @@
 
 .title {
     margin-top: 0;
-    margin-bottom: 7.8vw;
+    margin-bottom: calcVwSize3XL(7.8vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 7.8vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-bottom: 7vw;
@@ -72,7 +89,11 @@
     }
 
     &-en {
-        margin-bottom: 4.5vw;
+        margin-bottom: calcVwSize3XL(4.5vw);
+
+        @media (max-width: $screen3Xl) {
+            margin-bottom: 4.5vw;
+        }
 
         @media (max-width: $screenLg) {
             margin-bottom: 5.35vw;
@@ -105,11 +126,11 @@
     margin: 0;
     color: $white;
     font-family: $inter-400;
-    font-size: 2vw;
+    font-size: calcVwSize3XL(2vw);
     line-height: 1.21em;
     letter-spacing: 0.02em;
 
-    @media (max-width: $screen2Xl) {
+    @media (max-width: $screen3Xl) {
         font-size: 2vw;
     }
 

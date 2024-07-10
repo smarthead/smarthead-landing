@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import cn from 'classnames';
 
 import { Section } from '../../shared/Section';
+import { Container } from '../../shared/Container';
 import { SectionTitle } from '../../shared/SectionTitle';
 
 import FontFaceObserver from 'fontfaceobserver';
@@ -107,17 +108,18 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
     // styles.rootHeightAuto => if there are any vacancies
     return (
         <Section id={id} className={cn(styles.root, styles.rootHeightAuto)}>
-            <div className={styles.content}>
-                <SectionTitle className={styles.headline} color={'black'}>
-                    Присоединяйтесь к нашей команде
-                </SectionTitle>
-                <p className={styles.subtext}>
-                    Мы сильны инженерной культурой, качеством реализации
-                    проектов, тёплой атмосферой и бережным отношением к
-                    сотрудникам
-                </p>
-                <div className={styles.contact}>
-                    {/* <ul className={styles.vacancies} ref={vacancyList}>
+            <Container>
+                <div className={styles.content}>
+                    <SectionTitle className={styles.headline} color={'black'}>
+                        Присоединяйтесь к нашей команде
+                    </SectionTitle>
+                    <p className={styles.subtext}>
+                        Мы сильны инженерной культурой, качеством реализации
+                        проектов, тёплой атмосферой и бережным отношением к
+                        сотрудникам
+                    </p>
+                    <div className={styles.contact}>
+                        {/* <ul className={styles.vacancies} ref={vacancyList}>
                         {fontIsLoaded &&
                             vacancies.map((vacancy, index) => (
                                 <li
@@ -159,19 +161,21 @@ const JoinUs: React.FC<{ id?: string }> = ({ id }) => {
                             hr@smarthead.ru
                         </a>
                     </p> */}
-                    {/* No vacancies */}
-                    <p className={styles.contactHr}>
-                        Сейчас нет открытых вакансий, но, если считаете, что
-                        вы&nbsp;нам подходите, можете смело написать на&nbsp;
-                        <a
-                            className={styles.email}
-                            href="mailto:hr@smarthead.ru"
-                        >
-                            hr@smarthead.ru
-                        </a>
-                    </p>
+                        {/* No vacancies */}
+                        <p className={styles.contactHr}>
+                            Сейчас нет открытых вакансий, но, если считаете, что
+                            вы&nbsp;нам подходите, можете смело написать
+                            на&nbsp;
+                            <a
+                                className={styles.email}
+                                href="mailto:hr@smarthead.ru"
+                            >
+                                hr@smarthead.ru
+                            </a>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </Container>
         </Section>
     );
 };

@@ -9,6 +9,7 @@ import { arrayToString } from '../../../utils/arrayToString';
 import HeroHeader from '../../shared/HeroHeader';
 import HeroTitle from '../../shared/HeroTitle';
 import ButtonLink from '../../shared/ButtonLink';
+import { Container } from '../../shared/Container';
 import { useSlidesColors } from '../../shared/HeroTitle/utils';
 import { useIsHeroFontsLoaded } from './utils/useIsHeroFontsLoaded';
 import { useHeroResize } from './utils/useHeroResize';
@@ -90,58 +91,60 @@ const HeroComponent: React.FC<IHero> = ({
 
     const heroSectionRef = useHeroResize(handleHeroScreenHeight);
     return (
-        <section className={cn(styles.hero, 'container')} ref={heroSectionRef}>
+        <section className={styles.hero} ref={heroSectionRef}>
             <HeroHeader menuLinks={data.header.menu} />
-
-            <div className={styles.content}>
-                <HeroTitle
-                    title={data.title}
-                    isEnglish={isEnglish}
-                    swiperCommonProps={{
-                        speed: 500,
-                        loop: true,
-                        allowTouchMove: false,
-                    }}
-                    upperSwiperProps={{
-                        onSwiper: (instance) => {
-                            setUpperSwiper(instance);
-                        },
-                        onSlideChange: () => handleSlideChange(middleSwiper),
-                        wrapClassName: h1Line1Class,
-                    }}
-                    middleSwiperProps={{
-                        onSwiper: (instance) => {
-                            setMiddleSwiper(instance);
-                        },
-                        onSlideChange: () => handleSlideChange(lowerSwiper),
-                        className: h1Line2Class,
-                    }}
-                    lowerSwiperProps={{
-                        onSwiper: (instance) => {
-                            setLowerSwiper(instance);
-                        },
-                        onSlideChange: () => handleSlideChange(upperSwiper),
-                        className: h1Line3Class,
-                    }}
-                    slidesColors={slidesColors}
-                    className={cn(styles.title, {
-                        [styles.titleEn]: isEnglish,
-                    })}
-                />
-
-                <div className={styles.block}>
-                    <ButtonLink
-                        className={cn(styles.heroButton, buttonClass)}
-                        text={data.button}
-                        link={`#${navigation.contacts}`}
-                        withIcon
+            <Container>
+                <div className={styles.content}>
+                    <HeroTitle
+                        title={data.title}
+                        isEnglish={isEnglish}
+                        swiperCommonProps={{
+                            speed: 500,
+                            loop: true,
+                            allowTouchMove: false,
+                        }}
+                        upperSwiperProps={{
+                            onSwiper: (instance) => {
+                                setUpperSwiper(instance);
+                            },
+                            onSlideChange: () =>
+                                handleSlideChange(middleSwiper),
+                            wrapClassName: h1Line1Class,
+                        }}
+                        middleSwiperProps={{
+                            onSwiper: (instance) => {
+                                setMiddleSwiper(instance);
+                            },
+                            onSlideChange: () => handleSlideChange(lowerSwiper),
+                            className: h1Line2Class,
+                        }}
+                        lowerSwiperProps={{
+                            onSwiper: (instance) => {
+                                setLowerSwiper(instance);
+                            },
+                            onSlideChange: () => handleSlideChange(upperSwiper),
+                            className: h1Line3Class,
+                        }}
+                        slidesColors={slidesColors}
+                        className={cn(styles.title, {
+                            [styles.titleEn]: isEnglish,
+                        })}
                     />
 
-                    <p className={cn(styles.subtext, subtextClass)}>
-                        {arrayToString(data.subtitle)}
-                    </p>
+                    <div className={styles.block}>
+                        <ButtonLink
+                            className={cn(styles.heroButton, buttonClass)}
+                            text={data.button}
+                            link={`#${navigation.contacts}`}
+                            withIcon
+                        />
+
+                        <p className={cn(styles.subtext, subtextClass)}>
+                            {arrayToString(data.subtitle)}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

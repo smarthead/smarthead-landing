@@ -1,6 +1,6 @@
 import React from 'react';
-import * as styles from './index.module.scss';
 import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
+import * as styles from './index.module.scss';
 
 interface ICaseItemInfo {
     isFirst: boolean;
@@ -43,9 +43,6 @@ export const CaseItemImage: React.FC<ICaseItemImage> = ({ image, origin }) => {
     }
 
     return (
-        <div
-            className={`case-item-image ${styles.image}`}
-            style={bgStyle}
-        ></div>
+        <div className={`case-item-image ${styles.image}`} style={bgStyle} />
     );
 };

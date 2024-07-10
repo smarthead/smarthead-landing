@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { Section } from '../../shared/Section';
+import { Container } from '../../shared/Container';
 
 import * as styles from './index.module.scss';
 
@@ -35,15 +36,20 @@ const WhatWeDo: React.FC<IWhatWeDo> = ({ id, data }) => {
 
     return (
         <Section id={id} theme={'dark'} className={styles.root}>
-            <ul className={styles.task}>
-                {data.tasks.map((task, index) => (
-                    <li key={index} className={styles.taskItem}>
-                        {task.text}
-                        <br />
-                        <span className={styles.thinText}> {task.subtext}</span>
-                    </li>
-                ))}
-            </ul>
+            <Container>
+                <ul className={styles.task}>
+                    {data.tasks.map((task, index) => (
+                        <li key={index} className={styles.taskItem}>
+                            {task.text}
+                            <br />
+                            <span className={styles.thinText}>
+                                {' '}
+                                {task.subtext}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </Container>
         </Section>
     );
 };

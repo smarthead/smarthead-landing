@@ -1,11 +1,17 @@
 @import "../../../styles/variables";
+@import "../../../styles/functions";
 
 .headline {
     margin-top: 0;
-    margin-bottom: 3vw;
+    margin-bottom: calcVwSize3XL(3vw);
     color: $white;
     font-family: $gilroy-600;
-    font-size: 4vw;
+    font-size: calcVwSize3XL(4vw);
+
+    @media (max-width: $screen3Xl) {
+        margin-bottom: 3vw;
+        font-size: 4vw;
+    }
 
     @media (max-width: $screenXl) {
         margin-bottom: 48px;

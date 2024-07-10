@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
+import { Container } from '../../shared/Container';
 import { CasesScrollContext } from './utils/context';
 
 import * as styles from './index.module.scss';
@@ -46,65 +47,68 @@ const Cases: React.FC<ICases> = ({ id, data }) => {
     }, []);
 
     return (
-        <section id={id} className={`cases-sections ${styles.root}`}>
-            <section
-                className={styles.casesContainer}
-                ref={casesScrollContext?.casesContainerRef}
-            >
-                {data.casesList.map((caseObj, index) => (
-                    <div className={styles.cases} key={index}>
-                        <div className={styles.casesInfo}>
-                            <div
-                                className={`${styles.casesInfoItem} cases-info-item`}
-                            >
-                                <CaseItemInfo
-                                    isFirst={
-                                        casesScrollContext?.isTitleShown ||
-                                        index === 0
-                                    }
-                                    sectionTitle={data.title}
-                                    title={caseObj.title}
-                                    description={caseObj.description}
-                                />
+        <section id={id} className={`cases-root ${styles.root}`}>
+            <Container className={styles.container}>
+                <section
+                    className={styles.casesContainer}
+                    ref={casesScrollContext?.casesContainerRef}
+                >
+                    {data.casesList.map((caseObj, index) => (
+                        <div className={styles.cases} key={index}>
+                            <div className={styles.casesBack}></div>
+                            <div className={styles.casesInfo}>
+                                <div
+                                    className={`${styles.casesInfoItem} cases-info-item`}
+                                >
+                                    <CaseItemInfo
+                                        isFirst={
+                                            casesScrollContext?.isTitleShown ||
+                                            index === 0
+                                        }
+                                        sectionTitle={data.title}
+                                        title={caseObj.title}
+                                        description={caseObj.description}
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.casesImage}>
+                                <div className="cases-image-item">
+                                    <CaseItemImage
+                                        image={
+                                            isTablet
+                                                ? caseObj.image.tablet.src
+                                                : isMobile
+                                                ? caseObj.image.original.src
+                                                : caseObj.image.desktop.src
+                                        }
+                                        origin={
+                                            !isTablet && !isMobile
+                                                ? caseObj.image.desktop.origin
+                                                : '50% 50%'
+                                        }
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className={styles.casesImage}>
-                            <div className="cases-image-item">
-                                <CaseItemImage
-                                    image={
-                                        isTablet
-                                            ? caseObj.image.tablet.src
-                                            : isMobile
-                                            ? caseObj.image.original.src
-                                            : caseObj.image.desktop.src
-                                    }
-                                    origin={
-                                        !isTablet && !isMobile
-                                            ? caseObj.image.desktop.origin
-                                            : '50% 50%'
-                                    }
-                                />
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </section>
+                    ))}
+                </section>
 
-            <div className={styles.bullets}>
-                {data.casesList.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => {
-                            casesScrollContext?.jumpToCase(index);
-                        }}
-                        className={`${styles.buttonBullet} ${
-                            index === casesScrollContext?.activeSlide
-                                ? styles.buttonBulletActive
-                                : ''
-                        }`}
-                    ></button>
-                ))}
-            </div>
+                <div className={styles.bullets}>
+                    {data.casesList.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => {
+                                casesScrollContext?.jumpToCase(index);
+                            }}
+                            className={`${styles.buttonBullet} ${
+                                index === casesScrollContext?.activeSlide
+                                    ? styles.buttonBulletActive
+                                    : ''
+                            }`}
+                        ></button>
+                    ))}
+                </div>
+            </Container>
         </section>
     );
 };

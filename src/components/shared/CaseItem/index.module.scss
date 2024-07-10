@@ -1,31 +1,25 @@
 @import "../../../styles/variables";
-
-.case-item {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    background-color: $white;
-
-    @media (max-width: $screenLg) {
-        height: auto;
-    }
-}
+@import "../../../styles/functions";
 
 .info {
     display: flex;
     flex-direction: column;
-    width: 65vw;
+    width: 100%;
     height: 100vh;
-    padding: 9.375vw 9.375vw 9.375vw 15.125vw;
+    padding: 150px 150px 150px 92px;
+    justify-content: center;
+
+    @media (max-width: $screen3Xl) {
+        padding: 9.375vw 9.375vw 9.375vw 5.75vw;
+    }
 
     @media (max-width: $screenXl) {
-        padding: 7.8125vw 7.8125vw 7.8125vw 13.125vw;
+        padding: 7.8125vw 7.8125vw 7.8125vw 5.3125vw;
     }
 
     // for non standard screen resolutions
     @media (max-height: 850px) {
-        padding: 16vh 6vw 16vh 15.125vw;
+        padding: 16vh 6vw 16vh 5.75vw;
     }
     //
 
@@ -41,9 +35,13 @@
     margin-bottom: 0;
     color: $grayBlack;
     font-family: $inter-400;
-    font-size: 1.5vw;
+    font-size: calcVwSize3XL(1.5vw);
     line-height: 1.35em;
     letter-spacing: 0.05em;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
+    }
 
     @media (max-width: $screen2Xl) {
         font-size: 24px;
@@ -67,8 +65,12 @@
     margin-bottom: 0.5em;
     color: $black;
     font-family: $gilroy-600;
-    font-size: 3vw;
+    font-size: calcVwSize3XL(3vw);
     line-height: 1.2em;
+
+    @media (max-width: $screen3Xl) {
+        font-size: 3vw;
+    }
 
     @media (max-width: $screen2Xl) {
         margin-top: 3vw;
@@ -93,11 +95,15 @@
     margin-top: 0;
     color: $black;
     font-family: $inter-400;
-    font-size: 1.5vw;
+    font-size: calcVwSize3XL(1.5vw);
 
     & > p {
         margin-top: 0;
         margin-bottom: 0.5em;
+    }
+
+    @media (max-width: $screen3Xl) {
+        font-size: 1.5vw;
     }
 
     @media (max-width: $screen2Xl) {
@@ -130,14 +136,20 @@
 }
 
 .skip-button {
-    width: 3.5vw;
-    height: 3.5vw;
+    width: calcVwSize3XL(3.5vw);
+    height: calcVwSize3XL(3.5vw);
     margin-top: auto;
     padding: 0;
     background: none;
-    border: 0.125vw solid $black;
+    border: calcVwSize3XL(0.125vw) solid $black;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (max-width: $screen3Xl) {
+        width: 3.5vw;
+        height: 3.5vw;
+        border: 0.125vw solid $black;
+    }
 
     @media (max-width: $screen2Xl) {
         width: 56px;

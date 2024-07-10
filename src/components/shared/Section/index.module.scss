@@ -3,11 +3,22 @@
 .root {
     position: relative;
     width: 100vw;
-    min-height: max(600px, 100vh);
-    padding: 5.2084vw 0;
+    padding: 200px 0;
     overflow: hidden;
+    display: grid;
+    place-content: center;
 
-    @media (max-width: $screen2Xl) {
+    // if width > 1970 (стартуем от 1971) =>
+    // берем за основу что минимальная высота блоков такого типа 950px (на ширине 1970) =>
+    // (950 / 1970) * 100 = 48.22vw => получаем пропорцию =>
+    // уменьшаем величину пропорции, 48.22 / 2 = 24.11vw =>
+    // и добавляем фиксированное значение высоты чтобы получить 950px высоты на 1971px ширины
+    // Итог: За счет такого подсчета коэффицент увеличения мы делаем меньше на больших разрешениях (4k)
+    min-height: calc(24.11vw + 442px);
+
+    @media (max-width: $screen3Xl) {
+        min-height: max(600px, 100vh);
+        display: block;
         padding: 100px 0;
     }
 

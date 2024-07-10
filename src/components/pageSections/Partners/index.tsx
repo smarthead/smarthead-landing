@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { SectionTitle } from '../../shared/SectionTitle';
 import { Section } from '../../shared/Section';
+import { Container } from '../../shared/Container';
 
 import * as styles from './index.module.scss';
 
@@ -58,30 +59,32 @@ const Partners: React.FC<IPartners> = ({ data }) => {
     }, []);
     return (
         <Section theme={'dark'}>
-            <div className={styles.content}>
-                <SectionTitle
-                    className={cn(styles.headline, 'partners-headline', {
-                        [styles.headlineEn]: data.language === 'en',
-                    })}
-                >
-                    {data.title}
-                </SectionTitle>
+            <Container>
+                <div className={styles.content}>
+                    <SectionTitle
+                        className={cn(styles.headline, 'partners-headline', {
+                            [styles.headlineEn]: data.language === 'en',
+                        })}
+                    >
+                        {data.title}
+                    </SectionTitle>
 
-                <div
-                    className={`${styles.logos} ${
-                        data.language === 'en' && styles.logosEn
-                    }`}
-                >
-                    {data.images.map((logo, index) => (
-                        <img
-                            src={logo}
-                            key={index}
-                            alt=""
-                            className={`${styles.logo} partners-logo-item`}
-                        />
-                    ))}
+                    <div
+                        className={`${styles.logos} ${
+                            data.language === 'en' && styles.logosEn
+                        }`}
+                    >
+                        {data.images.map((logo, index) => (
+                            <img
+                                src={logo}
+                                key={index}
+                                alt=""
+                                className={`${styles.logo} partners-logo-item`}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Container>
         </Section>
     );
 };

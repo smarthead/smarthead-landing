@@ -13,6 +13,7 @@ import { goTo } from '../../../utils/goTo';
 import shLogo from '../../../assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 import { navigateScrollEffect } from '../../../utils/scrollUtils';
+import { Container } from '../Container';
 
 interface HeaderProps {
     menuLinks: { [key: string]: string }[];
@@ -93,69 +94,71 @@ const HeaderComponent: ForwardRefRenderFunction<HTMLElement, HeaderProps> = (
 
     return (
         <header className={cn(styles.header, className)} ref={ref}>
-            <nav className={cn(styles.navbar)}>
-                <img
-                    src={shLogo}
-                    alt="SmartHead Logo"
-                    className={styles.logo}
-                    onClick={onLogoClick && onLogoClick}
-                />
+            <Container>
+                <nav className={cn(styles.navbar)}>
+                    <img
+                        src={shLogo}
+                        alt="SmartHead Logo"
+                        className={styles.logo}
+                        onClick={onLogoClick && onLogoClick}
+                    />
 
-                <div className={styles.menuContainer}>
-                    <div className={styles.menu}>
-                        {menuLinks.map((link) => (
-                            <Link
-                                key={link.id}
-                                to={`#${link.id}`}
-                                className={styles.menuLink}
-                                onClick={
-                                    link.id === 'cases'
-                                        ? handleDesktopCasesItemClick
-                                        : (e) =>
-                                              handleDesktopItemClick(
-                                                  e,
-                                                  `#${link.id}`
-                                              )
-                                }
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                    <div className={styles.menuContainer}>
+                        <div className={styles.menu}>
+                            {menuLinks.map((link) => (
+                                <Link
+                                    key={link.id}
+                                    to={`#${link.id}`}
+                                    className={styles.menuLink}
+                                    onClick={
+                                        link.id === 'cases'
+                                            ? handleDesktopCasesItemClick
+                                            : (e) =>
+                                                  handleDesktopItemClick(
+                                                      e,
+                                                      `#${link.id}`
+                                                  )
+                                    }
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+
+                        {Slot && Slot}
+
+                        <div
+                            className={`${styles.mobileMenu} ${
+                                isMenuOpened ? styles.mobileMenuOpened : ''
+                            }`}
+                        >
+                            {mobileLinks.map((link) => (
+                                <Link
+                                    key={link.id}
+                                    to={`#${link.id}`}
+                                    className={styles.mobileMenuLink}
+                                    onClick={(e) =>
+                                        handleMobileMenuClick(e, `#${link.id}`)
+                                    }
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+
+                        <div
+                            className={`${styles.hamburger} ${
+                                isMenuOpened ? styles.hamburgerClose : ''
+                            }`}
+                            onClick={onHamburgerClick}
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-
-                    {Slot && Slot}
-
-                    <div
-                        className={`${styles.mobileMenu} ${
-                            isMenuOpened ? styles.mobileMenuOpened : ''
-                        }`}
-                    >
-                        {mobileLinks.map((link) => (
-                            <Link
-                                key={link.id}
-                                to={`#${link.id}`}
-                                className={styles.mobileMenuLink}
-                                onClick={(e) =>
-                                    handleMobileMenuClick(e, `#${link.id}`)
-                                }
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div
-                        className={`${styles.hamburger} ${
-                            isMenuOpened ? styles.hamburgerClose : ''
-                        }`}
-                        onClick={onHamburgerClick}
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </nav>
+                </nav>
+            </Container>
         </header>
     );
 };
