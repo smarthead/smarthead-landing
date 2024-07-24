@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { arrayToString } from '../../../utils/arrayToString';
+import { arrayToString } from '@/utils/arrayToString';
 
 import { links } from '../links';
 import * as styles from './index.module.scss';

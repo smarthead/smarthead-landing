@@ -1,10 +1,10 @@
 import React from 'react';
-import { links } from '../../shared/links';
 import cn from 'classnames';
 
-import { FooterContactsContainer } from '../../shared/FooterContactsContainer';
+import { links } from '@/shared/links';
+import { FooterContactsContainer } from '@/shared/FooterContactsContainer';
 
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import shLogo from '@/assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 
 export const FooterContactsEn: React.FC = () => (

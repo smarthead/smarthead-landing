@@ -3,14 +3,14 @@ import cn from 'classnames';
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { navigation } from '../../shared/navigation';
-import { arrayToString } from '../../../utils/arrayToString';
+import { navigation } from '@/shared/navigation';
+import { arrayToString } from '@/utils/arrayToString';
 
-import HeroHeader from '../../shared/HeroHeader';
-import HeroTitle from '../../shared/HeroTitle';
-import ButtonLink from '../../shared/ButtonLink';
-import { Container } from '../../shared/Container';
-import { useSlidesColors } from '../../shared/HeroTitle/utils';
+import HeroHeader from '@/shared/HeroHeader';
+import HeroTitle from '@/shared/HeroTitle';
+import ButtonLink from '@/shared/ButtonLink';
+import { Container } from '@/shared/Container';
+import { useSlidesColors } from '@/shared/HeroTitle/utils';
 import { useIsHeroFontsLoaded } from './utils/useIsHeroFontsLoaded';
 import { useHeroResize } from './utils/useHeroResize';
 import { useHeroAnimation } from './utils/useHeroAnimation';

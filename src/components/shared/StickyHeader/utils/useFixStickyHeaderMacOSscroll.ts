@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { hideStickyHeader } from './hideStickyHeader';
-import { ScrollTop } from '../../../../utils/hooks/useVerticalScroll';
+import { ScrollTop } from '@/utils/hooks/useVerticalScroll';
 
 const getPageHeight = () =>
     Math.max(

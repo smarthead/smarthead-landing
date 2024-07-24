@@ -3,11 +3,10 @@ import cn from 'classnames';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { SectionTitle } from '../../shared/SectionTitle';
-import { Section } from '../../shared/Section';
-import { Container } from '../../shared/Container';
+import { SectionTitle } from '@/shared/SectionTitle';
+import { Section } from '@/shared/Section';
+import { Container } from '@/shared/Container';
 
-import { links } from '../../shared/links';
 import * as styles from './index.module.scss';
 
 const Footer: React.FC<{ id?: string }> = ({ id }) => {

@@ -1,6 +1,6 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
-@import "../../../styles/functions";
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/functions";
 
 .section {
     @media (max-width: $screen3Xl) {

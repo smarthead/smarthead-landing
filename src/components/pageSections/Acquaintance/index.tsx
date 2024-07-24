@@ -3,20 +3,20 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import FontFaceObserver from 'fontfaceobserver';
 
-import Card from '../../shared/Card';
-import { SectionTitle } from '../../shared/SectionTitle';
-import { Section } from '../../shared/Section';
-import { Container } from '../../shared/Container';
+import Card from '@/shared/Card';
+import { SectionTitle } from '@/shared/SectionTitle';
+import { Section } from '@/shared/Section';
+import { Container } from '@/shared/Container';
 
-import podcastCover from '../../../assets/images/Podcast-Cover.webp';
-import instagramCover from '../../../assets/images/Instagram-Cover.webp';
-import telegramCover from '../../../assets/images/Telegram-Cover.webp';
+import podcastCover from '@/assets/images/Podcast-Cover.webp';
+import instagramCover from '@/assets/images/Instagram-Cover.webp';
+import telegramCover from '@/assets/images/Telegram-Cover.webp';
 
-import podcastCoverMobile from '../../../assets/images/Podcast-Cover-Mobile.webp';
-import instagramCoverMobile from '../../../assets/images/Instagram-Cover-Mobile.webp';
-import telegramCoverMobile from '../../../assets/images/Telegram-Cover-Mobile.webp';
+import podcastCoverMobile from '@/assets/images/Podcast-Cover-Mobile.webp';
+import instagramCoverMobile from '@/assets/images/Instagram-Cover-Mobile.webp';
+import telegramCoverMobile from '@/assets/images/Telegram-Cover-Mobile.webp';
 
-import { links } from '../../shared/links';
+import { links } from '@/shared/links';
 import * as styles from './index.module.scss';
 
 const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {

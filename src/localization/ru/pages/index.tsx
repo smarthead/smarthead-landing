@@ -1,24 +1,24 @@
 import React from 'react';
 
-import PageWrapper from '../../../components/shared/PageWrapper';
-import HowWeWork from '../../../components/pageSections/HowWeWork';
-import WhatWeDo from '../../../components/pageSections/WhatWeDo';
-import Acquaintance from '../../../components/pageSections/Acquaintance';
-import JoinUs from '../../../components/pageSections/JoinUs';
-import Partners from '../../../components/pageSections/Partners';
-import Cases from '../../../components/pageSections/Cases';
-import Testimonials from '../../../components/pageSections/Testimonials';
-import Footer from '../../../components/pageSections/Footer';
-import { FooterContacts } from '../../../components/pageSections/FooterContacts';
+import PageWrapper from '@/shared/PageWrapper';
+import HowWeWork from '@/pageSections/HowWeWork';
+import WhatWeDo from '@/pageSections/WhatWeDo';
+import Acquaintance from '@/pageSections/Acquaintance';
+import JoinUs from '@/pageSections/JoinUs';
+import Partners from '@/pageSections/Partners';
+import Cases from '@/pageSections/Cases';
+import Testimonials from '@/pageSections/Testimonials';
+import Footer from '@/pageSections/Footer';
+import { FooterContacts } from '@/pageSections/FooterContacts';
 
 import howWeWorkData from '../data/HowWeWork.json';
 import whatWeDoData from '../data/WhatWeDo.json';
 import { partnersData } from '../data/partnersData';
 import { casesRuData } from '../data/casesData';
 import { testimonialsData } from '../data/testimonialsData';
-import { navigation } from '../../../components/shared/navigation';
+import { navigation } from '@/shared/navigation';
 
-import '../../../styles/index.scss';
+import '@/styles/index.scss';
 
 const RuLayout: React.FC = () => (
     <PageWrapper>

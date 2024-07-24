@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { FooterContactsContainer } from '../../shared/FooterContactsContainer';
+import { FooterContactsContainer } from '@/shared/FooterContactsContainer';
 
-import { links } from '../../shared/links';
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import { links } from '@/shared/links';
+import shLogo from '@/assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 
 const socialMediaLinks = [

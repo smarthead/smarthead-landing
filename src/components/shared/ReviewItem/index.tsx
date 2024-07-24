@@ -1,6 +1,8 @@
 import React from 'react';
-import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
-import { arrayToString } from '../../../utils/arrayToString';
+
+import { arrayToParagraphs } from '@/utils/arrayToParagraphs';
+import { arrayToString } from '@/utils/arrayToString';
+
 import * as styles from './index.module.scss';
 
 interface IReviewItem {

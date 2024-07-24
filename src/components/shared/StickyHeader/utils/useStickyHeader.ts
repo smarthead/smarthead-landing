@@ -1,7 +1,7 @@
 import {
     useVerticalScroll,
     VerticalScrollDirection,
-} from '../../../../utils/hooks/useVerticalScroll';
+} from '@/utils/hooks/useVerticalScroll';
 import { useEffect } from 'react';
 import { showStickyHeader } from './showStickyHeader';
 import { hideStickyHeader } from './hideStickyHeader';
