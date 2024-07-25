@@ -3,21 +3,21 @@ import React, { useCallback, useState } from 'react';
 import HeadRu from '../HeadRu';
 import HeadEn from '../HeadEn';
 import StickyHeader from '../StickyHeader';
-import Hero from '../../pageSections/Hero';
+import Hero from '@/pageSections/Hero';
 import CookiesNotification from '../CookiesNotification';
-import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
+import { CasesScrollContext } from '@/pageSections/Cases/utils/context';
 
-import { casesRuData } from '../../../localization/ru/data/casesData';
-import { casesEnData } from '../../../localization/en/data/casesData';
-import heroRuData from '../../../localization/ru/data/Hero.json';
-import heroEnData from '../../../localization/en/data/Hero.json';
-import cookiesNotificationRuData from '../../../localization/ru/data/CookiesNotification.json';
-import cookiesNotificationEnData from '../../../localization/en/data/CookiesNotification.json';
+import { casesRuData } from '@/localizationRu/data/casesData';
+import { casesEnData } from '@/localizationEn/data/casesData';
+import heroRuData from '@/localizationRu/data/Hero.json';
+import heroEnData from '@/localizationEn/data/Hero.json';
+import cookiesNotificationRuData from '@/localizationRu/data/CookiesNotification.json';
+import cookiesNotificationEnData from '@/localizationEn/data/CookiesNotification.json';
 
-import { useFirstScrollFix } from '../../../utils/hooks/useFirstScrollFix';
-import { useCasesPinnedScroll } from '../../pageSections/Cases/utils/useCasesPinnedScroll';
-import { useCustomHistoryPopstate } from '../../../utils/hooks/useCustomHistoryPopstate';
-import { removeLastFromArray } from '../../../utils/removeLastFromArray';
+import { useFirstScrollFix } from '@/utils/hooks/useFirstScrollFix';
+import { useCasesPinnedScroll } from '@/pageSections/Cases/utils/useCasesPinnedScroll';
+import { useCustomHistoryPopstate } from '@/utils/hooks/useCustomHistoryPopstate';
+import { removeLastFromArray } from '@/utils/removeLastFromArray';
 
 interface PageWrapperProps {
     isEnglish?: boolean;

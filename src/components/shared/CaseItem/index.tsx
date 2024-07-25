@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayToParagraphs } from '../../../utils/arrayToParagraphs';
+import { arrayToParagraphs } from '@/utils/arrayToParagraphs';
 import * as styles from './index.module.scss';
 
 interface ICaseItemInfo {

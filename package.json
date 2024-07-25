@@ -49,12 +49,14 @@
         "@types/react": "^17.0.45",
         "@types/react-dom": "^17.0.17",
         "@types/react-helmet": "^6.1.5",
+        "gatsby-plugin-tsconfig-paths": "^1.0.6",
         "prettier": "^2.7.1",
         "stylelint": "^14.8.5",
         "stylelint-config-recommended-scss": "^6.0.0",
         "stylelint-config-standard": "^25.0.0",
         "stylelint-order": "^5.0.0",
         "stylelint-scss": "^4.2.0",
+        "tsconfig-paths-webpack-plugin": "^4.1.0",
         "typescript": "^4.6.4"
     }
 }

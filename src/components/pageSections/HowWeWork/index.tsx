@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { arrayToString } from '../../../utils/arrayToString';
+import { arrayToString } from '@/utils/arrayToString';
 
-import { Section } from '../../shared/Section';
-import { Container } from '../../shared/Container';
+import { Section } from '@/shared/Section';
+import { Container } from '@/shared/Container';
 
 import * as styles from './index.module.scss';
-import teamPhoto from '../../../assets/images/Team-Photo.webp';
+import teamPhoto from '@/assets/images/Team-Photo.webp';
 
 interface IHowWeWork {
     data: {

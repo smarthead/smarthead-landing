@@ -1,23 +1,23 @@
-import complianceImage from '../../../assets/images/cases/case_compliance.webp';
-import effectiveatyImage from '../../../assets/images/cases/case_effectiveaty_en.webp';
-import roboticsImage from '../../../assets/images/cases/case_robotics_en.webp';
-import stringAppImage from '../../../assets/images/cases/case_StringApp_en.webp';
-import visaPromoImage from '../../../assets/images/cases/case_VisaPromo_en.webp';
-import lifeairImage from '../../../assets/images/cases/case_lifeair.webp';
+import complianceImage from '@/assets/images/cases/case_compliance.webp';
+import effectiveatyImage from '@/assets/images/cases/case_effectiveaty_en.webp';
+import roboticsImage from '@/assets/images/cases/case_robotics_en.webp';
+import stringAppImage from '@/assets/images/cases/case_StringApp_en.webp';
+import visaPromoImage from '@/assets/images/cases/case_VisaPromo_en.webp';
+import lifeairImage from '@/assets/images/cases/case_lifeair.webp';
 
-import complianceImageTablet from '../../../assets/images/cases/case_compliance_tablet.webp';
-import effectiveatyImageTablet from '../../../assets/images/cases/case_effectiveaty_tablet_en.webp';
-import roboticsImageTablet from '../../../assets/images/cases/case_robotics_tablet_en.webp';
-import stringAppImageTablet from '../../../assets/images/cases/case_StringApp_tablet_en.webp';
-import visaPromoImageTablet from '../../../assets/images/cases/case_VisaPromo_tablet_en.webp';
-import lifeairImageTablet from '../../../assets/images/cases/cases_lifeair_tablet.webp';
+import complianceImageTablet from '@/assets/images/cases/case_compliance_tablet.webp';
+import effectiveatyImageTablet from '@/assets/images/cases/case_effectiveaty_tablet_en.webp';
+import roboticsImageTablet from '@/assets/images/cases/case_robotics_tablet_en.webp';
+import stringAppImageTablet from '@/assets/images/cases/case_StringApp_tablet_en.webp';
+import visaPromoImageTablet from '@/assets/images/cases/case_VisaPromo_tablet_en.webp';
+import lifeairImageTablet from '@/assets/images/cases/cases_lifeair_tablet.webp';
 
-import complianceImageDesktop from '../../../assets/images/cases/case_compliance_desktop_en.webp';
-import effectiveatyImageDesktop from '../../../assets/images/cases/case_effectiveaty_desktop_en.webp';
-import roboticsImageDesktop from '../../../assets/images/cases/case_robotics_desktop_en.webp';
-import stringAppImageDesktop from '../../../assets/images/cases/case_StringApp_desktop_en.webp';
-import visaPromoImageDesktop from '../../../assets/images/cases/case_VisaPromo_desktop_en.webp';
-import lifeairImageDesktop from '../../../assets/images/cases/case_lifeair_desktop.webp';
+import complianceImageDesktop from '@/assets/images/cases/case_compliance_desktop_en.webp';
+import effectiveatyImageDesktop from '@/assets/images/cases/case_effectiveaty_desktop_en.webp';
+import roboticsImageDesktop from '@/assets/images/cases/case_robotics_desktop_en.webp';
+import stringAppImageDesktop from '@/assets/images/cases/case_StringApp_desktop_en.webp';
+import visaPromoImageDesktop from '@/assets/images/cases/case_VisaPromo_desktop_en.webp';
+import lifeairImageDesktop from '@/assets/images/cases/case_lifeair_desktop.webp';
 
 const title = 'SUCCESS STORIES';
 const casesList = [

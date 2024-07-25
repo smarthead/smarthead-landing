@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
-import { invalidate } from '../../../../utils/animation';
+
+import { invalidate } from '@/utils/animation';
 
 const h1Line1Class = '.hero-h1-line1';
 const h1Line2Class = '.hero-h1-line2';

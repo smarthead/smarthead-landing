@@ -38,6 +38,13 @@ const config: GatsbyConfig = {
                 id: 'GTM-P4LPG26',
             },
         },
+        {
+            resolve: `gatsby-plugin-tsconfig-paths`,
+            options: {
+                configFile: `${__dirname}/tsconfig.json`,
+                extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
+            },
+        },
     ],
 };
 

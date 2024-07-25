@@ -3,13 +3,13 @@ import cn from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel } from 'swiper';
 
-import ReviewItem from '../../shared/ReviewItem';
-import { SectionTitle } from '../../shared/SectionTitle';
-import { Section } from '../../shared/Section';
-import { Container } from '../../shared/Container';
+import ReviewItem from '@/shared/ReviewItem';
+import { SectionTitle } from '@/shared/SectionTitle';
+import { Section } from '@/shared/Section';
+import { Container } from '@/shared/Container';
 
-import arrowBackward from '../../../assets/images/Arrow-Backward.svg';
-import arrowForward from '../../../assets/images/Arrow-Forward.svg';
+import arrowBackward from '@/assets/images/Arrow-Backward.svg';
+import arrowForward from '@/assets/images/Arrow-Forward.svg';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';

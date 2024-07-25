@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-import { SectionTitle } from '../../shared/SectionTitle';
-import { Container } from '../../shared/Container';
+import { SectionTitle } from '@/shared/SectionTitle';
+import { Container } from '@/shared/Container';
 
-import ArrowRightYellow from '../../../assets/images/Arrow-Right-Yellow.svg';
+import ArrowRightYellow from '@/assets/images/Arrow-Right-Yellow.svg';
 import * as styles from './index.module.scss';
 
 const FooterEn: React.FC<{ id?: string }> = ({ id }) => {

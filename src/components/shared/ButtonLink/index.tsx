@@ -3,8 +3,8 @@ import { Link } from 'gatsby';
 import cn from 'classnames';
 
 import * as styles from './index.module.scss';
-import ArrowRightBlack from '../../../assets/images/Arrow-Right-Black.svg';
-import ArrowRightWhite from '../../../assets/images/Arrow-Right-White.svg';
+import ArrowRightBlack from '@/assets/images/Arrow-Right-Black.svg';
+import ArrowRightWhite from '@/assets/images/Arrow-Right-White.svg';
 
 type ButtonColor = 'yellow' | 'black';
 

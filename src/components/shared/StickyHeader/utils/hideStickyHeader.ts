@@ -1,5 +1,5 @@
-import { getTranslateValues } from '../../../../utils/getTranslateValues';
-import { getElemHeight } from '../../../../utils/getElemHeight';
+import { getTranslateValues } from '@/utils/getTranslateValues';
+import { getElemHeight } from '@/utils/getElemHeight';
 
 export const hideStickyHeader = (headerDomElem: HTMLElement, step: number) => {
     if (!headerDomElem) return;

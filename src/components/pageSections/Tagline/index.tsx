@@ -1,6 +1,7 @@
 import React from 'react';
-import { navigation } from '../../shared/navigation';
-import ButtonLink from '../../shared/ButtonLink';
+
+import { navigation } from '@/shared/navigation';
+import ButtonLink from '@/shared/ButtonLink';
 
 import * as styles from './index.module.scss';
 

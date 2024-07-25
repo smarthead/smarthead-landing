@@ -7,12 +7,12 @@ import React, {
 import cn from 'classnames';
 import { Link, navigate } from 'gatsby';
 
-import { CasesScrollContext } from '../../pageSections/Cases/utils/context';
-import { goTo } from '../../../utils/goTo';
+import { CasesScrollContext } from '@/pageSections/Cases/utils/context';
+import { goTo } from '@/utils/goTo';
 
-import shLogo from '../../../assets/images/SmartHead-Logo.svg';
+import shLogo from '@/assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
-import { navigateScrollEffect } from '../../../utils/scrollUtils';
+import { navigateScrollEffect } from '@/utils/scrollUtils';
 import { Container } from '../Container';
 
 interface HeaderProps {

@@ -1,4 +1,4 @@
-import { getTranslateValues } from '../../../../utils/getTranslateValues';
+import { getTranslateValues } from '@/utils/getTranslateValues';
 import { INVISIBLE_HEADER_PART } from '../constants';
 
 export const showStickyHeader = (headerDomElem: HTMLElement, step: number) => {

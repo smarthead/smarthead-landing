@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { UseCasesPinnedScrollReturnValue } from '../../components/pageSections/Cases/utils/useCasesPinnedScroll';
+import { UseCasesPinnedScrollReturnValue } from '@/pageSections/Cases/utils/useCasesPinnedScroll';
 import { navigateScrollEffect } from '../scrollUtils';
 
 export function useCustomHistoryPopstate(

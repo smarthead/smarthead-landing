@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { CaseItemInfo, CaseItemImage } from '../../shared/CaseItem';
-import { Container } from '../../shared/Container';
+import { CaseItemInfo, CaseItemImage } from '@/shared/CaseItem';
+import { Container } from '@/shared/Container';
 import { CasesScrollContext } from './utils/context';
 
 import * as styles from './index.module.scss';

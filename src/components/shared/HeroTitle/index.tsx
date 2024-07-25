@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
-import { checkIsMobileView } from '../../../utils/checkIsMobileVIew';
+import { checkIsMobileView } from '@/utils/checkIsMobileVIew';
 
 import { ColorSet } from './utils/useSlidesColors';
-import { TitleItem } from '../../pageSections/Hero';
+import { TitleItem } from '@/pageSections/Hero';
 
 import { calcMiddleLineSlideMargins, splitToSeveralLines } from './utils';
 

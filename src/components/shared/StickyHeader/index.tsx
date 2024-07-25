@@ -6,8 +6,8 @@ import Header from '../Header';
 import ButtonLink from '../ButtonLink';
 
 import { useStickyHeader } from './utils';
-import { scrollToTop } from '../../../utils/scrollUtils';
-import { goTo } from '../../../utils/goTo';
+import { scrollToTop } from '@/utils/scrollUtils';
+import { goTo } from '@/utils/goTo';
 
 import { navigation } from '../navigation';
 
