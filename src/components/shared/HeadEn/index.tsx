@@ -12,7 +12,7 @@ const HeadEn: React.FC = () => (
         <meta
             property="og:description"
             name="description"
-            content="We develop proof of concept, launch MVPs and scale digital products. We build teams and development processes, search for offbeat solutions."
+            content="We develop proof of concept, launch MVPs and scale digital products. We build teams and development processes, find offbeat solutions."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://smarthead.digital/" />
