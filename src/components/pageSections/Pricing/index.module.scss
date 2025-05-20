@@ -1,0 +1,32 @@
+@import "@/styles/variables";
+
+.root {
+    height: auto;
+    min-height: auto;
+}
+
+.text {
+    color: $white;
+    font-family: $gilroy-400;
+    font-size: 32px;
+    line-height: 1.17em;
+    margin: 0 0 0 34.2%;
+    max-width: 855px;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        max-width: 59vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+        margin-bottom: 6px;
+        line-height: 1.48em;
+    }
+
+    @media (max-width: $screenSm) {
+        font-size: 12px;
+        line-height: 1.55em;
+        margin-left: 0;
+    }
+}

@@ -8,31 +8,31 @@ import shLogo from '@/assets/images/SmartHead-Logo.svg';
 import * as styles from './index.module.scss';
 
 const socialMediaLinks = [
+    // {
+    //     name: 'Facebook',
+    //     link: links.facebook,
+    //     id: 1,
+    // },
     {
-        name: 'Facebook',
-        link: links.facebook,
-        id: 1,
+        name: 'Хабр\u00a0Карьера',
+        link: links.habrCareer,
+        id: 2,
     },
     {
         name: 'LinkedIn',
         link: links.linkedIn,
-        id: 2,
-    },
-    {
-        name: 'Хабр\u00a0Карьера',
-        link: links.habrCareer,
         id: 3,
     },
     {
-        name: 'Telegram',
-        link: links.telegram,
+        name: 'GitHub',
+        link: links.github,
         id: 4,
     },
-    {
-        name: 'Instagram',
-        link: links.instagram,
-        id: 5,
-    },
+    // {
+    //     name: 'Instagram',
+    //     link: links.instagram,
+    //     id: 5,
+    // },
     // {
     //     name: 'YouTube',
     //     link: links.youtube,
@@ -44,69 +44,67 @@ const socialMediaLinks = [
         id: 7,
     },
     {
-        name: 'GitHub',
-        link: links.github,
+        name: 'Telegram',
+        link: links.telegram,
         id: 8,
     },
 ];
 
 export const FooterContacts: React.FC = () => (
-    <FooterContactsContainer>
+    <FooterContactsContainer className={styles.root}>
         <div className={styles.content}>
             <img src={shLogo} alt="SmartHead Logo" className={styles.logo} />
 
-            <div className={styles.contacts}>
-                <div className={styles.contactsItem}>
-                    <a href="tel:+78432060726" target="_blank">
-                        +7 843 206 07 26
-                    </a>
+            <div className={styles.contentInfo}>
+                <div className={styles.legal}>
+                    ОКВЭД 62.02
+                    <br />
+                    ИНН 1655147750
+                    <br />
+                    ОГРН 1071690068757
                 </div>
-                Петербургская, 50, Казань, 420107
-            </div>
-
-            <div className={cn(styles.contacts, styles.links)}>
-                {socialMediaLinks.map(({ name, link, id }, i) => (
-                    <div
-                        key={id}
-                        className={cn(styles.contactsItem, {
-                            [styles.penultimate]: id === 4,
-                            [styles.last]: i === socialMediaLinks.length - 1,
-                        })}
-                    >
-                        <a href={link} target="_blank">
-                            {name}
+                <div className={styles.contacts}>
+                    420107, Республика Татарстан, г. Казань,
+                    Петербургская&nbsp;ул, д.&nbsp;50 к.&nbsp;5, офис&nbsp;1
+                    <div className={styles.contactsItem}>
+                        <a href="tel:+78432060726" target="_blank">
+                            +7 843 206 07 26
                         </a>
                     </div>
-                ))}
+                </div>
+
+                <div className={cn(styles.links)}>
+                    {socialMediaLinks.map(({ name, link, id }, i) => (
+                        <div key={id} className={cn(styles.linksItem)}>
+                            <a href={link} target="_blank">
+                                {name}
+                            </a>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
 
         <hr className={styles.line} />
 
-        <div className={cn(styles.contacts, styles.bottomContainer)}>
-            <div className={styles.bottomContainerFirstBlock}>
-                <div
-                    className={cn(
-                        styles.bottomContainerItem,
-                        styles.bottomContainerFistItem
-                    )}
-                >
+        <div className={cn(styles.content, styles.bottomContainer)}>
+            <div className={cn(styles.companyInfo, styles.bottomContainerItem)}>
+                ООО&nbsp;«Смартхэд»,&nbsp;2008–2025
+            </div>
+            <div className={cn(styles.contentInfo, styles.contentInfoBottom)}>
+                <div className={styles.bottomContainerItem}>
+                    <a href={links.presentation} target="_blank">
+                        Открыть презентацию
+                    </a>
+                </div>
+                <div className={styles.bottomContainerItem}>
                     <a href={links.privacyPolicy} target="_blank">
                         Политика конфиденциальности
                     </a>
                 </div>
-
                 <div className={styles.bottomContainerItem}>
                     <a href={links.userAgreement} target="_blank">
                         Пользовательское соглашение
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <div className={styles.bottomContainerItem}>
-                    <a href={links.presentation} target="_blank">
-                        Открыть презентацию
                     </a>
                 </div>
             </div>
