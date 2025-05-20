@@ -12,7 +12,7 @@ const techTags = [
         borderColor: 'Orange',
     },
     {
-        label: 'Node.js',
+        label: 'Next.js',
         borderColor: 'Orange',
     },
     {
