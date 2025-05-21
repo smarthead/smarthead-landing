@@ -106,14 +106,10 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         image={isMobile ? podcastCoverMobile : podcastCover}
                         description={
                             <>
-                                Подкаст о&nbsp;технологиях,
-                                <br />
-                                менеджменте
-                                <br />
-                                и&nbsp;саморазвитии
+                                Подкаст о&nbsp;технологиях, менеджменте и&nbsp;саморазвитии
                             </>
                         }
-                        buttonText="ПОСЛУШАТЬ"
+                        buttonText="СЛУШАТЬ"
                         link={links.podcast}
                         curtainClassName="card-image-curtain"
                         triggerClassName="card-trigger"
@@ -122,14 +118,11 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         image={isMobile ? instagramCoverMobile : instagramCover}
                         description={
                             <>
-                                Инстаграм о&nbsp;нашей
-                                <br />
-                                жизни в&nbsp;офисе
-                                <br />
-                                и&nbsp;за&nbsp;его пределами
+                               Подсмотреть за&nbsp;нашей жизнью
+                                в&nbsp;офисе и&nbsp;за его пределами
                             </>
                         }
-                        buttonText="ПОСМОТРЕТЬ"
+                        buttonText="СМОТРЕТЬ"
                         link={links.instagram}
                         curtainClassName="card-image-curtain"
                         triggerClassName="card-trigger"
@@ -138,14 +131,10 @@ const Acquaintance: React.FC<{ id?: string }> = ({ id }) => {
                         image={isMobile ? telegramCoverMobile : telegramCover}
                         description={
                             <>
-                                Телеграм-канал, где
-                                <br />
-                                собраны наши лучшие
-                                <br />
-                                практики
+                                Телеграм-канал, где собраны наши лучшие практики
                             </>
                         }
-                        buttonText="ПОЧИТАТЬ"
+                        buttonText="ЧИТАТЬ"
                         link={links.telegram}
                         curtainClassName="card-image-curtain"
                         triggerClassName="card-trigger"

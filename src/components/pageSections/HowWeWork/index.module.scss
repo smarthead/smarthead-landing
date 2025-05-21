@@ -112,7 +112,7 @@
 
     @media (max-width: $screenSm) {
         grid-template-columns: 1fr;
-        margin: 12.5vw 0 12.5vw 0;
+        margin: 12.5vw 0;
         row-gap: 8.9vw;
     }
 
@@ -180,8 +180,8 @@
     &-text {
         margin: 0;
         color: $white;
-        font-family: $inter-600;
         font-size: calcVwSize2XL(2vw);
+        font-family: $gilroy-600;
         line-height: 1.3438em;
 
         @media (max-width: $screen3Xl) {

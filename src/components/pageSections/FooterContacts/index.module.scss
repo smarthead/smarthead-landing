@@ -1,84 +1,93 @@
 @import "@/styles/variables";
 @import "@/styles/functions";
 
-.content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: calcVwSize3XL(1.5vw);
-    margin-bottom: calcVwSize3XL(2.5vw);
-
-    @media (max-width: $screen3Xl) {
-        column-gap: 1.5vw;
-        margin-bottom: 2.5vw;
-    }
-
-    @media (max-width: $screen2Xl) {
-        margin-bottom: 40px;
-    }
-
-    @media (max-width: $screenMd) {
-        grid-template-columns: 1.4fr 1fr 1fr;
-        column-gap: 3vw;
-        margin-bottom: 3.91vw;
-    }
+.root {
+    padding: 40px 0;
 
     @media (max-width: $screenSm) {
-        grid-template-columns: 3fr 1fr;
-        column-gap: 2vw;
-        row-gap: 10.42vw;
-        margin-bottom: 40px;
+        padding: 30px 0;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @media (max-width: $screenXl) {
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    &-info {
+        display: grid;
+        grid-template-columns: 155px 300px 230px;
+        column-gap: 92px;
+        align-items: center;
+
+        @media (max-width: $screen2Xl) {
+            column-gap: 50px;
+        }
+
+        @media (max-width: $screenXl) {
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            column-gap: 30px;
+        }
+
+        @media (max-width: $screenMd) {
+            grid-template-columns: 20.8vw 1fr 1fr;
+            column-gap: 3.8vw;
+        }
+
+        @media (max-width: $screenSm) {
+            grid-template-columns: 1fr;
+            row-gap: 16px;
+            max-width: 360px;
+
+            &-bottom {
+                row-gap: 10px;
+            }
+        }
     }
 }
 
 .logo {
-    height: calcVwSize3XL(1.91vw);
+    height: 31px;
 
-    @media (max-width: $screen3Xl) {
-        height: 1.91vw;
-    }
-
-    @media (max-width: $screen2Xl) {
-        height: 31px;
+    @media (max-width: $screenXl) {
+        margin-bottom: 20px;
     }
 
     @media (max-width: $screenMd) {
-        justify-self: flex-end;
-        order: 1;
-        height: 2.47vw;
+        height: 24px;
     }
+}
 
-    @media (max-width: $screenXs) {
-        height: 3.056vw;
-    }
+.legal {
+    font-family: $inter-400;
+    font-size: 14px;
+    line-height: 2.24em;
+    color: $white;
 
-    @media (max-width: $screen2Xs) {
-        height: 14px;
+    @media (max-width: $screenLg) {
+        font-size: 12px;
+        line-height: 1.55em;
     }
 }
 
 .contacts {
     font-family: $inter-400;
-    font-size: calcVwSize3XL(0.875vw);
-    line-height: 1.5em;
-    font-weight: 400;
+    font-size: 14px;
+    line-height: 2.24em;
     color: $white;
 
-    @media (max-width: $screen3Xl) {
-        font-size: 0.875vw;
-    }
-
-    @media (max-width: $screen2Xl) {
-        font-size: 14px;
-    }
-
-    @media (max-width: $screenMd) {
+    @media (max-width: $screenLg) {
         font-size: 12px;
+        line-height: 1.55em;
     }
 
     &-item {
-        margin-top: 0;
-        margin-bottom: 10px;
-
         & a {
             color: $white;
 
@@ -91,42 +100,45 @@
 
 .links {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: calcVwSize3XL(2.6875vw);
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    grid-template-rows: min-content min-content min-content;
+    row-gap: 10px;
 
-    @media (max-width: $screen3Xl) {
-        column-gap: 2.6875vw;
+    @media (max-width: $screen2Xl) {
+        column-gap: 30px;
     }
 
-    @media (max-width: $screenXl) {
-        column-gap: 2.34vw;
-    }
-
-    @media (max-width: $screenMd) {
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 4.036vw;
+    @media (max-width: $screenLg) {
+        row-gap: 5px;
+        column-gap: 3.9vw;
     }
 
     @media (max-width: $screenSm) {
-        order: 2;
-        grid-column: 1/3;
-        column-gap: 21vw;
+        column-gap: 30px;
+        grid-template-columns: min-content min-content;
     }
 
-    @media (max-width: $screenXs) {
-        column-gap: 13.75vw;
-    }
-}
+    &-item {
+        height: 21px;
+        color: $white;
+        font-size: 14px;
+        line-height: 1em;
+        align-content: center;
+        font-family: $inter-400;
 
-.penultimate {
-    @media (max-width: $screenMd) {
-        order: 1;
-    }
-}
+        @media (max-width: $screenLg) {
+            font-size: 12px;
+            height: 19px;
+        }
 
-.last {
-    @media (max-width: $screenMd) {
-        order: 2;
+        & a {
+            color: $white;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
     }
 }
 
@@ -138,62 +150,45 @@
 }
 
 .bottom-container {
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
-    margin-top: calcVwSize3XL(0.625vw);
 
-    @media (max-width: $screen3Xl) {
-        margin-top: 0.625vw;
-    }
-
-    @media (max-width: $screen2Xl) {
-        margin-top: 10px;
-    }
-
-    @media (max-width: $screenSm) {
-        flex-direction: column;
-        margin-top: 20px;
-    }
-
-    & a {
-        color: $white;
-
-        @media (max-width: $screenSm) {
-            color: $white50;
-        }
-
-        &:hover {
-            color: $yellow;
-        }
-    }
-
-    &-first-block {
-        display: flex;
-
-        @media (max-width: $screenSm) {
-            flex-direction: column;
-        }
-    }
-
-    &-fist-item {
-        margin-right: calcVwSize3XL(1.3125vw);
-
-        @media (max-width: $screen3Xl) {
-            margin-right: 1.3125vw;
-        }
-
-        @media (max-width: $screen2Xl) {
-            margin-right: 21px;
-        }
-
-        @media (max-width: $screenSm) {
-            margin-right: 0;
-        }
+    @media (max-width: $screenXl) {
+        flex-direction: column-reverse;
+        margin-bottom: 0;
     }
 
     &-item {
-        @media (max-width: $screenSm) {
-            margin-bottom: 10px;
+        color: $white;
+        font-size: 14px;
+        line-height: 1.48em;
+        font-family: $inter-400;
+
+        @media (max-width: $screenLg) {
+            font-size: 12px;
+            line-height: 1.55em;
         }
+
+        @media (max-width: $screenSm) {
+            opacity: 0.5;
+        }
+
+        & > a {
+            color: $white;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+    }
+}
+
+.company-info {
+    @media (max-width: $screenXl) {
+        margin-top: 20px;
+    }
+
+    @media (max-width: $screenSm) {
+        opacity: 1;
     }
 }

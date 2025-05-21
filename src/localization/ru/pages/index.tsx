@@ -9,6 +9,8 @@ import Partners from '@/pageSections/Partners';
 import Cases from '@/pageSections/Cases';
 import Testimonials from '@/pageSections/Testimonials';
 import Footer from '@/pageSections/Footer';
+import TechnologyStack from '@/pageSections/TechnologyStack';
+import Pricing from '@/pageSections/Pricing';
 import { FooterContacts } from '@/pageSections/FooterContacts';
 
 import howWeWorkData from '../data/HowWeWork.json';
@@ -24,6 +26,8 @@ const RuLayout: React.FC = () => (
     <PageWrapper>
         <HowWeWork data={howWeWorkData} />
         <WhatWeDo id={navigation.services} data={whatWeDoData} />
+        <TechnologyStack />
+        <Pricing />
         <Cases id={navigation.cases} data={casesRuData} />
         <Partners data={partnersData} />
         <Testimonials id={navigation.testimonials} data={testimonialsData} />

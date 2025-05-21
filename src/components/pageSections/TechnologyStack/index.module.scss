@@ -1,0 +1,102 @@
+@import "@/styles/variables";
+@import "@/styles/functions";
+
+.root {
+    height: auto;
+    min-height: auto;
+
+    @media (max-width: $screenSm) {
+        padding: 50px 0;
+    }
+}
+
+.text {
+    color: $black;
+    font-family: $inter-400;
+    letter-spacing: 0.02em;
+    font-size: 24px;
+    max-width: 820px;
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 1.34em;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        max-width: 59vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+        max-width: 440px;
+        margin-bottom: 6px;
+        line-height: 1.48em;
+    }
+
+    @media (max-width: $screenSm) {
+        font-size: 12px;
+        line-height: 1.55em;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+    max-width: 840px;
+
+    @media (max-width: $screenXl) {
+        max-width: 65.625vw;
+    }
+
+    @media (max-width: $screenMd) {
+        gap: 10px;
+        max-width: 440px;
+    }
+
+    @media (max-width: $screenSm) {
+        gap: 5px;
+        margin-top: 16px;
+    }
+}
+
+.tag {
+    padding: 13px 30px 11px;
+    line-height: 1em;
+    letter-spacing: 0.03em;
+    border-radius: 64px;
+    border-width: 3px;
+    border-style: solid;
+    font-family: $gilroy-600;
+    font-size: 24px;
+    box-sizing: border-box;
+
+    @media (max-width: $screenXl) {
+        font-size: 1.875vw;
+        padding: 1.01vw 2.34vw 0.85vw;
+    }
+
+    @media (max-width: $screenMd) {
+        font-size: 14px;
+        padding: 9px 12px 7px;
+        border-width: 2px;
+    }
+
+    @media (max-width: $screenSm) {
+        font-size: 12px;
+        border-width: 1px;
+        padding: 5px 8px 3px;
+    }
+
+    &-orange {
+        border-color: $orange;
+    }
+
+    &-blue {
+        border-color: $blue;
+    }
+
+    &-purple {
+        border-color: $purple;
+    }
+}

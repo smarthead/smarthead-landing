@@ -43,7 +43,7 @@ const Footer: React.FC<{ id?: string }> = ({ id }) => {
         <Section id={id} theme={'dark'} className={styles.root}>
             <Container>
                 <SectionTitle className={styles.title}>
-                    Давайте поработаем вместе?
+                    Давайте поработаем вместе!
                 </SectionTitle>
 
                 <div className={styles.grid}>
