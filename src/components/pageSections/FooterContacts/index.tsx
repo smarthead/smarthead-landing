@@ -58,7 +58,7 @@ export const FooterContacts: React.FC = () => (
 
             <div className={styles.contentInfo}>
                 <div className={cn(styles.companyInfo)}>
-                    Общество с&nbsp;ограниченной ответственностью&nbsp;«Смартхэд»
+                    Общество с&nbsp;ограниченной ответственностью&nbsp;«СмартХэд»
                 </div>
                 <div className={styles.legal}>
                     ОКВЭД 62.02
