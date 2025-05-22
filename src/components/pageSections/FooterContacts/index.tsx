@@ -53,9 +53,13 @@ const socialMediaLinks = [
 export const FooterContacts: React.FC = () => (
     <FooterContactsContainer className={styles.root}>
         <div className={styles.content}>
-            <img src={shLogo} alt="SmartHead Logo" className={styles.logo} />
+                <img src={shLogo} alt="SmartHead Logo" className={styles.logo} />
+
 
             <div className={styles.contentInfo}>
+                <div className={cn(styles.companyInfo)}>
+                    Общество с&nbsp;ограниченной ответственностью&nbsp;«СмартХэд»
+                </div>
                 <div className={styles.legal}>
                     ОКВЭД 62.02
                     <br />
@@ -88,9 +92,7 @@ export const FooterContacts: React.FC = () => (
         <hr className={styles.line} />
 
         <div className={cn(styles.content, styles.bottomContainer)}>
-            <div className={cn(styles.companyInfo, styles.bottomContainerItem)}>
-                ООО&nbsp;«Смартхэд»,&nbsp;2008–2025
-            </div>
+
             <div className={cn(styles.contentInfo, styles.contentInfoBottom)}>
                 <div className={styles.bottomContainerItem}>
                     <a href={links.presentation} target="_blank">

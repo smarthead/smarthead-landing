@@ -21,9 +21,16 @@
 
     &-info {
         display: grid;
+        grid-template-rows: auto auto;
         grid-template-columns: 155px 300px 230px;
         column-gap: 92px;
+        row-gap: 20px;
         align-items: center;
+        margin-left: auto;
+
+        &-bottom {
+            grid-template-rows: auto;
+        }
 
         @media (max-width: $screen2Xl) {
             column-gap: 50px;
@@ -33,6 +40,8 @@
             grid-template-columns: 1fr 1fr 1fr;
             width: 100%;
             column-gap: 30px;
+            row-gap: 20px;
+            align-items: normal;
         }
 
         @media (max-width: $screenMd) {
@@ -42,6 +51,7 @@
 
         @media (max-width: $screenSm) {
             grid-template-columns: 1fr;
+            margin-left: 0;
             row-gap: 16px;
             max-width: 360px;
 
@@ -152,9 +162,9 @@
 .bottom-container {
     margin-top: 20px;
     display: flex;
+    margin-bottom: 0;
 
     @media (max-width: $screenXl) {
-        flex-direction: column-reverse;
         margin-bottom: 0;
     }
 
@@ -184,11 +194,14 @@
 }
 
 .company-info {
-    @media (max-width: $screenXl) {
-        margin-top: 20px;
-    }
+    grid-column: 1 / -1;
+    color: $white;
+    font-size: 14px;
+    line-height: 1em;
+    font-family: $inter-400;
 
-    @media (max-width: $screenSm) {
-        opacity: 1;
+    @media (max-width: $screenLg) {
+        font-size: 12px;
+        line-height: 1.55em;
     }
 }
