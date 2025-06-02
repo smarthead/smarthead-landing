@@ -1,20 +1,20 @@
 import complianceImage from '@/assets/images/cases/case_compliance.webp';
 import effectiveatyImage from '@/assets/images/cases/case_effectiveaty_en.webp';
-import roboticsImage from '@/assets/images/cases/case_robotics_en.webp';
+// import roboticsImage from '@/assets/images/cases/case_robotics_en.webp';
 import stringAppImage from '@/assets/images/cases/case_StringApp_en.webp';
 import visaPromoImage from '@/assets/images/cases/case_VisaPromo_en.webp';
 import lifeairImage from '@/assets/images/cases/case_lifeair.webp';
 
 import complianceImageTablet from '@/assets/images/cases/case_compliance_tablet.webp';
 import effectiveatyImageTablet from '@/assets/images/cases/case_effectiveaty_tablet_en.webp';
-import roboticsImageTablet from '@/assets/images/cases/case_robotics_tablet_en.webp';
+// import roboticsImageTablet from '@/assets/images/cases/case_robotics_tablet_en.webp';
 import stringAppImageTablet from '@/assets/images/cases/case_StringApp_tablet_en.webp';
 import visaPromoImageTablet from '@/assets/images/cases/case_VisaPromo_tablet_en.webp';
 import lifeairImageTablet from '@/assets/images/cases/cases_lifeair_tablet.webp';
 
 import complianceImageDesktop from '@/assets/images/cases/case_compliance_desktop_en.webp';
 import effectiveatyImageDesktop from '@/assets/images/cases/case_effectiveaty_desktop_en.webp';
-import roboticsImageDesktop from '@/assets/images/cases/case_robotics_desktop_en.webp';
+// import roboticsImageDesktop from '@/assets/images/cases/case_robotics_desktop_en.webp';
 import stringAppImageDesktop from '@/assets/images/cases/case_StringApp_desktop_en.webp';
 import visaPromoImageDesktop from '@/assets/images/cases/case_VisaPromo_desktop_en.webp';
 import lifeairImageDesktop from '@/assets/images/cases/case_lifeair_desktop.webp';
@@ -38,23 +38,23 @@ const casesList = [
             },
         },
     },
-    {
-        title: 'Robotics Lab Shell',
-        description:
-            'We&nbsp;created software for controlling robotic manipulators that allows people without programming skills to&nbsp;develop and test technological chain prototypes. We&nbsp;complemented the software with a&nbsp;3D&nbsp;editor, as&nbsp;well as&nbsp;a&nbsp;monitoring system for parts machining.',
-        image: {
-            original: {
-                src: roboticsImage,
-            },
-            tablet: {
-                src: roboticsImageTablet,
-            },
-            desktop: {
-                src: roboticsImageDesktop,
-                origin: '50% 60%',
-            },
-        },
-    },
+    // {
+    //     title: 'Robotics Lab Shell',
+    //     description:
+    //         'We&nbsp;created software for controlling robotic manipulators that allows people without programming skills to&nbsp;develop and test technological chain prototypes. We&nbsp;complemented the software with a&nbsp;3D&nbsp;editor, as&nbsp;well as&nbsp;a&nbsp;monitoring system for parts machining.',
+    //     image: {
+    //         original: {
+    //             src: roboticsImage,
+    //         },
+    //         tablet: {
+    //             src: roboticsImageTablet,
+    //         },
+    //         desktop: {
+    //             src: roboticsImageDesktop,
+    //             origin: '50% 60%',
+    //         },
+    //     },
+    // },
     {
         title: 'String: Instant Checkout',
         description:

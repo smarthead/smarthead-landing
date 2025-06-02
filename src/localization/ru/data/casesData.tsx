@@ -1,20 +1,20 @@
 import complianceImage from '@/assets/images/cases/case_compliance.webp';
 import effectiveatyImage from '@/assets/images/cases/case_effectiveaty.webp';
-import roboticsImage from '@/assets/images/cases/case_robotics.webp';
+// import roboticsImage from '@/assets/images/cases/case_robotics.webp';
 import stringAppImage from '@/assets/images/cases/case_StringApp.webp';
 import visaPromoImage from '@/assets/images/cases/case_VisaPromo.webp';
 import lifeairImage from '@/assets/images/cases/case_lifeair.webp';
 
 import complianceImageTablet from '@/assets/images/cases/case_compliance_tablet.webp';
 import effectiveatyImageTablet from '@/assets/images/cases/case_effectiveaty_tablet.webp';
-import roboticsImageTablet from '@/assets/images/cases/case_robotics_tablet.webp';
+// import roboticsImageTablet from '@/assets/images/cases/case_robotics_tablet.webp';
 import stringAppImageTablet from '@/assets/images/cases/case_StringApp_tablet.webp';
 import visaPromoImageTablet from '@/assets/images/cases/case_VisaPromo_tablet.webp';
 import lifeairImageTablet from '@/assets/images/cases/cases_lifeair_tablet.webp';
 
 import complianceImageDesktop from '@/assets/images/cases/case_compliance_desktop.webp';
 import effectiveatyImageDesktop from '@/assets/images/cases/case_effectiveaty_desktop.webp';
-import roboticsImageDesktop from '@/assets/images/cases/case_robotics_desktop.webp';
+// import roboticsImageDesktop from '@/assets/images/cases/case_robotics_desktop.webp';
 import stringAppImageDesktop from '@/assets/images/cases/case_StringApp_desktop.webp';
 import visaPromoImageDesktop from '@/assets/images/cases/case_VisaPromo_desktop.webp';
 import lifeairImageDesktop from '@/assets/images/cases/case_lifeair_desktop.webp';
@@ -57,23 +57,23 @@ const casesList = [
             },
         },
     },
-    {
-        title: 'Robotics Lab Shell',
-        description:
-            'Разработали ПО&nbsp;для управления роботами-манипуляторами. Оно позволяет людям без навыков программирования создавать прототипы технологических цепочек. Снабдили ПО&nbsp;функциями 3D-редактора, а&nbsp;также системой мониторинга процесса обработки деталей.',
-        image: {
-            original: {
-                src: roboticsImage,
-            },
-            tablet: {
-                src: roboticsImageTablet,
-            },
-            desktop: {
-                src: roboticsImageDesktop,
-                origin: '50% 60%',
-            },
-        },
-    },
+    // {
+    //     title: 'Robotics Lab Shell',
+    //     description:
+    //         'Разработали ПО&nbsp;для управления роботами-манипуляторами. Оно позволяет людям без навыков программирования создавать прототипы технологических цепочек. Снабдили ПО&nbsp;функциями 3D-редактора, а&nbsp;также системой мониторинга процесса обработки деталей.',
+    //     image: {
+    //         original: {
+    //             src: roboticsImage,
+    //         },
+    //         tablet: {
+    //             src: roboticsImageTablet,
+    //         },
+    //         desktop: {
+    //             src: roboticsImageDesktop,
+    //             origin: '50% 60%',
+    //         },
+    //     },
+    // },
     {
         title: 'String: Instant Checkout',
         description:
