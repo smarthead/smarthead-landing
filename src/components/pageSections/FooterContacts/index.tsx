@@ -53,7 +53,7 @@ const socialMediaLinks = [
 export const FooterContacts: React.FC = () => (
     <FooterContactsContainer className={styles.root}>
         <div className={styles.content}>
-                <img src={shLogo} alt="SmartHead Logo" className={styles.logo} />
+            <img src={shLogo} alt="SmartHead Logo" className={styles.logo} />
 
 
             <div className={styles.contentInfo}>
@@ -68,8 +68,8 @@ export const FooterContacts: React.FC = () => (
                     ОГРН 1071690068757
                 </div>
                 <div className={styles.contacts}>
-                    420107, Республика Татарстан, г. Казань,
-                    Петербургская&nbsp;ул, д.&nbsp;50 к.&nbsp;5, офис&nbsp;1
+                    420111, Республика Татарстан, г.&nbsp;Казань,
+                    ул.&nbsp;Университетская, зд.&nbsp;22, помещ.&nbsp;21
                     <div className={styles.contactsItem}>
                         <a href="tel:+78432060726" target="_blank">
                             +7 843 206 07 26
