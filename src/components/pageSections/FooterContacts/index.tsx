@@ -60,6 +60,9 @@ export const FooterContacts: React.FC = () => (
                 <div className={cn(styles.companyInfo)}>
                     Общество с&nbsp;ограниченной ответственностью&nbsp;«СмартХэд»
                 </div>
+                <div className={cn(styles.companyInfo)}>
+                    Код вида деятельности (в&nbsp;соответствии с&nbsp;Приказом Минцифры России от&nbsp;11.05.2023 N&nbsp;449): 1.01;&nbsp;1.05;&nbsp;1.06
+                </div>
                 <div className={styles.legal}>
                     ОКВЭД 62.02
                     <br />
@@ -73,6 +76,9 @@ export const FooterContacts: React.FC = () => (
                     <div className={styles.contactsItem}>
                         <a href="tel:+78432060726" target="_blank">
                             +7 843 206 07 26
+                        </a>{", "}
+                        <a href="mailto:info@smarthead.ru">
+                            info@smarthead.ru
                         </a>
                     </div>
                 </div>
