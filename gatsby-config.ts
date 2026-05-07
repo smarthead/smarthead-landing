@@ -32,12 +32,16 @@ const config: GatsbyConfig = {
                 path: indexPath,
             },
         },
-        {
-            resolve: 'gatsby-plugin-google-tagmanager',
-            options: {
-                id: 'GTM-P4LPG26',
-            },
-        },
+        ...(isEnLanguange
+            ? [
+                  {
+                      resolve: 'gatsby-plugin-google-tagmanager',
+                      options: {
+                          id: 'GTM-P4LPG26',
+                      },
+                  },
+              ]
+            : []),
         {
             resolve: `gatsby-plugin-tsconfig-paths`,
             options: {
